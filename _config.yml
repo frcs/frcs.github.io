@@ -1,0 +1,29 @@
+# Dependencies
+markdown:         redcarpet
+highlighter:      pygments
+
+# Permalinks
+permalink:        pretty
+relative_permalinks: true
+
+# Setup
+title:            François Pitié
+tagline:          'François Pitié'
+description:      'Researcher<br>in Signal Processing<br>for Media Post-Production'
+url:              http://hyde.getpoole.com
+baseurl:          /
+
+author:
+  name:           'François Pitié'
+  url:            https://twitter.com/mdo
+
+paginate:         5
+
+gems: [jekyll-paginate]
+
+# Custom vars
+version:          2.1.0
+
+github:
+  repo:           https://github.com/frcs
+  projects:       https://github.com/frcs
