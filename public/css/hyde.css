@@ -251,7 +251,17 @@ a.sidebar-nav-item:focus {
 }
 
 
+.image {
+	margin-left: 0;
+	margin-right: 0;
+	padding: 0;
+	}
 
+.movie {
+	margin-left: 0;
+	margin-right: 0;
+	padding: 0;
+	}
 
 .image .overlay {
     position: relative;
