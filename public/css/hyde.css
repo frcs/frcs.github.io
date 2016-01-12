@@ -315,12 +315,12 @@ a.sidebar-nav-item:focus {
 ul.compact {
     display: inline-block;
     list-style: none;
-	margin: 0;
-	padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 ul.compact li {
-	margin: 0;
+    margin: 0;
     display: inline;
 }
 
@@ -331,3 +331,75 @@ ul.compact li:after {
 ul.compact li:last-child:after {
     content: "";
 }
+
+
+
+
+.user {
+    padding-top:    4rem;
+    padding-bottom: 4rem;
+
+}
+
+@media (min-width: 48em) {
+    .content {
+        max-width: 38rem;
+        margin-left: 20rem;
+        margin-right: 2rem;
+    }
+}
+
+@media (min-width: 64em) {
+    .content {
+        margin-left: 22rem;
+        margin-right: 4rem;
+    }
+}
+
+
+.user {
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position: fixed;
+}
+
+.user {
+    display: none;
+}
+
+@media (min-width: 48em) {
+    .user {
+        /* width: 6em;
+           height: 6em; */
+        width: 10em;
+        height: 10em;
+
+        position: absolute;
+        left: 13em;
+        top: 4em;
+        display: block;
+    }
+}
+
+@media (min-width: 64em) {
+    .user {
+        width: 10em;
+        height: 10em;
+
+
+        position: absolute;
+        left: 13em;
+        top: 4em;
+        display: block;
+    }
+}
+
+/* @media (min-width: 64em) {
+   .user {
+   left: 4em;
+   top: 20%;
+   display: block;
+   }
+   } */
