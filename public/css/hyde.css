@@ -126,10 +126,10 @@ a.sidebar-nav-item:focus {
     padding-top:    4rem;
     padding-bottom: 4rem;
 
-	text-align: justify;
-	-webkit-hyphens: auto;
-	-moz-hyphens: auto;
-	hyphens: auto;	
+	/* text-align: justify;
+	   -webkit-hyphens: auto;
+	   -moz-hyphens: auto;
+	   hyphens: auto;	 */
 }
 
 @media (min-width: 48em) {
