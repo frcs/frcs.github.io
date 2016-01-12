@@ -81,7 +81,7 @@ html {
     margin-top: 0;
     font-family:  serif;
     font-size: 3.25rem;
-	font-weight: 100;
+    font-weight: 100;
 }
 
 /* Sidebar nav */
@@ -252,16 +252,16 @@ a.sidebar-nav-item:focus {
 
 
 .image {
-	margin-left: 0;
-	margin-right: 0;
-	padding: 0;
-	}
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+}
 
 .movie {
-	margin-left: 0;
-	margin-right: 0;
-	padding: 0;
-	}
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+}
 
 .image .overlay {
     position: relative;
@@ -270,8 +270,8 @@ a.sidebar-nav-item:focus {
     display: block;
     padding: 0.1em;
     opacity: .5;
-	height: 1.5em;
-	margin-bottom: -2.5em;
+    height: 1.5em;
+    margin-bottom: -2.5em;
 }
 
 .image figcaption {
@@ -280,11 +280,11 @@ a.sidebar-nav-item:focus {
     top: -1.5em;
     display: block;
     padding: 0.1em;
-	height: 1.5em;
-	opacity: 1;
-	margin-bottom: -1.5em;
-	padding-left: 0.5em;
-	font-weight: 100;
+    height: 1.5em;
+    opacity: 1;
+    margin-bottom: -1.5em;
+    padding-left: 0.5em;
+    font-weight: 100;
 }
 
 .movie .overlay {
@@ -294,8 +294,8 @@ a.sidebar-nav-item:focus {
     display: block;
     padding: 0.1em;
     opacity: 1;
-	height: 1.5em;
-	margin-bottom: -0.5em;
+    height: 1.5em;
+    margin-bottom: -0.5em;
 }
 
 .movie figcaption {
@@ -304,10 +304,29 @@ a.sidebar-nav-item:focus {
     top: -1.5em;
     display: block;
     padding: 0.1em;
-	height: 1.5em;
-	opacity: 1;
-	margin-bottom: -1.5em;
-	padding-left: 0.5em;
-	font-weight: 100;
+    height: 1.5em;
+    opacity: 1;
+    margin-bottom: -1.5em;
+    padding-left: 0.5em;
+    font-weight: 100;
 }
 
+ul.compact {
+    display: inline-block;
+    list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+ul.compact li {
+	margin: 0;
+    display: inline;
+}
+
+ul.compact li:after {
+    content: ", ";
+}
+
+ul.compact li:last-child:after {
+    content: "";
+}

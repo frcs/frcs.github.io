@@ -6,9 +6,8 @@ title: Colour Transfer
 {% include image.html url="/images/colourtransfer.jpg" description="original, target palette and after transfer." %}
 
 <p class="message">
-<em>Colour Transfer</em> is the process of matching the colours between different images. How can we find a colour transformation that can match the grade of another?
+<em>Colour Transfer</em> is the process of matching colours between different images. How can we find a colour transformation that matches the grade of another image?
 </p>
-
 
 
 ## Related Publications
