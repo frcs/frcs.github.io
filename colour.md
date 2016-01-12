@@ -32,5 +32,5 @@ F. Pitié, A. Kokaram and R. Dahyot (2008). *Single-Sensor Imaging*. Sep 2008,
 ## Code
 Reference MATLAB code for the algorithms can be found on [this GitHub Page](https://github.com/frcs/colour-transfer).
 
-Send me an email to <fpitie@mee.tcd.ie>.  if you want more information.
+For more information email <fpitie@mee.tcd.ie>.
 
