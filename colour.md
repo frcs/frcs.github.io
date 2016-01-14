@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Colour Transfer
+date: 
 ---
 
 {% include image.html url="/images/colourtransfer.jpg" description="original, target palette and after transfer." %}

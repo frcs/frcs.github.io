@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Fun with stereo3D feedback
+tags:
+- 3D
 ---
 
 A bit of fun with 3D. 
