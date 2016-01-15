@@ -10,17 +10,16 @@ relative_permalinks: true
 title:            François Pitié
 tagline:          'François Pitié'
 description:      'Researcher<br>in Signal Processing<br>for Media Post-Production'
-url:              http://hyde.getpoole.com
+url:              http://francois.pitie.net
 baseurl:          /
 
 author:
   name:           'François Pitié'
-  url:            https://twitter.com/mdo
+  url:            http://francois.pitie.net
 
-paginate:         5
-
-gems: [jekyll-paginate]
-
+gems:
+  - jekyll-sitemap
+  
 # Custom vars
 version:          2.1.0
 
