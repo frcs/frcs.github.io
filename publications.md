@@ -1,9 +1,10 @@
 ---
 layout: page
 title: Publications
+description: list of peer reviewed publications from François Pitié. 
 ---
 
-## List of Publications
+## List of Peer-Reviewed Publications
 
 ###Chapters in Books:
 

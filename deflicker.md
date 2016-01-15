@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Deflicker
+description: video processing research activity in flicker removal. 
 ---
 
 {% include movie.html url="/images/deflicker.mp4" description="Deflicker" %}

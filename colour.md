@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Colour Transfer
-date: 
+description: image processing research activity in colour grading, colour transfer, colour matching
 ---
 
 {% include image.html url="/images/colourtransfer.jpg" description="original, target palette and after transfer." %}
