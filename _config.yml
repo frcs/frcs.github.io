@@ -8,8 +8,8 @@ relative_permalinks: true
 
 # Setup
 title:            François Pitié
-tagline:          'François Pitié'
-description:      'Researcher<br>in Signal Processing<br>for Media Post-Production'
+tagline:          Researcher in Signal Processing for Media Post-Production
+description:      'Researcher <br> in Signal Processing <br> for Media Post-Production'
 url:              http://francois.pitie.net
 baseurl:          /
 
