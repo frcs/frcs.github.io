@@ -10,12 +10,13 @@ relative_permalinks: true
 title:            François Pitié
 tagline:          Researcher in Signal Processing for Media Post-Production
 description:      'Researcher <br> in Signal Processing <br> for Media Post-Production'
-url:              http://francois.pitie.net
+url:              https://francois.pitie.net
+enforce_ssl: 	  francois.pitie.net
 baseurl:          /
 
 author:
   name:           'François Pitié'
-  url:            http://francois.pitie.net
+  url:            https://francois.pitie.net
 
 gems:
   - jekyll-sitemap

@@ -26,7 +26,13 @@
         {% endif %}
       {% endfor %}
 
-      <a class="sidebar-nav-item" href="/blog">Blog</a>
+      {% assign pages_list = site.pages %}
+      {% for node in pages_list %}
+        {% if node.title == "Blog" %}
+            <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url }}">{{ node.title }}</a>
+        {% endif %}
+      {% endfor %}
+			
       <a class="sidebar-nav-item" href="{{ site.github.projects }}">GitHub projects</a>
     </nav>
 
