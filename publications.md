@@ -6,13 +6,13 @@ description: list of peer reviewed publications from François Pitié.
 
 ## List of Peer-Reviewed Publications
 
-##Chapters in Books:
+### Chapters in Books
 
 * _Advances in automated restoration of archived material_. A. Kokaram, __F. Pitié__, D. Corrigan, D. Vitulano, V. Bruni, A. Crawford. _Digital Imaging for Cultural Heritage Preservation: Analysis, Restoration, and Reconstruction of Ancient Works_. 2011.
 * _Enhancement of digital photographs using color transfer techniques_. __F. Pitié__, A. Kokaram and R. Dahyot. _Single-Sensor Imaging: Methods and Applications for Digital Cameras_, 2008.
 * _Action recognition in multimedia streams_.  R. Dahyot, __F. Pitié__, D. Lennon, N. Harte and A. Kokaram. _Multimodal Processing and Interaction:  Audio, Video, Text_. 2008.
 
-##Articles in refereed publications:
+### Articles in refereed publications
 
 *  _IRISH MACHINE VISION & IMAGE PROCESSING Conference proceedings_. R Dahyot, G Lacey, K Dawson-Howe, F Pitié, D Moloney, _Irish Pattern Recognition & Classification Society_. (ISBN 978-0-9934207-0-2). 2015.
 *  _Assessment of Audio/Video synchronisation in streaming media_. __F. Pitié__, D. Kelly, T. Foucu, N. Harte and A. Kokaram, _in Quality of Multimedia Experience (QoMEX)_. 2014.
@@ -58,12 +58,12 @@ description: list of peer reviewed publications from François Pitié.
 *  _Suppression du bruit de pompage des vidéos_. __F. Pitié__, R. Dahyot and A. Kokaram, _in Proceedings 19eme Colloque sur le Traitement du Signal_. 2003. 
 *  _Simultaneous Luminance and Position Stabilization for Film and Video_. A. Kokaram, R. Dahyot, __F. Pitié__ and H. Denman, _in Visual Communications and Image Processing (VCIP)_. 2003. 
 
-##Theses
+### Theses
 
 *  _Statistical Signal Processing Techniques for Visual Post-Production_. __F. Pitié__, PhD thesis, Trinity College Dublin. 2007. 
 *  _Removing Flicker from old movies_. __F. Pitié__,  Master's thesis, University of Nice-Sophia Antipolis. 2002. 
 
-##Patents
+### Patents
 
 *  _Method for matching color in images_. US patent application 7796812 filed on 17 October 2006. (__F. Pitié__, A. Kokaram) — acquired by Google.
 *  _Dominant Motion Estimation for Image Sequence
