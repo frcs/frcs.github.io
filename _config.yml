@@ -6,8 +6,8 @@ permalink:        pretty
 
 # Setup
 title:            François Pitié
-tagline:          Researcher in Signal Processing for Media Post-Production
-description:      'Researcher <br> in Signal Processing <br> for Media Post-Production'
+tagline:          Researcher in Signal Processing for Media Production
+description:      'Researcher <br> in Signal Processing <br> for Media Production'
 url:              https://francois.pitie.net
 enforce_ssl: 	  francois.pitie.net
 baseurl:          /
