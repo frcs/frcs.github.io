@@ -28,10 +28,19 @@ You can follow me on:
 <p>
     email: <a href="mailto:fpitie@mee.tcd.ie"> fpitie@mee.tcd.ie</a>  <br>
     phone: (+353) 1896 3818  <br>
-    address: Room 2.18, Aras An Phiarsaigh, <br>
+    address: Room 2.18, Aras An Phiarsaigh,   (see <a href="https://goo.gl/maps/1kNRXmBv4cH2"> Google Maps</a>) <br>
     Trinity College Dublin, Ireland  <br>
 </p>
 
+<hr>
 
-<iframe src="https://www.google.com/maps/embed?pb=!1m0!3m2!1sen!2sie!4v1452458150828!6m8!1m7!1smIGycIjEle8u7wdJ0K-fxQ!2m2!1d53.34475430381131!2d-6.254721555022314!3f316.80447497919056!4f1.837253923213055!5f0.7820865974627469" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+<h2>Blog Entries</h2>
+
+<ul>
+{% for post in site.posts %}
+    <li><a href="{{ post.url }}">{{ post.title }}</a>  - {{ post.date | date: "%B %e, %Y" }} 
+    </li>			
+{% endfor %}
+</ul>
+
 
