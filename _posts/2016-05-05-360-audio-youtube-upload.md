@@ -28,7 +28,7 @@ Our stitched 360-mono video is named `trinity360-stitched.video.mov` and we'll t
 ffmpeg -i trinity360-stitched.video.mov              \
        -c:v libx264 -b:v 40m -vf scale=3840:2160     \
        -r 30 -profile main -pix_fmt yuv420p          \
-	   trinity360.encodedforjump.video.360.mono.mp4
+       trinity360.encodedforjump.video.360.mono.mp4
 ```
 
 Now, it is important for the jump inspector that the file ends with `.360.mono.mp4` (but it doesn't for YouTube).
@@ -41,7 +41,7 @@ Our Ambisonics are a 4 channel wav file (44.1kHz, 16bit) in the ACN SN3D Ambison
 ```
 ffmpeg -i trinity360-Tetra-B-format-ACN-SN3D-4ch.wav     \
        -channel_layout 4.0 -c:a aac -b:a 128k -strict -2 \
-	   trinity360-ACN-SN3D-4ch-aac128.mp4
+       trinity360-ACN-SN3D-4ch-aac128.mp4
 ```
 
 ## Combining Audio and Video
@@ -49,8 +49,8 @@ ffmpeg -i trinity360-Tetra-B-format-ACN-SN3D-4ch.wav     \
 ```
 ffmpeg -i trinity360.encodedforjump.video.360.mono.mp4   \
        -i trinity360-ACN-SN3D-4ch-aac128.mp4             \
-	   -channel_layout 4.0 -c:a copy -c:v copy -shortest \
-	   trinity360.encodedforjump.360.mono.mp4
+       -channel_layout 4.0 -c:a copy -c:v copy -shortest \
+       trinity360.encodedforjump.360.mono.mp4
 ```
 
 ## Setting the Metadata
