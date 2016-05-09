@@ -34,7 +34,7 @@ ffmpeg -i trinity360-stitched.video.mov              \
 Now, it is important for the jump inspector that the file ends with `.360.mono.mp4` (but it doesn't for YouTube).
 
 
-## Audio
+## Audio encoding
 
 Our Ambisonics are a 4 channel wav file (44.1kHz, 16bit) in the ACN SN3D Ambisonics format specified by YouTube. To work with jump inspector, we converted these for to `aac` 128k as follows:
 
@@ -55,9 +55,13 @@ ffmpeg -i trinity360.encodedforjump.video.360.mono.mp4   \
 
 ## Setting the Metadata
 
-We've downloaded Google's 360 Video Metadata app [360 Video Metadata app](https://github.com/google/spatial-media/releases) and selected  *spherical* and  *Spatial Audio*. Then uploaded the video to YouTube. 
+We've downloaded Google's 360 Video Metadata app [360 Video Metadata app](https://github.com/google/spatial-media/releases) and selected  *spherical* and  *Spatial Audio*:
 
-Note that it took a number of hours for the spatial audio to fully process after the initial upload, so be patient.
+![My helpful screenshot](/images/spatial-media-metadata-injector.png)
+
+## Upload to YouTube
+
+Then the video was uploaded to YouTube. Nothing special needs to be done here, you just have to wait for a couple of hours for the spatial audio to be fully processed, so be patient.
 
 ----
 
