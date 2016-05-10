@@ -12,6 +12,8 @@ layout: default
 
 <h3>Related post</h3>
 
+<ul>
+
 {% for post in site.posts %}
 
 {% assign sameTagCount = 0 %}
@@ -26,12 +28,13 @@ layout: default
 {% endfor %}
 
 {% if sameTagCount >= 1 %}
-<div>
-	<h5><a href="{{ post.url }}">{{ post.title }}</a></h5>
-</div>
+    <li><a href="{{ post.url }}">{{ post.title }}</a>  - {{ post.date | date: "%B %e, %Y" }} 
+    </li>			
 {% endif %}
 
 {% endfor %}
+</ul>
+
 </div>
 
 

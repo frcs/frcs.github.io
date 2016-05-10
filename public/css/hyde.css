@@ -180,6 +180,15 @@ a.sidebar-nav-item:focus {
 /* Base16 (http://chriskempson.github.io/base16/#default) */
 
 /* Red */
+.theme-base-frcs .sidebar {
+	    background-color: #af3831;
+}
+.theme-base-frcs .content a,
+.theme-base-frcs .related-posts li a:hover {
+    color: #af3831;
+}
+
+/* Red */
 .theme-base-08 .sidebar {
     background-color: #ac4142;
 }
