@@ -9,7 +9,11 @@
 
     <div class="content container">
       {{ content }}
-    </div>
 
+      {% if page.comments %}
+		{% include comments.html %}
+      {% endif %}
+    </div>
+	{% include analytics.html %}
   </body>
 </html>

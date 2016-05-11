@@ -3,8 +3,8 @@ layout: post
 title: FFMPEG commands for uploading 360 videos with spatial audio to YouTube
 tags:
 - 3D, VR
+comments: true
 ---
-
 
 It has been a few weeks since we've recorded [Trinity360]({% post_url 2016-04-19-trinity360 %})'s event and we've started rendering a 360 video with spatial audio.
 
