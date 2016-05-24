@@ -6,17 +6,35 @@ tags:
 comments: true
 ---
 
-It has been a few weeks since we've recorded [Trinity360]({% post_url 2016-04-19-trinity360 %})'s event and we've started rendering a 360 video with spatial audio.
+It has been a few weeks since we've recorded [Trinity360]({% post_url
+2016-04-19-trinity360 %})'s event and we've started rendering a 360
+video with spatial audio.
 
-Thanks to the audio team of Prof Boland from the [Sigmedia](http://sigmedia.tv) research group of Trinity College Dublin, Google has brought spatial audio support to Google Cardboard's virtual reality system (see [Google Developers Blog](http://goo.gl/UMShaX)). So now we can experience spatial audio on YouTube!
+Thanks to the audio team of Prof Boland from the
+[Sigmedia](http://sigmedia.tv) research group of Trinity College
+Dublin, Google has brought spatial audio support to Google Cardboard's
+virtual reality system (see [Google Developers
+Blog](http://goo.gl/UMShaX)). So now we can experience spatial audio
+on YouTube!
 
-I've detailed below the `ffmpeg` commands we used to upload 360 videos with spatial audio to YouTube. We have followed the instructions set on the [YouTube help](https://support.google.com/YouTube/answer/6395969?hl=en&ref_topic=2888648). We also wanted to preview our footage using the jump inspector and thus we also conformed using instructions [here](https://support.google.com/jump/answer/6395819).
+I've detailed below the [ffmpeg](https://ffmpeg.org/) commands we used
+to preview our 360 videos with spatial audio on the Jump Inspector and
+then for uploading to YouTube.
 
+## 1. Encoding for the Jump Inspector (Preview)
 
+As full processing of the spatial audio by YouTube takes a bit of
+ time, it was very useful to quickly preview our videos on an Android
+ phone using the [Jump Inspector
+ App](https://support.google.com/jump/answer/6382788?hl=en). The Jump
+ Inspector requires videos to be in a specific format that is detailed
+ [here](https://support.google.com/jump/answer/6395819).
 
-## Video encoding
+### 1.1. Video encoding for the Jump Inspector
 
-Our stitched 360-mono video is named `trinity360-stitched.video.mov` and we'll target a video stream with the following specs:
+Our stitched 360-mono video is named
+`trinity360-stitched.video.mov`. Jump Inspector requires us to target
+a video stream with the following specs:
 
 * h264 main profile
 * 40 Mbit/s
@@ -31,12 +49,15 @@ ffmpeg -i trinity360-stitched.video.mov              \
        trinity360.encodedforjump.video.360.mono.mp4
 ```
 
-Now, it is important for the jump inspector that the file ends with `.360.mono.mp4` (but it doesn't for YouTube).
+Now, it is important for the Jump Inspector that the file ends with
+`.360.mono.mp4`.
 
 
-## Audio encoding
+### 1.2. Audio encoding for the Jump Inspector
 
-Our Ambisonics are a 4 channel wav file (44.1kHz, 16bit) in the ACN SN3D Ambisonics format specified by YouTube. To work with jump inspector, we converted these for to `aac` 128k as follows:
+Our Ambisonics are a 4 channel wav file (44.1kHz, 16bit) in the ACN
+SN3D Ambisonics format specified by YouTube. To work with Jump
+Inspector, we converted these for to `aac` 128k as follows:
 
 ```
 ffmpeg -i trinity360-Tetra-B-format-ACN-SN3D-4ch.wav     \
@@ -44,7 +65,7 @@ ffmpeg -i trinity360-Tetra-B-format-ACN-SN3D-4ch.wav     \
        trinity360-ACN-SN3D-4ch-aac128.mp4
 ```
 
-## Combining Audio and Video
+### 1.3. Combining Audio and Video for the Jump Inspector
 
 ```
 ffmpeg -i trinity360.encodedforjump.video.360.mono.mp4   \
@@ -53,17 +74,44 @@ ffmpeg -i trinity360.encodedforjump.video.360.mono.mp4   \
        trinity360.encodedforjump.360.mono.mp4
 ```
 
-## Setting the Metadata
+Then we just transferred our file to the Jump directory of our Nexus 5.
 
-We've downloaded Google's 360 Video Metadata app [360 Video Metadata app](https://github.com/google/spatial-media/releases) and selected  *spherical* and  *Spatial Audio*:
+## 2. Encoding for YouTube
+
+The video specs requirements are less stringent for YouTube. There is
+no requirement of video resolution or audio compression besides having
+the Ambisonics as a 4 channels in the ACN SN3D Ambisonics format and
+setting the metadata as described on the [YouTube
+help](https://support.google.com/YouTube/answer/6395969?hl=en&ref_topic=2888648).
+
+### 2.1. ffmpeg Encoding
+
+We kept the audio as uncompressed PCM s16 (`pcm_s16le`). It is
+supported in MOV containers, but not in MP4. The command is thus
+simply:
+
+```
+ffmpeg -i trinity360-stitched.video.mov \
+       -i trinity360-Tetra-B-format-ACN-SN3D-4ch.wav -channel_layout 4.0 \
+       -c:v copy -c:a copy trinity360.youtube.mov
+```
+
+### 2.2. Setting the Metadata
+
+We've downloaded Google's 360 Video Metadata app [360 Video Metadata
+app](https://github.com/google/spatial-media/releases) and selected
+*spherical* and *Spatial Audio*:
 
 ![My helpful screenshot](/images/spatial-media-metadata-injector.png)
 
-## Upload to YouTube
+### 2.3. Upload to YouTube
 
 Then the video was uploaded to YouTube. Nothing special needs to be done here, you just have to wait for a couple of hours for the spatial audio to be fully processed, so be patient.
 
 ----
+
+*Edit*: I have changed the post to clearly separate the instructions for YouTube and for the Jump Inspector.
+
 
 For completeness, this is the ffmpeg version we're using:
 
