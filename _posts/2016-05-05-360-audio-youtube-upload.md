@@ -91,8 +91,9 @@ supported in MOV containers, but not in MP4. The command is thus
 simply:
 
 ```
-ffmpeg -i trinity360-stitched.video.mov \
-       -i trinity360-Tetra-B-format-ACN-SN3D-4ch.wav -channel_layout 4.0 \
+ffmpeg -i trinity360-stitched.video.mov              \
+       -i trinity360-Tetra-B-format-ACN-SN3D-4ch.wav \
+	   -channel_layout 4.0                           \
        -c:v copy -c:a copy trinity360.youtube.mov
 ```
 
