@@ -82,7 +82,7 @@ The video specs requirements are less stringent for YouTube. There is
 no requirement of video resolution or audio compression besides having
 the Ambisonics as a 4 channels in the ACN SN3D Ambisonics format and
 setting the metadata as described on the [YouTube
-help](https://support.google.com/YouTube/answer/6395969?hl=en&ref_topic=2888648).
+help]( https://support.google.com/youtube/answer/6395969).
 
 ### 2.1. ffmpeg Encoding
 
