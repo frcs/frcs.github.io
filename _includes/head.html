@@ -7,9 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
   <title>
-    {% if page.title == "Bio" %}
+	  {% capture title_size %}{{ page.title | size }}{% endcapture %}
+	  
+	  {% if title_size == "0" %}
       {{ site.title }} &middot; {{ site.tagline }}
-    {% else %}
+      {% else %}
       {{ page.title }} &middot; {{ site.title }}
     {% endif %}
   </title>
@@ -33,6 +35,11 @@
 
   <!-- RSS -->
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
-</head>
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/contrib/auto-render.min.js"></script>
+    
 </head>
 

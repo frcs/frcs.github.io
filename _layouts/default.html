@@ -7,13 +7,46 @@
 
     {% include sidebar.html %}
 
+    <div id="content">
     <div class="content container">
       {{ content }}
 
+		<script>
+		renderMathInElement(
+			document.getElementById("content"),
+			{
+				delimiters: [
+					{left: "$$", right: "$$", display: true},
+					{left: "\\[", right: "\\]", display: true},
+					{left: "$", right: "$", display: false},
+					{left: "\\(", right: "\\)", display: false}
+				]
+			}
+		);
+
+		// kramdown generates script tags with type "math/tex"
+		var mathBlocks = document.querySelectorAll('script[type^="math/tex"]');
+		Array.prototype.forEach.call(mathBlocks, function(el) {
+			var tex = el.textContent
+			    .replace('% <![CDATA[', '')
+				.replace('%]]>', '');
+			// replace the script tag with KaTeX, wrap in <p> if it is a block
+			el.outerHTML = (el.type === 'math/tex; mode=display') ?
+						   '<p>' + katex.renderToString(tex, {displayMode: true}) + '</p>' :
+						   katex.renderToString(tex);
+			});
+
+		</script>
+		
       {% if page.comments %}
 		{% include comments.html %}
       {% endif %}
     </div>
+    </div>
+
 	{% include analytics.html %}
+
+
+
   </body>
 </html>
