@@ -14,6 +14,10 @@ description: list of peer reviewed publications from François Pitié.
 
 ### Articles in refereed publications
 
+* _Rank Reduced Alternative Matting Laplacian Advanced video debanding_. __F. Pitié__, _in European Conference on Visual Media Production (CVMP'16)_. 2016.
+* _an Alternative Matting Laplacian_. __F. Pitié__,
+_in IEEE International Conference on Image Processing
+    (ICIP'16)_. 2016. 
 *  _IRISH MACHINE VISION & IMAGE PROCESSING Conference proceedings_. R Dahyot, G Lacey, K Dawson-Howe, F Pitié, D Moloney, _Irish Pattern Recognition & Classification Society_. (ISBN 978-0-9934207-0-2). 2015.
 *  _Assessment of Audio/Video synchronisation in streaming media_. __F. Pitié__, D. Kelly, T. Foucu, N. Harte and A. Kokaram, _in Quality of Multimedia Experience (QoMEX)_. 2014.
 *  _Advanced video debanding_. G. Baugh, A. Kokaram, __F. Pitié__, _in European Conference on Visual Media Production (CVMP'14)_. 2014.
