@@ -10,7 +10,7 @@ tagline:          Ussher Assistant Professor in Media Signal Processing
 description:      'Ussher Assistant Professor <br> in Media Signal Processing'
 url:              https://francois.pitie.net
 enforce_ssl: 	  francois.pitie.net
-baseurl:          /
+# baseurl:          /
 
 author:
   name:           'François Pitié'
