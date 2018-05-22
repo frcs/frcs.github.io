@@ -16,7 +16,7 @@ author:
   name:           'François Pitié'
   url:            https://francois.pitie.net
 
-gems:
+plugins:
   - jekyll-sitemap
   
 # Custom vars
