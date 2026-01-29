@@ -8,9 +8,8 @@ permalink:        pretty
 title:            François Pitié
 tagline:          Ussher Assistant Professor in Media Signal Processing
 description:      'Ussher Assistant Professor <br> in Media Signal Processing'
-url:              https://francois.pitie.net
-enforce_ssl: 	  francois.pitie.net
-baseurl:          /
+url:              https://frcs.github.io
+baseurl:          ""
 
 author:
   name:           'François Pitié'
