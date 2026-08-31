@@ -164,132 +164,7 @@ const years = Object.keys(groupedByYear).sort((a, b) => b.localeCompare(a));
       </div>
     </section>
 
-    <!-- 3. Software & Commercial Plugins -->
-    {software.length > 0 && (
-      <section>
-        <h2 class="text-base font-semibold tracking-tight text-[#1a1e22] dark:text-[#edf2f7] mb-3 pb-1 border-b border-black/[0.08] dark:border-white/[0.08] flex items-center justify-between">
-          <span>Software & Commercial Tools</span>
-          <span class="text-xs font-normal text-slate-400 font-mono">({software.length})</span>
-        </h2>
-        
-        <div class="space-y-2.5">
-          {software.map(pub => (
-          <div class="py-1">
-              <div class="font-medium text-[#1a1e22] dark:text-[#edf2f7] text-sm leading-snug">
-                {cleanLatex(pub.entryTags.title)}
-              </div>
-              <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5" set:html={formatAuthors(pub.entryTags.author || pub.entryTags.editor)} />
-              <div class="text-xs text-slate-400 dark:text-slate-500 mt-0.5 flex items-center gap-1.5 flex-wrap">
-                <span>{pub.entryTags.howpublished || pub.entryTags.publisher}</span>
-                {pub.entryTags.note && (
-                  <>
-                    <span>&bull;</span>
-                    <span class="italic text-slate-500 dark:text-slate-400">{pub.entryTags.note}</span>
-                  </>
-                )}
-                <span>&bull;</span>
-                <span>{pub.entryTags.year}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-    )}
-
-    <!-- 4. Visual Productions -->
-    {visualProductions.length > 0 && (
-      <section>
-        <h2 class="text-base font-semibold tracking-tight text-[#1a1e22] dark:text-[#edf2f7] mb-3 pb-1 border-b border-black/[0.08] dark:border-white/[0.08] flex items-center justify-between">
-          <span>Visual Productions</span>
-          <span class="text-xs font-normal text-slate-400 font-mono">({visualProductions.length})</span>
-        </h2>
-        
-        <div class="space-y-2.5">
-          {visualProductions.map(pub => (
-          <div class="py-1">
-              <div class="font-medium text-[#1a1e22] dark:text-[#edf2f7] text-sm leading-snug">
-                {cleanLatex(pub.entryTags.title)}
-              </div>
-              <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5" set:html={formatAuthors(pub.entryTags.author || pub.entryTags.editor)} />
-              <div class="text-xs text-slate-400 dark:text-slate-500 mt-0.5 flex items-center gap-1.5 flex-wrap">
-                <span>{pub.entryTags.howpublished}</span>
-                {pub.entryTags.note && (
-                  <>
-                    <span>&bull;</span>
-                    <span class="italic text-slate-500 dark:text-slate-400">{pub.entryTags.note}</span>
-                  </>
-                )}
-                <span>&bull;</span>
-                <span>{pub.entryTags.year}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-    )}
-
-    <!-- 5. Theses -->
-    {theses.length > 0 && (
-      <section>
-        <h2 class="text-base font-semibold tracking-tight text-[#1a1e22] dark:text-[#edf2f7] mb-3 pb-1 border-b border-black/[0.08] dark:border-white/[0.08] flex items-center justify-between">
-          <span>Theses</span>
-          <span class="text-xs font-normal text-slate-400 font-mono">({theses.length})</span>
-        </h2>
-        
-        <div class="space-y-2.5">
-          {theses.map(pub => (
-          <div class="py-1">
-              <div class="font-medium text-[#1a1e22] dark:text-[#edf2f7] text-sm leading-snug">
-                {cleanLatex(pub.entryTags.title)}
-              </div>
-              <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5" set:html={formatAuthors(pub.entryTags.author || pub.entryTags.editor)} />
-              <div class="text-xs text-slate-400 dark:text-slate-500 mt-0.5 flex items-center gap-1.5 flex-wrap">
-                <span class="italic">{pub.entryTags.school}</span>
-                {pub.entryTags.note && (
-                  <>
-                    <span>&bull;</span>
-                    <span>{pub.entryTags.note}</span>
-                  </>
-                )}
-                <span>&bull;</span>
-                <span>{pub.entryTags.year}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-    )}
-
-    <!-- 5. Patents & Intellectual Property -->
-    {patents.length > 0 && (
-      <section>
-        <h2 class="text-base font-semibold tracking-tight text-[#1a1e22] dark:text-[#edf2f7] mb-3 pb-1 border-b border-black/[0.08] dark:border-white/[0.08] flex items-center justify-between">
-          <span>Patents</span>
-          <span class="text-xs font-normal text-slate-400 font-mono">({patents.length})</span>
-        </h2>
-        
-        <div class="space-y-2.5">
-          {patents.map(pub => (
-            <div class="py-1">
-              <div class="font-medium text-[#1a1e22] dark:text-[#edf2f7] text-sm leading-snug">
-                {cleanLatex(pub.entryTags.title)}
-              </div>
-              <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5" set:html={formatAuthors(pub.entryTags.author || pub.entryTags.editor)} />
-              <div class="text-xs text-slate-400 dark:text-slate-500 mt-0.5 flex items-center gap-1.5 flex-wrap">
-                <span class="font-mono text-xs text-[#235789] dark:text-[#82B4DC]">{pub.entryTags.number || pub.entryTags.note}</span>
-                <span>&bull;</span>
-                <span>{pub.entryTags.year}</span>
-                <a href="/grants-impact" class="text-[#235789] dark:text-[#82B4DC] hover:underline font-mono text-[11px]">
-                  [All Patents &rarr;]
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-    )}
-
-    <!-- 6. Preprints & Other Works -->
+    <!-- 3. Preprints & Other Works -->
     {preprintsAndOther.length > 0 && (
       <section>
         <h2 class="text-base font-semibold tracking-tight text-[#1a1e22] dark:text-[#edf2f7] mb-3 pb-1 border-b border-black/[0.08] dark:border-white/[0.08] flex items-center justify-between">
@@ -338,6 +213,131 @@ const years = Object.keys(groupedByYear).sort((a, b) => b.localeCompare(a));
                     [Link]
                   </a>
                 )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- 4. Software & Commercial Plugins -->
+    {software.length > 0 && (
+      <section>
+        <h2 class="text-base font-semibold tracking-tight text-[#1a1e22] dark:text-[#edf2f7] mb-3 pb-1 border-b border-black/[0.08] dark:border-white/[0.08] flex items-center justify-between">
+          <span>Software & Commercial Tools</span>
+          <span class="text-xs font-normal text-slate-400 font-mono">({software.length})</span>
+        </h2>
+        
+        <div class="space-y-2.5">
+          {software.map(pub => (
+          <div class="py-1">
+              <div class="font-medium text-[#1a1e22] dark:text-[#edf2f7] text-sm leading-snug">
+                {cleanLatex(pub.entryTags.title)}
+              </div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5" set:html={formatAuthors(pub.entryTags.author || pub.entryTags.editor)} />
+              <div class="text-xs text-slate-400 dark:text-slate-500 mt-0.5 flex items-center gap-1.5 flex-wrap">
+                <span>{pub.entryTags.howpublished || pub.entryTags.publisher}</span>
+                {pub.entryTags.note && (
+                  <>
+                    <span>&bull;</span>
+                    <span class="italic text-slate-500 dark:text-slate-400">{pub.entryTags.note}</span>
+                  </>
+                )}
+                <span>&bull;</span>
+                <span>{pub.entryTags.year}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- 5. Visual Productions -->
+    {visualProductions.length > 0 && (
+      <section>
+        <h2 class="text-base font-semibold tracking-tight text-[#1a1e22] dark:text-[#edf2f7] mb-3 pb-1 border-b border-black/[0.08] dark:border-white/[0.08] flex items-center justify-between">
+          <span>Visual Productions</span>
+          <span class="text-xs font-normal text-slate-400 font-mono">({visualProductions.length})</span>
+        </h2>
+        
+        <div class="space-y-2.5">
+          {visualProductions.map(pub => (
+          <div class="py-1">
+              <div class="font-medium text-[#1a1e22] dark:text-[#edf2f7] text-sm leading-snug">
+                {cleanLatex(pub.entryTags.title)}
+              </div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5" set:html={formatAuthors(pub.entryTags.author || pub.entryTags.editor)} />
+              <div class="text-xs text-slate-400 dark:text-slate-500 mt-0.5 flex items-center gap-1.5 flex-wrap">
+                <span>{pub.entryTags.howpublished}</span>
+                {pub.entryTags.note && (
+                  <>
+                    <span>&bull;</span>
+                    <span class="italic text-slate-500 dark:text-slate-400">{pub.entryTags.note}</span>
+                  </>
+                )}
+                <span>&bull;</span>
+                <span>{pub.entryTags.year}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- 6. Theses -->
+    {theses.length > 0 && (
+      <section>
+        <h2 class="text-base font-semibold tracking-tight text-[#1a1e22] dark:text-[#edf2f7] mb-3 pb-1 border-b border-black/[0.08] dark:border-white/[0.08] flex items-center justify-between">
+          <span>Theses</span>
+          <span class="text-xs font-normal text-slate-400 font-mono">({theses.length})</span>
+        </h2>
+        
+        <div class="space-y-2.5">
+          {theses.map(pub => (
+          <div class="py-1">
+              <div class="font-medium text-[#1a1e22] dark:text-[#edf2f7] text-sm leading-snug">
+                {cleanLatex(pub.entryTags.title)}
+              </div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5" set:html={formatAuthors(pub.entryTags.author || pub.entryTags.editor)} />
+              <div class="text-xs text-slate-400 dark:text-slate-500 mt-0.5 flex items-center gap-1.5 flex-wrap">
+                <span class="italic">{pub.entryTags.school}</span>
+                {pub.entryTags.note && (
+                  <>
+                    <span>&bull;</span>
+                    <span>{pub.entryTags.note}</span>
+                  </>
+                )}
+                <span>&bull;</span>
+                <span>{pub.entryTags.year}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- 7. Patents & Intellectual Property -->
+    {patents.length > 0 && (
+      <section>
+        <h2 class="text-base font-semibold tracking-tight text-[#1a1e22] dark:text-[#edf2f7] mb-3 pb-1 border-b border-black/[0.08] dark:border-white/[0.08] flex items-center justify-between">
+          <span>Patents</span>
+          <span class="text-xs font-normal text-slate-400 font-mono">({patents.length})</span>
+        </h2>
+        
+        <div class="space-y-2.5">
+          {patents.map(pub => (
+            <div class="py-1">
+              <div class="font-medium text-[#1a1e22] dark:text-[#edf2f7] text-sm leading-snug">
+                {cleanLatex(pub.entryTags.title)}
+              </div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5" set:html={formatAuthors(pub.entryTags.author || pub.entryTags.editor)} />
+              <div class="text-xs text-slate-400 dark:text-slate-500 mt-0.5 flex items-center gap-1.5 flex-wrap">
+                <span class="font-mono text-xs text-[#235789] dark:text-[#82B4DC]">{pub.entryTags.number || pub.entryTags.note}</span>
+                <span>&bull;</span>
+                <span>{pub.entryTags.year}</span>
+                <a href="/grants-impact" class="text-[#235789] dark:text-[#82B4DC] hover:underline font-mono text-[11px]">
+                  [All Patents &rarr;]
+                </a>
               </div>
             </div>
           ))}
