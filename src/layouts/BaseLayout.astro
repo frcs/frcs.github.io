@@ -83,33 +83,34 @@ const navItems = [
   </header>
 
   <!-- Mobile Drawer -->
-  <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-[#111928] border-b border-slate-200 dark:border-slate-800 px-4 py-3 space-y-1">
+  <div id="mobile-menu" class="hidden md:hidden bg-[#f7f6f2] dark:bg-[#121519] border-b border-black/[0.08] dark:border-white/[0.08] px-5 py-3 space-y-1">
     {navItems.map(item => {
       const isParentActive = currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href));
+      const isExactActive = currentPath === item.href;
       return (
         <div>
           <a
             href={item.href}
-            class={`block px-3 py-2 text-base font-medium transition-colors ${
-              currentPath === item.href
-                ? 'text-[#0569B9] dark:text-[#82B4DC] font-semibold pl-2 border-l-2 border-[#0569B9]'
+            class={`block py-1.5 text-sm transition-colors ${
+              isExactActive
+                ? 'text-[#235789] dark:text-[#82B4DC] font-medium'
                 : isParentActive
-                ? 'text-[#0569B9] dark:text-[#82B4DC] font-semibold'
+                ? 'text-[#235789] dark:text-[#82B4DC]'
                 : 'text-slate-600 dark:text-slate-300 hover:text-slate-900'
             }`}
           >
             {item.name}
           </a>
           {item.children && (
-            <div class="pl-5 py-1 space-y-1 border-l border-slate-200 dark:border-slate-800 ml-3">
+            <div class="pl-4 py-0.5 space-y-0.5">
               {item.children.map(sub => {
                 const isSubActive = currentPath === sub.href;
                 return (
                   <a
                     href={sub.href}
-                    class={`block py-1 text-sm transition-colors ${
+                    class={`block py-1 text-xs transition-colors ${
                       isSubActive
-                        ? 'text-[#0569B9] dark:text-[#82B4DC] font-semibold'
+                        ? 'text-[#235789] dark:text-[#82B4DC] font-medium'
                         : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                     }`}
                   >
@@ -170,8 +171,8 @@ const navItems = [
         </div>
 
         <!-- Navigation Menu -->
-        <nav class="hidden md:block pt-3 border-t border-black/[0.06] dark:border-white/[0.08]">
-          <ul class="space-y-1 text-sm">
+        <nav class="hidden md:block pt-3.5 border-t border-black/[0.06] dark:border-white/[0.08]">
+          <ul class="space-y-1.5 text-sm">
             {navItems.map(item => {
               const isExactActive = currentPath === item.href;
               const isParentActive = currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href));
@@ -179,33 +180,39 @@ const navItems = [
                 <li>
                   <a
                     href={item.href}
-                    class={`block py-1 transition-colors ${
+                    class={`flex items-center justify-between py-1 transition-colors ${
                       isExactActive
-                        ? 'text-[#235789] dark:text-[#82B4DC] font-semibold pl-2.5 border-l-2 border-[#235789]'
+                        ? 'text-[#235789] dark:text-[#82B4DC] font-medium'
                         : isParentActive
-                        ? 'text-[#235789] dark:text-[#82B4DC] font-medium pl-2.5 border-l-2 border-[#235789]/30'
-                        : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 pl-3 border-l-2 border-transparent'
+                        ? 'text-[#235789] dark:text-[#82B4DC]'
+                        : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100'
                     }`}
                   >
-                    {item.name}
+                    <span>{item.name}</span>
+                    {isExactActive && (
+                      <span class="w-1.5 h-1.5 rounded-full bg-[#235789] dark:bg-[#82B4DC] opacity-70"></span>
+                    )}
                   </a>
 
-                  {/* Subfolder list */}
+                  {/* Subfolder list - clean whitespace indent without vertical bars */}
                   {item.children && (
-                    <ul class="pl-3.5 py-0.5 space-y-1 border-l border-black/[0.06] dark:border-white/[0.08] ml-3 my-0.5">
+                    <ul class="pl-3.5 pt-0.5 pb-1 space-y-1">
                       {item.children.map(sub => {
                         const isSubActive = currentPath === sub.href;
                         return (
                           <li>
                             <a
                               href={sub.href}
-                              class={`block py-0.5 text-xs transition-colors ${
+                              class={`flex items-center justify-between py-0.5 text-xs transition-colors ${
                                 isSubActive
                                   ? 'text-[#235789] dark:text-[#82B4DC] font-medium'
                                   : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'
                               }`}
                             >
-                              {sub.name}
+                              <span>{sub.name}</span>
+                              {isSubActive && (
+                                <span class="w-1 h-1 rounded-full bg-[#235789] dark:bg-[#82B4DC] opacity-60"></span>
+                              )}
                             </a>
                           </li>
                         );
