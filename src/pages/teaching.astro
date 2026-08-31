@@ -7,9 +7,12 @@ const currentModules = [
     title: "Deep Learning and its Applications",
     level: "Level 9 (Senior Sophister & MAI, 10 ECTS)",
     desc: "Comprehensive module covering neural networks, backpropagation, convolutional networks, sequence models, generative models, and transformers, with hands-on PyTorch coding labs and automated evaluation benchmarks.",
+    hasDeepLearningFeature: true,
     links: [
-      { name: "Course Website", url: "https://frcs.github.io/4c16/" },
-      { name: "Zenodo Lecture Notes", url: "https://doi.org/10.5281/zenodo.17954655" }
+      { name: "Course Portal", url: "https://frcs.github.io/4c16/" },
+      { name: "Online Lecture Notes", url: "https://frcs.github.io/4C16-LectureNotes/" },
+      { name: "Zenodo Archive", url: "https://doi.org/10.5281/zenodo.17954655" },
+      { name: "Lab & Autograder Repository", url: "https://github.com/frcs/4C16-2425" }
     ]
   },
   {
@@ -17,6 +20,7 @@ const currentModules = [
     title: "Advanced AI",
     level: "Level 9 (Postgraduate / MAI, 5 ECTS)",
     desc: "Advanced graduate-level study of contemporary generative models, diffusion architectures, representation learning, and modern computer vision systems.",
+    hasDeepLearningFeature: false,
     links: []
   }
 ];
@@ -68,6 +72,19 @@ const priorModules = [
     </p>
   </div>
 
+  <!-- Teaching Honours & Recognition -->
+  <div class="border-l-2 border-amber-500 bg-amber-500/5 dark:bg-amber-500/10 pl-4 py-2.5 mb-8 text-sm text-slate-700 dark:text-slate-300">
+    <div class="flex items-center gap-2 font-semibold text-slate-900 dark:text-white">
+      <svg class="w-4 h-4 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+      Teaching Recognition
+    </div>
+    <p class="mt-1 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+      Recipient of the <strong>University Excellence in Teaching Award</strong> and the <strong>Inspiring Educator Award</strong> (Trinity College Dublin, 2026), presented by Provost Linda Doyle.
+    </p>
+  </div>
+
   <!-- Teaching Philosophy Note -->
   <div class="border-l-2 border-[#0569B9] pl-3 py-1.5 mb-10 text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed">
     <strong class="text-slate-900 dark:text-white font-semibold">Teaching Philosophy: </strong>
@@ -75,7 +92,7 @@ const priorModules = [
   </div>
 
   <!-- Current Modules -->
-  <section class="space-y-6 mb-12">
+  <section class="space-y-8 mb-12">
     <h2 class="text-lg sm:text-xl font-bold tracking-tight text-slate-900 dark:text-white pb-2 border-b border-slate-200 dark:border-slate-800">
       Current Modules
     </h2>
@@ -92,7 +109,75 @@ const priorModules = [
           {m.desc}
         </p>
 
-        {m.links.length > 0 && (
+        {m.hasDeepLearningFeature && (
+          <div class="mt-4 space-y-3">
+            <!-- Lecture Notes Feature Card -->
+            <div class="p-3.5 rounded-lg bg-slate-200/60 dark:bg-slate-800/60 border border-slate-300/80 dark:border-slate-700/80">
+              <div class="flex items-start gap-3">
+                <div class="p-2 rounded-md bg-[#0569B9]/10 dark:bg-[#0569B9]/20 text-[#0569B9] dark:text-[#82B4DC] shrink-0 mt-0.5">
+                  <!-- Book Icon -->
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                  </svg>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex flex-wrap items-baseline gap-2">
+                    <h4 class="text-sm sm:text-base font-semibold text-slate-900 dark:text-white">
+                      4C16 Open Lecture Notes
+                    </h4>
+                    <span class="text-[11px] font-mono px-1.5 py-0.2 rounded bg-[#0569B9]/10 text-[#0569B9] dark:text-[#82B4DC]">Open Educational Resource</span>
+                  </div>
+                  <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
+                    Comprehensive, publicly accessible coursebook covering theoretical foundations, derivations, PyTorch implementations, and practical tutorials.
+                  </p>
+                  <div class="mt-2 flex items-center gap-3 text-xs font-semibold text-[#0569B9] dark:text-[#82B4DC]">
+                    <a href="https://frcs.github.io/4C16-LectureNotes/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 hover:underline">
+                      Read Lecture Notes Online &rarr;
+                    </a>
+                    <span>&bull;</span>
+                    <a href="https://doi.org/10.5281/zenodo.17954655" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 hover:underline">
+                      Zenodo Archive (DOI) &rarr;
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Lab System & Autograder Card -->
+            <div class="p-3.5 rounded-lg bg-slate-200/60 dark:bg-slate-800/60 border border-slate-300/80 dark:border-slate-700/80">
+              <div class="flex items-start gap-3">
+                <div class="p-2 rounded-md bg-emerald-600/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5">
+                  <!-- Code / Terminal Icon -->
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="flex flex-wrap items-baseline gap-2">
+                    <h4 class="text-sm sm:text-base font-semibold text-slate-900 dark:text-white">
+                      Automated Lab System & Continuous Evaluation
+                    </h4>
+                    <span class="text-[11px] font-mono px-1.5 py-0.2 rounded bg-emerald-500/10 text-emerald-700 dark:text-emerald-300">Git Autograder</span>
+                  </div>
+                  <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
+                    Custom hands-on PyTorch coding lab infrastructure connecting Google Colab with an automated Git autograder that runs regression checks and model performance validation on student commits with rapid feedback loops.
+                  </p>
+                  <div class="mt-2 flex items-center gap-3 text-xs font-semibold text-[#0569B9] dark:text-[#82B4DC]">
+                    <a href="https://github.com/frcs/4C16-2425" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 hover:underline">
+                      View Lab System on GitHub &rarr;
+                    </a>
+                    <span>&bull;</span>
+                    <a href="https://frcs.github.io/4c16/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 hover:underline">
+                      4C16 Course Hub &rarr;
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {!m.hasDeepLearningFeature && m.links.length > 0 && (
           <div class="mt-2.5 flex items-center gap-4 text-xs sm:text-sm font-semibold text-[#0569B9] dark:text-[#82B4DC]">
             {m.links.map(l => (
               <a href={l.url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 hover:underline">
