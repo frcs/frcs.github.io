@@ -1,6 +1,15 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
+const currentResearchers = [
+  {
+    name: "Bold-Erdene Ganbaatar",
+    status: "PhD Candidate",
+    role: "Primary Supervisor",
+    topic: "Colour grading (neural automated scene matching)"
+  }
+];
+
 const completedPhDs = [
   {
     name: "Dr. Clément Bled",
@@ -53,12 +62,20 @@ const completedPhDs = [
   }
 ];
 
-const currentResearchers = [
+const postdocAlumni = [
   {
-    name: "Bold-Erdene Ganbaatar",
-    status: "PhD Candidate",
-    role: "Primary Supervisor",
-    topic: "Colour grading (neural automated scene matching)"
+    name: "Prof. Soumyabrata Dev",
+    period: "2017 – 2019",
+    role: "Postdoctoral Researcher & Project Collaborator (Huawei / SFI ADAPT)",
+    topic: "Deep learning for video advertising, 3D product insertion, and computer vision",
+    destination: "Associate Professor, School of Computer Science & Statistics, Trinity College Dublin"
+  },
+  {
+    name: "Dr. Hossein Javidnia",
+    period: "2018 – 2021",
+    role: "Postdoctoral Research Fellow (Huawei Deep Real / ADAPT Centre)",
+    topic: "Deep learning for 3D object placement in video, 3D reconstruction, and augmented reality",
+    destination: "Assistant Professor in Computational Engineering, Trinity College Dublin"
   }
 ];
 ---
@@ -71,7 +88,7 @@ const currentResearchers = [
     </p>
   </div>
 
-  <!-- Current Researchers (Flat style) -->
+  <!-- Current Researchers -->
   <section class="mb-12">
     <h2 class="text-lg sm:text-xl font-bold tracking-tight text-slate-900 dark:text-white mb-4 pb-2 border-b border-slate-200 dark:border-slate-800">
       Current Doctoral Researchers
@@ -90,7 +107,34 @@ const currentResearchers = [
     </div>
   </section>
 
-  <!-- Completed PhDs (Flat list) -->
+  <!-- Postdoctoral & Research Fellow Alumni -->
+  <section class="mb-12">
+    <h2 class="text-lg sm:text-xl font-bold tracking-tight text-slate-900 dark:text-white mb-4 pb-2 border-b border-slate-200 dark:border-slate-800">
+      Postdoctoral & Research Fellow Alumni
+    </h2>
+    <div class="space-y-4">
+      {postdocAlumni.map(p => (
+        <div class="border-l-2 border-slate-200 dark:border-slate-800 pl-3.5 py-1 hover:border-[#0569B9] transition-colors">
+          <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+            <div class="text-base sm:text-lg font-semibold text-slate-900 dark:text-slate-100">
+              {p.name} <span class="text-xs sm:text-sm font-normal text-slate-500 font-mono">({p.period})</span>
+            </div>
+            <div class="text-xs sm:text-sm text-slate-400">{p.role}</div>
+          </div>
+          <div class="text-sm sm:text-base text-slate-600 dark:text-slate-300 mt-0.5">
+            {p.topic}
+          </div>
+          {p.destination && (
+            <div class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5">
+              <span class="text-slate-400 dark:text-slate-500">Subsequent / Current Position:</span> {p.destination}
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Completed PhDs -->
   <section>
     <h2 class="text-lg sm:text-xl font-bold tracking-tight text-slate-900 dark:text-white mb-4 pb-2 border-b border-slate-200 dark:border-slate-800">
       Doctoral Alumni
