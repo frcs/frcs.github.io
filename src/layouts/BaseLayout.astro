@@ -64,6 +64,35 @@ const navItems = [
   <!-- Subtle Top Accent Bar -->
   <div class="h-0.5 w-full bg-[#235789]/60"></div>
 
+  <!-- Desktop Institutional Header (Prominent TCD & Sigmedia Logos) -->
+  <header class="hidden md:block border-b border-black/[0.06] dark:border-white/[0.08]">
+    <div class="max-w-5xl mx-auto px-5 sm:px-8 py-4 flex items-center justify-between">
+      <!-- Trinity College Dublin Logo -->
+      <a 
+        href="https://www.tcd.ie" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="opacity-90 hover:opacity-100 transition-opacity inline-flex items-center" 
+        title="Trinity College Dublin"
+      >
+        <img src="/images/tcd-logo.png" alt="Trinity College Dublin" class="h-11 w-auto dark:hidden" />
+        <img src="/images/tcd-logo-white.png" alt="Trinity College Dublin" class="h-11 w-auto hidden dark:block" />
+      </a>
+
+      <!-- Sigmedia Research Group Logo -->
+      <a 
+        href="https://sigmedia.tv" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="opacity-90 hover:opacity-100 transition-opacity inline-flex items-center" 
+        title="Sigmedia Research Group"
+      >
+        <img src="/images/sigmedia-logo.png" alt="Sigmedia Research Group" class="h-10 w-auto dark:hidden" />
+        <img src="/images/sigmedia-logo-white.png" alt="Sigmedia Research Group" class="h-10 w-auto hidden dark:block" />
+      </a>
+    </div>
+  </header>
+
   <!-- Mobile Header -->
   <header class="md:hidden flex items-center justify-between px-4 py-3 bg-[#f7f6f2]/95 dark:bg-[#121519]/95 border-b border-black/[0.08] dark:border-white/[0.08] sticky top-0 z-40 backdrop-blur-xs">
     <div class="flex items-center gap-3">
@@ -73,7 +102,7 @@ const navItems = [
     </div>
     <div class="flex items-center gap-2">
       <button id="theme-toggle-mobile" aria-label="Toggle dark mode" class="p-2 rounded text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800">
-        <svg class="w-5 h-5 hidden dark:block text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
+        <svg class="w-5 h-5 hidden dark:block text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707-.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
         <svg class="w-5 h-5 block dark:hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
       </button>
       <button id="menu-toggle" aria-label="Open Navigation" class="p-2 rounded text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">
@@ -85,8 +114,10 @@ const navItems = [
   <!-- Mobile Drawer -->
   <div id="mobile-menu" class="hidden md:hidden bg-[#f7f6f2] dark:bg-[#121519] border-b border-black/[0.08] dark:border-white/[0.08] px-5 py-3 space-y-1">
     {navItems.map(item => {
-      const isParentActive = currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href));
       const isExactActive = currentPath === item.href;
+      const isSectionOpen = (item.href !== '/' && currentPath.startsWith(item.href)) || 
+                            (item.href === '/research' && currentSection === 'research') ||
+                            (item.href === '/teaching' && currentSection === 'teaching');
       return (
         <div>
           <a
@@ -94,14 +125,14 @@ const navItems = [
             class={`block py-1.5 text-sm transition-colors ${
               isExactActive
                 ? 'text-[#235789] dark:text-[#82B4DC] font-medium'
-                : isParentActive
+                : isSectionOpen
                 ? 'text-[#235789] dark:text-[#82B4DC]'
                 : 'text-slate-600 dark:text-slate-300 hover:text-slate-900'
             }`}
           >
             {item.name}
           </a>
-          {item.children && (
+          {item.children && isSectionOpen && (
             <div class="pl-4 py-0.5 space-y-0.5">
               {item.children.map(sub => {
                 const isSubActive = currentPath === sub.href;
@@ -123,6 +154,18 @@ const navItems = [
         </div>
       );
     })}
+
+    <!-- Mobile Institutional Logos -->
+    <div class="pt-3 pb-1 border-t border-black/[0.08] dark:border-white/[0.08] flex items-center justify-between px-1">
+      <a href="https://www.tcd.ie" target="_blank" rel="noopener noreferrer" title="Trinity College Dublin">
+        <img src="/images/tcd-logo.png" alt="Trinity College Dublin" class="h-7 w-auto dark:hidden" />
+        <img src="/images/tcd-logo-white.png" alt="Trinity College Dublin" class="h-7 w-auto hidden dark:block" />
+      </a>
+      <a href="https://sigmedia.tv" target="_blank" rel="noopener noreferrer" title="Sigmedia Research Group">
+        <img src="/images/sigmedia-logo.png" alt="Sigmedia Research Group" class="h-6.5 w-auto dark:hidden" />
+        <img src="/images/sigmedia-logo-white.png" alt="Sigmedia Research Group" class="h-6.5 w-auto hidden dark:block" />
+      </a>
+    </div>
   </div>
 
   <!-- Main 2-Column Academic Container -->
@@ -175,7 +218,9 @@ const navItems = [
           <ul class="space-y-1.5 text-sm">
             {navItems.map(item => {
               const isExactActive = currentPath === item.href;
-              const isParentActive = currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href));
+              const isSectionOpen = (item.href !== '/' && currentPath.startsWith(item.href)) || 
+                                    (item.href === '/research' && currentSection === 'research') ||
+                                    (item.href === '/teaching' && currentSection === 'teaching');
               return (
                 <li>
                   <a
@@ -183,7 +228,7 @@ const navItems = [
                     class={`flex items-center justify-between py-1 transition-colors ${
                       isExactActive
                         ? 'text-[#235789] dark:text-[#82B4DC] font-medium'
-                        : isParentActive
+                        : isSectionOpen
                         ? 'text-[#235789] dark:text-[#82B4DC]'
                         : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100'
                     }`}
@@ -194,8 +239,8 @@ const navItems = [
                     )}
                   </a>
 
-                  {/* Subfolder list - clean whitespace indent without vertical bars */}
-                  {item.children && (
+                  {/* Subfolder list - only visible when inside this section */}
+                  {item.children && isSectionOpen && (
                     <ul class="pl-3.5 pt-0.5 pb-1 space-y-1">
                       {item.children.map(sub => {
                         const isSubActive = currentPath === sub.href;
@@ -224,18 +269,6 @@ const navItems = [
             })}
           </ul>
         </nav>
-
-        <!-- Institutional Affiliations (Quiet, non-competing) -->
-        <div class="pt-4 border-t border-black/[0.06] dark:border-white/[0.08] flex flex-col gap-2.5 opacity-80 hover:opacity-100 transition-opacity">
-          <a href="https://sigmedia.tv" target="_blank" rel="noopener noreferrer" class="inline-block" title="Sigmedia Research Group">
-            <img src="/images/sigmedia-logo.png" alt="Sigmedia Research Group" class="h-7 w-auto max-w-[150px] object-contain object-left dark:hidden" />
-            <img src="/images/sigmedia-logo-white.png" alt="Sigmedia Research Group" class="h-7 w-auto max-w-[150px] object-contain object-left hidden dark:block" />
-          </a>
-          <a href="https://www.tcd.ie" target="_blank" rel="noopener noreferrer" class="inline-block" title="Trinity College Dublin">
-            <img src="/images/tcd-logo.png" alt="Trinity College Dublin" class="h-7 w-auto max-w-[150px] object-contain object-left dark:hidden" />
-            <img src="/images/tcd-logo-white.png" alt="Trinity College Dublin" class="h-7 w-auto max-w-[150px] object-contain object-left hidden dark:block" />
-          </a>
-        </div>
 
       </div>
     </aside>
