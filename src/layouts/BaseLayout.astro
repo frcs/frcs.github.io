@@ -47,8 +47,9 @@ const navItems = [
 
   <!-- Mobile Header -->
   <header class="md:hidden flex items-center justify-between px-4 py-3 bg-white dark:bg-[#111928] border-b border-slate-200 dark:border-slate-800 sticky top-0 z-40">
-    <div class="flex items-center gap-2.5">
-      <img src="/images/tcd-logo-min.jpg" alt="Trinity College Dublin" class="h-8 w-auto" />
+    <div class="flex items-center gap-3">
+      <img src="/images/tcd-logo.png" alt="Trinity College Dublin" class="h-9 w-auto dark:hidden" />
+      <img src="/images/tcd-logo-white.png" alt="Trinity College Dublin" class="h-9 w-auto hidden dark:block" />
       <a href="/" class="font-bold text-slate-900 dark:text-white text-base">François Pitié</a>
     </div>
     <div class="flex items-center gap-2">
@@ -167,7 +168,7 @@ const navItems = [
           </ul>
         </nav>
 
-        <!-- Theme toggle & TCD Logo -->
+        <!-- Theme toggle & Sizable Transparent TCD Logo -->
         <div class="hidden md:flex items-center justify-between pt-3 border-t border-slate-300/80 dark:border-slate-800 text-xs text-slate-500">
           <button id="theme-toggle-desktop" class="flex items-center gap-1.5 hover:text-slate-700 dark:hover:text-slate-200 transition-colors">
             <svg class="w-4 h-4 hidden dark:block text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
@@ -177,15 +178,16 @@ const navItems = [
         </div>
 
         <div class="pt-2">
-          <a href="https://www.tcd.ie" target="_blank" rel="noopener noreferrer" class="inline-block opacity-80 hover:opacity-100 transition-opacity">
-            <img src="/images/tcd-logo-min.jpg" alt="Trinity College Dublin" class="h-8 w-auto" />
+          <a href="https://www.tcd.ie" target="_blank" rel="noopener noreferrer" class="inline-block opacity-90 hover:opacity-100 transition-opacity">
+            <img src="/images/tcd-logo.png" alt="Trinity College Dublin" class="h-11 w-auto dark:hidden" />
+            <img src="/images/tcd-logo-white.png" alt="Trinity College Dublin" class="h-11 w-auto hidden dark:block" />
           </a>
         </div>
 
       </div>
     </aside>
 
-    <!-- Right Content Area (Clean academic text over subtle grey) -->
+    <!-- Right Content Area -->
     <main class="flex-1 min-w-0">
       <slot />
     </main>
