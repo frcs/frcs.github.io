@@ -101,9 +101,9 @@ const researchThemes = [
 
     <div class="space-y-4">
       {researchThemes.map(theme => (
-        <div class="border-l border-black/[0.12] dark:border-white/[0.12] pl-3.5 py-0.5">
+        <div class="py-0.5">
           <h3 class="font-medium text-[#1a1e22] dark:text-[#edf2f7]">{theme.title}</h3>
-          <p class="text-sm text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">{theme.desc}</p>
+          <p class="text-sm text-slate-600 dark:text-slate-400 mt-0.5 leading-relaxed">{theme.desc}</p>
         </div>
       ))}
     </div>
@@ -133,10 +133,10 @@ const researchThemes = [
       <a href="/publications" class="text-xs text-[#235789] dark:text-[#82B4DC] hover:underline">All publications &rarr;</a>
     </div>
 
-    <div class="space-y-4">
+    <div class="space-y-3">
       {selectedPubs.map((pub, idx) => (
-        <div class="border-l border-black/[0.10] dark:border-white/[0.10] pl-3.5 py-0.5 hover:border-[#235789] transition-colors">
-          <div class="font-medium text-[#1a1e22] dark:text-[#edf2f7] leading-snug">
+        <div class="py-0.5">
+          <div class="font-medium text-[#1a1e22] dark:text-[#edf2f7] leading-snug text-sm">
             {pub.entryTags.url ? (
               <a href={pub.entryTags.url} target="_blank" rel="noopener noreferrer" class="hover:text-[#235789] dark:hover:text-[#82B4DC]">
                 {cleanLatex(pub.entryTags.title)}
@@ -150,14 +150,14 @@ const researchThemes = [
             )}
           </div>
           
-          <div class="text-xs text-slate-500 dark:text-slate-400 mt-1" set:html={formatAuthors(pub.entryTags.author || pub.entryTags.editor)} />
+          <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5" set:html={formatAuthors(pub.entryTags.author || pub.entryTags.editor)} />
           
-          <div class="text-xs text-slate-400 dark:text-slate-500 mt-1 flex items-center gap-2 flex-wrap">
+          <div class="text-xs text-slate-400 dark:text-slate-500 mt-0.5 flex items-center gap-2 flex-wrap">
             <span class="italic">{cleanLatex(pub.entryTags.journal || pub.entryTags.booktitle || pub.entryTags.howpublished)}</span>
             <span>&bull;</span>
             <span>{pub.entryTags.year}</span>
             {pub.entryTags.doi && (
-              <a href={`https://doi.org/${pub.entryTags.doi}`} target="_blank" rel="noopener noreferrer" class="text-[#235789] dark:text-[#82B4DC] hover:underline font-mono text-xs">
+              <a href={`https://doi.org/${pub.entryTags.doi}`} target="_blank" rel="noopener noreferrer" class="text-[#235789] dark:text-[#82B4DC] hover:underline font-mono text-[11px]">
                 [DOI]
               </a>
             )}

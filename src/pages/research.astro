@@ -71,9 +71,9 @@ const technicalTopics = [
     <h2 class="text-lg font-semibold tracking-tight text-[#1a1e22] dark:text-[#edf2f7] pb-1.5 border-b border-black/[0.08] dark:border-white/[0.08] mb-3.5">
       Technical Deep Dives
     </h2>
-    <div class="space-y-3.5">
+    <div class="space-y-4">
       {technicalTopics.map(topic => (
-        <div class="border-l border-black/[0.10] dark:border-white/[0.10] pl-3.5 py-0.5 hover:border-[#235789] transition-colors">
+        <div class="py-0.5">
           <div class="flex items-baseline gap-2">
             <a href={topic.href} class="font-medium text-[#1a1e22] dark:text-[#edf2f7] hover:text-[#235789] dark:hover:text-[#82B4DC]">
               {topic.title}
@@ -95,7 +95,7 @@ const technicalTopics = [
     </h2>
 
     {projects.map(p => (
-      <div class="border-l border-black/[0.10] dark:border-white/[0.10] pl-3.5 py-0.5 hover:border-[#235789] transition-colors">
+      <div class="py-1">
         <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
           <h3 class="font-medium text-[#1a1e22] dark:text-[#edf2f7]">{p.title}</h3>
           <span class="text-xs font-mono text-slate-400 shrink-0">{p.period}</span>
