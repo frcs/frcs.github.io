@@ -7,49 +7,63 @@ const competitiveGrants = [
     funder: "European Commission — Horizon Europe",
     period: "2023 – 2026",
     role: "Co-PI (TCD Allocation: €504,561 | Consortium: €3,794,601)",
-    details: "Developing green media AI algorithms and neural processing pipelines for sustainable video production, live broadcast, and virtual studios."
+    details: "Developing green media AI algorithms and neural processing pipelines for sustainable video production, live broadcast, and virtual studios.",
+    logo: "/images/collaborations/european_commission.png",
+    invertDark: false
   },
   {
     title: "SYZE: Computer Vision for 3D Body Measurement from Smartphone Imagery",
     funder: "Enterprise Ireland Commercialisation Fund",
     period: "2019 – 2020",
     role: "Lead PI (€418,442)",
-    details: "Pioneered neural reconstruction and metric scale estimation for apparel sizing; subsequently spun out as Swan AI."
+    details: "Pioneered neural reconstruction and metric scale estimation for apparel sizing; subsequently spun out as Swan AI.",
+    logo: "/images/collaborations/enterprise_ireland.png",
+    invertDark: false
   },
   {
     title: "SFI Research Centres Programme (Huawei Industry Collaboration)",
     funder: "Huawei Technologies / SFI",
     period: "2018 – 2020",
     role: "Lead PI (€1,077,710)",
-    details: "High-performance video analysis, perceptual coding, and computer vision systems."
+    details: "High-performance video analysis, perceptual coding, and computer vision systems.",
+    logo: "/images/collaborations/huawei.png",
+    invertDark: false
   },
   {
     title: "SFI Research Centres Programme (Huawei Phase 1)",
     funder: "Huawei Technologies / SFI",
     period: "2017 – 2018",
     role: "Lead PI (€461,273)",
-    details: "Intelligent video processing algorithms for next-generation mobile hardware."
+    details: "Intelligent video processing algorithms for next-generation mobile hardware.",
+    logo: "/images/collaborations/sfi.png",
+    invertDark: false
   },
   {
     title: "eBay Image Processing and Machine Translation Project",
     funder: "eBay / SFI ADAPT",
     period: "2017",
     role: "Lead PI (€62,000)",
-    details: "Visual search and product image quality enhancement."
+    details: "Visual search and product image quality enhancement.",
+    logo: "/images/collaborations/adapt.png",
+    invertDark: false
   },
   {
     title: "Advanced Video Debanding",
     funder: "Google Research Award",
     period: "2013",
     role: "Lead PI (€60,000)",
-    details: "Development of statistical debanding algorithms for compressed internet video."
+    details: "Development of statistical debanding algorithms for compressed internet video.",
+    logo: "/images/collaborations/google.png",
+    invertDark: false
   },
   {
     title: "3DScam: 2D-to-3D Video Conversion",
     funder: "Enterprise Ireland Commercialisation Fund",
     period: "2011 – 2013",
     role: "Lead PI (€280,000)",
-    details: "Developed stereoscopic depth estimation systems; led to the formation of TCD campus company PixelPuffin."
+    details: "Developed stereoscopic depth estimation systems; led to the formation of TCD campus company PixelPuffin.",
+    logo: "/images/collaborations/enterprise_ireland.png",
+    invertDark: false
   }
 ];
 
@@ -88,48 +102,63 @@ const serviceRoles = [
 ---
 
 <BaseLayout title="Grants & Impact - François Pitié" currentSection="grants-impact">
-  <div class="mb-8 pb-3 border-b border-slate-100 dark:border-slate-800">
-    <h1 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Grants, Patents & Service</h1>
+  <div class="mb-6 pb-2 border-b border-slate-200 dark:border-slate-800">
+    <h1 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Grants, Patents & Service</h1>
     <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
       Research funding, intellectual property, and institutional service.
     </p>
   </div>
 
-  <!-- Competitive Research Grants -->
+  <!-- Competitive Research Grants with Funding Body Logos -->
   <section class="mb-10">
-    <h2 class="text-lg font-bold tracking-tight text-slate-900 dark:text-white mb-4">Competitive Research Grants</h2>
-    <div class="space-y-4">
+    <h2 class="text-base font-bold tracking-tight text-slate-900 dark:text-white mb-4 pb-1 border-b border-slate-100 dark:border-slate-800">
+      Competitive Research Grants
+    </h2>
+    <div class="space-y-5">
       {competitiveGrants.map(g => (
-        <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#121c30] shadow-xs hover:border-[#0569B9]/40 transition-colors">
-          <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-1">
-            <h3 class="text-sm font-semibold text-slate-900 dark:text-slate-100">{g.title}</h3>
-            <span class="text-xs font-mono text-slate-500 shrink-0">{g.period}</span>
+        <div class="border-l-2 border-slate-200 dark:border-slate-800 pl-4 py-1 hover:border-[#0569B9] transition-colors flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+          <div class="flex-1">
+            <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-1">
+              <h3 class="text-sm font-semibold text-slate-900 dark:text-slate-100">{g.title}</h3>
+              <span class="text-xs font-mono text-slate-400 shrink-0">{g.period}</span>
+            </div>
+            <div class="text-xs text-[#0569B9] dark:text-[#82B4DC] font-medium mb-1">
+              {g.funder} &bull; {g.role}
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+              {g.details}
+            </p>
           </div>
-          <div class="text-xs text-[#0569B9] dark:text-[#82B4DC] font-medium mb-1.5">
-            {g.funder} &bull; {g.role}
-          </div>
-          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-            {g.details}
-          </p>
+          {g.logo && (
+            <div class="shrink-0 flex items-center justify-center p-1.5 rounded bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/60 w-24 h-12 self-start">
+              <img 
+                src={g.logo} 
+                alt={g.funder} 
+                class="max-w-full max-h-full object-contain"
+              />
+            </div>
+          )}
         </div>
       ))}
     </div>
   </section>
 
-  <!-- Patents -->
+  <!-- Patents (Flat list) -->
   <section class="mb-10">
-    <h2 class="text-lg font-bold tracking-tight text-slate-900 dark:text-white mb-4">Granted Patents</h2>
-    <div class="space-y-3">
+    <h2 class="text-base font-bold tracking-tight text-slate-900 dark:text-white mb-4 pb-1 border-b border-slate-100 dark:border-slate-800">
+      Granted Patents
+    </h2>
+    <div class="space-y-3.5">
       {patents.map(pat => (
-        <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#121c30] shadow-xs hover:border-[#0569B9]/40 transition-colors">
-          <div class="flex items-baseline justify-between mb-1">
+        <div class="border-l-2 border-slate-200 dark:border-slate-800 pl-4 py-1 hover:border-[#0569B9] transition-colors">
+          <div class="flex items-baseline justify-between gap-2">
             <h3 class="text-sm font-semibold text-slate-900 dark:text-slate-100">{pat.title}</h3>
-            <span class="text-xs font-mono font-semibold text-[#0569B9] dark:text-[#82B4DC]">{pat.patentNo}</span>
+            <span class="text-xs font-mono font-semibold text-[#0569B9] dark:text-[#82B4DC] shrink-0">{pat.patentNo}</span>
           </div>
-          <div class="text-xs text-slate-600 dark:text-slate-300">
+          <div class="text-xs text-slate-600 dark:text-slate-400 mt-0.5">
             Inventors: {pat.inventors}
           </div>
-          <div class="text-xs text-slate-400 mt-1">
+          <div class="text-xs text-slate-400 mt-0.5">
             Assignee: {pat.assignee} ({pat.year})
           </div>
         </div>
@@ -137,15 +166,17 @@ const serviceRoles = [
     </div>
   </section>
 
-  <!-- Academic Service -->
+  <!-- Academic Service (Flat list) -->
   <section>
-    <h2 class="text-lg font-bold tracking-tight text-slate-900 dark:text-white mb-4">Academic & Professional Service</h2>
-    <div class="divide-y divide-slate-100 dark:divide-slate-800 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden bg-white dark:bg-[#121c30] shadow-xs">
+    <h2 class="text-base font-bold tracking-tight text-slate-900 dark:text-white mb-4 pb-1 border-b border-slate-100 dark:border-slate-800">
+      Academic & Professional Service
+    </h2>
+    <div class="space-y-2">
       {serviceRoles.map(s => (
-        <div class="p-3.5 flex items-baseline justify-between gap-4 text-xs hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors">
+        <div class="border-l-2 border-slate-200 dark:border-slate-800 pl-4 py-1 hover:border-[#0569B9] transition-colors flex items-baseline justify-between gap-4 text-xs">
           <div>
             <span class="font-semibold text-slate-900 dark:text-slate-100">{s.role}</span>
-            <span class="text-slate-500 dark:text-slate-400 block sm:inline sm:ml-2">{s.org}</span>
+            <span class="text-slate-500 dark:text-slate-400 ml-1.5">&bull; {s.org}</span>
           </div>
           <span class="font-mono text-slate-400 shrink-0">{s.period}</span>
         </div>

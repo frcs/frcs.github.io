@@ -4,7 +4,6 @@ import { loadPublications, cleanLatex, formatAuthors } from '../utils/bibtex';
 
 const allPubs = loadPublications();
 
-// Group by category (from SAPC / bibtex)
 const categoryOrder = [
   'Journal Articles',
   'Papers in Conference Proceedings',
@@ -18,7 +17,6 @@ const pubsByCategory = categoryOrder.reduce((acc, cat) => {
   return acc;
 }, {} as Record<string, typeof allPubs>);
 
-// Fallback for any without explicit category
 const unclassified = allPubs.filter(p => {
   const c = (p.entryTags.sapc_category || '').trim().toLowerCase();
   return !categoryOrder.map(x => x.toLowerCase()).includes(c);
@@ -27,7 +25,6 @@ if (unclassified.length > 0) {
   pubsByCategory['Other / Miscellaneous'] = unclassified;
 }
 
-// Group by year as well
 const groupedByYear = allPubs.reduce((acc, entry) => {
   const year = entry.entryTags.year || 'Other';
   if (!acc[year]) acc[year] = [];
@@ -39,18 +36,19 @@ const years = Object.keys(groupedByYear).sort((a, b) => b.localeCompare(a));
 ---
 
 <BaseLayout title="Publications - François Pitié" currentSection="publications">
-  <div class="mb-6 pb-3 border-b border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+  <div class="mb-6 pb-2 border-b border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
     <div>
-      <h1 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Publications</h1>
+      <h1 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Publications</h1>
       <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-        Master bibliography ({allPubs.length} entries). Also available on <a href="https://scholar.google.com/citations?user=lOaoO74AAAAJ" target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline font-medium">Google Scholar</a> and <a href="https://www.researchgate.net/profile/F_Pitie" target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline font-medium">ResearchGate</a>.
+        Master bibliography ({allPubs.length} entries). Also on <a href="https://scholar.google.com/citations?user=lOaoO74AAAAJ" target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline">Google Scholar</a> and <a href="https://www.researchgate.net/profile/F_Pitie" target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline">ResearchGate</a>.
       </p>
     </div>
 
     <!-- Quick filter view toggle -->
-    <div class="flex items-center gap-1.5 text-xs bg-slate-100 dark:bg-slate-800 p-1 rounded-lg self-start sm:self-auto">
-      <button id="btn-by-category" class="px-2.5 py-1 rounded bg-white dark:bg-slate-700 text-[#0569B9] dark:text-white font-semibold shadow-xs">By Category</button>
-      <button id="btn-by-year" class="px-2.5 py-1 rounded text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white">By Year</button>
+    <div class="flex items-center gap-1 text-xs self-start sm:self-auto">
+      <button id="btn-by-category" class="px-2.5 py-1 text-xs font-semibold text-[#0569B9] dark:text-[#82B4DC] border-b-2 border-[#0569B9]">By Category</button>
+      <span class="text-slate-300 dark:text-slate-700">|</span>
+      <button id="btn-by-year" class="px-2.5 py-1 text-xs text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border-b-2 border-transparent">By Year</button>
     </div>
   </div>
 
@@ -58,13 +56,13 @@ const years = Object.keys(groupedByYear).sort((a, b) => b.localeCompare(a));
   <div id="view-by-category" class="space-y-8">
     {Object.entries(pubsByCategory).map(([cat, list]) => list.length > 0 && (
       <section>
-        <h2 class="text-lg font-bold tracking-tight text-slate-900 dark:text-white mb-3 pb-1 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+        <h2 class="text-base font-bold tracking-tight text-slate-900 dark:text-white mb-3 pb-1 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
           <span>{cat}</span>
           <span class="text-xs font-normal text-slate-400 font-mono">({list.length})</span>
         </h2>
         <div class="space-y-3">
           {list.map(pub => (
-            <div class="p-3 rounded-lg border border-slate-100 dark:border-slate-800/60 hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors">
+            <div class="border-l-2 border-slate-200 dark:border-slate-800 pl-3 py-0.5 hover:border-[#0569B9] transition-colors">
               <div class="text-sm font-semibold text-slate-900 dark:text-slate-100 leading-snug">
                 {pub.entryTags.url ? (
                   <a href={pub.entryTags.url} target="_blank" rel="noopener noreferrer" class="hover:text-[#0569B9] dark:hover:text-[#82B4DC]">
@@ -84,12 +82,12 @@ const years = Object.keys(groupedByYear).sort((a, b) => b.localeCompare(a));
                 <span>&bull;</span>
                 <span>{pub.entryTags.year}</span>
                 {pub.entryTags.doi && (
-                  <a href={`https://doi.org/${pub.entryTags.doi}`} target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline font-mono text-[11px] font-medium">
+                  <a href={`https://doi.org/${pub.entryTags.doi}`} target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline font-mono text-[11px]">
                     [DOI]
                   </a>
                 )}
                 {pub.entryTags.url && !pub.entryTags.doi && (
-                  <a href={pub.entryTags.url} target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline font-mono text-[11px] font-medium">
+                  <a href={pub.entryTags.url} target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline font-mono text-[11px]">
                     [Link]
                   </a>
                 )}
@@ -105,13 +103,13 @@ const years = Object.keys(groupedByYear).sort((a, b) => b.localeCompare(a));
   <div id="view-by-year" class="space-y-8 hidden">
     {years.map(year => (
       <section>
-        <h2 class="text-lg font-bold tracking-tight text-slate-900 dark:text-white mb-3 pb-1 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+        <h2 class="text-base font-bold tracking-tight text-slate-900 dark:text-white mb-3 pb-1 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
           <span>{year}</span>
           <span class="text-xs font-normal text-slate-400 font-mono">({groupedByYear[year].length})</span>
         </h2>
         <div class="space-y-3">
           {groupedByYear[year].map(pub => (
-            <div class="p-3 rounded-lg border border-slate-100 dark:border-slate-800/60 hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors">
+            <div class="border-l-2 border-slate-200 dark:border-slate-800 pl-3 py-0.5 hover:border-[#0569B9] transition-colors">
               <div class="text-sm font-semibold text-slate-900 dark:text-slate-100 leading-snug">
                 {pub.entryTags.url ? (
                   <a href={pub.entryTags.url} target="_blank" rel="noopener noreferrer" class="hover:text-[#0569B9] dark:hover:text-[#82B4DC]">
@@ -131,7 +129,7 @@ const years = Object.keys(groupedByYear).sort((a, b) => b.localeCompare(a));
                 {pub.entryTags.doi && (
                   <>
                     <span>&bull;</span>
-                    <a href={`https://doi.org/${pub.entryTags.doi}`} target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline font-mono text-[11px] font-medium">
+                    <a href={`https://doi.org/${pub.entryTags.doi}`} target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline font-mono text-[11px]">
                       [DOI]
                     </a>
                   </>
@@ -151,19 +149,19 @@ const years = Object.keys(groupedByYear).sort((a, b) => b.localeCompare(a));
     const viewYear = document.getElementById('view-by-year');
 
     btnCat?.addEventListener('click', () => {
-      btnCat.classList.add('bg-white', 'dark:bg-slate-700', 'text-[#0569B9]', 'dark:text-white', 'font-semibold', 'shadow-xs');
-      btnCat.classList.remove('text-slate-600', 'dark:text-slate-400');
-      btnYear?.classList.remove('bg-white', 'dark:bg-slate-700', 'text-[#0569B9]', 'dark:text-white', 'font-semibold', 'shadow-xs');
-      btnYear?.classList.add('text-slate-600', 'dark:text-slate-400');
+      btnCat.classList.add('font-semibold', 'text-[#0569B9]', 'dark:text-[#82B4DC]', 'border-[#0569B9]');
+      btnCat.classList.remove('text-slate-500', 'dark:text-slate-400', 'border-transparent');
+      btnYear?.classList.remove('font-semibold', 'text-[#0569B9]', 'dark:text-[#82B4DC]', 'border-[#0569B9]');
+      btnYear?.classList.add('text-slate-500', 'dark:text-slate-400', 'border-transparent');
       viewCat?.classList.remove('hidden');
       viewYear?.classList.add('hidden');
     });
 
     btnYear?.addEventListener('click', () => {
-      btnYear.classList.add('bg-white', 'dark:bg-slate-700', 'text-[#0569B9]', 'dark:text-white', 'font-semibold', 'shadow-xs');
-      btnYear.classList.remove('text-slate-600', 'dark:text-slate-400');
-      btnCat?.classList.remove('bg-white', 'dark:bg-slate-700', 'text-[#0569B9]', 'dark:text-white', 'font-semibold', 'shadow-xs');
-      btnCat?.classList.add('text-slate-600', 'dark:text-slate-400');
+      btnYear.classList.add('font-semibold', 'text-[#0569B9]', 'dark:text-[#82B4DC]', 'border-[#0569B9]');
+      btnYear.classList.remove('text-slate-500', 'dark:text-slate-400', 'border-transparent');
+      btnCat?.classList.remove('font-semibold', 'text-[#0569B9]', 'dark:text-[#82B4DC]', 'border-[#0569B9]');
+      btnCat?.classList.add('text-slate-500', 'dark:text-slate-400', 'border-transparent');
       viewYear?.classList.remove('hidden');
       viewCat?.classList.add('hidden');
     });
