@@ -53,21 +53,21 @@ const years = Object.keys(groupedByYear).sort((a, b) => b.localeCompare(a));
     
     <!-- Peer-Reviewed Publications Section -->
     <section>
-      <h2 class="text-base font-semibold tracking-tight text-slate-900 dark:text-white mb-4 pb-1.5 border-b border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
+      <h2 class="text-lg font-semibold tracking-tight text-[#1a1e22] dark:text-[#edf2f7] mb-4 pb-1.5 border-b border-black/[0.08] dark:border-white/[0.08] flex items-center justify-between">
         <span>Peer-Reviewed Publications</span>
         <span class="text-xs font-normal text-slate-400 font-mono">({peerReviewedPubs.length})</span>
       </h2>
       
-      <div class="space-y-3.5">
+      <div class="space-y-4">
         {peerReviewedPubs.map(pub => (
-          <div class="border-l border-slate-200 dark:border-slate-800 pl-3 py-0.5 hover:border-[#0569B9] transition-colors">
-            <div class="text-sm font-medium text-slate-900 dark:text-slate-100 leading-snug">
+          <div class="border-l border-black/[0.10] dark:border-white/[0.10] pl-3.5 py-0.5 hover:border-[#235789] transition-colors">
+            <div class="font-medium text-[#1a1e22] dark:text-[#edf2f7] leading-snug">
               {pub.entryTags.url ? (
-                <a href={pub.entryTags.url} target="_blank" rel="noopener noreferrer" class="hover:text-[#0569B9] dark:hover:text-[#82B4DC]">
+                <a href={pub.entryTags.url} target="_blank" rel="noopener noreferrer" class="hover:text-[#235789] dark:hover:text-[#82B4DC]">
                   {cleanLatex(pub.entryTags.title)}
                 </a>
               ) : pub.entryTags.doi ? (
-                <a href={`https://doi.org/${pub.entryTags.doi}`} target="_blank" rel="noopener noreferrer" class="hover:text-[#0569B9] dark:hover:text-[#82B4DC]">
+                <a href={`https://doi.org/${pub.entryTags.doi}`} target="_blank" rel="noopener noreferrer" class="hover:text-[#235789] dark:hover:text-[#82B4DC]">
                   {cleanLatex(pub.entryTags.title)}
                 </a>
               ) : (
@@ -75,19 +75,19 @@ const years = Object.keys(groupedByYear).sort((a, b) => b.localeCompare(a));
               )}
             </div>
             
-            <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5" set:html={formatAuthors(pub.entryTags.author || pub.entryTags.editor)} />
+            <div class="text-xs text-slate-500 dark:text-slate-400 mt-1" set:html={formatAuthors(pub.entryTags.author || pub.entryTags.editor)} />
             
-            <div class="text-[11px] text-slate-400 dark:text-slate-500 mt-0.5 flex items-center gap-1.5 flex-wrap">
+            <div class="text-xs text-slate-400 dark:text-slate-500 mt-1 flex items-center gap-2 flex-wrap">
               <span class="italic">{cleanLatex(pub.entryTags.journal || pub.entryTags.booktitle || pub.entryTags.publisher)}</span>
               <span>&bull;</span>
               <span>{pub.entryTags.year}</span>
               {pub.entryTags.doi && (
-                <a href={`https://doi.org/${pub.entryTags.doi}`} target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline font-mono text-[11px]">
+                <a href={`https://doi.org/${pub.entryTags.doi}`} target="_blank" rel="noopener noreferrer" class="text-[#235789] dark:text-[#82B4DC] hover:underline font-mono text-xs">
                   [DOI]
                 </a>
               )}
               {pub.entryTags.url && !pub.entryTags.doi && (
-                <a href={pub.entryTags.url} target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline font-mono text-[11px]">
+                <a href={pub.entryTags.url} target="_blank" rel="noopener noreferrer" class="text-[#235789] dark:text-[#82B4DC] hover:underline font-mono text-xs">
                   [Link]
                 </a>
               )}
@@ -100,21 +100,21 @@ const years = Object.keys(groupedByYear).sort((a, b) => b.localeCompare(a));
     <!-- Other Works (Preprints, Software, Lecture Notes) -->
     {otherPubs.length > 0 && (
       <section>
-        <h2 class="text-base font-semibold tracking-tight text-slate-900 dark:text-white mb-4 pb-1.5 border-b border-slate-200/80 dark:border-slate-800 flex items-center justify-between">
+        <h2 class="text-lg font-semibold tracking-tight text-[#1a1e22] dark:text-[#edf2f7] mb-4 pb-1.5 border-b border-black/[0.08] dark:border-white/[0.08] flex items-center justify-between">
           <span>Other Works (Preprints, Software & Lecture Notes)</span>
           <span class="text-xs font-normal text-slate-400 font-mono">({otherPubs.length})</span>
         </h2>
         
-        <div class="space-y-3.5">
+        <div class="space-y-4">
           {otherPubs.map(pub => (
-            <div class="border-l border-slate-200 dark:border-slate-800 pl-3 py-0.5 hover:border-[#0569B9] transition-colors">
-              <div class="text-base sm:text-lg font-semibold text-slate-900 dark:text-slate-100 leading-snug">
+            <div class="border-l border-black/[0.10] dark:border-white/[0.10] pl-3.5 py-0.5 hover:border-[#235789] transition-colors">
+              <div class="font-medium text-[#1a1e22] dark:text-[#edf2f7] leading-snug">
                 {pub.entryTags.url ? (
-                  <a href={pub.entryTags.url} target="_blank" rel="noopener noreferrer" class="hover:text-[#0569B9] dark:hover:text-[#82B4DC]">
+                  <a href={pub.entryTags.url} target="_blank" rel="noopener noreferrer" class="hover:text-[#235789] dark:hover:text-[#82B4DC]">
                     {cleanLatex(pub.entryTags.title)}
                   </a>
                 ) : pub.entryTags.doi ? (
-                  <a href={`https://doi.org/${pub.entryTags.doi}`} target="_blank" rel="noopener noreferrer" class="hover:text-[#0569B9] dark:hover:text-[#82B4DC]">
+                  <a href={`https://doi.org/${pub.entryTags.doi}`} target="_blank" rel="noopener noreferrer" class="hover:text-[#235789] dark:hover:text-[#82B4DC]">
                     {cleanLatex(pub.entryTags.title)}
                   </a>
                 ) : (
@@ -122,19 +122,19 @@ const years = Object.keys(groupedByYear).sort((a, b) => b.localeCompare(a));
                 )}
               </div>
               
-              <div class="text-sm text-slate-600 dark:text-slate-400 mt-1" set:html={formatAuthors(pub.entryTags.author || pub.entryTags.editor)} />
+              <div class="text-xs text-slate-500 dark:text-slate-400 mt-1" set:html={formatAuthors(pub.entryTags.author || pub.entryTags.editor)} />
               
-              <div class="text-xs sm:text-sm text-slate-500 dark:text-slate-500 mt-1 flex items-center gap-2 flex-wrap">
+              <div class="text-xs text-slate-400 dark:text-slate-500 mt-1 flex items-center gap-2 flex-wrap">
                 <span class="italic">{cleanLatex(pub.entryTags.journal || pub.entryTags.howpublished || pub.entryTags.publisher || pub.entryTags.note)}</span>
                 <span>&bull;</span>
                 <span>{pub.entryTags.year}</span>
                 {pub.entryTags.doi && (
-                  <a href={`https://doi.org/${pub.entryTags.doi}`} target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline font-mono text-xs font-medium">
+                  <a href={`https://doi.org/${pub.entryTags.doi}`} target="_blank" rel="noopener noreferrer" class="text-[#235789] dark:text-[#82B4DC] hover:underline font-mono text-xs">
                     [DOI]
                   </a>
                 )}
                 {pub.entryTags.url && !pub.entryTags.doi && (
-                  <a href={pub.entryTags.url} target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline font-mono text-xs font-medium">
+                  <a href={pub.entryTags.url} target="_blank" rel="noopener noreferrer" class="text-[#235789] dark:text-[#82B4DC] hover:underline font-mono text-xs">
                     [Link]
                   </a>
                 )}

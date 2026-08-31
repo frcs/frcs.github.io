@@ -87,47 +87,47 @@ const postdocAlumni = [
 ---
 
 <BaseLayout title="Team & Alumni - François Pitié" currentSection="team">
-  <div class="mb-8 pb-2 border-b border-slate-200/80 dark:border-slate-800">
-    <h1 class="text-xl font-semibold tracking-tight text-slate-900 dark:text-white">Team & Alumni</h1>
+  <div class="mb-8 pb-2 border-b border-black/[0.08] dark:border-white/[0.08]">
+    <h1 class="text-xl font-semibold tracking-tight text-[#1a1e22] dark:text-[#edf2f7]">Team & Alumni</h1>
     <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
       Current postdoctoral fellows, doctoral researchers, and research alumni at Trinity College Dublin.
     </p>
   </div>
 
   <!-- Current Researchers & Postdocs -->
-  <section class="mb-10">
-    <h2 class="text-base font-semibold tracking-tight text-slate-900 dark:text-white mb-3 pb-1.5 border-b border-slate-200/80 dark:border-slate-800">
+  <section class="mb-12">
+    <h2 class="text-lg font-semibold tracking-tight text-[#1a1e22] dark:text-[#edf2f7] mb-3.5 pb-1.5 border-b border-black/[0.08] dark:border-white/[0.08]">
       Current Team
     </h2>
-    <div class="space-y-3">
+    <div class="space-y-3.5">
       {currentResearchers.map(r => (
-        <div class="border-l border-[#0569B9] pl-3 py-0.5">
+        <div class="border-l border-[#235789] pl-3.5 py-0.5">
           <div class="flex items-baseline gap-2">
-            <span class="text-sm font-medium text-slate-900 dark:text-slate-100">{r.name}</span>
-            <span class="text-xs font-mono text-[#0569B9] dark:text-[#82B4DC]">[{r.status}]</span>
+            <span class="font-medium text-[#1a1e22] dark:text-[#edf2f7]">{r.name}</span>
+            <span class="text-xs font-mono text-[#235789] dark:text-[#82B4DC]">[{r.status}]</span>
           </div>
           <p class="text-xs text-slate-400 mt-0.5">{r.role}</p>
-          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-0.5">{r.topic}</p>
+          <p class="text-sm text-slate-600 dark:text-slate-300 mt-0.5 leading-relaxed">{r.topic}</p>
         </div>
       ))}
     </div>
   </section>
 
   <!-- Postdoctoral & Research Fellow Alumni -->
-  <section class="mb-10">
-    <h2 class="text-base font-semibold tracking-tight text-slate-900 dark:text-white mb-3 pb-1.5 border-b border-slate-200/80 dark:border-slate-800">
+  <section class="mb-12">
+    <h2 class="text-lg font-semibold tracking-tight text-[#1a1e22] dark:text-[#edf2f7] mb-3.5 pb-1.5 border-b border-black/[0.08] dark:border-white/[0.08]">
       Postdoctoral & Research Fellow Alumni
     </h2>
-    <div class="space-y-3">
+    <div class="space-y-3.5">
       {postdocAlumni.map(p => (
-        <div class="border-l border-slate-200 dark:border-slate-800 pl-3 py-0.5 hover:border-[#0569B9] transition-colors">
+        <div class="border-l border-black/[0.10] dark:border-white/[0.10] pl-3.5 py-0.5 hover:border-[#235789] transition-colors">
           <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-            <div class="text-sm font-medium text-slate-900 dark:text-slate-100">
+            <div class="font-medium text-[#1a1e22] dark:text-[#edf2f7]">
               {p.name} <span class="text-xs text-slate-400 font-mono">({p.period})</span>
             </div>
             <div class="text-xs text-slate-400">{p.role}</div>
           </div>
-          <div class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-0.5">
+          <div class="text-sm text-slate-600 dark:text-slate-300 mt-0.5 leading-relaxed">
             {p.topic}
           </div>
           {p.destination && (
@@ -142,19 +142,19 @@ const postdocAlumni = [
 
   <!-- Completed PhDs -->
   <section>
-    <h2 class="text-base font-semibold tracking-tight text-slate-900 dark:text-white mb-3 pb-1.5 border-b border-slate-200/80 dark:border-slate-800">
+    <h2 class="text-lg font-semibold tracking-tight text-[#1a1e22] dark:text-[#edf2f7] mb-3.5 pb-1.5 border-b border-black/[0.08] dark:border-white/[0.08]">
       Doctoral Alumni
     </h2>
-    <div class="space-y-3">
+    <div class="space-y-3.5">
       {completedPhDs.map(phd => (
-        <div class="border-l border-slate-200 dark:border-slate-800 pl-3 py-0.5 hover:border-[#0569B9] transition-colors">
+        <div class="border-l border-black/[0.10] dark:border-white/[0.10] pl-3.5 py-0.5 hover:border-[#235789] transition-colors">
           <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-            <div class="text-sm font-medium text-slate-900 dark:text-slate-100">
+            <div class="font-medium text-[#1a1e22] dark:text-[#edf2f7]">
               {phd.name} <span class="text-xs text-slate-400 font-mono">({phd.year})</span>
             </div>
             <div class="text-xs text-slate-400">{phd.role}</div>
           </div>
-          <div class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-0.5">
+          <div class="text-sm text-slate-600 dark:text-slate-300 mt-0.5 leading-relaxed">
             {phd.topic}
           </div>
           {phd.destination && (

@@ -4,49 +4,50 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-tcd-blue: #0569B9;
-  --color-tcd-blue-dark: #044F8C;
-  --color-brand: #0569B9;
+  --color-tcd-blue: #235789;
+  --color-tcd-blue-dark: #1b446c;
+  --color-brand: #235789;
   
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 html {
   scroll-behavior: smooth;
-  font-size: 14.5px; /* Restrained, readable base size */
+  font-size: 16.5px; /* Comfortable, open, effortlessly readable font size */
 }
 
 body {
   font-family: var(--font-sans);
-  color: #334155; /* Soft slate charcoal instead of harsh black */
-  background-color: #f6f7f9; /* Sober, calming light grey canvas */
-  line-height: 1.6;
+  color: #2e3438; /* Sumi ink charcoal: soft, organic, non-glaring */
+  background-color: #f7f6f2; /* Washi paper tone: natural, calming, warm off-white */
+  line-height: 1.75; /* Generous breathing room */
   -webkit-font-smoothing: antialiased;
 }
 
 .dark body {
-  color: #cbd5e1;
-  background-color: #0f141c; /* Soft dark slate */
+  color: #d8dde3;
+  background-color: #121519; /* Deep midnight ink canvas */
 }
 
-/* Headings: Clean, modern, understated weights */
+/* Headings: Quiet authority, balanced weights, relaxed spacing */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-sans);
-  color: #0f172a;
-  letter-spacing: -0.01em;
+  color: #1a1e22;
+  letter-spacing: -0.015em;
+  font-weight: 550;
 }
 
 .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
-  color: #f1f5f9;
+  color: #edf2f7;
 }
 
-/* Restrained links */
+/* Restrained, scholarly links */
 a {
-  text-underline-offset: 2px;
+  text-underline-offset: 3px;
 }
 
 /* KaTeX adjustments */
 .katex {
-  font-size: 1em !important;
+  font-size: 1.05em !important;
 }

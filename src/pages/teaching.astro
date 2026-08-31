@@ -67,16 +67,17 @@ const priorModules = [
 ---
 
 <BaseLayout title="Teaching - François Pitié" currentSection="teaching">
-  <div class="mb-8 pb-2 border-b border-slate-200/80 dark:border-slate-800">
-    <h1 class="text-xl font-semibold tracking-tight text-slate-900 dark:text-white">Teaching</h1>
+<BaseLayout title="Teaching - François Pitié" currentSection="teaching">
+  <div class="mb-8 pb-2 border-b border-black/[0.08] dark:border-white/[0.08]">
+    <h1 class="text-xl font-semibold tracking-tight text-[#1a1e22] dark:text-[#edf2f7]">Teaching</h1>
     <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
       Undergraduate and postgraduate courses delivered at the Department of Electronic & Electrical Engineering, Trinity College Dublin.
     </p>
   </div>
 
   <!-- Teaching Honours & Recognition -->
-  <div class="border-l border-amber-500/80 pl-3 py-1 mb-6 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
-    <div class="font-medium text-slate-900 dark:text-white">
+  <div class="border-l border-amber-600/70 pl-3 py-1 mb-6 text-xs sm:text-sm text-[#2e3438] dark:text-[#d8dde3]">
+    <div class="font-medium text-[#1a1e22] dark:text-[#edf2f7]">
       Teaching Recognition
     </div>
     <p class="mt-0.5 text-xs text-slate-500 dark:text-slate-400">
@@ -85,53 +86,53 @@ const priorModules = [
   </div>
 
   <!-- Teaching Philosophy Note -->
-  <div class="border-l border-slate-300/80 dark:border-slate-800 pl-3 py-1 mb-8 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-    <strong class="text-slate-800 dark:text-slate-200 font-medium">Teaching Philosophy: </strong>
+  <div class="border-l border-black/[0.12] dark:border-white/[0.12] pl-3.5 py-1 mb-8 text-xs sm:text-sm text-[#2e3438] dark:text-[#d8dde3] leading-relaxed">
+    <strong class="text-[#1a1e22] dark:text-[#edf2f7] font-medium">Teaching Philosophy: </strong>
     My teaching integrates open-ended engineering challenges with continuous, mastery-based feedback. By deploying automated evaluation platforms in technical modules such as deep learning and robotics, students iterate rapidly, debug effectively, and achieve deep conceptual mastery.
   </div>
 
   <!-- Current Modules -->
-  <section class="space-y-6 mb-10">
-    <h2 class="text-base font-semibold tracking-tight text-slate-900 dark:text-white pb-1.5 border-b border-slate-200/80 dark:border-slate-800">
+  <section class="space-y-6 mb-12">
+    <h2 class="text-lg font-semibold tracking-tight text-[#1a1e22] dark:text-[#edf2f7] pb-1.5 border-b border-black/[0.08] dark:border-white/[0.08]">
       Current Modules
     </h2>
 
     {currentModules.map(m => (
-      <div class="border-l border-slate-200 dark:border-slate-800 pl-3.5 py-0.5 hover:border-[#0569B9] transition-colors">
+      <div class="border-l border-black/[0.10] dark:border-white/[0.10] pl-3.5 py-0.5 hover:border-[#235789] transition-colors">
         <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-          <h3 class="text-sm font-medium text-slate-900 dark:text-slate-100">
-            <a href={m.pageUrl} class="hover:text-[#0569B9] dark:hover:text-[#82B4DC] transition-colors">
-              <span class="font-mono text-xs text-[#0569B9] dark:text-[#82B4DC] mr-1.5">{m.code}:</span> {m.title}
+          <h3 class="font-medium text-[#1a1e22] dark:text-[#edf2f7]">
+            <a href={m.pageUrl} class="hover:text-[#235789] dark:hover:text-[#82B4DC] transition-colors">
+              <span class="font-mono text-xs text-[#235789] dark:text-[#82B4DC] mr-1.5">{m.code}:</span> {m.title}
             </a>
           </h3>
           <span class="text-xs text-slate-400 font-mono shrink-0">{m.level}</span>
         </div>
-        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+        <p class="text-sm text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
           {m.desc}
         </p>
 
         {m.hasDeepLearningFeature && (
-          <div class="mt-3 pl-3 border-l border-slate-200 dark:border-slate-800 space-y-2 text-xs">
+          <div class="mt-3 pl-3 border-l border-black/[0.08] dark:border-white/[0.08] space-y-2 text-xs">
             <div>
-              <span class="font-medium text-slate-800 dark:text-slate-200">4C16 Open Lecture Notes: </span>
+              <span class="font-medium text-[#1a1e22] dark:text-[#edf2f7]">4C16 Open Lecture Notes: </span>
               <span class="text-slate-500">Comprehensive coursebook covering theory, derivations, and PyTorch tutorials. </span>
-              <a href="https://frcs.github.io/4C16-LectureNotes/" target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline font-medium">Read Online &rarr;</a>
+              <a href="https://frcs.github.io/4C16-LectureNotes/" target="_blank" rel="noopener noreferrer" class="text-[#235789] dark:text-[#82B4DC] hover:underline font-medium">Read Online &rarr;</a>
               <span class="mx-1 text-slate-300 dark:text-slate-700">&bull;</span>
-              <a href="https://doi.org/10.5281/zenodo.17954655" target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline font-medium">Zenodo DOI &rarr;</a>
+              <a href="https://doi.org/10.5281/zenodo.17954655" target="_blank" rel="noopener noreferrer" class="text-[#235789] dark:text-[#82B4DC] hover:underline font-medium">Zenodo DOI &rarr;</a>
             </div>
 
             <div>
-              <span class="font-medium text-slate-800 dark:text-slate-200">Continuous Lab Autograder: </span>
+              <span class="font-medium text-[#1a1e22] dark:text-[#edf2f7]">Continuous Lab Autograder: </span>
               <span class="text-slate-500">Hands-on coding lab system with automated Git evaluation for Colab assignments. </span>
-              <a href="https://github.com/frcs/4C16-2425" target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline font-medium">GitHub Repository &rarr;</a>
+              <a href="https://github.com/frcs/4C16-2425" target="_blank" rel="noopener noreferrer" class="text-[#235789] dark:text-[#82B4DC] hover:underline font-medium">GitHub Repository &rarr;</a>
               <span class="mx-1 text-slate-300 dark:text-slate-700">&bull;</span>
-              <a href="https://frcs.github.io/4c16/" target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline font-medium">Course Hub &rarr;</a>
+              <a href="https://frcs.github.io/4c16/" target="_blank" rel="noopener noreferrer" class="text-[#235789] dark:text-[#82B4DC] hover:underline font-medium">Course Hub &rarr;</a>
             </div>
           </div>
         )}
 
         {!m.hasDeepLearningFeature && m.links.length > 0 && (
-          <div class="mt-2 flex items-center gap-3 text-xs text-[#0569B9] dark:text-[#82B4DC]">
+          <div class="mt-2 flex items-center gap-3 text-xs text-[#235789] dark:text-[#82B4DC]">
             {m.links.map(l => (
               <a href={l.url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 hover:underline">
                 {l.name}
@@ -145,20 +146,20 @@ const priorModules = [
   </section>
 
   <!-- Previous Modules (Since 2016) -->
-  <section class="space-y-5 mb-12">
-    <h2 class="text-lg sm:text-xl font-bold tracking-tight text-slate-900 dark:text-white pb-2 border-b border-slate-200 dark:border-slate-800">
+  <section class="space-y-4 mb-12">
+    <h2 class="text-lg font-semibold tracking-tight text-[#1a1e22] dark:text-[#edf2f7] pb-1.5 border-b border-black/[0.08] dark:border-white/[0.08]">
       Previous Modules (2016 – 2024)
     </h2>
 
     {pastModules.map(m => (
-      <div class="border-l-2 border-slate-200 dark:border-slate-800 pl-4 py-1 hover:border-[#0569B9] transition-colors">
+      <div class="border-l border-black/[0.10] dark:border-white/[0.10] pl-3.5 py-0.5 hover:border-[#235789] transition-colors">
         <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-          <h3 class="text-base sm:text-lg font-semibold text-slate-900 dark:text-slate-100">
-            <span class="font-mono text-slate-500 mr-1.5">{m.code}:</span> {m.title}
+          <h3 class="font-medium text-[#1a1e22] dark:text-[#edf2f7]">
+            <span class="font-mono text-xs text-slate-400 mr-1.5">{m.code}:</span> {m.title}
           </h3>
-          <span class="text-xs sm:text-sm text-slate-400 font-mono shrink-0">{m.period}</span>
+          <span class="text-xs text-slate-400 font-mono shrink-0">{m.period}</span>
         </div>
-        <p class="text-sm text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
+        <p class="text-sm text-slate-600 dark:text-slate-400 mt-0.5 leading-relaxed">
           {m.desc}
         </p>
       </div>
