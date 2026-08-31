@@ -1,0 +1,120 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const completedPhDs = [
+  {
+    name: "Dr. Clément Bled",
+    year: "2025",
+    role: "Primary Supervisor",
+    topic: "Energy-efficient video denoising and restoration architectures",
+    destination: "Postdoctoral Researcher, Trinity College Dublin"
+  },
+  {
+    name: "Dr. Hao Wu",
+    year: "2023",
+    role: "Primary Supervisor",
+    topic: "Deep multimodal learning and video-text generation",
+    destination: "Huawei Technologies"
+  },
+  {
+    name: "Dr. Daniel J. Ringis",
+    year: "2022",
+    role: "Secondary Supervisor",
+    topic: "Perceptual optimization and rate-distortion in video compression",
+    destination: "Lecturer, University of the West Indies"
+  },
+  {
+    name: "Dr. Marco Forte",
+    year: "2022",
+    role: "Primary Supervisor",
+    topic: "Interactive object selection and trimap-free image matting",
+    destination: "Senior Computer Vision Engineer, PhotoRoom"
+  },
+  {
+    name: "Dr. Félix Raimbault",
+    year: "2014",
+    role: "Secondary Supervisor",
+    topic: "Video restoration and motion estimation",
+    destination: ""
+  },
+  {
+    name: "Dr. Roisin Rowley-Brooke",
+    year: "2013",
+    role: "Secondary Supervisor",
+    topic: "Archive film restoration and defect removal",
+    destination: ""
+  },
+  {
+    name: "Dr. Mohammed Ahmed",
+    year: "2011",
+    role: "Secondary Supervisor",
+    topic: "Motion analysis and video processing",
+    destination: ""
+  }
+];
+
+const currentResearchers = [
+  {
+    name: "Bold-Erdene Ganbaatar",
+    status: "PhD Candidate",
+    role: "Primary Supervisor",
+    topic: "3D Gaussian Splatting and Neural Scene Representation"
+  }
+];
+---
+
+<BaseLayout title="Team & Supervision - François Pitié" currentSection="team">
+  <div class="mb-8 pb-3 border-b border-slate-100 dark:border-slate-800">
+    <h1 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Team & Alumni</h1>
+    <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+      Doctoral researchers, postdocs, and postgraduate alumni supervised at Trinity College Dublin.
+    </p>
+  </div>
+
+  <!-- Current Researchers -->
+  <section class="mb-10">
+    <h2 class="text-lg font-bold tracking-tight text-slate-900 dark:text-white mb-4">Current Doctoral Researchers</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {currentResearchers.map(r => (
+        <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xs">
+          <div class="flex items-baseline justify-between mb-1">
+            <h3 class="text-sm font-semibold text-slate-900 dark:text-slate-100">{r.name}</h3>
+            <span class="text-xs font-mono text-sky-700 dark:text-sky-400 font-medium">{r.status}</span>
+          </div>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mb-1">{r.role}</p>
+          <p class="text-xs text-slate-600 dark:text-slate-300">{r.topic}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Completed PhDs -->
+  <section>
+    <h2 class="text-lg font-bold tracking-tight text-slate-900 dark:text-white mb-4">Doctoral Alumni</h2>
+    <div class="divide-y divide-slate-100 dark:divide-slate-800/80 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden bg-white dark:bg-slate-900 shadow-xs">
+      {completedPhDs.map(phd => (
+        <div class="p-4 flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors">
+          <div>
+            <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">
+              {phd.name}
+            </div>
+            <div class="text-xs text-slate-600 dark:text-slate-300 mt-0.5">
+              {phd.topic}
+            </div>
+            {phd.destination && (
+              <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                <span class="text-slate-400 dark:text-slate-500">Destination:</span> {phd.destination}
+              </div>
+            )}
+          </div>
+          <div class="text-right shrink-0">
+            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 font-mono text-xs text-slate-600 dark:text-slate-400">
+              {phd.year}
+            </span>
+            <div class="text-[11px] text-slate-400 mt-1">{phd.role}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

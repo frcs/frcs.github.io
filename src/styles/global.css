@@ -1,0 +1,26 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-brand: #005596;
+  --color-brand-dark: #003e6d;
+  --color-dark-bg: rgb(15, 23, 42);
+  --color-dark-surface: rgb(30, 41, 59);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  color: #1e293b;
+  background-color: #f8fafc;
+}
+
+.dark body {
+  color: #e2e8f0;
+  background-color: #0f172a;
+}

@@ -1,0 +1,106 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const projects = [
+  {
+    title: "EMERALD: AI and Process Automation for Sustainable Entertainment and Media",
+    period: "2023 – 2026",
+    funding: "Horizon Europe (Consortium €3.79M, TCD €505k)",
+    role: "Co-Principal Investigator",
+    summary: "Collaborative European project with academic and industrial partners (including FilmLight, Brainstorm Multimedia, Disguise, UPF). The research focuses on developing energy-efficient neural processing pipelines, scene-aware illuminant estimation, and green media AI architectures that reduce computational and environmental overhead across virtual production and broadcast workflows."
+  },
+  {
+    title: "Alliance for Open Media (AOMedia) Video Quality Research",
+    period: "Ongoing",
+    funding: "Alliance for Open Media",
+    role: "Academic Representative / Principal Investigator",
+    summary: "Contributing to the Video Quality Working Group alongside partners such as Google, Netflix, and Apple to advance next-generation royalty-free video compression standards (AV1 and AVM). Focus areas include perceptual rate-distortion optimization, clip-level Lagrangian multiplier adaptation for 4K HDR streaming, and lightweight encoder control models."
+  },
+  {
+    title: "Interactive Vision & Alpha Matting (F, B, Alpha Matting)",
+    period: "2019 – Present",
+    funding: "Industry Collaboration & Licensing",
+    role: "Lead Supervisor / Senior Author",
+    summary: "Investigation of human-in-the-loop computer vision architectures. Developing deep models capable of refining segmentation from minimal user clicks (ICME Best Paper Runner-Up with Adobe Research) and simultaneous estimation of foreground, background, and alpha matte. Research licensed commercially to PhotoRoom in 2021."
+  },
+  {
+    title: "Statistical & Applied Optimal Transport in Visual Media",
+    period: "Foundational & Ongoing",
+    funding: "Enterprise Ireland / Marie-Curie / Industry",
+    role: "Principal Investigator",
+    summary: "Mathematical formulation of colour grading and image restoration using N-dimensional probability density transfer and continuous Monge-Kantorovich optimal transport. Integrated into commercial tools including The Foundry's Furnace suite (MatchGrade, Deflicker2) and utilised in high-end VFX and map imagery."
+  }
+];
+
+const spinouts = [
+  {
+    name: "Swan AI (Syze)",
+    period: "2019 – Present",
+    role: "Founder / Academic Lead (Enterprise Ireland CF)",
+    desc: "Spun out from TCD and ADAPT, commercialising computer vision algorithms for 3D human body measurement and virtual fitting solutions from standard smartphone images."
+  },
+  {
+    name: "PixelPuffin Ltd.",
+    period: "2011 – 2016",
+    role: "Founder & Director",
+    desc: "TCD campus company formed following Enterprise Ireland Commercialisation funding (3DScam). Developed postproduction tools including DepthArtist for 2D-to-3D stereoscopic conversion, and licensed video stabilisation technology to Roxio."
+  },
+  {
+    name: "GreenParrotPictures",
+    period: "2004 – 2011",
+    role: "Senior Researcher & Algorithm Developer",
+    desc: "TCD spin-out developing automated film restoration and motion estimation systems (FilmFix). Acquired by Google in 2011, where core technologies were integrated into YouTube video processing infrastructure."
+  }
+];
+---
+
+<BaseLayout title="Research & Projects - François Pitié" currentSection="research">
+  <div class="mb-8 pb-3 border-b border-slate-100 dark:border-slate-800">
+    <h1 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Research & Projects</h1>
+    <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+      Focus on applied mathematics, signal processing, and machine learning for visual media and streaming.
+    </p>
+  </div>
+
+  <!-- Key Projects -->
+  <section class="mb-10">
+    <h2 class="text-lg font-bold tracking-tight text-slate-900 dark:text-white mb-4">Current & Recent Initiatives</h2>
+    <div class="space-y-6">
+      {projects.map(p => (
+        <div class="p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 shadow-xs">
+          <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
+            <h3 class="text-base font-semibold text-slate-900 dark:text-slate-100">{p.title}</h3>
+            <span class="text-xs font-mono text-slate-500 dark:text-slate-400 shrink-0">{p.period}</span>
+          </div>
+          <div class="flex flex-wrap gap-x-4 gap-y-1 text-xs text-sky-700 dark:text-sky-400 font-medium mb-3">
+            <span>Role: {p.role}</span>
+            <span>&bull;</span>
+            <span>{p.funding}</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            {p.summary}
+          </p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Entrepreneurial Translation & Spin-outs -->
+  <section>
+    <h2 class="text-lg font-bold tracking-tight text-slate-900 dark:text-white mb-4">Spin-outs & Industry Translation</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      {spinouts.map(s => (
+        <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/40 flex flex-col justify-between">
+          <div>
+            <div class="flex items-baseline justify-between mb-1">
+              <h3 class="text-sm font-semibold text-slate-900 dark:text-slate-100">{s.name}</h3>
+              <span class="text-[11px] font-mono text-slate-400">{s.period}</span>
+            </div>
+            <p class="text-xs font-medium text-slate-500 dark:text-slate-400 mb-2">{s.role}</p>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">{s.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

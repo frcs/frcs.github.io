@@ -1,0 +1,21 @@
+{
+  "name": "frcs-website",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@tailwindcss/typography": "^0.5.19",
+    "@tailwindcss/vite": "4.2.4",
+    "astro": "^6.1.9",
+    "bibtex-parse-js": "^0.0.24",
+    "tailwindcss": "4.2.4"
+  },
+  "overrides": {
+    "vite": "^7.3.6"
+  }
+}

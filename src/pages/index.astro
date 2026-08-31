@@ -1,0 +1,170 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { loadPublications, cleanLatex, formatAuthors } from '../utils/bibtex';
+
+const allPubs = loadPublications();
+// Pick representative works for homepage (similar to Viet Pham's selected works)
+const selectedKeys = [
+  'Piti:2007:automated',
+  'Pitie:2005:ndimensional',
+  'Forte:2020:interactive',
+  'Forte:2020:fb',
+  'Bled:2024:lightweight',
+  'Bled:2023:pushing',
+  'Ringis:2025:demystifying',
+  'Ringis:2023:disparity'
+];
+
+const selectedPubs = selectedKeys
+  .map(key => allPubs.find(p => p.citationKey.toLowerCase() === key.toLowerCase()))
+  .filter(Boolean);
+
+const news = [
+  {
+    date: '2026',
+    text: 'Elected Fellow of Trinity College Dublin (FTCD).'
+  },
+  {
+    date: '2025',
+    text: 'Paper on <em>Demystifying the use of Compression in Virtual Production</em> published in the SMPTE Motion Imaging Journal.'
+  },
+  {
+    date: '2025',
+    text: 'Released course lecture notes on <a href="https://doi.org/10.5281/zenodo.17954655" target="_blank" class="text-sky-700 dark:text-sky-400 hover:underline">Deep Learning and its Applications</a> on Zenodo.'
+  },
+  {
+    date: '2024',
+    text: 'Paper on <em>Lightweight Video Denoising Using a Classic Bayesian Backbone</em> presented at IEEE ICME 2024.'
+  },
+  {
+    date: '2023',
+    text: 'Horizon Europe project <strong>EMERALD</strong> (AI and Process Automation for Sustainable Entertainment and Media) commenced with European partners.'
+  },
+  {
+    date: '2023',
+    text: 'Paper on <em>Pushing the Limits of the Wiener Filter in Image Denoising</em> presented at IEEE ICIP 2023.'
+  }
+];
+
+const researchThemes = [
+  {
+    title: "Colour Transfer & Optimal Transport",
+    desc: "Formulations based on probability density transfer and continuous Monge-Kantorovich optimal transport for automated colour grading and film restoration."
+  },
+  {
+    title: "Interactive Vision & Alpha Matting",
+    desc: "Human-in-the-loop deep architectures (F, B, Alpha Matting and interactive object selection) providing fine boundary control with minimal user interaction."
+  },
+  {
+    title: "Sustainable Video Processing & Codecs",
+    desc: "Lightweight statistical/neural hybrid backbones and perceptual rate-distortion optimization (AOMedia AV1/AVM) to reduce computational footprint and energy usage."
+  }
+];
+---
+
+<BaseLayout title="François Pitié - Academic Homepage" currentSection="home">
+  
+  <!-- Academic Bio Section -->
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white mb-4 pb-2 border-b border-slate-100 dark:border-slate-800">
+      Academic Bio
+    </h2>
+    <div class="prose prose-slate dark:prose-invert max-w-none text-sm sm:text-base leading-relaxed space-y-3">
+      <p>
+        I am an <strong>Ussher Assistant Professor</strong> in Media Signal Processing at the 
+        <a href="https://www.tcd.ie/eleceng/" target="_blank" rel="noopener noreferrer" class="text-sky-700 dark:text-sky-400 font-medium hover:underline">Department of Electronic & Electrical Engineering</a>, 
+        <a href="https://www.tcd.ie" target="_blank" rel="noopener noreferrer" class="text-sky-700 dark:text-sky-400 font-medium hover:underline">Trinity College Dublin</a>. 
+        I am a Principal Investigator with the <a href="https://sigmedia.tv" target="_blank" rel="noopener noreferrer" class="text-sky-700 dark:text-sky-400 font-medium hover:underline">Sigmedia Research Group</a>, 
+        an Academic Collaborator at the <a href="https://www.adaptcentre.ie" target="_blank" rel="noopener noreferrer" class="text-sky-700 dark:text-sky-400 font-medium hover:underline">ADAPT Research Centre</a>, 
+        and an elected <strong>Fellow of Trinity College Dublin (FTCD)</strong>.
+      </p>
+      <p>
+        My research develops applied mathematical formulations and machine learning models for visual media processing, film postproduction, and video compression. 
+        Focus areas include continuous optimal transport for automated colour transfer, interactive trimap-free alpha matting, and energy-efficient neural video processing.
+      </p>
+      <p>
+        Translational outcomes of this research include algorithms licensed in commercial postproduction suites (such as The Foundry’s Academy Award-winning <em>Furnace</em> suite for Nuke), 
+        technology transfers to visual AI platforms including PhotoRoom, and campus spin-outs (GreenParrotPictures, acquired by Google in 2011; PixelPuffin; and Swan AI). 
+        I also contribute to international video compression standards within the Alliance for Open Media (AOMedia).
+      </p>
+    </div>
+  </section>
+
+  <!-- Research Themes -->
+  <section class="mb-10">
+    <div class="flex items-center justify-between mb-4 pb-2 border-b border-slate-100 dark:border-slate-800">
+      <h2 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Research Themes</h2>
+      <a href="/research" class="text-xs font-medium text-sky-700 dark:text-sky-400 hover:underline">View details &rarr;</a>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      {researchThemes.map(theme => (
+        <div class="p-4 rounded-lg bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-800 flex flex-col justify-between">
+          <div>
+            <h3 class="text-sm font-semibold text-slate-900 dark:text-slate-100 mb-1.5">{theme.title}</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">{theme.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Recent News -->
+  <section class="mb-10">
+    <h2 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white mb-4 pb-2 border-b border-slate-100 dark:border-slate-800">
+      Recent News
+    </h2>
+    <div class="space-y-3">
+      {news.map(item => (
+        <div class="flex items-baseline gap-3 text-xs sm:text-sm">
+          <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 font-mono text-[11px] font-medium text-slate-600 dark:text-slate-400 shrink-0">
+            {item.date}
+          </span>
+          <span class="text-slate-700 dark:text-slate-300" set:html={item.text} />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Selected Publications -->
+  <section>
+    <div class="flex items-center justify-between mb-4 pb-2 border-b border-slate-100 dark:border-slate-800">
+      <h2 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Selected Publications</h2>
+      <a href="/publications" class="text-xs font-medium text-sky-700 dark:text-sky-400 hover:underline">All publications &rarr;</a>
+    </div>
+
+    <div class="space-y-3">
+      {selectedPubs.map((pub, idx) => (
+        <div class="p-3.5 rounded-lg border border-slate-100 dark:border-slate-800/80 hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors">
+          <div class="text-sm font-semibold text-slate-900 dark:text-slate-100 leading-snug">
+            {pub.entryTags.url ? (
+              <a href={pub.entryTags.url} target="_blank" rel="noopener noreferrer" class="hover:text-sky-700 dark:hover:text-sky-400">
+                {cleanLatex(pub.entryTags.title)}
+              </a>
+            ) : pub.entryTags.doi ? (
+              <a href={`https://doi.org/${pub.entryTags.doi}`} target="_blank" rel="noopener noreferrer" class="hover:text-sky-700 dark:hover:text-sky-400">
+                {cleanLatex(pub.entryTags.title)}
+              </a>
+            ) : (
+              cleanLatex(pub.entryTags.title)
+            )}
+          </div>
+          
+          <div class="text-xs text-slate-600 dark:text-slate-400 mt-1" set:html={formatAuthors(pub.entryTags.author || pub.entryTags.editor)} />
+          
+          <div class="text-xs text-slate-500 dark:text-slate-500 mt-1 flex items-center gap-2 flex-wrap">
+            <span class="italic">{cleanLatex(pub.entryTags.journal || pub.entryTags.booktitle || pub.entryTags.howpublished)}</span>
+            <span>&bull;</span>
+            <span>{pub.entryTags.year}</span>
+            {pub.entryTags.doi && (
+              <a href={`https://doi.org/${pub.entryTags.doi}`} target="_blank" rel="noopener noreferrer" class="text-sky-700 dark:text-sky-400 hover:underline font-mono text-[11px]">
+                [DOI]
+              </a>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+</BaseLayout>

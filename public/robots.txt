@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://francois.pitie.net/sitemap-index.xml

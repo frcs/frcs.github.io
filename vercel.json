@@ -1,0 +1,27 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/4c16/:path*",
+      "destination": "https://frcs.github.io/4c16/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/4c16",
+      "destination": "https://frcs.github.io/4c16/",
+      "permanent": false
+    },
+    {
+      "source": "/4C16/:path*",
+      "destination": "https://frcs.github.io/4c16/:path*",
+      "permanent": false
+    },
+    {
+      "source": "/4C16",
+      "destination": "https://frcs.github.io/4c16/",
+      "permanent": false
+    }
+  ]
+}

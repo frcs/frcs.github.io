@@ -1,0 +1,171 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { loadPublications, cleanLatex, formatAuthors } from '../utils/bibtex';
+
+const allPubs = loadPublications();
+
+// Group by category (from SAPC / bibtex)
+const categoryOrder = [
+  'Journal Articles',
+  'Papers in Conference Proceedings',
+  'Book Chapters',
+  'Edited books or special issues of journals',
+  'Non Peer-reviewed Works'
+];
+
+const pubsByCategory = categoryOrder.reduce((acc, cat) => {
+  acc[cat] = allPubs.filter(p => (p.entryTags.sapc_category || '').trim().toLowerCase() === cat.toLowerCase());
+  return acc;
+}, {} as Record<string, typeof allPubs>);
+
+// Fallback for any without explicit category
+const unclassified = allPubs.filter(p => {
+  const c = (p.entryTags.sapc_category || '').trim().toLowerCase();
+  return !categoryOrder.map(x => x.toLowerCase()).includes(c);
+});
+if (unclassified.length > 0) {
+  pubsByCategory['Other / Miscellaneous'] = unclassified;
+}
+
+// Group by year as well
+const groupedByYear = allPubs.reduce((acc, entry) => {
+  const year = entry.entryTags.year || 'Other';
+  if (!acc[year]) acc[year] = [];
+  acc[year].push(entry);
+  return acc;
+}, {} as Record<string, typeof allPubs>);
+
+const years = Object.keys(groupedByYear).sort((a, b) => b.localeCompare(a));
+---
+
+<BaseLayout title="Publications - François Pitié" currentSection="publications">
+  <div class="mb-6 pb-3 border-b border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+    <div>
+      <h1 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Publications</h1>
+      <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+        Master bibliography ({allPubs.length} entries). Also available on <a href="https://scholar.google.com/citations?user=lOaoO74AAAAJ" target="_blank" rel="noopener noreferrer" class="text-sky-700 dark:text-sky-400 hover:underline">Google Scholar</a> and <a href="https://www.researchgate.net/profile/F_Pitie" target="_blank" rel="noopener noreferrer" class="text-sky-700 dark:text-sky-400 hover:underline">ResearchGate</a>.
+      </p>
+    </div>
+
+    <!-- Quick filter view toggle -->
+    <div class="flex items-center gap-1.5 text-xs bg-slate-100 dark:bg-slate-800 p-1 rounded-lg self-start sm:self-auto">
+      <button id="btn-by-category" class="px-2.5 py-1 rounded bg-white dark:bg-slate-700 text-slate-900 dark:text-white font-medium shadow-xs">By Category</button>
+      <button id="btn-by-year" class="px-2.5 py-1 rounded text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white">By Year</button>
+    </div>
+  </div>
+
+  <!-- Category View -->
+  <div id="view-by-category" class="space-y-8">
+    {Object.entries(pubsByCategory).map(([cat, list]) => list.length > 0 && (
+      <section>
+        <h2 class="text-lg font-bold tracking-tight text-slate-900 dark:text-white mb-3 pb-1 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+          <span>{cat}</span>
+          <span class="text-xs font-normal text-slate-400 font-mono">({list.length})</span>
+        </h2>
+        <div class="space-y-3">
+          {list.map(pub => (
+            <div class="p-3 rounded-lg border border-slate-100 dark:border-slate-800/60 hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100 leading-snug">
+                {pub.entryTags.url ? (
+                  <a href={pub.entryTags.url} target="_blank" rel="noopener noreferrer" class="hover:text-sky-700 dark:hover:text-sky-400">
+                    {cleanLatex(pub.entryTags.title)}
+                  </a>
+                ) : pub.entryTags.doi ? (
+                  <a href={`https://doi.org/${pub.entryTags.doi}`} target="_blank" rel="noopener noreferrer" class="hover:text-sky-700 dark:hover:text-sky-400">
+                    {cleanLatex(pub.entryTags.title)}
+                  </a>
+                ) : (
+                  cleanLatex(pub.entryTags.title)
+                )}
+              </div>
+              <div class="text-xs text-slate-600 dark:text-slate-400 mt-1" set:html={formatAuthors(pub.entryTags.author || pub.entryTags.editor)} />
+              <div class="text-xs text-slate-500 dark:text-slate-500 mt-1 flex items-center gap-2 flex-wrap">
+                <span class="italic">{cleanLatex(pub.entryTags.journal || pub.entryTags.booktitle || pub.entryTags.howpublished || pub.entryTags.publisher)}</span>
+                <span>&bull;</span>
+                <span>{pub.entryTags.year}</span>
+                {pub.entryTags.doi && (
+                  <a href={`https://doi.org/${pub.entryTags.doi}`} target="_blank" rel="noopener noreferrer" class="text-sky-700 dark:text-sky-400 hover:underline font-mono text-[11px]">
+                    [DOI]
+                  </a>
+                )}
+                {pub.entryTags.url && !pub.entryTags.doi && (
+                  <a href={pub.entryTags.url} target="_blank" rel="noopener noreferrer" class="text-sky-700 dark:text-sky-400 hover:underline font-mono text-[11px]">
+                    [Link]
+                  </a>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    ))}
+  </div>
+
+  <!-- Year View (hidden by default) -->
+  <div id="view-by-year" class="space-y-8 hidden">
+    {years.map(year => (
+      <section>
+        <h2 class="text-lg font-bold tracking-tight text-slate-900 dark:text-white mb-3 pb-1 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+          <span>{year}</span>
+          <span class="text-xs font-normal text-slate-400 font-mono">({groupedByYear[year].length})</span>
+        </h2>
+        <div class="space-y-3">
+          {groupedByYear[year].map(pub => (
+            <div class="p-3 rounded-lg border border-slate-100 dark:border-slate-800/60 hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors">
+              <div class="text-sm font-semibold text-slate-900 dark:text-slate-100 leading-snug">
+                {pub.entryTags.url ? (
+                  <a href={pub.entryTags.url} target="_blank" rel="noopener noreferrer" class="hover:text-sky-700 dark:hover:text-sky-400">
+                    {cleanLatex(pub.entryTags.title)}
+                  </a>
+                ) : pub.entryTags.doi ? (
+                  <a href={`https://doi.org/${pub.entryTags.doi}`} target="_blank" rel="noopener noreferrer" class="hover:text-sky-700 dark:hover:text-sky-400">
+                    {cleanLatex(pub.entryTags.title)}
+                  </a>
+                ) : (
+                  cleanLatex(pub.entryTags.title)
+                )}
+              </div>
+              <div class="text-xs text-slate-600 dark:text-slate-400 mt-1" set:html={formatAuthors(pub.entryTags.author || pub.entryTags.editor)} />
+              <div class="text-xs text-slate-500 dark:text-slate-500 mt-1 flex items-center gap-2 flex-wrap">
+                <span class="italic">{cleanLatex(pub.entryTags.journal || pub.entryTags.booktitle || pub.entryTags.howpublished || pub.entryTags.publisher)}</span>
+                {pub.entryTags.doi && (
+                  <>
+                    <span>&bull;</span>
+                    <a href={`https://doi.org/${pub.entryTags.doi}`} target="_blank" rel="noopener noreferrer" class="text-sky-700 dark:text-sky-400 hover:underline font-mono text-[11px]">
+                      [DOI]
+                    </a>
+                  </>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    ))}
+  </div>
+
+  <script>
+    const btnCat = document.getElementById('btn-by-category');
+    const btnYear = document.getElementById('btn-by-year');
+    const viewCat = document.getElementById('view-by-category');
+    const viewYear = document.getElementById('view-by-year');
+
+    btnCat?.addEventListener('click', () => {
+      btnCat.classList.add('bg-white', 'dark:bg-slate-700', 'text-slate-900', 'dark:text-white', 'shadow-xs');
+      btnCat.classList.remove('text-slate-600', 'dark:text-slate-400');
+      btnYear?.classList.remove('bg-white', 'dark:bg-slate-700', 'text-slate-900', 'dark:text-white', 'shadow-xs');
+      btnYear?.classList.add('text-slate-600', 'dark:text-slate-400');
+      viewCat?.classList.remove('hidden');
+      viewYear?.classList.add('hidden');
+    });
+
+    btnYear?.addEventListener('click', () => {
+      btnYear.classList.add('bg-white', 'dark:bg-slate-700', 'text-slate-900', 'dark:text-white', 'shadow-xs');
+      btnYear.classList.remove('text-slate-600', 'dark:text-slate-400');
+      btnCat?.classList.remove('bg-white', 'dark:bg-slate-700', 'text-slate-900', 'dark:text-white', 'shadow-xs');
+      btnCat?.classList.add('text-slate-600', 'dark:text-slate-400');
+      viewYear?.classList.remove('hidden');
+      viewCat?.classList.add('hidden');
+    });
+  </script>
+</BaseLayout>
