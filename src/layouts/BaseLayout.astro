@@ -81,9 +81,9 @@ const navItems = [
   <!-- Main 2-Column Container -->
   <div class="max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-10 flex-1 flex flex-col md:flex-row gap-12">
     
-    <!-- Left Column (Comfortable readable font size) -->
-    <aside class="w-full md:w-64 lg:w-72 shrink-0">
-      <div class="sticky top-10 space-y-6">
+    <!-- Left Column (Compact profiles, clear hierarchy) -->
+    <aside class="w-full md:w-60 lg:w-64 shrink-0">
+      <div class="sticky top-10 space-y-5">
         
         <!-- Profile Identity -->
         <div>
@@ -100,7 +100,7 @@ const navItems = [
           <p class="text-sm text-[#0569B9] dark:text-[#82B4DC] font-semibold mt-0.5">Ussher Assistant Professor</p>
           <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Fellow of Trinity College Dublin (FTCD)</p>
           
-          <div class="mt-3 text-sm text-slate-600 dark:text-slate-300 space-y-1 leading-normal">
+          <div class="mt-3 text-sm text-slate-600 dark:text-slate-300 space-y-0.5 leading-normal">
             <p>
               <a href="https://www.tcd.ie/eleceng/" target="_blank" rel="noopener noreferrer" class="hover:underline">
                 Dept. of Electronic & Elec. Eng.
@@ -111,14 +111,15 @@ const navItems = [
                 Trinity College Dublin
               </a>
             </p>
-            <p class="text-xs text-slate-500 dark:text-slate-400">
+            <p class="text-xs text-slate-500 dark:text-slate-400 pt-0.5">
               <a href="https://sigmedia.tv" target="_blank" rel="noopener noreferrer" class="hover:underline">Sigmedia</a> &bull; 
               <a href="https://www.adaptcentre.ie" target="_blank" rel="noopener noreferrer" class="hover:underline">ADAPT Centre</a>
             </p>
           </div>
         </div>
 
-        <div class="pt-4 border-t border-slate-200 dark:border-slate-800 text-sm space-y-2 text-slate-600 dark:text-slate-300">
+        <!-- Contact & Office -->
+        <div class="pt-3 border-t border-slate-200 dark:border-slate-800 text-xs sm:text-sm space-y-1 text-slate-600 dark:text-slate-300">
           <div>
             <span class="text-slate-400 dark:text-slate-500 font-mono text-xs">Email: </span>
             <a href="mailto:pitief@tcd.ie" class="text-slate-800 dark:text-slate-200 hover:text-[#0569B9] dark:hover:text-[#82B4DC] font-medium">pitief@tcd.ie</a>
@@ -129,28 +130,22 @@ const navItems = [
           </div>
         </div>
 
-        <!-- Academic Profiles Links -->
-        <div class="pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-col space-y-1.5 text-sm">
-          <a href="https://scholar.google.com/citations?user=lOaoO74AAAAJ" target="_blank" rel="noopener noreferrer" class="text-slate-700 dark:text-slate-300 hover:text-[#0569B9] dark:hover:text-[#82B4DC] transition-colors">
-            &rsaquo; Google Scholar
-          </a>
-          <a href="https://orcid.org/0000-0002-3925-5020" target="_blank" rel="noopener noreferrer" class="text-slate-700 dark:text-slate-300 hover:text-[#0569B9] dark:hover:text-[#82B4DC] transition-colors">
-            &rsaquo; ORCID
-          </a>
-          <a href="https://github.com/frcs" target="_blank" rel="noopener noreferrer" class="text-slate-700 dark:text-slate-300 hover:text-[#0569B9] dark:hover:text-[#82B4DC] transition-colors">
-            &rsaquo; GitHub
-          </a>
-          <a href="https://ie.linkedin.com/in/fran%C3%A7ois-piti%C3%A9-6182718b" target="_blank" rel="noopener noreferrer" class="text-slate-700 dark:text-slate-300 hover:text-[#0569B9] dark:hover:text-[#82B4DC] transition-colors">
-            &rsaquo; LinkedIn
-          </a>
-          <a href="https://www.researchgate.net/profile/F_Pitie" target="_blank" rel="noopener noreferrer" class="text-slate-700 dark:text-slate-300 hover:text-[#0569B9] dark:hover:text-[#82B4DC] transition-colors">
-            &rsaquo; ResearchGate
-          </a>
+        <!-- Compact Academic Profiles Links (Inline inline-flex wrap with dots) -->
+        <div class="pt-3 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+          <a href="https://scholar.google.com/citations?user=lOaoO74AAAAJ" target="_blank" rel="noopener noreferrer" class="hover:text-[#0569B9] dark:hover:text-[#82B4DC]">Google Scholar</a>
+          <span class="mx-1 text-slate-300 dark:text-slate-700">&bull;</span>
+          <a href="https://orcid.org/0000-0002-3925-5020" target="_blank" rel="noopener noreferrer" class="hover:text-[#0569B9] dark:hover:text-[#82B4DC]">ORCID</a>
+          <span class="mx-1 text-slate-300 dark:text-slate-700">&bull;</span>
+          <a href="https://github.com/frcs" target="_blank" rel="noopener noreferrer" class="hover:text-[#0569B9] dark:hover:text-[#82B4DC]">GitHub</a>
+          <span class="mx-1 text-slate-300 dark:text-slate-700">&bull;</span>
+          <a href="https://ie.linkedin.com/in/fran%C3%A7ois-piti%C3%A9-6182718b" target="_blank" rel="noopener noreferrer" class="hover:text-[#0569B9] dark:hover:text-[#82B4DC]">LinkedIn</a>
+          <span class="mx-1 text-slate-300 dark:text-slate-700">&bull;</span>
+          <a href="https://www.researchgate.net/profile/F_Pitie" target="_blank" rel="noopener noreferrer" class="hover:text-[#0569B9] dark:hover:text-[#82B4DC]">ResearchGate</a>
         </div>
 
-        <!-- Sober flat navigation menu -->
-        <nav class="hidden md:block pt-4 border-t border-slate-200 dark:border-slate-800">
-          <ul class="space-y-1">
+        <!-- Flat navigation menu -->
+        <nav class="hidden md:block pt-3 border-t border-slate-200 dark:border-slate-800">
+          <ul class="space-y-0.5">
             {navItems.map(item => {
               const isActive = Astro.url.pathname === item.href || (item.href !== '/' && Astro.url.pathname.startsWith(item.href));
               return (
@@ -172,7 +167,7 @@ const navItems = [
         </nav>
 
         <!-- Theme toggle & TCD Logo -->
-        <div class="hidden md:flex items-center justify-between pt-4 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-500">
+        <div class="hidden md:flex items-center justify-between pt-3 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-500">
           <button id="theme-toggle-desktop" class="flex items-center gap-1.5 hover:text-slate-700 dark:hover:text-slate-200 transition-colors">
             <svg class="w-4 h-4 hidden dark:block text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
             <svg class="w-4 h-4 block dark:hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
@@ -182,7 +177,7 @@ const navItems = [
 
         <div class="pt-2">
           <a href="https://www.tcd.ie" target="_blank" rel="noopener noreferrer" class="inline-block opacity-80 hover:opacity-100 transition-opacity">
-            <img src="/images/tcd-logo-min.jpg" alt="Trinity College Dublin" class="h-9 w-auto" />
+            <img src="/images/tcd-logo-min.jpg" alt="Trinity College Dublin" class="h-8 w-auto" />
           </a>
         </div>
 
