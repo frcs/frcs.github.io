@@ -81,17 +81,18 @@ const navItems = [
   <!-- Main 2-Column Container -->
   <div class="max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-10 flex-1 flex flex-col md:flex-row gap-12">
     
-    <!-- Left Column (Compact profiles, clear hierarchy) -->
-    <aside class="w-full md:w-60 lg:w-64 shrink-0">
+    <!-- Left Column (Aligned full width photo, matching column margins) -->
+    <aside class="w-full md:w-64 lg:w-72 shrink-0">
       <div class="sticky top-10 space-y-5">
         
         <!-- Profile Identity -->
         <div>
-          <div class="w-36 h-36 rounded overflow-hidden mb-3 bg-slate-100 dark:bg-slate-800">
+          <!-- Larger, crisp portrait aligned with sidebar width -->
+          <div class="w-full max-w-[240px] sm:max-w-[260px] aspect-4/5 rounded-lg overflow-hidden mb-4 bg-slate-100 dark:bg-slate-800 shadow-xs border border-slate-200/60 dark:border-slate-800">
             <img 
               src="/images/pitief.jpg" 
               alt="François Pitié" 
-              class="w-full h-full object-cover object-top"
+              class="w-full h-full object-cover object-[center_15%]"
               loading="eager"
             />
           </div>
@@ -130,7 +131,7 @@ const navItems = [
           </div>
         </div>
 
-        <!-- Compact Academic Profiles Links (Inline inline-flex wrap with dots) -->
+        <!-- Compact Academic Profiles Links -->
         <div class="pt-3 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
           <a href="https://scholar.google.com/citations?user=lOaoO74AAAAJ" target="_blank" rel="noopener noreferrer" class="hover:text-[#0569B9] dark:hover:text-[#82B4DC]">Google Scholar</a>
           <span class="mx-1 text-slate-300 dark:text-slate-700">&bull;</span>
