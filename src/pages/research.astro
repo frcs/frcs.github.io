@@ -7,28 +7,53 @@ const projects = [
     period: "2023 – 2026",
     funding: "Horizon Europe (Consortium €3.79M, TCD €505k)",
     role: "Co-Principal Investigator",
-    summary: "Collaborative European project with academic and industrial partners (including FilmLight, Brainstorm Multimedia, Disguise, UPF). The research focuses on developing energy-efficient neural processing pipelines, scene-aware illuminant estimation, and green media AI architectures that reduce computational and environmental overhead across virtual production and broadcast workflows."
+    summary: "Collaborative European project with academic and industrial partners (including FilmLight, Brainstorm Multimedia, Disguise, UPF). The research focuses on developing energy-efficient neural processing pipelines, scene-aware illuminant estimation, and green media AI architectures that reduce computational and environmental overhead across virtual production and broadcast workflows.",
+    techLink: null
   },
   {
     title: "Alliance for Open Media (AOMedia) Video Quality Research",
     period: "Ongoing",
     funding: "Alliance for Open Media",
     role: "Academic Representative / Principal Investigator",
-    summary: "Contributing to the Video Quality Working Group alongside partners such as Google, Netflix, and Apple to advance next-generation royalty-free video compression standards (AV1 and AVM). Focus areas include perceptual rate-distortion optimization, clip-level Lagrangian multiplier adaptation for 4K HDR streaming, and lightweight encoder control models."
+    summary: "Contributing to the Video Quality Working Group alongside partners such as Google, Netflix, and Apple to advance next-generation royalty-free video compression standards (AV1 and AVM). Focus areas include perceptual rate-distortion optimization, clip-level Lagrangian multiplier adaptation for 4K HDR streaming, and lightweight encoder control models.",
+    techLink: null
   },
   {
     title: "Interactive Vision & Alpha Matting (F, B, Alpha Matting)",
     period: "2019 – Present",
     funding: "Industry Collaboration & Technology Transfer",
     role: "Lead Supervisor / Senior Author",
-    summary: "Investigation of human-in-the-loop computer vision architectures. Developing deep models capable of refining segmentation from minimal user clicks (ICME Best Paper Runner-Up with Adobe Research) and simultaneous estimation of foreground, background, and alpha matte. Research licensed commercially to PhotoRoom in 2021."
+    summary: "Investigation of human-in-the-loop computer vision architectures. Developing deep models capable of refining segmentation from minimal user clicks (ICME Best Paper Runner-Up with Adobe Research) and simultaneous estimation of foreground, background, and alpha matte. Research licensed commercially to PhotoRoom in 2021.",
+    techLink: { text: "Read technical page on the Alternative Matting Laplacian →", href: "/research/matting-laplacian" }
   },
   {
     title: "Statistical & Applied Optimal Transport in Visual Media",
     period: "Foundational & Ongoing",
     funding: "Enterprise Ireland / Marie-Curie / Industry",
     role: "Principal Investigator",
-    summary: "Mathematical formulation of colour grading and image restoration using N-dimensional probability density transfer and continuous Monge-Kantorovich optimal transport. Integrated into commercial tools including The Foundry's Furnace suite (MatchGrade, Deflicker2) and utilised in high-end VFX and map imagery."
+    summary: "Mathematical formulation of colour grading and image restoration using N-dimensional probability density transfer and continuous Monge-Kantorovich optimal transport. Integrated into commercial tools including The Foundry's Furnace suite (MatchGrade, Deflicker2) and utilised in high-end VFX and map imagery.",
+    techLink: { text: "Read technical page on Colour Transfer →", href: "/research/colour-transfer" }
+  }
+];
+
+const technicalTopics = [
+  {
+    title: "Colour Transfer & Automated Colour Grading",
+    desc: "Mathematical formulations for continuous Monge-Kantorovich optimal transport and N-dimensional probability density function transfer, powering tools like MatchGrade.",
+    href: "/research/colour-transfer",
+    badge: "Optimal Transport"
+  },
+  {
+    title: "Deflicker: Video Brightness Stabilization",
+    desc: "Statistical localized flicker stabilization in historical archival film and high-speed recordings, integrated into Furnace Deflicker2 by The Foundry.",
+    href: "/research/deflicker",
+    badge: "Video Restoration"
+  },
+  {
+    title: "The Alternative Matting Laplacian",
+    desc: "Direct model parameter diffusion formulation for natural image matting, providing simpler anisotropic PDEs and foundations for modern neural V-cycle solvers.",
+    href: "/research/matting-laplacian",
+    badge: "Alpha Matting"
   }
 ];
 ---
@@ -37,16 +62,50 @@ const projects = [
   <div class="mb-8 pb-3 border-b border-slate-200 dark:border-slate-800">
     <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Research & Projects</h1>
     <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 mt-1">
-      Applied mathematics, signal processing, and machine learning for visual media and video streaming.
+      Applied mathematics, signal processing, and machine learning for visual media, postproduction, and streaming.
     </p>
   </div>
 
-  <!-- Key Projects (Flat list with sober left border) -->
+  <!-- Technical Focus Pages & Research Topics -->
+  <section class="mb-12">
+    <h2 class="text-lg sm:text-xl font-bold tracking-tight text-slate-900 dark:text-white pb-2 border-b border-slate-200 dark:border-slate-800 mb-4">
+      Technical Deep Dives
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      {technicalTopics.map(topic => (
+        <a 
+          href={topic.href}
+          class="group p-4 rounded-lg bg-slate-200/60 dark:bg-slate-800/60 hover:bg-white dark:hover:bg-slate-800 border border-slate-300/80 dark:border-slate-700/80 transition-all flex flex-col justify-between shadow-xs"
+        >
+          <div>
+            <span class="text-[10px] font-mono uppercase tracking-wider px-1.5 py-0.5 rounded bg-[#0569B9]/10 text-[#0569B9] dark:text-[#82B4DC] font-semibold inline-block mb-2">
+              {topic.badge}
+            </span>
+            <h3 class="text-base font-semibold text-slate-900 dark:text-white group-hover:text-[#0569B9] dark:group-hover:text-[#82B4DC] transition-colors leading-snug">
+              {topic.title}
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1.5 leading-relaxed">
+              {topic.desc}
+            </p>
+          </div>
+          <div class="mt-3 text-xs font-semibold text-[#0569B9] dark:text-[#82B4DC] inline-flex items-center gap-1 group-hover:underline">
+            Explore topic &rarr;
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Key Grants & Collaborative Projects -->
   <section class="space-y-8">
+    <h2 class="text-lg sm:text-xl font-bold tracking-tight text-slate-900 dark:text-white pb-2 border-b border-slate-200 dark:border-slate-800">
+      Research Initiatives & Collaborative Projects
+    </h2>
+
     {projects.map(p => (
       <div class="border-l-2 border-slate-200 dark:border-slate-800 pl-4 py-1 hover:border-[#0569B9] transition-colors">
         <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-1.5">
-          <h2 class="text-base sm:text-lg font-semibold text-slate-900 dark:text-slate-100">{p.title}</h2>
+          <h3 class="text-base sm:text-lg font-semibold text-slate-900 dark:text-slate-100">{p.title}</h3>
           <span class="text-xs sm:text-sm font-mono text-slate-500 shrink-0">{p.period}</span>
         </div>
         <div class="text-xs sm:text-sm text-[#0569B9] dark:text-[#82B4DC] mb-2 font-medium">
@@ -55,6 +114,13 @@ const projects = [
         <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
           {p.summary}
         </p>
+        {p.techLink && (
+          <div class="mt-2 text-xs sm:text-sm font-semibold">
+            <a href={p.techLink.href} class="text-[#0569B9] dark:text-[#82B4DC] hover:underline">
+              {p.techLink.text}
+            </a>
+          </div>
+        )}
       </div>
     ))}
   </section>

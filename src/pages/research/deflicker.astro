@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Deflicker: Video Brightness & Flicker Stabilization - François Pitié" currentSection="research">
+  <div class="mb-8 pb-3 border-b border-slate-200 dark:border-slate-800">
+    <div class="flex items-center gap-2 text-xs font-mono text-[#0569B9] dark:text-[#82B4DC] mb-1">
+      <a href="/research" class="hover:underline">&larr; Back to Research & Projects</a>
+    </div>
+    <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
+      Deflicker: Brightness & Exposure Stabilization
+    </h1>
+    <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 mt-1">
+      Statistical algorithms for localized flicker removal in archival film and high-speed video capture.
+    </p>
+  </div>
+
+  <!-- Video Player Hero -->
+  <div class="mb-8 rounded-lg overflow-hidden border border-slate-300/80 dark:border-slate-800 bg-black shadow-xs">
+    <video 
+      controls 
+      loop 
+      playsinline 
+      class="w-full max-h-[480px] mx-auto bg-black"
+    >
+      <source src="/images/deflicker.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <div class="p-3 text-xs text-slate-400 border-t border-slate-800 bg-slate-900">
+      <strong>Video Demo: </strong> Archival film before and after applying statistical localized deflicker processing.
+    </div>
+  </div>
+
+  <!-- Overview -->
+  <section class="space-y-4 text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed mb-10">
+    <p>
+      Unwanted brightness fluctuations, or <em>flicker</em>, are pervasive in hand-cranked archived historical films and modern high-frame-rate / phantom recordings where artificial lighting oscillates out of phase with high-speed shutter cycles.
+    </p>
+    <p>
+      Because film degradation and non-uniform illumination rarely affect the entire frame uniformly, flicker is inherently a <em>spatially localized</em> process. Our work introduced robust statistical estimators combining motion-compensated temporal smoothing with localized gain/bias compensation, effectively stabilizing erratic luminance transients without muting natural scene dynamics or burning highlight detail.
+    </p>
+    <p>
+      This technology was integrated into the commercial motion picture restoration software <strong>Furnace Deflicker2</strong> by The Foundry, widely deployed in film restoration facilities globally.
+    </p>
+  </section>
+
+  <!-- Key Publications -->
+  <section class="space-y-4">
+    <h2 class="text-lg sm:text-xl font-bold tracking-tight text-slate-900 dark:text-white pb-2 border-b border-slate-200 dark:border-slate-800">
+      Key Publications
+    </h2>
+
+    <div class="space-y-4">
+      <div class="border-l-2 border-slate-200 dark:border-slate-800 pl-3.5 py-0.5 hover:border-[#0569B9] transition-colors">
+        <div class="text-base font-semibold text-slate-900 dark:text-slate-100">
+          Localised Deflicker of Moving Images
+        </div>
+        <div class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-0.5">
+          F. Pitié, B. Kent, B. Collis, and A. Kokaram
+        </div>
+        <div class="text-xs text-slate-500 mt-0.5">
+          <em>3rd European Conference on Visual Media Production (CVMP)</em>, London, 2006.
+        </div>
+      </div>
+
+      <div class="border-l-2 border-slate-200 dark:border-slate-800 pl-3.5 py-0.5 hover:border-[#0569B9] transition-colors">
+        <div class="text-base font-semibold text-slate-900 dark:text-slate-100">
+          A New Robust Technique for Stabilizing Brightness Fluctuations
+        </div>
+        <div class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-0.5">
+          F. Pitié, R. Dahyot, F. Kelly, and A. Kokaram
+        </div>
+        <div class="text-xs text-slate-500 mt-0.5">
+          <em>2nd International Workshop on Statistical Methods in Video Processing (ECCV Workshop)</em>, Prague, 2004.
+        </div>
+      </div>
+
+      <div class="border-l-2 border-slate-200 dark:border-slate-800 pl-3.5 py-0.5 hover:border-[#0569B9] transition-colors">
+        <div class="text-base font-semibold text-slate-900 dark:text-slate-100">
+          Simultaneous Luminance and Position Stabilization for Film and Video
+        </div>
+        <div class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-0.5">
+          A. Kokaram, R. Dahyot, F. Pitié, and H. Denman
+        </div>
+        <div class="text-xs text-slate-500 mt-0.5">
+          <em>Visual Communications and Image Processing (VCIP)</em>, Lugano, 2003.
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
