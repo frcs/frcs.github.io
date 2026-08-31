@@ -26,8 +26,12 @@ const software = allPubs.filter(p => softwareKeys.includes(p.citationKey));
 const thesisKeys = ['Piti:2006:francois', 'Piti:2002:fran'];
 const theses = allPubs.filter(p => thesisKeys.includes(p.citationKey) || p.entryType?.toLowerCase().includes('thesis'));
 
+// 5. Patents
+const patentKeys = ['Xu:2023:conran'];
+const patents = allPubs.filter(p => patentKeys.includes(p.citationKey) || (p.entryTags.sapc_category || '').toLowerCase() === 'patents');
+
 // Special keys set
-const specialKeys = new Set([...lectureNotesKeys, ...visualProdKeys, ...softwareKeys, ...thesisKeys]);
+const specialKeys = new Set([...lectureNotesKeys, ...visualProdKeys, ...softwareKeys, ...thesisKeys, ...patentKeys]);
 
 // Peer-reviewed vs preprints/other
 const nonPeerReviewedCategories = [
@@ -256,17 +260,46 @@ const years = Object.keys(groupedByYear).sort((a, b) => b.localeCompare(a));
       </section>
     )}
 
-    <!-- 6. Preprints, Patents & Other Works -->
+    <!-- 5. Patents & Intellectual Property -->
+    {patents.length > 0 && (
+      <section>
+        <h2 class="text-base font-semibold tracking-tight text-[#1a1e22] dark:text-[#edf2f7] mb-3 pb-1 border-b border-black/[0.08] dark:border-white/[0.08] flex items-center justify-between">
+          <span>Patents</span>
+          <span class="text-xs font-normal text-slate-400 font-mono">({patents.length})</span>
+        </h2>
+        
+        <div class="space-y-2.5">
+          {patents.map(pub => (
+            <div class="py-1">
+              <div class="font-medium text-[#1a1e22] dark:text-[#edf2f7] text-sm leading-snug">
+                {cleanLatex(pub.entryTags.title)}
+              </div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5" set:html={formatAuthors(pub.entryTags.author || pub.entryTags.editor)} />
+              <div class="text-xs text-slate-400 dark:text-slate-500 mt-0.5 flex items-center gap-1.5 flex-wrap">
+                <span class="font-mono text-xs text-[#235789] dark:text-[#82B4DC]">{pub.entryTags.number || pub.entryTags.note}</span>
+                <span>&bull;</span>
+                <span>{pub.entryTags.year}</span>
+                <a href="/grants-impact" class="text-[#235789] dark:text-[#82B4DC] hover:underline font-mono text-[11px]">
+                  [All Patents &rarr;]
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- 6. Preprints & Other Works -->
     {preprintsAndOther.length > 0 && (
       <section>
         <h2 class="text-base font-semibold tracking-tight text-[#1a1e22] dark:text-[#edf2f7] mb-3 pb-1 border-b border-black/[0.08] dark:border-white/[0.08] flex items-center justify-between">
-          <span>Preprints, Patents & Other Works</span>
+          <span>Preprints & Other Works</span>
           <span class="text-xs font-normal text-slate-400 font-mono">({preprintsAndOther.length})</span>
         </h2>
         
         <div class="space-y-2.5">
           {preprintsAndOther.map(pub => (
-          <div class="py-1">
+            <div class="py-1">
               <div class="font-medium text-[#1a1e22] dark:text-[#edf2f7] text-sm leading-snug">
                 {pub.entryTags.url ? (
                   <a href={pub.entryTags.url} target="_blank" rel="noopener noreferrer" class="hover:text-[#235789] dark:hover:text-[#82B4DC]">
