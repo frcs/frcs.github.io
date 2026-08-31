@@ -30,7 +30,8 @@ const navItems = [
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title}</title>
   <meta name="description" content={description}>
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2">
   <script is:inline>
     // Dark mode detection / persistence
     if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -177,22 +178,22 @@ const navItems = [
         </div>
 
         <!-- Institutional & Lab Logos (Sober, natural, transparent) -->
-        <div class="pt-3 border-t border-slate-300/80 dark:border-slate-800 space-y-4">
-          <!-- Sigmedia Lab Logo Link -->
+        <div class="pt-4 border-t border-slate-300/80 dark:border-slate-800 space-y-4">
+          <!-- Sigmedia Lab Logo Link (Bigger) -->
           <div>
-            <span class="text-[10px] uppercase tracking-wider font-semibold text-slate-400 dark:text-slate-500 block mb-1">Research Lab</span>
-            <a href="https://sigmedia.tv" target="_blank" rel="noopener noreferrer" class="inline-block opacity-85 hover:opacity-100 transition-opacity" title="Sigmedia Research Group">
-              <img src="/images/sigmedia-logo.png" alt="Sigmedia Research Group" class="h-8 w-auto dark:hidden" />
-              <img src="/images/sigmedia-logo-white.png" alt="Sigmedia Research Group" class="h-8 w-auto hidden dark:block" />
+            <span class="text-[10px] uppercase tracking-wider font-semibold text-slate-400 dark:text-slate-500 block mb-1.5">Research Lab</span>
+            <a href="https://sigmedia.tv" target="_blank" rel="noopener noreferrer" class="inline-block opacity-90 hover:opacity-100 transition-opacity" title="Sigmedia Research Group">
+              <img src="/images/sigmedia-logo.png" alt="Sigmedia Research Group" class="h-11 w-auto max-w-[200px] object-contain object-left dark:hidden" />
+              <img src="/images/sigmedia-logo-white.png" alt="Sigmedia Research Group" class="h-11 w-auto max-w-[200px] object-contain object-left hidden dark:block" />
             </a>
           </div>
 
           <!-- TCD Logo Link -->
           <div>
-            <span class="text-[10px] uppercase tracking-wider font-semibold text-slate-400 dark:text-slate-500 block mb-1">Institution</span>
-            <a href="https://www.tcd.ie" target="_blank" rel="noopener noreferrer" class="inline-block opacity-85 hover:opacity-100 transition-opacity" title="Trinity College Dublin">
-              <img src="/images/tcd-logo.png" alt="Trinity College Dublin" class="h-10 w-auto dark:hidden" />
-              <img src="/images/tcd-logo-white.png" alt="Trinity College Dublin" class="h-10 w-auto hidden dark:block" />
+            <span class="text-[10px] uppercase tracking-wider font-semibold text-slate-400 dark:text-slate-500 block mb-1.5">Institution</span>
+            <a href="https://www.tcd.ie" target="_blank" rel="noopener noreferrer" class="inline-block opacity-90 hover:opacity-100 transition-opacity" title="Trinity College Dublin">
+              <img src="/images/tcd-logo.png" alt="Trinity College Dublin" class="h-11 w-auto max-w-[200px] object-contain object-left dark:hidden" />
+              <img src="/images/tcd-logo-white.png" alt="Trinity College Dublin" class="h-11 w-auto max-w-[200px] object-contain object-left hidden dark:block" />
             </a>
           </div>
         </div>

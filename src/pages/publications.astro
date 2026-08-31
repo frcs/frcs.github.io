@@ -32,36 +32,36 @@ const years = Object.keys(groupedByYear).sort((a, b) => b.localeCompare(a));
 ---
 
 <BaseLayout title="Publications - François Pitié" currentSection="publications">
-  <div class="mb-6 pb-2 border-b border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+  <div class="mb-8 pb-3 border-b border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
     <div>
-      <h1 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Publications</h1>
-      <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5">
+      <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Publications</h1>
+      <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 mt-1">
         Master bibliography ({allPubs.length} entries). Also on <a href="https://scholar.google.com/citations?user=lOaoO74AAAAJ" target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline font-medium">Google Scholar</a> and <a href="https://www.researchgate.net/profile/F_Pitie" target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline font-medium">ResearchGate</a>.
       </p>
     </div>
 
     <!-- Quick filter view toggle -->
-    <div class="flex items-center gap-1.5 text-xs sm:text-sm self-start sm:self-auto font-medium">
+    <div class="flex items-center gap-1.5 text-sm self-start sm:self-auto font-medium">
       <button id="btn-by-category" class="px-2.5 py-1 text-[#0569B9] dark:text-[#82B4DC] border-b-2 border-[#0569B9]">By Category</button>
-      <span class="text-slate-300 dark:text-slate-700">|</span>
+      <span class="text-slate-400 dark:text-slate-600">|</span>
       <button id="btn-by-year" class="px-2.5 py-1 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border-b-2 border-transparent">By Year</button>
     </div>
   </div>
 
   <!-- Category View: Unified Peer-Reviewed Publications + Other Works -->
-  <div id="view-by-category" class="space-y-10">
+  <div id="view-by-category" class="space-y-12">
     
     <!-- Peer-Reviewed Publications Section -->
     <section>
-      <h2 class="text-base sm:text-lg font-bold tracking-tight text-slate-900 dark:text-white mb-4 pb-1 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+      <h2 class="text-lg sm:text-xl font-bold tracking-tight text-slate-900 dark:text-white mb-5 pb-2 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
         <span>Peer-Reviewed Publications</span>
-        <span class="text-xs font-normal text-slate-400 font-mono">({peerReviewedPubs.length})</span>
+        <span class="text-xs sm:text-sm font-normal text-slate-500 font-mono">({peerReviewedPubs.length})</span>
       </h2>
       
-      <div class="space-y-3.5">
+      <div class="space-y-4">
         {peerReviewedPubs.map(pub => (
-          <div class="border-l-2 border-slate-200 dark:border-slate-800 pl-3 py-0.5 hover:border-[#0569B9] transition-colors">
-            <div class="text-sm sm:text-base font-semibold text-slate-900 dark:text-slate-100 leading-snug">
+          <div class="border-l-2 border-slate-200 dark:border-slate-800 pl-3.5 py-0.5 hover:border-[#0569B9] transition-colors">
+            <div class="text-base sm:text-lg font-semibold text-slate-900 dark:text-slate-100 leading-snug">
               {pub.entryTags.url ? (
                 <a href={pub.entryTags.url} target="_blank" rel="noopener noreferrer" class="hover:text-[#0569B9] dark:hover:text-[#82B4DC]">
                   {cleanLatex(pub.entryTags.title)}
@@ -75,19 +75,19 @@ const years = Object.keys(groupedByYear).sort((a, b) => b.localeCompare(a));
               )}
             </div>
             
-            <div class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1" set:html={formatAuthors(pub.entryTags.author || pub.entryTags.editor)} />
+            <div class="text-sm text-slate-600 dark:text-slate-400 mt-1" set:html={formatAuthors(pub.entryTags.author || pub.entryTags.editor)} />
             
             <div class="text-xs sm:text-sm text-slate-500 dark:text-slate-500 mt-1 flex items-center gap-2 flex-wrap">
               <span class="italic">{cleanLatex(pub.entryTags.journal || pub.entryTags.booktitle || pub.entryTags.publisher)}</span>
               <span>&bull;</span>
               <span>{pub.entryTags.year}</span>
               {pub.entryTags.doi && (
-                <a href={`https://doi.org/${pub.entryTags.doi}`} target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline font-mono text-xs">
+                <a href={`https://doi.org/${pub.entryTags.doi}`} target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline font-mono text-xs font-medium">
                   [DOI]
                 </a>
               )}
               {pub.entryTags.url && !pub.entryTags.doi && (
-                <a href={pub.entryTags.url} target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline font-mono text-xs">
+                <a href={pub.entryTags.url} target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline font-mono text-xs font-medium">
                   [Link]
                 </a>
               )}
@@ -100,15 +100,15 @@ const years = Object.keys(groupedByYear).sort((a, b) => b.localeCompare(a));
     <!-- Other Works (Preprints, Software, Lecture Notes) -->
     {otherPubs.length > 0 && (
       <section>
-        <h2 class="text-base sm:text-lg font-bold tracking-tight text-slate-900 dark:text-white mb-4 pb-1 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+        <h2 class="text-lg sm:text-xl font-bold tracking-tight text-slate-900 dark:text-white mb-5 pb-2 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
           <span>Other Works (Preprints, Software & Lecture Notes)</span>
-          <span class="text-xs font-normal text-slate-400 font-mono">({otherPubs.length})</span>
+          <span class="text-xs sm:text-sm font-normal text-slate-500 font-mono">({otherPubs.length})</span>
         </h2>
         
-        <div class="space-y-3.5">
+        <div class="space-y-4">
           {otherPubs.map(pub => (
-            <div class="border-l-2 border-slate-200 dark:border-slate-800 pl-3 py-0.5 hover:border-[#0569B9] transition-colors">
-              <div class="text-sm sm:text-base font-semibold text-slate-900 dark:text-slate-100 leading-snug">
+            <div class="border-l-2 border-slate-200 dark:border-slate-800 pl-3.5 py-0.5 hover:border-[#0569B9] transition-colors">
+              <div class="text-base sm:text-lg font-semibold text-slate-900 dark:text-slate-100 leading-snug">
                 {pub.entryTags.url ? (
                   <a href={pub.entryTags.url} target="_blank" rel="noopener noreferrer" class="hover:text-[#0569B9] dark:hover:text-[#82B4DC]">
                     {cleanLatex(pub.entryTags.title)}
@@ -122,19 +122,19 @@ const years = Object.keys(groupedByYear).sort((a, b) => b.localeCompare(a));
                 )}
               </div>
               
-              <div class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1" set:html={formatAuthors(pub.entryTags.author || pub.entryTags.editor)} />
+              <div class="text-sm text-slate-600 dark:text-slate-400 mt-1" set:html={formatAuthors(pub.entryTags.author || pub.entryTags.editor)} />
               
               <div class="text-xs sm:text-sm text-slate-500 dark:text-slate-500 mt-1 flex items-center gap-2 flex-wrap">
                 <span class="italic">{cleanLatex(pub.entryTags.journal || pub.entryTags.howpublished || pub.entryTags.publisher || pub.entryTags.note)}</span>
                 <span>&bull;</span>
                 <span>{pub.entryTags.year}</span>
                 {pub.entryTags.doi && (
-                  <a href={`https://doi.org/${pub.entryTags.doi}`} target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline font-mono text-xs">
+                  <a href={`https://doi.org/${pub.entryTags.doi}`} target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline font-mono text-xs font-medium">
                     [DOI]
                   </a>
                 )}
                 {pub.entryTags.url && !pub.entryTags.doi && (
-                  <a href={pub.entryTags.url} target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline font-mono text-xs">
+                  <a href={pub.entryTags.url} target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline font-mono text-xs font-medium">
                     [Link]
                   </a>
                 )}
@@ -148,17 +148,17 @@ const years = Object.keys(groupedByYear).sort((a, b) => b.localeCompare(a));
   </div>
 
   <!-- Year View -->
-  <div id="view-by-year" class="space-y-8 hidden">
+  <div id="view-by-year" class="space-y-10 hidden">
     {years.map(year => (
       <section>
-        <h2 class="text-base sm:text-lg font-bold tracking-tight text-slate-900 dark:text-white mb-3 pb-1 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+        <h2 class="text-lg sm:text-xl font-bold tracking-tight text-slate-900 dark:text-white mb-4 pb-2 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
           <span>{year}</span>
-          <span class="text-xs font-normal text-slate-400 font-mono">({groupedByYear[year].length})</span>
+          <span class="text-xs sm:text-sm font-normal text-slate-500 font-mono">({groupedByYear[year].length})</span>
         </h2>
-        <div class="space-y-3.5">
+        <div class="space-y-4">
           {groupedByYear[year].map(pub => (
-            <div class="border-l-2 border-slate-200 dark:border-slate-800 pl-3 py-0.5 hover:border-[#0569B9] transition-colors">
-              <div class="text-sm sm:text-base font-semibold text-slate-900 dark:text-slate-100 leading-snug">
+            <div class="border-l-2 border-slate-200 dark:border-slate-800 pl-3.5 py-0.5 hover:border-[#0569B9] transition-colors">
+              <div class="text-base sm:text-lg font-semibold text-slate-900 dark:text-slate-100 leading-snug">
                 {pub.entryTags.url ? (
                   <a href={pub.entryTags.url} target="_blank" rel="noopener noreferrer" class="hover:text-[#0569B9] dark:hover:text-[#82B4DC]">
                     {cleanLatex(pub.entryTags.title)}
@@ -171,13 +171,13 @@ const years = Object.keys(groupedByYear).sort((a, b) => b.localeCompare(a));
                   cleanLatex(pub.entryTags.title)
                 )}
               </div>
-              <div class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1" set:html={formatAuthors(pub.entryTags.author || pub.entryTags.editor)} />
+              <div class="text-sm text-slate-600 dark:text-slate-400 mt-1" set:html={formatAuthors(pub.entryTags.author || pub.entryTags.editor)} />
               <div class="text-xs sm:text-sm text-slate-500 dark:text-slate-500 mt-1 flex items-center gap-2 flex-wrap">
                 <span class="italic">{cleanLatex(pub.entryTags.journal || pub.entryTags.booktitle || pub.entryTags.howpublished || pub.entryTags.publisher)}</span>
                 {pub.entryTags.doi && (
                   <>
                     <span>&bull;</span>
-                    <a href={`https://doi.org/${pub.entryTags.doi}`} target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline font-mono text-xs">
+                    <a href={`https://doi.org/${pub.entryTags.doi}`} target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline font-mono text-xs font-medium">
                       [DOI]
                     </a>
                   </>
