@@ -3,6 +3,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const currentResearchers = [
   {
+    name: "Dr. Clément Bled",
+    status: "Postdoctoral Research Fellow",
+    role: "Postdoctoral Researcher & Project Lead",
+    topic: "Energy-efficient video denoising, inverse problems, and deep video restoration architectures"
+  },
+  {
     name: "Bold-Erdene Ganbaatar",
     status: "PhD Candidate",
     role: "Primary Supervisor",
@@ -16,7 +22,7 @@ const completedPhDs = [
     year: "2025",
     role: "Primary Supervisor",
     topic: "Energy-efficient video denoising and restoration architectures",
-    destination: "Postdoctoral Researcher, Trinity College Dublin"
+    destination: "Postdoctoral Research Fellow, Trinity College Dublin"
   },
   {
     name: "Dr. Hao Wu",
@@ -84,14 +90,14 @@ const postdocAlumni = [
   <div class="mb-8 pb-3 border-b border-slate-200 dark:border-slate-800">
     <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Team & Alumni</h1>
     <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 mt-1">
-      Doctoral researchers, postdocs, and postgraduate alumni supervised at Trinity College Dublin.
+      Current postdoctoral fellows, doctoral researchers, and research alumni at Trinity College Dublin.
     </p>
   </div>
 
-  <!-- Current Researchers -->
+  <!-- Current Researchers & Postdocs -->
   <section class="mb-12">
     <h2 class="text-lg sm:text-xl font-bold tracking-tight text-slate-900 dark:text-white mb-4 pb-2 border-b border-slate-200 dark:border-slate-800">
-      Current Doctoral Researchers
+      Current Team
     </h2>
     <div class="space-y-4">
       {currentResearchers.map(r => (
