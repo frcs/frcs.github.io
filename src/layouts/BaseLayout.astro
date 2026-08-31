@@ -27,7 +27,14 @@ const navItems = [
     ]
   },
   { name: "Publications", href: "/publications" },
-  { name: "Teaching", href: "/teaching" },
+  { 
+    name: "Teaching", 
+    href: "/teaching",
+    children: [
+      { name: "4C16 Deep Learning", href: "/teaching/4c16-teaching" },
+      { name: "5C34 Advanced AI", href: "/teaching/5c34-teaching" }
+    ]
+  },
   { name: "Team & Alumni", href: "/team" },
   { name: "Grants & Impact", href: "/grants-impact" }
 ];

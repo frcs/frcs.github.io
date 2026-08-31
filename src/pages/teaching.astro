@@ -8,6 +8,7 @@ const currentModules = [
     level: "Level 9 (Senior Sophister & MAI, 10 ECTS)",
     desc: "Comprehensive module covering neural networks, backpropagation, convolutional networks, sequence models, generative models, and transformers, with hands-on PyTorch coding labs and automated evaluation benchmarks.",
     hasDeepLearningFeature: true,
+    pageUrl: "/teaching/4c16-teaching",
     links: [
       { name: "Course Portal", url: "https://frcs.github.io/4c16/" },
       { name: "Online Lecture Notes", url: "https://frcs.github.io/4C16-LectureNotes/" },
@@ -21,6 +22,7 @@ const currentModules = [
     level: "Level 9 (Postgraduate / MAI, 5 ECTS)",
     desc: "Advanced graduate-level study of contemporary generative models, diffusion architectures, representation learning, and modern computer vision systems.",
     hasDeepLearningFeature: false,
+    pageUrl: "/teaching/5c34-teaching",
     links: []
   }
 ];
@@ -101,7 +103,9 @@ const priorModules = [
       <div class="border-l-2 border-slate-200 dark:border-slate-800 pl-4 py-1 hover:border-[#0569B9] transition-colors">
         <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
           <h3 class="text-base sm:text-lg font-semibold text-slate-900 dark:text-slate-100">
-            <span class="font-mono text-[#0569B9] dark:text-[#82B4DC] mr-1.5">{m.code}:</span> {m.title}
+            <a href={m.pageUrl} class="hover:text-[#0569B9] dark:hover:text-[#82B4DC] transition-colors">
+              <span class="font-mono text-[#0569B9] dark:text-[#82B4DC] mr-1.5">{m.code}:</span> {m.title}
+            </a>
           </h3>
           <span class="text-xs sm:text-sm text-slate-500 shrink-0 font-mono">{m.level}</span>
         </div>

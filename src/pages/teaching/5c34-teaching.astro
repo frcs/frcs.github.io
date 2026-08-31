@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="EE55C34: Advanced AI - François Pitié" currentSection="teaching">
+  <div class="mb-8 pb-3 border-b border-slate-200 dark:border-slate-800">
+    <div class="flex items-center gap-2 text-xs font-mono text-[#0569B9] dark:text-[#82B4DC] mb-1">
+      <a href="/teaching" class="hover:underline">&larr; Back to Teaching Overview</a>
+    </div>
+    <div class="flex flex-wrap items-baseline gap-2">
+      <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
+        EE55C34: Advanced AI
+      </h1>
+      <span class="text-xs sm:text-sm font-mono px-2 py-0.5 rounded bg-[#0569B9]/10 text-[#0569B9] dark:text-[#82B4DC] font-semibold">
+        Level 9 (5 ECTS)
+      </span>
+    </div>
+    <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 mt-1">
+      Master in Engineering (MAI) & Postgraduate Course, Department of Electronic & Electrical Engineering, Trinity College Dublin.
+    </p>
+  </div>
+
+  <!-- Course Overview -->
+  <section class="space-y-4 text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed mb-10">
+    <h2 class="text-lg sm:text-xl font-bold tracking-tight text-slate-900 dark:text-white pb-2 border-b border-slate-200 dark:border-slate-800">
+      Module Description
+    </h2>
+    <p>
+      <strong>EE55C34</strong> provides an advanced, research-oriented treatment of modern artificial intelligence and machine learning architectures, extending beyond foundational deep learning into contemporary generative systems, high-dimensional representation learning, and multi-modal models.
+    </p>
+    <p>
+      The curriculum investigates cutting-edge paradigms in visual media synthesis, diffusion models (DDPM, Latent Diffusion), contrastive representation learning (CLIP, SimCLR), attention mechanics in Vision Transformers (ViT), and green / energy-efficient media processing in conjunction with research advancements from the European EMERALD project.
+    </p>
+  </section>
+
+  <!-- Key Topics -->
+  <section class="space-y-4 mb-10">
+    <h2 class="text-lg sm:text-xl font-bold tracking-tight text-slate-900 dark:text-white pb-2 border-b border-slate-200 dark:border-slate-800">
+      Core Topics Covered
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div class="border-l-2 border-[#0569B9] pl-3.5 py-1">
+        <h3 class="text-sm sm:text-base font-semibold text-slate-900 dark:text-white">Generative Modeling & Diffusion</h3>
+        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-0.5">
+          Score-based generative models, denoising diffusion probabilistic models, classifier-free guidance, and conditional image synthesis.
+        </p>
+      </div>
+
+      <div class="border-l-2 border-[#0569B9] pl-3.5 py-1">
+        <h3 class="text-sm sm:text-base font-semibold text-slate-900 dark:text-white">Transformers & Vision Transformers</h3>
+        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-0.5">
+          Self-attention mechanisms, cross-attention in multi-modal systems, patch projection, positional encodings, and Vision Transformers (ViT).
+        </p>
+      </div>
+
+      <div class="border-l-2 border-[#0569B9] pl-3.5 py-1">
+        <h3 class="text-sm sm:text-base font-semibold text-slate-900 dark:text-white">Self-Supervised Representation Learning</h3>
+        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-0.5">
+          Contrastive learning, masked autoencoders, foundation models, and zero-shot transfer techniques.
+        </p>
+      </div>
+
+      <div class="border-l-2 border-[#0569B9] pl-3.5 py-1">
+        <h3 class="text-sm sm:text-base font-semibold text-slate-900 dark:text-white">Sustainable & Green Media AI</h3>
+        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-0.5">
+          Pruning, quantization, architectural efficiency, and reducing compute footprint across virtual production pipelines.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Assessment -->
+  <section class="p-4 rounded-lg bg-slate-200/60 dark:bg-slate-800/60 border border-slate-300/80 dark:border-slate-700/80 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+    <h3 class="font-semibold text-slate-900 dark:text-white mb-1">Assessment & Projects</h3>
+    <p>
+      Assessment emphasizes deep individual investigation and reproducible implementation of recent peer-reviewed conference publications, preparing postgraduate students for research careers and high-end engineering roles.
+    </p>
+  </section>
+</BaseLayout>
