@@ -1,5 +1,17 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import katex from 'katex';
+
+const renderLatex = (latex: string, displayMode = false) => {
+  return katex.renderToString(latex, { displayMode, throwOnError: false });
+};
+
+const eqModel = renderLatex("C_i = \\alpha_i F_i + (1 - \\alpha_i) B_i", true);
+const eqColorLine = renderLatex("\\alpha_i = a_i^T C_i + b_i", true);
+const eqLevinCost = renderLatex("J(\\alpha, a, b) = \\sum_i \\sum_{j \\in w_i} \\left(a_i^T C_j + b_i - \\alpha_j\\right)^2", true);
+const eqLevinMin = renderLatex("J^*(\\alpha) = \\min_{a,b} J(\\alpha, a, b)", true);
+const eqOurMin = renderLatex("J^*(a,b) = \\min_{\\alpha} J(\\alpha, a, b)", true);
+const eqPde = renderLatex("\\mathrm{div}\\left( \\begin{bmatrix} C_i \\\\ 1 \\end{bmatrix} \\begin{bmatrix} C_i^T & 1 \\end{bmatrix} \\nabla \\begin{bmatrix} a_i \\\\ b_i \\end{bmatrix} \\right) = 0", true);
 ---
 
 <BaseLayout title="Alternative Matting Laplacian - François Pitié" currentSection="research">
@@ -18,20 +30,35 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   <!-- Theory & Formulation Section -->
   <section class="space-y-4 text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed mb-8">
     <p>
-      In natural image matting, an observed linear RGB colour $C_i$ at pixel $i$ is modelled as a convex combination of an unknown foreground colour $F_i$ and background colour $B_i$:
+      In natural image matting, an observed linear RGB colour <span set:html={renderLatex("C_i")} /> at pixel <span set:html={renderLatex("i")} /> is modelled as a convex combination of an unknown foreground colour <span set:html={renderLatex("F_i")} /> and background colour <span set:html={renderLatex("B_i")} />:
     </p>
-    <div class="p-3 rounded bg-slate-200/60 dark:bg-slate-800/60 font-mono text-xs sm:text-sm text-center text-slate-800 dark:text-slate-200">
-      C_i = &alpha;_i F_i + (1 - &alpha;_i) B_i
-    </div>
+    <div class="p-3 my-2 rounded bg-slate-200/60 dark:bg-slate-800/60 overflow-x-auto text-center" set:html={eqModel} />
+    
     <p>
-      Under the widely adopted local color-line assumption pioneered by Levin et al., the local transparency values are approximated as an affine transformation of the color components:
+      We need to solve for <span set:html={renderLatex("F_i")} />, <span set:html={renderLatex("B_i")} />, and transparency <span set:html={renderLatex("\\alpha_i")} />. This formulation is non-linear and severely under-constrained. In their seminal work, Levin et al. demonstrated that under local color-line assumptions, transparency values can be approximated as an affine transformation of the color components:
     </p>
-    <div class="p-3 rounded bg-slate-200/60 dark:bg-slate-800/60 font-mono text-xs sm:text-sm text-center text-slate-800 dark:text-slate-200">
-      &alpha;_i = a_i^T C_i + b_i
-    </div>
+    <div class="p-3 my-2 rounded bg-slate-200/60 dark:bg-slate-800/60 overflow-x-auto text-center" set:html={eqColorLine} />
     <p>
-      While classical approaches eliminate the local vector $a_i$ and offset $b_i$ to solve implicitly for $\alpha$ via the Levin Matting Laplacian, our work takes the exact opposite approach: <strong>we explicitly solve for the model parameters $a$ and $b$</strong>.
+      where <span set:html={renderLatex("a_i = [a_i^R, a_i^G, a_i^B]^T")} /> acts as a local colour filter revealing the intensity of <span set:html={renderLatex("\\alpha")} />. Fitting this model across overlapping <span set:html={renderLatex("3 \\times 3")} /> windows <span set:html={renderLatex("w_i")} /> yields the quadratic cost:
     </p>
+    <div class="p-3 my-2 rounded bg-slate-200/60 dark:bg-slate-800/60 overflow-x-auto text-center" set:html={eqLevinCost} />
+    
+    <p>
+      Levin et al. eliminate the model parameters <span set:html={renderLatex("a, b")} /> implicitly:
+    </p>
+    <div class="p-2 my-1 rounded bg-slate-200/60 dark:bg-slate-800/60 overflow-x-auto text-center" set:html={eqLevinMin} />
+    <p>
+      leading to the famous Levin Matting Laplacian linear system <span set:html={renderLatex("L\\alpha = 0")} />.
+    </p>
+
+    <p class="pt-2">
+      <strong>Our Contribution:</strong> We take the exact opposite approach and eliminate <span set:html={renderLatex("\\alpha")} /> to explicitly solve for the model parameters:
+    </p>
+    <div class="p-2 my-1 rounded bg-slate-200/60 dark:bg-slate-800/60 overflow-x-auto text-center" set:html={eqOurMin} />
+    <p>
+      This reveals that parameter propagation corresponds to an anisotropic diffusion PDE:
+    </p>
+    <div class="p-3 my-2 rounded bg-slate-200/60 dark:bg-slate-800/60 overflow-x-auto text-center" set:html={eqPde} />
   </section>
 
   <!-- Visual Grid of Results -->
@@ -70,7 +97,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </h2>
     <ul class="list-disc pl-5 space-y-1.5 text-sm sm:text-base">
       <li>
-        <strong>Computational Simplicity:</strong> The problem naturally simplifies into anisotropic diffusion of $a$ and $b$, leading to simpler and faster sparse linear systems.
+        <strong>Computational Simplicity:</strong> The problem naturally simplifies into anisotropic diffusion of <span set:html={renderLatex("a")} /> and <span set:html={renderLatex("b")} />, leading to simpler and faster sparse linear systems.
       </li>
       <li>
         <strong>Meaningful Priors:</strong> Because the colour filter vectors are exposed explicitly, spatial smoothness and boundary-preserving regularization can be imposed directly on the parameters.
