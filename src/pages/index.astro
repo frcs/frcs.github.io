@@ -68,17 +68,17 @@ const researchThemes = [
 <BaseLayout title="François Pitié - Academic Homepage" currentSection="home">
   
   <!-- Academic Bio Section -->
-  <section class="mb-12">
-    <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-white mb-4 pb-2 border-b border-slate-200 dark:border-slate-800">
+  <section class="mb-10">
+    <h2 class="text-base font-semibold tracking-tight text-slate-900 dark:text-white mb-3 pb-1.5 border-b border-slate-200/80 dark:border-slate-800">
       Academic Bio
     </h2>
-    <div class="text-sm sm:text-base leading-relaxed space-y-3.5 text-slate-700 dark:text-slate-300">
+    <div class="text-sm leading-relaxed space-y-3 text-slate-600 dark:text-slate-300">
       <p>
         I am an <strong>Ussher Assistant Professor</strong> in Media Signal Processing at the 
-        <a href="https://www.tcd.ie/eleceng/" target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline font-medium">Department of Electronic & Electrical Engineering</a>, 
-        <a href="https://www.tcd.ie" target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline font-medium">Trinity College Dublin</a>. 
-        I am a Principal Investigator with the <a href="https://sigmedia.tv" target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline font-medium">Sigmedia Research Group</a>, 
-        an Academic Collaborator at the <a href="https://www.adaptcentre.ie" target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline font-medium">ADAPT Research Centre</a>, 
+        <a href="https://www.tcd.ie/eleceng/" target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline">Department of Electronic & Electrical Engineering</a>, 
+        <a href="https://www.tcd.ie" target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline">Trinity College Dublin</a>. 
+        I am a Principal Investigator with the <a href="https://sigmedia.tv" target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline">Sigmedia Research Group</a>, 
+        an Academic Collaborator at the <a href="https://www.adaptcentre.ie" target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline">ADAPT Research Centre</a>, 
         and an elected <strong>Fellow of Trinity College Dublin (FTCD)</strong>.
       </p>
       <p>
@@ -92,51 +92,51 @@ const researchThemes = [
     </div>
   </section>
 
-  <!-- Research Themes (Flat list with sober left border) -->
-  <section class="mb-12">
-    <div class="flex items-center justify-between mb-4 pb-2 border-b border-slate-200 dark:border-slate-800">
-      <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Research Themes</h2>
-      <a href="/research" class="text-xs sm:text-sm text-[#0569B9] dark:text-[#82B4DC] hover:underline font-medium">Details &rarr;</a>
+  <!-- Research Themes -->
+  <section class="mb-10">
+    <div class="flex items-center justify-between mb-3 pb-1.5 border-b border-slate-200/80 dark:border-slate-800">
+      <h2 class="text-base font-semibold tracking-tight text-slate-900 dark:text-white">Research Themes</h2>
+      <a href="/research" class="text-xs text-[#0569B9] dark:text-[#82B4DC] hover:underline">Details &rarr;</a>
     </div>
 
-    <div class="space-y-4">
+    <div class="space-y-3">
       {researchThemes.map(theme => (
-        <div class="border-l-2 border-[#0569B9]/60 pl-4 py-1">
-          <h3 class="text-base sm:text-lg font-semibold text-slate-900 dark:text-slate-100">{theme.title}</h3>
-          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">{theme.desc}</p>
+        <div class="border-l border-slate-300/80 dark:border-slate-800 pl-3 py-0.5">
+          <h3 class="text-sm font-medium text-slate-900 dark:text-slate-100">{theme.title}</h3>
+          <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5 leading-relaxed">{theme.desc}</p>
         </div>
       ))}
     </div>
   </section>
 
-  <!-- Recent News (Flat list) -->
-  <section class="mb-12">
-    <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-white mb-4 pb-2 border-b border-slate-200 dark:border-slate-800">
+  <!-- Recent News -->
+  <section class="mb-10">
+    <h2 class="text-base font-semibold tracking-tight text-slate-900 dark:text-white mb-3 pb-1.5 border-b border-slate-200/80 dark:border-slate-800">
       Recent News
     </h2>
-    <div class="space-y-3">
+    <div class="space-y-2.5">
       {news.map(item => (
-        <div class="flex items-baseline gap-3 text-sm sm:text-base">
-          <span class="font-mono text-sm font-semibold text-[#0569B9] dark:text-[#82B4DC] shrink-0">
-            [{item.date}]
+        <div class="flex items-baseline gap-2.5 text-xs sm:text-sm">
+          <span class="font-mono text-xs text-slate-400 dark:text-slate-500 shrink-0">
+            {item.date}
           </span>
-          <span class="text-slate-700 dark:text-slate-300" set:html={item.text} />
+          <span class="text-slate-600 dark:text-slate-300 leading-relaxed" set:html={item.text} />
         </div>
       ))}
     </div>
   </section>
 
-  <!-- Selected Publications (Flat list) -->
+  <!-- Selected Publications -->
   <section>
-    <div class="flex items-center justify-between mb-4 pb-2 border-b border-slate-200 dark:border-slate-800">
-      <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Selected Publications</h2>
-      <a href="/publications" class="text-xs sm:text-sm text-[#0569B9] dark:text-[#82B4DC] hover:underline font-medium">All publications &rarr;</a>
+    <div class="flex items-center justify-between mb-3 pb-1.5 border-b border-slate-200/80 dark:border-slate-800">
+      <h2 class="text-base font-semibold tracking-tight text-slate-900 dark:text-white">Selected Publications</h2>
+      <a href="/publications" class="text-xs text-[#0569B9] dark:text-[#82B4DC] hover:underline">All publications &rarr;</a>
     </div>
 
-    <div class="space-y-4">
+    <div class="space-y-3.5">
       {selectedPubs.map((pub, idx) => (
-        <div class="border-l-2 border-slate-200 dark:border-slate-800 pl-3.5 py-0.5 hover:border-[#0569B9] transition-colors">
-          <div class="text-base sm:text-lg font-semibold text-slate-900 dark:text-slate-100 leading-snug">
+        <div class="border-l border-slate-200 dark:border-slate-800 pl-3 py-0.5 hover:border-[#0569B9] transition-colors">
+          <div class="text-sm font-medium text-slate-900 dark:text-slate-100 leading-snug">
             {pub.entryTags.url ? (
               <a href={pub.entryTags.url} target="_blank" rel="noopener noreferrer" class="hover:text-[#0569B9] dark:hover:text-[#82B4DC]">
                 {cleanLatex(pub.entryTags.title)}

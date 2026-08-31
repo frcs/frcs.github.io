@@ -4,36 +4,49 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  /* Trinity College Dublin Brand Colors */
   --color-tcd-blue: #0569B9;
   --color-tcd-blue-dark: #044F8C;
-  --color-tcd-blue-tint: #EBF3FA;
-  --color-tcd-blue-tint-dark: #122B44;
-  --color-tcd-grey: #50555A;
-  --color-tcd-light-grey: #f0f2f5;
-  
   --color-brand: #0569B9;
-  --color-brand-dark: #044F8C;
-  --color-dark-bg: #0d1524;
-  --color-dark-surface: #152033;
+  
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
 html {
   scroll-behavior: smooth;
+  font-size: 14.5px; /* Restrained, readable base size */
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  color: #1e293b;
-  background-color: #f1f3f6; /* Elegant, sober TCD light grey */
+  font-family: var(--font-sans);
+  color: #334155; /* Soft slate charcoal instead of harsh black */
+  background-color: #f6f7f9; /* Sober, calming light grey canvas */
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
 .dark body {
-  color: #e2e8f0;
-  background-color: #0b1120;
+  color: #cbd5e1;
+  background-color: #0f141c; /* Soft dark slate */
 }
 
-/* Custom link accents */
+/* Headings: Clean, modern, understated weights */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  color: #0f172a;
+  letter-spacing: -0.01em;
+}
+
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: #f1f5f9;
+}
+
+/* Restrained links */
 a {
   text-underline-offset: 2px;
+}
+
+/* KaTeX adjustments */
+.katex {
+  font-size: 1em !important;
 }

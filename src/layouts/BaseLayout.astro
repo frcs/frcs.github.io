@@ -59,17 +59,17 @@ const navItems = [
     }
   </script>
 </head>
-<body class="min-h-screen flex flex-col bg-[#eef1f5] dark:bg-[#0b1120] text-slate-800 dark:text-slate-200 antialiased transition-colors duration-200 text-sm sm:text-base">
+<body class="min-h-screen flex flex-col antialiased">
   
-  <!-- Top TCD Accent Bar -->
-  <div class="h-1 w-full bg-[#0569B9]"></div>
+  <!-- Subtle Top Accent Bar -->
+  <div class="h-0.5 w-full bg-[#0569B9]/80"></div>
 
   <!-- Mobile Header -->
-  <header class="md:hidden flex items-center justify-between px-4 py-3 bg-white dark:bg-[#111928] border-b border-slate-200 dark:border-slate-800 sticky top-0 z-40">
+  <header class="md:hidden flex items-center justify-between px-4 py-3 bg-white/90 dark:bg-slate-900/90 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-40 backdrop-blur-xs">
     <div class="flex items-center gap-3">
-      <img src="/images/tcd-logo.png" alt="Trinity College Dublin" class="h-9 w-auto dark:hidden" />
-      <img src="/images/tcd-logo-white.png" alt="Trinity College Dublin" class="h-9 w-auto hidden dark:block" />
-      <a href="/" class="font-bold text-slate-900 dark:text-white text-base">François Pitié</a>
+      <img src="/images/tcd-logo.png" alt="Trinity College Dublin" class="h-8 w-auto dark:hidden" />
+      <img src="/images/tcd-logo-white.png" alt="Trinity College Dublin" class="h-8 w-auto hidden dark:block" />
+      <a href="/" class="font-medium text-slate-900 dark:text-white text-base">François Pitié</a>
     </div>
     <div class="flex items-center gap-2">
       <button id="theme-toggle-mobile" aria-label="Toggle dark mode" class="p-2 rounded text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800">
@@ -124,17 +124,17 @@ const navItems = [
     })}
   </div>
 
-  <!-- Main 2-Column Container -->
-  <div class="max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-10 flex-1 flex flex-col md:flex-row gap-10">
+  <!-- Main 2-Column Academic Container -->
+  <div class="max-w-5xl mx-auto w-full px-5 sm:px-8 py-10 flex-1 flex flex-col md:flex-row gap-10 lg:gap-14">
     
-    <!-- Left Column (Clean academic sidebar) -->
-    <aside class="w-full md:w-56 lg:w-60 shrink-0">
-      <div class="sticky top-10 space-y-5">
+    <!-- Left Column (Refined minimal academic sidebar) -->
+    <aside class="w-full md:w-52 lg:w-56 shrink-0">
+      <div class="sticky top-8 space-y-5">
         
         <!-- Profile Identity -->
         <div>
-          <!-- Perfectly sized portrait: 180px wide with accurate 4:5 crop -->
-          <div class="w-[180px] h-[225px] rounded-lg overflow-hidden mb-3.5 bg-slate-200/80 dark:bg-slate-800 shadow-xs border border-slate-300/70 dark:border-slate-700/60">
+          <!-- Clean portrait -->
+          <div class="w-[160px] h-[200px] rounded overflow-hidden mb-3 bg-slate-200/50 dark:bg-slate-800 border border-slate-300/50 dark:border-slate-800">
             <img 
               src="/images/pitief.jpg" 
               alt="François Pitié" 
@@ -143,86 +143,84 @@ const navItems = [
             />
           </div>
 
-          <h1 class="text-xl font-bold text-slate-900 dark:text-white tracking-tight">François Pitié</h1>
-          <p class="text-sm text-[#0569B9] dark:text-[#82B4DC] font-semibold mt-0.5">Ussher Assistant Professor</p>
-          <p class="text-xs text-slate-600 dark:text-slate-400 mt-0.5">Fellow of Trinity College Dublin (FTCD)</p>
+          <h1 class="text-base font-semibold text-slate-900 dark:text-white tracking-tight">François Pitié</h1>
+          <p class="text-xs text-[#0569B9] dark:text-[#82B4DC] font-medium mt-0.5">Ussher Assistant Professor</p>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Fellow of Trinity College Dublin (FTCD)</p>
           
-          <div class="mt-3 text-sm text-slate-600 dark:text-slate-300 space-y-0.5 leading-normal">
+          <div class="mt-2.5 text-xs text-slate-500 dark:text-slate-400 space-y-0.5 leading-relaxed">
             <p>
-              <a href="https://www.tcd.ie/eleceng/" target="_blank" rel="noopener noreferrer" class="hover:underline">
+              <a href="https://www.tcd.ie/eleceng/" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 dark:hover:text-slate-200">
                 Dept. of Electronic & Elec. Eng.
               </a>
             </p>
             <p>
-              <a href="https://www.tcd.ie" target="_blank" rel="noopener noreferrer" class="hover:underline font-medium text-slate-800 dark:text-slate-200">
+              <a href="https://www.tcd.ie" target="_blank" rel="noopener noreferrer" class="text-slate-700 dark:text-slate-300 hover:underline">
                 Trinity College Dublin
               </a>
             </p>
-            <p class="text-xs text-slate-500 dark:text-slate-400 pt-0.5">
-              Also affiliated with <a href="https://www.adaptcentre.ie" target="_blank" rel="noopener noreferrer" class="hover:underline text-slate-700 dark:text-slate-300 font-medium">ADAPT Centre</a>
+            <p class="text-[11px] text-slate-400 dark:text-slate-500 pt-0.5">
+              Affiliated with <a href="https://www.adaptcentre.ie" target="_blank" rel="noopener noreferrer" class="hover:underline">ADAPT Centre</a>
             </p>
           </div>
         </div>
 
         <!-- Contact & Office -->
-        <div class="pt-3 border-t border-slate-300/80 dark:border-slate-800 text-xs sm:text-sm space-y-1 text-slate-600 dark:text-slate-300">
+        <div class="pt-3 border-t border-slate-200/70 dark:border-slate-800 text-xs space-y-1 text-slate-600 dark:border-slate-800">
           <div>
-            <span class="text-slate-500 dark:text-slate-500 font-mono text-xs">Email: </span>
-            <a href="mailto:pitief@tcd.ie" class="text-slate-800 dark:text-slate-200 hover:text-[#0569B9] dark:hover:text-[#82B4DC] font-medium">pitief@tcd.ie</a>
+            <span class="text-slate-400 dark:text-slate-500 text-[11px]">Email: </span>
+            <a href="mailto:pitief@tcd.ie" class="text-slate-700 dark:text-slate-300 hover:text-[#0569B9] dark:hover:text-[#82B4DC]">pitief@tcd.ie</a>
           </div>
-          <div class="leading-snug">
-            <span class="text-slate-500 dark:text-slate-500 font-mono text-xs">Office: </span>
+          <div>
+            <span class="text-slate-400 dark:text-slate-500 text-[11px]">Office: </span>
             <span>Room 3-22, Áras an Phiarsaigh</span>
           </div>
         </div>
 
-        <!-- Compact Academic Profiles Links -->
-        <div class="pt-3 border-t border-slate-300/80 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-          <a href="https://scholar.google.com/citations?user=lOaoO74AAAAJ" target="_blank" rel="noopener noreferrer" class="hover:text-[#0569B9] dark:hover:text-[#82B4DC]">Google Scholar</a>
-          <span class="mx-1 text-slate-400 dark:text-slate-600">&bull;</span>
+        <!-- Academic Profiles Links -->
+        <div class="pt-3 border-t border-slate-200/70 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+          <a href="https://scholar.google.com/citations?user=lOaoO74AAAAJ" target="_blank" rel="noopener noreferrer" class="hover:text-[#0569B9] dark:hover:text-[#82B4DC]">Scholar</a>
+          <span class="mx-1 text-slate-300 dark:text-slate-700">&bull;</span>
           <a href="https://orcid.org/0000-0002-3925-5020" target="_blank" rel="noopener noreferrer" class="hover:text-[#0569B9] dark:hover:text-[#82B4DC]">ORCID</a>
-          <span class="mx-1 text-slate-400 dark:text-slate-600">&bull;</span>
+          <span class="mx-1 text-slate-300 dark:text-slate-700">&bull;</span>
           <a href="https://github.com/frcs" target="_blank" rel="noopener noreferrer" class="hover:text-[#0569B9] dark:hover:text-[#82B4DC]">GitHub</a>
-          <span class="mx-1 text-slate-400 dark:text-slate-600">&bull;</span>
+          <span class="mx-1 text-slate-300 dark:text-slate-700">&bull;</span>
           <a href="https://ie.linkedin.com/in/fran%C3%A7ois-piti%C3%A9-6182718b" target="_blank" rel="noopener noreferrer" class="hover:text-[#0569B9] dark:hover:text-[#82B4DC]">LinkedIn</a>
-          <span class="mx-1 text-slate-400 dark:text-slate-600">&bull;</span>
-          <a href="https://www.researchgate.net/profile/F_Pitie" target="_blank" rel="noopener noreferrer" class="hover:text-[#0569B9] dark:hover:text-[#82B4DC]">ResearchGate</a>
         </div>
 
-        <!-- Flat navigation menu with subfolder support -->
-        <nav class="hidden md:block pt-3 border-t border-slate-300/80 dark:border-slate-800">
-          <ul class="space-y-0.5">
+        <!-- Flat minimal navigation menu -->
+        <nav class="hidden md:block pt-3 border-t border-slate-200/70 dark:border-slate-800">
+          <ul class="space-y-0.5 text-xs">
             {navItems.map(item => {
               const isExactActive = currentPath === item.href;
               const isParentActive = currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href));
               return (
-                <li class="space-y-0.5">
+                <li>
                   <a
                     href={item.href}
-                    class={`block py-1 text-sm transition-colors ${
+                    class={`block py-1 transition-colors ${
                       isExactActive
-                        ? 'text-[#0569B9] dark:text-[#82B4DC] font-semibold pl-2.5 border-l-2 border-[#0569B9]'
+                        ? 'text-[#0569B9] dark:text-[#82B4DC] font-semibold pl-2 border-l border-[#0569B9]'
                         : isParentActive
-                        ? 'text-[#0569B9] dark:text-[#82B4DC] font-medium pl-2.5 border-l-2 border-[#0569B9]/50'
-                        : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 pl-3 border-l-2 border-transparent'
+                        ? 'text-[#0569B9] dark:text-[#82B4DC] font-medium pl-2 border-l border-[#0569B9]/40'
+                        : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 pl-2.5 border-l border-transparent'
                     }`}
                   >
                     {item.name}
                   </a>
 
-                  {/* Subfolder list under Research */}
+                  {/* Subfolder list */}
                   {item.children && (
-                    <ul class="pl-4 py-0.5 space-y-0.5 border-l border-slate-300/70 dark:border-slate-800 ml-3">
+                    <ul class="pl-3 py-0.5 space-y-0.5 border-l border-slate-200 dark:border-slate-800/80 ml-2 my-0.5">
                       {item.children.map(sub => {
                         const isSubActive = currentPath === sub.href;
                         return (
                           <li>
                             <a
                               href={sub.href}
-                              class={`block py-0.5 text-xs transition-colors ${
+                              class={`block py-0.5 text-[11px] transition-colors ${
                                 isSubActive
-                                  ? 'text-[#0569B9] dark:text-[#82B4DC] font-semibold pl-2 border-l-2 border-[#0569B9]'
-                                  : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 pl-2.5 border-l-2 border-transparent'
+                                  ? 'text-[#0569B9] dark:text-[#82B4DC] font-medium'
+                                  : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'
                               }`}
                             >
                               {sub.name}
@@ -238,23 +236,21 @@ const navItems = [
           </ul>
         </nav>
 
-        <!-- Institutional & Lab Logos (Sober, natural, transparent) -->
-        <div class="pt-4 border-t border-slate-300/80 dark:border-slate-800 space-y-4">
-          <!-- Sigmedia Lab Logo Link (Bigger) -->
+        <!-- Institutional & Lab Logos (Subdued, quiet) -->
+        <div class="pt-4 border-t border-slate-200/70 dark:border-slate-800 space-y-3">
           <div>
-            <span class="text-[10px] uppercase tracking-wider font-semibold text-slate-400 dark:text-slate-500 block mb-1.5">Research Lab</span>
-            <a href="https://sigmedia.tv" target="_blank" rel="noopener noreferrer" class="inline-block opacity-90 hover:opacity-100 transition-opacity" title="Sigmedia Research Group">
-              <img src="/images/sigmedia-logo.png" alt="Sigmedia Research Group" class="h-11 w-auto max-w-[200px] object-contain object-left dark:hidden" />
-              <img src="/images/sigmedia-logo-white.png" alt="Sigmedia Research Group" class="h-11 w-auto max-w-[200px] object-contain object-left hidden dark:block" />
+            <span class="text-[9px] uppercase tracking-wider font-mono text-slate-400 dark:text-slate-500 block mb-1">Research Lab</span>
+            <a href="https://sigmedia.tv" target="_blank" rel="noopener noreferrer" class="inline-block opacity-80 hover:opacity-100 transition-opacity">
+              <img src="/images/sigmedia-logo.png" alt="Sigmedia Research Group" class="h-8 w-auto max-w-[160px] object-contain object-left dark:hidden" />
+              <img src="/images/sigmedia-logo-white.png" alt="Sigmedia Research Group" class="h-8 w-auto max-w-[160px] object-contain object-left hidden dark:block" />
             </a>
           </div>
 
-          <!-- TCD Logo Link -->
           <div>
-            <span class="text-[10px] uppercase tracking-wider font-semibold text-slate-400 dark:text-slate-500 block mb-1.5">Institution</span>
-            <a href="https://www.tcd.ie" target="_blank" rel="noopener noreferrer" class="inline-block opacity-90 hover:opacity-100 transition-opacity" title="Trinity College Dublin">
-              <img src="/images/tcd-logo.png" alt="Trinity College Dublin" class="h-11 w-auto max-w-[200px] object-contain object-left dark:hidden" />
-              <img src="/images/tcd-logo-white.png" alt="Trinity College Dublin" class="h-11 w-auto max-w-[200px] object-contain object-left hidden dark:block" />
+            <span class="text-[9px] uppercase tracking-wider font-mono text-slate-400 dark:text-slate-500 block mb-1">Institution</span>
+            <a href="https://www.tcd.ie" target="_blank" rel="noopener noreferrer" class="inline-block opacity-80 hover:opacity-100 transition-opacity">
+              <img src="/images/tcd-logo.png" alt="Trinity College Dublin" class="h-8 w-auto max-w-[160px] object-contain object-left dark:hidden" />
+              <img src="/images/tcd-logo-white.png" alt="Trinity College Dublin" class="h-8 w-auto max-w-[160px] object-contain object-left hidden dark:block" />
             </a>
           </div>
         </div>
@@ -269,16 +265,15 @@ const navItems = [
 
   </div>
 
-  <!-- Footer with Theme Toggle -->
-  <footer class="mt-auto border-t border-slate-300/80 dark:border-slate-800 py-6 text-xs text-slate-500 dark:text-slate-400 bg-slate-200/50 dark:bg-transparent">
-    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
-      <p>&copy; {new Date().getFullYear()} François Pitié &bull; Department of Electronic & Electrical Engineering &bull; Trinity College Dublin</p>
+  <!-- Footer with Quiet Theme Toggle -->
+  <footer class="mt-auto border-t border-slate-200/70 dark:border-slate-800 py-6 text-xs text-slate-500 dark:text-slate-400">
+    <div class="max-w-5xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+      <p>&copy; {new Date().getFullYear()} François Pitié &bull; Dept. of Electronic & Electrical Engineering &bull; Trinity College Dublin</p>
       
-      <!-- Theme toggle in footer -->
-      <button id="theme-toggle-desktop" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-800 border border-slate-300/80 dark:border-slate-700 hover:text-slate-800 dark:hover:text-white transition-colors cursor-pointer text-xs">
-        <svg class="w-3.5 h-3.5 hidden dark:block text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
+      <button id="theme-toggle-desktop" class="inline-flex items-center gap-1.5 text-xs text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white transition-colors cursor-pointer">
+        <svg class="w-3.5 h-3.5 hidden dark:block text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707-.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
         <svg class="w-3.5 h-3.5 block dark:hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
-        <span>Theme Toggle</span>
+        <span>Toggle Theme</span>
       </button>
     </div>
   </footer>
