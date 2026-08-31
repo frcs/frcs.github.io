@@ -13,9 +13,19 @@ const {
   currentSection = "home"
 } = Astro.props;
 
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+
 const navItems = [
   { name: "Home", href: "/" },
-  { name: "Research", href: "/research" },
+  { 
+    name: "Research", 
+    href: "/research",
+    children: [
+      { name: "Colour Transfer", href: "/research/colour-transfer" },
+      { name: "Deflicker", href: "/research/deflicker" },
+      { name: "Matting Laplacian", href: "/research/matting-laplacian" }
+    ]
+  },
   { name: "Publications", href: "/publications" },
   { name: "Teaching", href: "/teaching" },
   { name: "Team & Alumni", href: "/team" },
@@ -55,7 +65,7 @@ const navItems = [
     </div>
     <div class="flex items-center gap-2">
       <button id="theme-toggle-mobile" aria-label="Toggle dark mode" class="p-2 rounded text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800">
-        <svg class="w-5 h-5 hidden dark:block text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
+        <svg class="w-5 h-5 hidden dark:block text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
         <svg class="w-5 h-5 block dark:hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
       </button>
       <button id="menu-toggle" aria-label="Open Navigation" class="p-2 rounded text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">
@@ -66,18 +76,44 @@ const navItems = [
 
   <!-- Mobile Drawer -->
   <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-[#111928] border-b border-slate-200 dark:border-slate-800 px-4 py-3 space-y-1">
-    {navItems.map(item => (
-      <a
-        href={item.href}
-        class={`block px-3 py-2 text-base font-medium transition-colors ${
-          Astro.url.pathname === item.href || (item.href !== '/' && Astro.url.pathname.startsWith(item.href))
-            ? 'text-[#0569B9] dark:text-[#82B4DC] font-semibold pl-2 border-l-2 border-[#0569B9]'
-            : 'text-slate-600 dark:text-slate-300 hover:text-slate-900'
-        }`}
-      >
-        {item.name}
-      </a>
-    ))}
+    {navItems.map(item => {
+      const isParentActive = currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href));
+      return (
+        <div>
+          <a
+            href={item.href}
+            class={`block px-3 py-2 text-base font-medium transition-colors ${
+              currentPath === item.href
+                ? 'text-[#0569B9] dark:text-[#82B4DC] font-semibold pl-2 border-l-2 border-[#0569B9]'
+                : isParentActive
+                ? 'text-[#0569B9] dark:text-[#82B4DC] font-semibold'
+                : 'text-slate-600 dark:text-slate-300 hover:text-slate-900'
+            }`}
+          >
+            {item.name}
+          </a>
+          {item.children && (
+            <div class="pl-5 py-1 space-y-1 border-l border-slate-200 dark:border-slate-800 ml-3">
+              {item.children.map(sub => {
+                const isSubActive = currentPath === sub.href;
+                return (
+                  <a
+                    href={sub.href}
+                    class={`block py-1 text-sm transition-colors ${
+                      isSubActive
+                        ? 'text-[#0569B9] dark:text-[#82B4DC] font-semibold'
+                        : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                    }`}
+                  >
+                    {sub.name}
+                  </a>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      );
+    })}
   </div>
 
   <!-- Main 2-Column Container -->
@@ -145,23 +181,49 @@ const navItems = [
           <a href="https://www.researchgate.net/profile/F_Pitie" target="_blank" rel="noopener noreferrer" class="hover:text-[#0569B9] dark:hover:text-[#82B4DC]">ResearchGate</a>
         </div>
 
-        <!-- Flat navigation menu -->
+        <!-- Flat navigation menu with subfolder support -->
         <nav class="hidden md:block pt-3 border-t border-slate-300/80 dark:border-slate-800">
           <ul class="space-y-0.5">
             {navItems.map(item => {
-              const isActive = Astro.url.pathname === item.href || (item.href !== '/' && Astro.url.pathname.startsWith(item.href));
+              const isExactActive = currentPath === item.href;
+              const isParentActive = currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href));
               return (
-                <li>
+                <li class="space-y-0.5">
                   <a
                     href={item.href}
-                    class={`block py-1.5 text-sm transition-colors ${
-                      isActive
+                    class={`block py-1 text-sm transition-colors ${
+                      isExactActive
                         ? 'text-[#0569B9] dark:text-[#82B4DC] font-semibold pl-2.5 border-l-2 border-[#0569B9]'
+                        : isParentActive
+                        ? 'text-[#0569B9] dark:text-[#82B4DC] font-medium pl-2.5 border-l-2 border-[#0569B9]/50'
                         : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 pl-3 border-l-2 border-transparent'
                     }`}
                   >
                     {item.name}
                   </a>
+
+                  {/* Subfolder list under Research */}
+                  {item.children && (
+                    <ul class="pl-4 py-0.5 space-y-0.5 border-l border-slate-300/70 dark:border-slate-800 ml-3">
+                      {item.children.map(sub => {
+                        const isSubActive = currentPath === sub.href;
+                        return (
+                          <li>
+                            <a
+                              href={sub.href}
+                              class={`block py-0.5 text-xs transition-colors ${
+                                isSubActive
+                                  ? 'text-[#0569B9] dark:text-[#82B4DC] font-semibold pl-2 border-l-2 border-[#0569B9]'
+                                  : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 pl-2.5 border-l-2 border-transparent'
+                              }`}
+                            >
+                              {sub.name}
+                            </a>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  )}
                 </li>
               );
             })}
@@ -206,7 +268,7 @@ const navItems = [
       
       <!-- Theme toggle in footer -->
       <button id="theme-toggle-desktop" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-800 border border-slate-300/80 dark:border-slate-700 hover:text-slate-800 dark:hover:text-white transition-colors cursor-pointer text-xs">
-        <svg class="w-3.5 h-3.5 hidden dark:block text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
+        <svg class="w-3.5 h-3.5 hidden dark:block text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
         <svg class="w-3.5 h-3.5 block dark:hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
         <span>Theme Toggle</span>
       </button>
