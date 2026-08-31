@@ -4,8 +4,15 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-brand: #005596;
-  --color-brand-dark: #003e6d;
+  /* Trinity College Dublin Brand Colors */
+  --color-tcd-blue: #0569B9;
+  --color-tcd-blue-dark: #044F8C;
+  --color-tcd-blue-tint: #EBF3FA;
+  --color-tcd-blue-tint-dark: #122B44;
+  --color-tcd-grey: #50555A;
+  
+  --color-brand: #0569B9;
+  --color-brand-dark: #044F8C;
   --color-dark-bg: rgb(15, 23, 42);
   --color-dark-surface: rgb(30, 41, 59);
 }
@@ -15,12 +22,17 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   color: #1e293b;
   background-color: #f8fafc;
 }
 
 .dark body {
   color: #e2e8f0;
-  background-color: #0f172a;
+  background-color: #0b1120;
+}
+
+/* Custom link accents */
+a {
+  text-underline-offset: 2px;
 }

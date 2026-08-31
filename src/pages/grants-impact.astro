@@ -100,12 +100,12 @@ const serviceRoles = [
     <h2 class="text-lg font-bold tracking-tight text-slate-900 dark:text-white mb-4">Competitive Research Grants</h2>
     <div class="space-y-4">
       {competitiveGrants.map(g => (
-        <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xs">
+        <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#121c30] shadow-xs hover:border-[#0569B9]/40 transition-colors">
           <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-1">
             <h3 class="text-sm font-semibold text-slate-900 dark:text-slate-100">{g.title}</h3>
             <span class="text-xs font-mono text-slate-500 shrink-0">{g.period}</span>
           </div>
-          <div class="text-xs text-sky-700 dark:text-sky-400 font-medium mb-1.5">
+          <div class="text-xs text-[#0569B9] dark:text-[#82B4DC] font-medium mb-1.5">
             {g.funder} &bull; {g.role}
           </div>
           <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
@@ -121,10 +121,10 @@ const serviceRoles = [
     <h2 class="text-lg font-bold tracking-tight text-slate-900 dark:text-white mb-4">Granted Patents</h2>
     <div class="space-y-3">
       {patents.map(pat => (
-        <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xs">
+        <div class="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#121c30] shadow-xs hover:border-[#0569B9]/40 transition-colors">
           <div class="flex items-baseline justify-between mb-1">
             <h3 class="text-sm font-semibold text-slate-900 dark:text-slate-100">{pat.title}</h3>
-            <span class="text-xs font-mono font-semibold text-slate-700 dark:text-slate-300">{pat.patentNo}</span>
+            <span class="text-xs font-mono font-semibold text-[#0569B9] dark:text-[#82B4DC]">{pat.patentNo}</span>
           </div>
           <div class="text-xs text-slate-600 dark:text-slate-300">
             Inventors: {pat.inventors}
@@ -140,7 +140,7 @@ const serviceRoles = [
   <!-- Academic Service -->
   <section>
     <h2 class="text-lg font-bold tracking-tight text-slate-900 dark:text-white mb-4">Academic & Professional Service</h2>
-    <div class="divide-y divide-slate-100 dark:divide-slate-800 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden bg-white dark:bg-slate-900 shadow-xs">
+    <div class="divide-y divide-slate-100 dark:divide-slate-800 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden bg-white dark:bg-[#121c30] shadow-xs">
       {serviceRoles.map(s => (
         <div class="p-3.5 flex items-baseline justify-between gap-4 text-xs hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors">
           <div>

@@ -43,13 +43,13 @@ const years = Object.keys(groupedByYear).sort((a, b) => b.localeCompare(a));
     <div>
       <h1 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Publications</h1>
       <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-        Master bibliography ({allPubs.length} entries). Also available on <a href="https://scholar.google.com/citations?user=lOaoO74AAAAJ" target="_blank" rel="noopener noreferrer" class="text-sky-700 dark:text-sky-400 hover:underline">Google Scholar</a> and <a href="https://www.researchgate.net/profile/F_Pitie" target="_blank" rel="noopener noreferrer" class="text-sky-700 dark:text-sky-400 hover:underline">ResearchGate</a>.
+        Master bibliography ({allPubs.length} entries). Also available on <a href="https://scholar.google.com/citations?user=lOaoO74AAAAJ" target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline font-medium">Google Scholar</a> and <a href="https://www.researchgate.net/profile/F_Pitie" target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline font-medium">ResearchGate</a>.
       </p>
     </div>
 
     <!-- Quick filter view toggle -->
     <div class="flex items-center gap-1.5 text-xs bg-slate-100 dark:bg-slate-800 p-1 rounded-lg self-start sm:self-auto">
-      <button id="btn-by-category" class="px-2.5 py-1 rounded bg-white dark:bg-slate-700 text-slate-900 dark:text-white font-medium shadow-xs">By Category</button>
+      <button id="btn-by-category" class="px-2.5 py-1 rounded bg-white dark:bg-slate-700 text-[#0569B9] dark:text-white font-semibold shadow-xs">By Category</button>
       <button id="btn-by-year" class="px-2.5 py-1 rounded text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white">By Year</button>
     </div>
   </div>
@@ -67,11 +67,11 @@ const years = Object.keys(groupedByYear).sort((a, b) => b.localeCompare(a));
             <div class="p-3 rounded-lg border border-slate-100 dark:border-slate-800/60 hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors">
               <div class="text-sm font-semibold text-slate-900 dark:text-slate-100 leading-snug">
                 {pub.entryTags.url ? (
-                  <a href={pub.entryTags.url} target="_blank" rel="noopener noreferrer" class="hover:text-sky-700 dark:hover:text-sky-400">
+                  <a href={pub.entryTags.url} target="_blank" rel="noopener noreferrer" class="hover:text-[#0569B9] dark:hover:text-[#82B4DC]">
                     {cleanLatex(pub.entryTags.title)}
                   </a>
                 ) : pub.entryTags.doi ? (
-                  <a href={`https://doi.org/${pub.entryTags.doi}`} target="_blank" rel="noopener noreferrer" class="hover:text-sky-700 dark:hover:text-sky-400">
+                  <a href={`https://doi.org/${pub.entryTags.doi}`} target="_blank" rel="noopener noreferrer" class="hover:text-[#0569B9] dark:hover:text-[#82B4DC]">
                     {cleanLatex(pub.entryTags.title)}
                   </a>
                 ) : (
@@ -84,12 +84,12 @@ const years = Object.keys(groupedByYear).sort((a, b) => b.localeCompare(a));
                 <span>&bull;</span>
                 <span>{pub.entryTags.year}</span>
                 {pub.entryTags.doi && (
-                  <a href={`https://doi.org/${pub.entryTags.doi}`} target="_blank" rel="noopener noreferrer" class="text-sky-700 dark:text-sky-400 hover:underline font-mono text-[11px]">
+                  <a href={`https://doi.org/${pub.entryTags.doi}`} target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline font-mono text-[11px] font-medium">
                     [DOI]
                   </a>
                 )}
                 {pub.entryTags.url && !pub.entryTags.doi && (
-                  <a href={pub.entryTags.url} target="_blank" rel="noopener noreferrer" class="text-sky-700 dark:text-sky-400 hover:underline font-mono text-[11px]">
+                  <a href={pub.entryTags.url} target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline font-mono text-[11px] font-medium">
                     [Link]
                   </a>
                 )}
@@ -114,11 +114,11 @@ const years = Object.keys(groupedByYear).sort((a, b) => b.localeCompare(a));
             <div class="p-3 rounded-lg border border-slate-100 dark:border-slate-800/60 hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors">
               <div class="text-sm font-semibold text-slate-900 dark:text-slate-100 leading-snug">
                 {pub.entryTags.url ? (
-                  <a href={pub.entryTags.url} target="_blank" rel="noopener noreferrer" class="hover:text-sky-700 dark:hover:text-sky-400">
+                  <a href={pub.entryTags.url} target="_blank" rel="noopener noreferrer" class="hover:text-[#0569B9] dark:hover:text-[#82B4DC]">
                     {cleanLatex(pub.entryTags.title)}
                   </a>
                 ) : pub.entryTags.doi ? (
-                  <a href={`https://doi.org/${pub.entryTags.doi}`} target="_blank" rel="noopener noreferrer" class="hover:text-sky-700 dark:hover:text-sky-400">
+                  <a href={`https://doi.org/${pub.entryTags.doi}`} target="_blank" rel="noopener noreferrer" class="hover:text-[#0569B9] dark:hover:text-[#82B4DC]">
                     {cleanLatex(pub.entryTags.title)}
                   </a>
                 ) : (
@@ -131,7 +131,7 @@ const years = Object.keys(groupedByYear).sort((a, b) => b.localeCompare(a));
                 {pub.entryTags.doi && (
                   <>
                     <span>&bull;</span>
-                    <a href={`https://doi.org/${pub.entryTags.doi}`} target="_blank" rel="noopener noreferrer" class="text-sky-700 dark:text-sky-400 hover:underline font-mono text-[11px]">
+                    <a href={`https://doi.org/${pub.entryTags.doi}`} target="_blank" rel="noopener noreferrer" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline font-mono text-[11px] font-medium">
                       [DOI]
                     </a>
                   </>
@@ -151,18 +151,18 @@ const years = Object.keys(groupedByYear).sort((a, b) => b.localeCompare(a));
     const viewYear = document.getElementById('view-by-year');
 
     btnCat?.addEventListener('click', () => {
-      btnCat.classList.add('bg-white', 'dark:bg-slate-700', 'text-slate-900', 'dark:text-white', 'shadow-xs');
+      btnCat.classList.add('bg-white', 'dark:bg-slate-700', 'text-[#0569B9]', 'dark:text-white', 'font-semibold', 'shadow-xs');
       btnCat.classList.remove('text-slate-600', 'dark:text-slate-400');
-      btnYear?.classList.remove('bg-white', 'dark:bg-slate-700', 'text-slate-900', 'dark:text-white', 'shadow-xs');
+      btnYear?.classList.remove('bg-white', 'dark:bg-slate-700', 'text-[#0569B9]', 'dark:text-white', 'font-semibold', 'shadow-xs');
       btnYear?.classList.add('text-slate-600', 'dark:text-slate-400');
       viewCat?.classList.remove('hidden');
       viewYear?.classList.add('hidden');
     });
 
     btnYear?.addEventListener('click', () => {
-      btnYear.classList.add('bg-white', 'dark:bg-slate-700', 'text-slate-900', 'dark:text-white', 'shadow-xs');
+      btnYear.classList.add('bg-white', 'dark:bg-slate-700', 'text-[#0569B9]', 'dark:text-white', 'font-semibold', 'shadow-xs');
       btnYear.classList.remove('text-slate-600', 'dark:text-slate-400');
-      btnCat?.classList.remove('bg-white', 'dark:bg-slate-700', 'text-slate-900', 'dark:text-white', 'shadow-xs');
+      btnCat?.classList.remove('bg-white', 'dark:bg-slate-700', 'text-[#0569B9]', 'dark:text-white', 'font-semibold', 'shadow-xs');
       btnCat?.classList.add('text-slate-600', 'dark:text-slate-400');
       viewYear?.classList.remove('hidden');
       viewCat?.classList.add('hidden');
