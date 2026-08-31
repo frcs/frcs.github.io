@@ -8,8 +8,7 @@ const competitiveGrants = [
     period: "2023 – 2026",
     role: "Co-PI (TCD Allocation: €504,561 | Consortium: €3,794,601)",
     details: "Developing green media AI algorithms and neural processing pipelines for sustainable video production, live broadcast, and virtual studios.",
-    logo: "/images/collaborations/european_commission.png",
-    invertDark: false
+    logo: "/images/collaborations/european_commission.png"
   },
   {
     title: "SYZE: Computer Vision for 3D Body Measurement from Smartphone Imagery",
@@ -17,8 +16,7 @@ const competitiveGrants = [
     period: "2019 – 2020",
     role: "Lead PI (€418,442)",
     details: "Pioneered neural reconstruction and metric scale estimation for apparel sizing; subsequently spun out as Swan AI.",
-    logo: "/images/collaborations/enterprise_ireland.png",
-    invertDark: false
+    logo: "/images/collaborations/enterprise_ireland.png"
   },
   {
     title: "SFI Research Centres Programme (Huawei Industry Collaboration)",
@@ -26,8 +24,7 @@ const competitiveGrants = [
     period: "2018 – 2020",
     role: "Lead PI (€1,077,710)",
     details: "High-performance video analysis, perceptual coding, and computer vision systems.",
-    logo: "/images/collaborations/huawei.png",
-    invertDark: false
+    logo: "/images/collaborations/huawei.png"
   },
   {
     title: "SFI Research Centres Programme (Huawei Phase 1)",
@@ -35,8 +32,7 @@ const competitiveGrants = [
     period: "2017 – 2018",
     role: "Lead PI (€461,273)",
     details: "Intelligent video processing algorithms for next-generation mobile hardware.",
-    logo: "/images/collaborations/sfi.png",
-    invertDark: false
+    logo: "/images/collaborations/sfi.png"
   },
   {
     title: "eBay Image Processing and Machine Translation Project",
@@ -44,8 +40,7 @@ const competitiveGrants = [
     period: "2017",
     role: "Lead PI (€62,000)",
     details: "Visual search and product image quality enhancement.",
-    logo: "/images/collaborations/adapt.png",
-    invertDark: false
+    logo: "/images/collaborations/adapt.png"
   },
   {
     title: "Advanced Video Debanding",
@@ -53,8 +48,7 @@ const competitiveGrants = [
     period: "2013",
     role: "Lead PI (€60,000)",
     details: "Development of statistical debanding algorithms for compressed internet video.",
-    logo: "/images/collaborations/google.png",
-    invertDark: false
+    logo: "/images/collaborations/google.png"
   },
   {
     title: "3DScam: 2D-to-3D Video Conversion",
@@ -62,8 +56,7 @@ const competitiveGrants = [
     period: "2011 – 2013",
     role: "Lead PI (€280,000)",
     details: "Developed stereoscopic depth estimation systems; led to the formation of TCD campus company PixelPuffin.",
-    logo: "/images/collaborations/enterprise_ireland.png",
-    invertDark: false
+    logo: "/images/collaborations/enterprise_ireland.png"
   }
 ];
 
@@ -90,42 +83,33 @@ const patents = [
     inventors: "François Pitié, Anil Kokaram"
   }
 ];
-
-const serviceRoles = [
-  { role: "MAI Projects Coordinator", org: "School of Engineering, Trinity College Dublin", period: "2024 – Present" },
-  { role: "College Tutor", org: "Trinity College Dublin", period: "2026 – Present" },
-  { role: "4th & 5th Year Coordinator", org: "Department of Electronic & Electrical Engineering, TCD", period: "2020 – 2024" },
-  { role: "School Research Committee Member", org: "School of Engineering, TCD", period: "2019 – 2024" },
-  { role: "Guest Editor", org: "IET Computer Vision (Special Issue on Computer Vision for Creative Industries)", period: "2020" },
-  { role: "Academic Representative", org: "Alliance for Open Media (AOMedia) Video Quality Working Group", period: "Ongoing" }
-];
 ---
 
-<BaseLayout title="Grants & Impact - François Pitié" currentSection="grants-impact">
+<BaseLayout title="Grants & Patents - François Pitié" currentSection="grants-impact">
   <div class="mb-6 pb-2 border-b border-slate-200 dark:border-slate-800">
-    <h1 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Grants, Patents & Service</h1>
-    <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-      Research funding, intellectual property, and institutional service.
+    <h1 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Grants & Patents</h1>
+    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-0.5">
+      Competitive research funding and granted intellectual property.
     </p>
   </div>
 
   <!-- Competitive Research Grants with Funding Body Logos -->
-  <section class="mb-10">
-    <h2 class="text-base font-bold tracking-tight text-slate-900 dark:text-white mb-4 pb-1 border-b border-slate-100 dark:border-slate-800">
+  <section class="mb-12">
+    <h2 class="text-base sm:text-lg font-bold tracking-tight text-slate-900 dark:text-white mb-4 pb-1 border-b border-slate-100 dark:border-slate-800">
       Competitive Research Grants
     </h2>
-    <div class="space-y-5">
+    <div class="space-y-6">
       {competitiveGrants.map(g => (
         <div class="border-l-2 border-slate-200 dark:border-slate-800 pl-4 py-1 hover:border-[#0569B9] transition-colors flex flex-col sm:flex-row sm:items-start justify-between gap-4">
           <div class="flex-1">
             <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-1">
-              <h3 class="text-sm font-semibold text-slate-900 dark:text-slate-100">{g.title}</h3>
-              <span class="text-xs font-mono text-slate-400 shrink-0">{g.period}</span>
+              <h3 class="text-sm sm:text-base font-semibold text-slate-900 dark:text-slate-100">{g.title}</h3>
+              <span class="text-xs sm:text-sm font-mono text-slate-400 shrink-0">{g.period}</span>
             </div>
-            <div class="text-xs text-[#0569B9] dark:text-[#82B4DC] font-medium mb-1">
+            <div class="text-xs sm:text-sm text-[#0569B9] dark:text-[#82B4DC] font-medium mb-1.5">
               {g.funder} &bull; {g.role}
             </div>
-            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
               {g.details}
             </p>
           </div>
@@ -144,41 +128,23 @@ const serviceRoles = [
   </section>
 
   <!-- Patents (Flat list) -->
-  <section class="mb-10">
-    <h2 class="text-base font-bold tracking-tight text-slate-900 dark:text-white mb-4 pb-1 border-b border-slate-100 dark:border-slate-800">
+  <section>
+    <h2 class="text-base sm:text-lg font-bold tracking-tight text-slate-900 dark:text-white mb-4 pb-1 border-b border-slate-100 dark:border-slate-800">
       Granted Patents
     </h2>
-    <div class="space-y-3.5">
+    <div class="space-y-4">
       {patents.map(pat => (
         <div class="border-l-2 border-slate-200 dark:border-slate-800 pl-4 py-1 hover:border-[#0569B9] transition-colors">
           <div class="flex items-baseline justify-between gap-2">
-            <h3 class="text-sm font-semibold text-slate-900 dark:text-slate-100">{pat.title}</h3>
-            <span class="text-xs font-mono font-semibold text-[#0569B9] dark:text-[#82B4DC] shrink-0">{pat.patentNo}</span>
+            <h3 class="text-sm sm:text-base font-semibold text-slate-900 dark:text-slate-100">{pat.title}</h3>
+            <span class="text-xs sm:text-sm font-mono font-semibold text-[#0569B9] dark:text-[#82B4DC] shrink-0">{pat.patentNo}</span>
           </div>
-          <div class="text-xs text-slate-600 dark:text-slate-400 mt-0.5">
+          <div class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">
             Inventors: {pat.inventors}
           </div>
           <div class="text-xs text-slate-400 mt-0.5">
             Assignee: {pat.assignee} ({pat.year})
           </div>
-        </div>
-      ))}
-    </div>
-  </section>
-
-  <!-- Academic Service (Flat list) -->
-  <section>
-    <h2 class="text-base font-bold tracking-tight text-slate-900 dark:text-white mb-4 pb-1 border-b border-slate-100 dark:border-slate-800">
-      Academic & Professional Service
-    </h2>
-    <div class="space-y-2">
-      {serviceRoles.map(s => (
-        <div class="border-l-2 border-slate-200 dark:border-slate-800 pl-4 py-1 hover:border-[#0569B9] transition-colors flex items-baseline justify-between gap-4 text-xs">
-          <div>
-            <span class="font-semibold text-slate-900 dark:text-slate-100">{s.role}</span>
-            <span class="text-slate-500 dark:text-slate-400 ml-1.5">&bull; {s.org}</span>
-          </div>
-          <span class="font-mono text-slate-400 shrink-0">{s.period}</span>
         </div>
       ))}
     </div>
