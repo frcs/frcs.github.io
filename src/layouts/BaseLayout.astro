@@ -62,14 +62,14 @@ const navItems = [
 <body class="min-h-screen flex flex-col antialiased">
   
   <!-- Subtle Top Accent Bar -->
-  <div class="h-0.5 w-full bg-[#0569B9]/80"></div>
+  <div class="h-0.5 w-full bg-[#235789]/60"></div>
 
   <!-- Mobile Header -->
-  <header class="md:hidden flex items-center justify-between px-4 py-3 bg-white/90 dark:bg-slate-900/90 border-b border-slate-200 dark:border-slate-800 sticky top-0 z-40 backdrop-blur-xs">
+  <header class="md:hidden flex items-center justify-between px-4 py-3 bg-[#f7f6f2]/95 dark:bg-[#121519]/95 border-b border-black/[0.08] dark:border-white/[0.08] sticky top-0 z-40 backdrop-blur-xs">
     <div class="flex items-center gap-3">
       <img src="/images/tcd-logo.png" alt="Trinity College Dublin" class="h-8 w-auto dark:hidden" />
       <img src="/images/tcd-logo-white.png" alt="Trinity College Dublin" class="h-8 w-auto hidden dark:block" />
-      <a href="/" class="font-medium text-slate-900 dark:text-white text-base">François Pitié</a>
+      <a href="/" class="font-medium text-[#1a1e22] dark:text-[#edf2f7] text-base">François Pitié</a>
     </div>
     <div class="flex items-center gap-2">
       <button id="theme-toggle-mobile" aria-label="Toggle dark mode" class="p-2 rounded text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800">
@@ -125,16 +125,15 @@ const navItems = [
   </div>
 
   <!-- Main 2-Column Academic Container -->
-  <div class="max-w-5xl mx-auto w-full px-5 sm:px-8 py-10 flex-1 flex flex-col md:flex-row gap-10 lg:gap-14">
+  <div class="max-w-5xl mx-auto w-full px-5 sm:px-8 py-10 flex-1 flex flex-col md:flex-row gap-12 lg:gap-16">
     
-    <!-- Left Column (Refined minimal academic sidebar) -->
-    <aside class="w-full md:w-52 lg:w-56 shrink-0">
-      <div class="sticky top-8 space-y-5">
+    <!-- Left Column (Harmonious, uncluttered academic sidebar) -->
+    <aside class="w-full md:w-56 shrink-0">
+      <div class="sticky top-8 space-y-6">
         
-        <!-- Profile Identity -->
+        <!-- Portrait & Core Identity -->
         <div>
-          <!-- Clean portrait -->
-          <div class="w-[170px] h-[212px] rounded overflow-hidden mb-3.5 bg-black/[0.03] dark:bg-white/[0.04] border border-black/[0.07] dark:border-white/[0.08]">
+          <div class="w-36 h-44 rounded-sm overflow-hidden mb-3.5 bg-black/[0.04] dark:bg-white/[0.04] border border-black/[0.06] dark:border-white/[0.08]">
             <img 
               src="/images/pitief.jpg" 
               alt="François Pitié" 
@@ -143,53 +142,36 @@ const navItems = [
             />
           </div>
 
-          <h1 class="text-lg font-semibold text-[#1a1e22] dark:text-[#edf2f7] tracking-tight">François Pitié</h1>
-          <p class="text-xs text-[#235789] dark:text-[#82B4DC] font-medium mt-0.5">Ussher Assistant Professor</p>
-          <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Fellow of Trinity College Dublin (FTCD)</p>
-          
-          <div class="mt-3 text-xs text-slate-600 dark:text-slate-400 space-y-0.5 leading-relaxed">
-            <p>
-              <a href="https://www.tcd.ie/eleceng/" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 dark:hover:text-slate-200">
-                Dept. of Electronic & Elec. Eng.
-              </a>
-            </p>
-            <p>
-              <a href="https://www.tcd.ie" target="_blank" rel="noopener noreferrer" class="text-slate-800 dark:text-slate-200 hover:underline">
-                Trinity College Dublin
-              </a>
-            </p>
-            <p class="text-xs text-slate-400 dark:text-slate-500 pt-0.5">
-              Affiliated with <a href="https://www.adaptcentre.ie" target="_blank" rel="noopener noreferrer" class="hover:underline">ADAPT Centre</a>
-            </p>
-          </div>
+          <h1 class="text-lg font-medium text-[#1a1e22] dark:text-[#edf2f7] tracking-tight">François Pitié</h1>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5 leading-snug">
+            Ussher Assistant Professor &bull; FTCD<br />
+            <a href="https://www.tcd.ie/eleceng/" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 dark:hover:text-slate-200">Electronic & Electrical Engineering</a><br />
+            <a href="https://www.tcd.ie" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 dark:hover:text-slate-200">Trinity College Dublin</a>
+          </p>
         </div>
 
-        <!-- Contact & Office -->
-        <div class="pt-3 border-t border-black/[0.08] dark:border-white/[0.08] text-xs space-y-1.5 text-slate-600 dark:text-slate-400">
+        <!-- Quick Contacts & Profiles -->
+        <div class="text-xs space-y-1 text-slate-500 dark:text-slate-400 pt-1">
           <div>
-            <span class="text-slate-400 dark:text-slate-500 text-xs">Email: </span>
-            <a href="mailto:pitief@tcd.ie" class="text-slate-800 dark:text-slate-200 hover:text-[#235789] dark:hover:text-[#82B4DC]">pitief@tcd.ie</a>
+            <a href="mailto:pitief@tcd.ie" class="text-[#235789] dark:text-[#82B4DC] hover:underline">pitief@tcd.ie</a>
           </div>
-          <div>
-            <span class="text-slate-400 dark:text-slate-500 text-xs">Office: </span>
-            <span>Room 3-22, Áras an Phiarsaigh</span>
+          <div class="text-[11px] text-slate-400 dark:text-slate-500">
+            Room 3-22, Áras an Phiarsaigh
+          </div>
+          <div class="pt-1.5 flex items-center gap-1.5 text-xs text-slate-400 dark:text-slate-500 flex-wrap">
+            <a href="https://scholar.google.com/citations?user=lOaoO74AAAAJ" target="_blank" rel="noopener noreferrer" class="text-slate-600 dark:text-slate-300 hover:text-[#235789] dark:hover:text-[#82B4DC]">Scholar</a>
+            <span>&bull;</span>
+            <a href="https://orcid.org/0000-0002-3925-5020" target="_blank" rel="noopener noreferrer" class="text-slate-600 dark:text-slate-300 hover:text-[#235789] dark:hover:text-[#82B4DC]">ORCID</a>
+            <span>&bull;</span>
+            <a href="https://github.com/frcs" target="_blank" rel="noopener noreferrer" class="text-slate-600 dark:text-slate-300 hover:text-[#235789] dark:hover:text-[#82B4DC]">GitHub</a>
+            <span>&bull;</span>
+            <a href="https://ie.linkedin.com/in/fran%C3%A7ois-piti%C3%A9-6182718b" target="_blank" rel="noopener noreferrer" class="text-slate-600 dark:text-slate-300 hover:text-[#235789] dark:hover:text-[#82B4DC]">LinkedIn</a>
           </div>
         </div>
 
-        <!-- Academic Profiles Links -->
-        <div class="pt-3 border-t border-black/[0.08] dark:border-white/[0.08] text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-          <a href="https://scholar.google.com/citations?user=lOaoO74AAAAJ" target="_blank" rel="noopener noreferrer" class="hover:text-[#235789] dark:hover:text-[#82B4DC]">Scholar</a>
-          <span class="mx-1 text-slate-300 dark:text-slate-700">&bull;</span>
-          <a href="https://orcid.org/0000-0002-3925-5020" target="_blank" rel="noopener noreferrer" class="hover:text-[#235789] dark:hover:text-[#82B4DC]">ORCID</a>
-          <span class="mx-1 text-slate-300 dark:text-slate-700">&bull;</span>
-          <a href="https://github.com/frcs" target="_blank" rel="noopener noreferrer" class="hover:text-[#235789] dark:hover:text-[#82B4DC]">GitHub</a>
-          <span class="mx-1 text-slate-300 dark:text-slate-700">&bull;</span>
-          <a href="https://ie.linkedin.com/in/fran%C3%A7ois-piti%C3%A9-6182718b" target="_blank" rel="noopener noreferrer" class="hover:text-[#235789] dark:hover:text-[#82B4DC]">LinkedIn</a>
-        </div>
-
-        <!-- Flat minimal navigation menu -->
-        <nav class="hidden md:block pt-3 border-t border-black/[0.08] dark:border-white/[0.08]">
-          <ul class="space-y-1 text-xs sm:text-sm">
+        <!-- Navigation Menu -->
+        <nav class="hidden md:block pt-3 border-t border-black/[0.06] dark:border-white/[0.08]">
+          <ul class="space-y-1 text-sm">
             {navItems.map(item => {
               const isExactActive = currentPath === item.href;
               const isParentActive = currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href));
@@ -210,7 +192,7 @@ const navItems = [
 
                   {/* Subfolder list */}
                   {item.children && (
-                    <ul class="pl-3.5 py-0.5 space-y-1 border-l border-black/[0.07] dark:border-white/[0.08] ml-2.5 my-1">
+                    <ul class="pl-3.5 py-0.5 space-y-1 border-l border-black/[0.06] dark:border-white/[0.08] ml-3 my-0.5">
                       {item.children.map(sub => {
                         const isSubActive = currentPath === sub.href;
                         return (
@@ -236,23 +218,16 @@ const navItems = [
           </ul>
         </nav>
 
-        <!-- Institutional & Lab Logos (Subdued, quiet) -->
-        <div class="pt-4 border-t border-black/[0.08] dark:border-white/[0.08] space-y-3.5">
-          <div>
-            <span class="text-[10px] uppercase tracking-wider font-mono text-slate-400 dark:text-slate-500 block mb-1">Research Lab</span>
-            <a href="https://sigmedia.tv" target="_blank" rel="noopener noreferrer" class="inline-block opacity-85 hover:opacity-100 transition-opacity">
-              <img src="/images/sigmedia-logo.png" alt="Sigmedia Research Group" class="h-8.5 w-auto max-w-[160px] object-contain object-left dark:hidden" />
-              <img src="/images/sigmedia-logo-white.png" alt="Sigmedia Research Group" class="h-8.5 w-auto max-w-[160px] object-contain object-left hidden dark:block" />
-            </a>
-          </div>
-
-          <div>
-            <span class="text-[10px] uppercase tracking-wider font-mono text-slate-400 dark:text-slate-500 block mb-1">Institution</span>
-            <a href="https://www.tcd.ie" target="_blank" rel="noopener noreferrer" class="inline-block opacity-85 hover:opacity-100 transition-opacity">
-              <img src="/images/tcd-logo.png" alt="Trinity College Dublin" class="h-8.5 w-auto max-w-[160px] object-contain object-left dark:hidden" />
-              <img src="/images/tcd-logo-white.png" alt="Trinity College Dublin" class="h-8.5 w-auto max-w-[160px] object-contain object-left hidden dark:block" />
-            </a>
-          </div>
+        <!-- Institutional Affiliations (Quiet, non-competing) -->
+        <div class="pt-4 border-t border-black/[0.06] dark:border-white/[0.08] flex flex-col gap-2.5 opacity-80 hover:opacity-100 transition-opacity">
+          <a href="https://sigmedia.tv" target="_blank" rel="noopener noreferrer" class="inline-block" title="Sigmedia Research Group">
+            <img src="/images/sigmedia-logo.png" alt="Sigmedia Research Group" class="h-7 w-auto max-w-[150px] object-contain object-left dark:hidden" />
+            <img src="/images/sigmedia-logo-white.png" alt="Sigmedia Research Group" class="h-7 w-auto max-w-[150px] object-contain object-left hidden dark:block" />
+          </a>
+          <a href="https://www.tcd.ie" target="_blank" rel="noopener noreferrer" class="inline-block" title="Trinity College Dublin">
+            <img src="/images/tcd-logo.png" alt="Trinity College Dublin" class="h-7 w-auto max-w-[150px] object-contain object-left dark:hidden" />
+            <img src="/images/tcd-logo-white.png" alt="Trinity College Dublin" class="h-7 w-auto max-w-[150px] object-contain object-left hidden dark:block" />
+          </a>
         </div>
 
       </div>
