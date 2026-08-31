@@ -16,19 +16,19 @@ const eqPde = renderLatex("\\mathrm{div}\\left( \\begin{bmatrix} C_i \\\\ 1 \\en
 
 <BaseLayout title="Alternative Matting Laplacian - François Pitié" currentSection="research">
   <div class="mb-8 pb-3 border-b border-slate-200 dark:border-slate-800">
-    <div class="flex items-center gap-2 text-xs font-mono text-[#0569B9] dark:text-[#82B4DC] mb-1">
+    <div class="flex items-center gap-2 text-xs font-mono text-[#2B79C2] dark:text-[#73D0FF] mb-1">
       <a href="/research" class="hover:underline">&larr; Back to Research & Projects</a>
     </div>
     <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
       The Alternative Matting Laplacian
     </h1>
-    <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 mt-1">
+    <p class="text-sm sm:text-base text-[#5C6166] dark:text-[#CBCCC6] mt-1">
       Direct parameter diffusion and closed-form formulation for natural image matting.
     </p>
   </div>
 
   <!-- Theory & Formulation Section -->
-  <section class="space-y-4 text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed mb-8">
+  <section class="space-y-4 text-sm sm:text-base text-[#5C6166] dark:text-[#CBCCC6] leading-relaxed mb-8">
     <p>
       In natural image matting, an observed linear RGB colour <span set:html={renderLatex("C_i")} /> at pixel <span set:html={renderLatex("i")} /> is modelled as a convex combination of an unknown foreground colour <span set:html={renderLatex("F_i")} /> and background colour <span set:html={renderLatex("B_i")} />:
     </p>
@@ -70,28 +70,28 @@ const eqPde = renderLatex("\\mathrm{div}\\left( \\begin{bmatrix} C_i \\\\ 1 \\en
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
       <div class="rounded-lg overflow-hidden border border-slate-300/80 dark:border-slate-800 bg-white dark:bg-slate-900 p-2">
         <img src="/images/troll.jpg" alt="Original Troll Image" class="w-full h-auto rounded" />
-        <p class="text-xs text-slate-500 mt-1 text-center font-medium">Input Test Image (alphamatting.com)</p>
+        <p class="text-xs text-[#828E9F] mt-1 text-center font-medium">Input Test Image (alphamatting.com)</p>
       </div>
 
       <div class="rounded-lg overflow-hidden border border-slate-300/80 dark:border-slate-800 bg-white dark:bg-slate-900 p-2">
         <img src="/images/troll_colourfilter.jpg" alt="Colour Filter Visualization" class="w-full h-auto rounded" />
-        <p class="text-xs text-slate-500 mt-1 text-center font-medium">Revealing &alpha; through Local Colour Filter</p>
+        <p class="text-xs text-[#828E9F] mt-1 text-center font-medium">Revealing &alpha; through Local Colour Filter</p>
       </div>
 
       <div class="rounded-lg overflow-hidden border border-slate-300/80 dark:border-slate-800 bg-white dark:bg-slate-900 p-2">
         <img src="/images/troll_a_ours.jpg" alt="Diffused Model Parameter a" class="w-full h-auto rounded" />
-        <p class="text-xs text-slate-500 mt-1 text-center font-medium">Our Parameter Map (a) with Smoothness Priors</p>
+        <p class="text-xs text-[#828E9F] mt-1 text-center font-medium">Our Parameter Map (a) with Smoothness Priors</p>
       </div>
 
       <div class="rounded-lg overflow-hidden border border-slate-300/80 dark:border-slate-800 bg-white dark:bg-slate-900 p-2">
         <img src="/images/troll_alpha_ours.jpg" alt="Extracted Alpha Matte" class="w-full h-auto rounded" />
-        <p class="text-xs text-slate-500 mt-1 text-center font-medium">Extracted Alpha Matte (&alpha;)</p>
+        <p class="text-xs text-[#828E9F] mt-1 text-center font-medium">Extracted Alpha Matte (&alpha;)</p>
       </div>
     </div>
   </section>
 
   <!-- Advantages & Key Insight -->
-  <section class="space-y-3 text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed mb-10">
+  <section class="space-y-3 text-sm sm:text-base text-[#5C6166] dark:text-[#CBCCC6] leading-relaxed mb-10">
     <h2 class="text-lg sm:text-xl font-bold tracking-tight text-slate-900 dark:text-white pb-2 border-b border-slate-200 dark:border-slate-800">
       Key Advantages
     </h2>
@@ -111,12 +111,12 @@ const eqPde = renderLatex("\\mathrm{div}\\left( \\begin{bmatrix} C_i \\\\ 1 \\en
   <!-- Code & Paper Links -->
   <section class="mb-10 p-4 rounded-lg bg-slate-200/60 dark:bg-slate-800/60 border border-slate-300/80 dark:border-slate-700/80">
     <h2 class="text-base font-semibold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
-      <svg class="w-4 h-4 text-[#0569B9] dark:text-[#82B4DC]" fill="currentColor" viewBox="0 0 24 24">
+      <svg class="w-4 h-4 text-[#2B79C2] dark:text-[#73D0FF]" fill="currentColor" viewBox="0 0 24 24">
         <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
       </svg>
       Code & Preprint
     </h2>
-    <div class="flex flex-wrap items-center gap-4 text-xs sm:text-sm font-semibold text-[#0569B9] dark:text-[#82B4DC]">
+    <div class="flex flex-wrap items-center gap-4 text-xs sm:text-sm font-semibold text-[#2B79C2] dark:text-[#73D0FF]">
       <a href="https://github.com/frcs/alternative-matting-laplacian" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 hover:underline">
         GitHub Repository &rarr;
       </a>
@@ -129,17 +129,17 @@ const eqPde = renderLatex("\\mathrm{div}\\left( \\begin{bmatrix} C_i \\\\ 1 \\en
 
   <!-- Citation -->
   <section>
-    <h2 class="text-lg font-semibold tracking-tight text-[#1a1e22] dark:text-[#edf2f7] pb-1.5 border-b border-black/[0.08] dark:border-white/[0.08] mb-3">
+    <h2 class="text-lg font-semibold tracking-tight text-[#242936] dark:text-[#ECEFF4] pb-1.5 border-b border-[#E6E8EB] dark:border-white/[0.08] mb-3">
       Reference Publication
     </h2>
     <div class="py-0.5">
-      <div class="font-medium text-[#1a1e22] dark:text-[#edf2f7] text-sm leading-snug">
+      <div class="font-medium text-[#242936] dark:text-[#ECEFF4] text-sm leading-snug">
         The Alternative Matting Laplacian
       </div>
-      <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+      <div class="text-xs text-[#828E9F] dark:text-[#707A8C] mt-0.5">
         François Pitié
       </div>
-      <div class="text-xs text-slate-400 dark:text-slate-500 mt-0.5">
+      <div class="text-xs text-[#828E9F] dark:text-[#707A8C] dark:text-[#828E9F] mt-0.5">
         <em>2016 IEEE International Conference on Image Processing (ICIP)</em>, Phoenix, AZ, 2016.
       </div>
     </div>

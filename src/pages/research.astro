@@ -59,28 +59,28 @@ const technicalTopics = [
 ---
 
 <BaseLayout title="Research & Projects - François Pitié" currentSection="research">
-  <div class="mb-8 pb-2 border-b border-black/[0.08] dark:border-white/[0.08]">
-    <h1 class="text-xl font-semibold tracking-tight text-[#1a1e22] dark:text-[#edf2f7]">Research & Projects</h1>
-    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
+  <div class="mb-8 pb-2 border-b border-[#E6E8EB] dark:border-white/[0.08]">
+    <h1 class="text-xl font-semibold tracking-tight text-[#242936] dark:text-[#ECEFF4]">Research & Projects</h1>
+    <p class="text-xs sm:text-sm text-[#828E9F] dark:text-[#707A8C] mt-1">
       Applied mathematics, signal processing, and machine learning for visual media, postproduction, and streaming.
     </p>
   </div>
 
   <!-- Technical Focus Pages & Research Topics -->
   <section class="mb-12">
-    <h2 class="text-lg font-semibold tracking-tight text-[#1a1e22] dark:text-[#edf2f7] pb-1.5 border-b border-black/[0.08] dark:border-white/[0.08] mb-3.5">
+    <h2 class="text-lg font-semibold tracking-tight text-[#242936] dark:text-[#ECEFF4] pb-1.5 border-b border-[#E6E8EB] dark:border-white/[0.08] mb-3.5">
       Technical Deep Dives
     </h2>
     <div class="space-y-4">
       {technicalTopics.map(topic => (
         <div class="py-0.5">
           <div class="flex items-baseline gap-2">
-            <a href={topic.href} class="font-medium text-[#1a1e22] dark:text-[#edf2f7] hover:text-[#235789] dark:hover:text-[#82B4DC]">
+            <a href={topic.href} class="font-medium text-[#242936] dark:text-[#ECEFF4] hover:text-[#2B79C2] dark:hover:text-[#73D0FF]">
               {topic.title}
             </a>
-            <span class="text-xs font-mono text-slate-400 dark:text-slate-500">[{topic.badge}]</span>
+            <span class="text-xs font-mono text-[#F29718]">[{topic.badge}]</span>
           </div>
-          <p class="text-sm text-slate-600 dark:text-slate-400 mt-0.5 leading-relaxed">
+          <p class="text-sm text-[#5C6166] dark:text-[#ECEFF4]/90 mt-0.5 leading-relaxed">
             {topic.desc}
           </p>
         </div>
@@ -90,25 +90,25 @@ const technicalTopics = [
 
   <!-- Key Grants & Collaborative Projects -->
   <section class="space-y-6">
-    <h2 class="text-lg font-semibold tracking-tight text-[#1a1e22] dark:text-[#edf2f7] pb-1.5 border-b border-black/[0.08] dark:border-white/[0.08]">
+    <h2 class="text-lg font-semibold tracking-tight text-[#242936] dark:text-[#ECEFF4] pb-1.5 border-b border-[#E6E8EB] dark:border-white/[0.08]">
       Research Initiatives & Collaborative Projects
     </h2>
 
     {projects.map(p => (
       <div class="py-1">
         <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-          <h3 class="font-medium text-[#1a1e22] dark:text-[#edf2f7]">{p.title}</h3>
-          <span class="text-xs font-mono text-slate-400 shrink-0">{p.period}</span>
+          <h3 class="font-medium text-[#242936] dark:text-[#ECEFF4]">{p.title}</h3>
+          <span class="text-xs font-mono text-[#F29718] shrink-0">{p.period}</span>
         </div>
-        <div class="text-xs text-[#235789] dark:text-[#82B4DC] mt-0.5 mb-1 font-medium">
+        <div class="text-xs text-[#2B79C2] dark:text-[#73D0FF] mt-0.5 mb-1 font-medium">
           {p.role} &bull; {p.funding}
         </div>
-        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+        <p class="text-sm text-[#5C6166] dark:text-[#ECEFF4]/90 leading-relaxed">
           {p.summary}
         </p>
         {p.techLink && (
           <div class="mt-2 text-xs sm:text-sm">
-            <a href={p.techLink.href} class="text-[#235789] dark:text-[#82B4DC] hover:underline font-medium">
+            <a href={p.techLink.href} class="text-[#2B79C2] dark:text-[#73D0FF] hover:underline font-medium">
               {p.techLink.text}
             </a>
           </div>

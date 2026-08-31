@@ -1,0 +1,338 @@
+{
+  "ayu": {
+    "name": "Ayu",
+    "description": "Crisp and modern editor palette with amber/gold accent",
+    "light": {
+      "bg": "#FCFCFC",
+      "fg": "#5C6166",
+      "heading": "#242936",
+      "muted": "#828E9F",
+      "accent": "#F29718",
+      "link": "#2B79C2",
+      "link_hover": "#1F5A91",
+      "card": "#F8F9FA",
+      "border": "#E6E8EB",
+      "pill": "#EBEEF0"
+    },
+    "dark": {
+      "bg": "#1F2430",
+      "fg": "#CBCCC6",
+      "heading": "#ECEFF4",
+      "muted": "#707A8C",
+      "accent": "#FFA759",
+      "link": "#73D0FF",
+      "link_hover": "#5CCFE6",
+      "card": "#242936",
+      "border": "rgba(255, 255, 255, 0.08)",
+      "pill": "rgba(255, 255, 255, 0.05)"
+    }
+  },
+  "gruvbox": {
+    "name": "Gruvbox",
+    "description": "Retro groove warm parchment and earth tones",
+    "light": {
+      "bg": "#FBF1C7",
+      "fg": "#3C3836",
+      "heading": "#282828",
+      "muted": "#7C6F64",
+      "accent": "#AF3A03",
+      "link": "#076678",
+      "link_hover": "#04424E",
+      "card": "#F2E5BC",
+      "border": "#D5C4A1",
+      "pill": "#EBDBB2"
+    },
+    "dark": {
+      "bg": "#282828",
+      "fg": "#EBDBB2",
+      "heading": "#FBF1C7",
+      "muted": "#A89984",
+      "accent": "#FE8019",
+      "link": "#83A598",
+      "link_hover": "#B8BB26",
+      "card": "#32302F",
+      "border": "#504945",
+      "pill": "#3C3836"
+    }
+  },
+  "catppuccin": {
+    "name": "Catppuccin (Latte / Mocha)",
+    "description": "Soothing pastel palette with soft lavender and blue tones",
+    "light": {
+      "bg": "#EFF1F5",
+      "fg": "#4C4F69",
+      "heading": "#202027",
+      "muted": "#6C6F85",
+      "accent": "#FE640B",
+      "link": "#1E66F5",
+      "link_hover": "#044BD9",
+      "card": "#E6E9EF",
+      "border": "#CCD0DA",
+      "pill": "#DCE0E8"
+    },
+    "dark": {
+      "bg": "#1E1E2E",
+      "fg": "#CDD6F4",
+      "heading": "#F5E0DC",
+      "muted": "#A6ADC8",
+      "accent": "#FAB387",
+      "link": "#89B4FA",
+      "link_hover": "#B4BEFE",
+      "card": "#181825",
+      "border": "#313244",
+      "pill": "#45475A"
+    }
+  },
+  "nord": {
+    "name": "Nord",
+    "description": "Arctic, north-bluish clean and minimal palette",
+    "light": {
+      "bg": "#ECEFF4",
+      "fg": "#2E3440",
+      "heading": "#2E3440",
+      "muted": "#4C566A",
+      "accent": "#D08770",
+      "link": "#5E81AC",
+      "link_hover": "#43648B",
+      "card": "#E5E9F0",
+      "border": "#D8DEE9",
+      "pill": "#D8DEE9"
+    },
+    "dark": {
+      "bg": "#2E3440",
+      "fg": "#ECEFF4",
+      "heading": "#ECEFF4",
+      "muted": "#D8DEE9",
+      "accent": "#EBCB8B",
+      "link": "#88C0D0",
+      "link_hover": "#8FBCBB",
+      "card": "#3B4252",
+      "border": "#434C5E",
+      "pill": "#4C566A"
+    }
+  },
+  "solarized": {
+    "name": "Solarized",
+    "description": "Ethan Schoonover calibrated palette",
+    "light": {
+      "bg": "#FDF6E3",
+      "fg": "#657B83",
+      "heading": "#073642",
+      "muted": "#839496",
+      "accent": "#CB4B16",
+      "link": "#268BD2",
+      "link_hover": "#196BA5",
+      "card": "#EEE8D5",
+      "border": "#DDD6C1",
+      "pill": "#E0DAC6"
+    },
+    "dark": {
+      "bg": "#002B36",
+      "fg": "#839496",
+      "heading": "#EEE8D5",
+      "muted": "#586E75",
+      "accent": "#CB4B16",
+      "link": "#268BD2",
+      "link_hover": "#2AA198",
+      "card": "#073642",
+      "border": "#094B5C",
+      "pill": "#0B566A"
+    }
+  },
+  "forestbones": {
+    "name": "Forestbones (Zenbones)",
+    "description": "Low-contrast woodland parchment and forest green ink",
+    "light": {
+      "bg": "#FAF3E1",
+      "fg": "#4F5B62",
+      "heading": "#2D353B",
+      "muted": "#758690",
+      "accent": "#A99B6A",
+      "link": "#2B6E5B",
+      "link_hover": "#1E5042",
+      "card": "#F6EBC8",
+      "border": "#E8DEC0",
+      "pill": "#EBDFBF"
+    },
+    "dark": {
+      "bg": "#2C343A",
+      "fg": "#E7DCC4",
+      "heading": "#E7DCC4",
+      "muted": "#9A9071",
+      "accent": "#D9BA76",
+      "link": "#83C193",
+      "link_hover": "#A9C181",
+      "card": "#242B30",
+      "border": "#3D474E",
+      "pill": "#353E45"
+    }
+  },
+  "everforest": {
+    "name": "Everforest",
+    "description": "Comfortable natural green and warm organic hues",
+    "light": {
+      "bg": "#FDF6E3",
+      "fg": "#5C6A72",
+      "heading": "#272E33",
+      "muted": "#939F91",
+      "accent": "#F57D26",
+      "link": "#3A94C5",
+      "link_hover": "#2B7298",
+      "card": "#F4F0D9",
+      "border": "#E0DCBF",
+      "pill": "#EAE4CA"
+    },
+    "dark": {
+      "bg": "#2D353B",
+      "fg": "#D3C6AA",
+      "heading": "#D3C6AA",
+      "muted": "#859289",
+      "accent": "#E69875",
+      "link": "#7FBBB3",
+      "link_hover": "#A7C080",
+      "card": "#232A2E",
+      "border": "#3D484D",
+      "pill": "#343F44"
+    }
+  },
+  "tokyo-night": {
+    "name": "Tokyo Night (Day / Night)",
+    "description": "Vibrant modern metropolitan palette",
+    "light": {
+      "bg": "#E1E2E7",
+      "fg": "#3760BF",
+      "heading": "#2E3338",
+      "muted": "#848CB5",
+      "accent": "#B15C00",
+      "link": "#2E7DE9",
+      "link_hover": "#185FC2",
+      "card": "#D5D6DB",
+      "border": "#C4C8DA",
+      "pill": "#CCD0E0"
+    },
+    "dark": {
+      "bg": "#1A1B26",
+      "fg": "#C0CAF5",
+      "heading": "#C0CAF5",
+      "muted": "#565F89",
+      "accent": "#FF9E64",
+      "link": "#7AA2F7",
+      "link_hover": "#7DCFFF",
+      "card": "#24283B",
+      "border": "#414868",
+      "pill": "#292E42"
+    }
+  },
+  "rose-pine": {
+    "name": "Rose Pine (Dawn / Moon)",
+    "description": "Minimal, elegant vintage pine, rose, and gold aesthetic",
+    "light": {
+      "bg": "#FAF4ED",
+      "fg": "#575279",
+      "heading": "#286983",
+      "muted": "#797593",
+      "accent": "#EA9D34",
+      "link": "#286983",
+      "link_hover": "#1C4B5E",
+      "card": "#F2E9E1",
+      "border": "#DFDAD9",
+      "pill": "#E8E0D7"
+    },
+    "dark": {
+      "bg": "#232136",
+      "fg": "#E0DEF4",
+      "heading": "#E0DEF4",
+      "muted": "#908CAA",
+      "accent": "#EA9A97",
+      "link": "#9CCFD8",
+      "link_hover": "#C4A7E7",
+      "card": "#2A273F",
+      "border": "#393552",
+      "pill": "#44415A"
+    }
+  },
+  "one": {
+    "name": "One (Atom One Light / Dark)",
+    "description": "Classic Atom / VS Code standard clean dual theme",
+    "light": {
+      "bg": "#FAFAFA",
+      "fg": "#383A42",
+      "heading": "#20222C",
+      "muted": "#696C77",
+      "accent": "#E45649",
+      "link": "#4078F2",
+      "link_hover": "#2156CA",
+      "card": "#F0F0F1",
+      "border": "#DBDBDC",
+      "pill": "#E5E5E6"
+    },
+    "dark": {
+      "bg": "#282C34",
+      "fg": "#ABB2BF",
+      "heading": "#ECEFF4",
+      "muted": "#5C6370",
+      "accent": "#E06C75",
+      "link": "#61AFEF",
+      "link_hover": "#98C379",
+      "card": "#21252B",
+      "border": "#181A1F",
+      "pill": "#3E4451"
+    }
+  },
+  "dracula": {
+    "name": "Dracula (Alabaster / Dracula)",
+    "description": "High contrast minimal light pairing with iconic gothic dark",
+    "light": {
+      "bg": "#F7F7F7",
+      "fg": "#434343",
+      "heading": "#000000",
+      "muted": "#777777",
+      "accent": "#D05800",
+      "link": "#007ACC",
+      "link_hover": "#005999",
+      "card": "#EEEEEE",
+      "border": "#DCDCDC",
+      "pill": "#E4E4E4"
+    },
+    "dark": {
+      "bg": "#282A36",
+      "fg": "#F8F8F2",
+      "heading": "#F8F8F2",
+      "muted": "#6272A4",
+      "accent": "#FFB86C",
+      "link": "#8BE9FD",
+      "link_hover": "#BD93F9",
+      "card": "#21222C",
+      "border": "#44475A",
+      "pill": "#44475A"
+    }
+  },
+  "github": {
+    "name": "GitHub (Light / Dark)",
+    "description": "GitHub primer system design palette",
+    "light": {
+      "bg": "#FFFFFF",
+      "fg": "#24292F",
+      "heading": "#1F2328",
+      "muted": "#57606A",
+      "accent": "#FD8C73",
+      "link": "#0969DA",
+      "link_hover": "#0550AE",
+      "card": "#F6F8FA",
+      "border": "#D0D7DE",
+      "pill": "#EAEEF2"
+    },
+    "dark": {
+      "bg": "#0D1117",
+      "fg": "#E6EDF3",
+      "heading": "#F0F6FC",
+      "muted": "#7D8590",
+      "accent": "#F0883E",
+      "link": "#2F81F7",
+      "link_hover": "#58A6FF",
+      "card": "#161B22",
+      "border": "#30363D",
+      "pill": "#21262D"
+    }
+  }
+}

@@ -3,10 +3,47 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* ACTIVE_THEME: one */
+:root {
+  --theme-bg: #FAFAFA;
+  --theme-fg: #383A42;
+  --theme-heading: #20222C;
+  --theme-muted: #696C77;
+  --theme-accent: #E45649;
+  --theme-link: #4078F2;
+  --theme-link-hover: #2156CA;
+  --theme-card: #F0F0F1;
+  --theme-border: #DBDBDC;
+  --theme-pill: #E5E5E6;
+}
+
+.dark {
+  --theme-bg: #282C34;
+  --theme-fg: #ABB2BF;
+  --theme-heading: #ECEFF4;
+  --theme-muted: #5C6370;
+  --theme-accent: #E06C75;
+  --theme-link: #61AFEF;
+  --theme-link-hover: #98C379;
+  --theme-card: #21252B;
+  --theme-border: #181A1F;
+  --theme-pill: #3E4451;
+}
+
 @theme {
-  --color-tcd-blue: #235789;
-  --color-tcd-blue-dark: #1b446c;
-  --color-brand: #235789;
+  --color-theme-bg: var(--theme-bg);
+  --color-theme-fg: var(--theme-fg);
+  --color-theme-heading: var(--theme-heading);
+  --color-theme-muted: var(--theme-muted);
+  --color-theme-accent: var(--theme-accent);
+  --color-theme-link: var(--theme-link);
+  --color-theme-card: var(--theme-card);
+  --color-theme-border: var(--theme-border);
+  --color-theme-pill: var(--theme-pill);
+
+  --color-tcd-blue: #2B79C2;
+  --color-tcd-blue-dark: #1F5A91;
+  --color-brand: #2B79C2;
   
   --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
@@ -19,27 +56,18 @@ html {
 
 body {
   font-family: var(--font-sans);
-  color: #2e3438; /* Sumi ink charcoal: soft, organic, non-glaring */
-  background-color: #f7f6f2; /* Washi paper tone: natural, calming, warm off-white */
+  color: var(--theme-fg);
+  background-color: var(--theme-bg);
   line-height: 1.75; /* Generous breathing room */
   -webkit-font-smoothing: antialiased;
-}
-
-.dark body {
-  color: #d8dde3;
-  background-color: #121519; /* Deep midnight ink canvas */
 }
 
 /* Headings: Quiet authority, balanced weights, relaxed spacing */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-sans);
-  color: #1a1e22;
+  color: var(--theme-heading);
   letter-spacing: -0.015em;
   font-weight: 550;
-}
-
-.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
-  color: #edf2f7;
 }
 
 /* Restrained, scholarly links */

@@ -5,25 +5,37 @@ const currentModules = [
   {
     code: "EEU44C16 / EE5C16",
     title: "Deep Learning and its Applications",
-    level: "Level 9 (Senior Sophister & MAI, 10 ECTS)",
-    desc: "Comprehensive module covering neural networks, backpropagation, convolutional networks, sequence models, generative models, and transformers, with hands-on PyTorch coding labs and automated evaluation benchmarks.",
-    hasDeepLearningFeature: true,
+    level: "Level 9 (Senior Sophister & MAI)",
+    credits: "10 ECTS",
+    desc: "Comprehensive module covering neural networks, backpropagation dynamics, convolutional architectures, sequence models, generative models, and transformers, with hands-on PyTorch coding labs and automated evaluation benchmarks.",
     pageUrl: "/teaching/4c16-teaching",
-    links: [
-      { name: "Course Portal", url: "https://frcs.github.io/4c16/" },
-      { name: "Online Lecture Notes", url: "https://frcs.github.io/4C16-LectureNotes/" },
-      { name: "Zenodo Archive", url: "https://doi.org/10.5281/zenodo.17954655" },
-      { name: "Lab & Autograder Repository", url: "https://github.com/frcs/4C16-2425" }
+    resources: [
+      {
+        title: "Open Lecture Notes & Coursebook",
+        description: "Full online curriculum covering mathematical formulations, architectural diagrams, loss landscapes, and PyTorch tutorials.",
+        links: [
+          { name: "Read Online", url: "https://frcs.github.io/4C16-LectureNotes/" },
+          { name: "Zenodo DOI", url: "https://doi.org/10.5281/zenodo.17954655" }
+        ]
+      },
+      {
+        title: "Continuous Lab Autograder & Course Hub",
+        description: "Hands-on coding lab system with automated Git evaluation for Colab assignments and live course schedules.",
+        links: [
+          { name: "Course Portal", url: "https://frcs.github.io/4c16/" },
+          { name: "GitHub Autograder", url: "https://github.com/frcs/4C16-2425" }
+        ]
+      }
     ]
   },
   {
     code: "EE55C34",
     title: "Advanced AI",
-    level: "Level 9 (Postgraduate / MAI, 5 ECTS)",
+    level: "Level 9 (Postgraduate / MAI)",
+    credits: "5 ECTS",
     desc: "Advanced graduate-level study of contemporary generative models, diffusion architectures, representation learning, and modern computer vision systems.",
-    hasDeepLearningFeature: false,
     pageUrl: "/teaching/5c34-teaching",
-    links: []
+    resources: []
   }
 ];
 
@@ -67,76 +79,84 @@ const priorModules = [
 ---
 
 <BaseLayout title="Teaching - François Pitié" currentSection="teaching">
-  <div class="mb-8 pb-2 border-b border-black/[0.08] dark:border-white/[0.08]">
-    <h1 class="text-xl font-semibold tracking-tight text-[#1a1e22] dark:text-[#edf2f7]">Teaching</h1>
-    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
+  <div class="mb-8 pb-2 border-b border-[#E6E8EB] dark:border-white/[0.08]">
+    <h1 class="text-xl font-semibold tracking-tight text-[#242936] dark:text-[#ECEFF4]">Teaching</h1>
+    <p class="text-xs sm:text-sm text-[#828E9F] dark:text-[#707A8C] mt-1">
       Undergraduate and postgraduate courses delivered at the Department of Electronic & Electrical Engineering, Trinity College Dublin.
     </p>
   </div>
 
   <!-- Teaching Honours & Recognition -->
-  <div class="mb-6 text-xs sm:text-sm text-[#2e3438] dark:text-[#d8dde3]">
-    <div class="font-medium text-[#1a1e22] dark:text-[#edf2f7]">
+  <div class="mb-6 text-xs sm:text-sm text-[#5C6166] dark:text-[#ECEFF4]">
+    <div class="font-medium text-[#242936] dark:text-[#ECEFF4]">
       Teaching Recognition
     </div>
-    <p class="mt-0.5 text-xs text-slate-500 dark:text-slate-400">
+    <p class="mt-0.5 text-xs text-[#828E9F] dark:text-[#707A8C]">
       Recipient of the <strong>University Excellence in Teaching Award</strong> and the <strong>Inspiring Educator Award</strong> (Trinity College Dublin, 2026).
     </p>
   </div>
 
   <!-- Teaching Philosophy Note -->
-  <div class="mb-8 text-xs sm:text-sm text-[#2e3438] dark:text-[#d8dde3] leading-relaxed">
-    <strong class="text-[#1a1e22] dark:text-[#edf2f7] font-medium">Teaching Philosophy: </strong>
+  <div class="mb-8 text-xs sm:text-sm text-[#5C6166] dark:text-[#ECEFF4] leading-relaxed">
+    <strong class="text-[#242936] dark:text-[#ECEFF4] font-medium">Teaching Philosophy: </strong>
     My teaching integrates open-ended engineering challenges with continuous, mastery-based feedback. By deploying automated evaluation platforms in technical modules such as deep learning and robotics, students iterate rapidly, debug effectively, and achieve deep conceptual mastery.
   </div>
 
   <!-- Current Modules -->
-  <section class="space-y-6 mb-12">
-    <h2 class="text-lg font-semibold tracking-tight text-[#1a1e22] dark:text-[#edf2f7] pb-1.5 border-b border-black/[0.08] dark:border-white/[0.08]">
+  <section class="space-y-8 mb-12">
+    <h2 class="text-lg font-semibold tracking-tight text-[#242936] dark:text-[#ECEFF4] pb-1.5 border-b border-[#E6E8EB] dark:border-white/[0.08]">
       Current Modules
     </h2>
 
     {currentModules.map(m => (
-      <div class="py-1">
-        <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-          <h3 class="font-medium text-[#1a1e22] dark:text-[#edf2f7]">
-            <a href={m.pageUrl} class="hover:text-[#235789] dark:hover:text-[#82B4DC] transition-colors">
-              <span class="font-mono text-xs text-[#235789] dark:text-[#82B4DC] mr-1.5">{m.code}:</span> {m.title}
-            </a>
-          </h3>
-          <span class="text-xs text-slate-400 font-mono shrink-0">{m.level}</span>
+      <div class="space-y-2.5">
+        <div>
+          <div class="flex items-baseline justify-between gap-3">
+            <h3 class="font-medium text-[#242936] dark:text-[#ECEFF4]">
+              <a href={m.pageUrl} class="hover:text-[#2B79C2] dark:hover:text-[#73D0FF] transition-colors">
+                <span class="font-mono text-xs text-[#2B79C2] dark:text-[#73D0FF] mr-1.5">{m.code}:</span>
+                <span>{m.title}</span>
+              </a>
+            </h3>
+            <span class="text-xs text-[#828E9F] dark:text-[#707A8C] font-mono shrink-0 font-medium">{m.credits}</span>
+          </div>
+          <div class="text-xs text-[#828E9F] dark:text-[#707A8C] font-mono mt-0.5">
+            {m.level}
+          </div>
         </div>
-        <p class="text-sm text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
+
+        <p class="text-sm text-[#5C6166] dark:text-[#CBCCC6] leading-relaxed">
           {m.desc}
         </p>
 
-        {m.hasDeepLearningFeature && (
-          <div class="mt-2.5 space-y-1.5 text-xs">
-            <div>
-              <span class="font-medium text-[#1a1e22] dark:text-[#edf2f7]">4C16 Open Lecture Notes: </span>
-              <span class="text-slate-500">Comprehensive coursebook covering theory, derivations, and PyTorch tutorials. </span>
-              <a href="https://frcs.github.io/4C16-LectureNotes/" target="_blank" rel="noopener noreferrer" class="text-[#235789] dark:text-[#82B4DC] hover:underline font-medium">Read Online &rarr;</a>
-              <span class="mx-1 text-slate-300 dark:text-slate-700">&bull;</span>
-              <a href="https://doi.org/10.5281/zenodo.17954655" target="_blank" rel="noopener noreferrer" class="text-[#235789] dark:text-[#82B4DC] hover:underline font-medium">Zenodo DOI &rarr;</a>
-            </div>
-
-            <div>
-              <span class="font-medium text-[#1a1e22] dark:text-[#edf2f7]">Continuous Lab Autograder: </span>
-              <span class="text-slate-500">Hands-on coding lab system with automated Git evaluation for Colab assignments. </span>
-              <a href="https://github.com/frcs/4C16-2425" target="_blank" rel="noopener noreferrer" class="text-[#235789] dark:text-[#82B4DC] hover:underline font-medium">GitHub Repository &rarr;</a>
-              <span class="mx-1 text-slate-300 dark:text-slate-700">&bull;</span>
-              <a href="https://frcs.github.io/4c16/" target="_blank" rel="noopener noreferrer" class="text-[#235789] dark:text-[#82B4DC] hover:underline font-medium">Course Hub &rarr;</a>
-            </div>
-          </div>
-        )}
-
-        {!m.hasDeepLearningFeature && m.links.length > 0 && (
-          <div class="mt-2 flex items-center gap-3 text-xs text-[#235789] dark:text-[#82B4DC]">
-            {m.links.map(l => (
-              <a href={l.url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 hover:underline">
-                {l.name}
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-              </a>
+        {m.resources && m.resources.length > 0 && (
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+            {m.resources.map(res => (
+              <div class="p-3.5 rounded-lg bg-[#F8F9FA]/60 dark:bg-white/[0.03] border border-[#E6E8EB] dark:border-white/[0.08] flex flex-col justify-between">
+                <div>
+                  <h4 class="text-xs font-semibold text-[#242936] dark:text-[#ECEFF4] mb-1">
+                    {res.title}
+                  </h4>
+                  <p class="text-xs text-[#828E9F] dark:text-[#707A8C] leading-relaxed mb-3">
+                    {res.description}
+                  </p>
+                </div>
+                <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-[#E6E8EB]/80 dark:border-white/[0.05] text-xs">
+                  {res.links.map(l => (
+                    <a
+                      href={l.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-black/[0.04] dark:bg-white/[0.05] text-[#2B79C2] dark:text-[#73D0FF] hover:bg-[#2B79C2]/10 dark:hover:bg-[#73D0FF]/10 transition-colors font-medium text-[11px]"
+                    >
+                      <span>{l.name}</span>
+                      <svg class="w-3 h-3 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         )}
@@ -146,19 +166,19 @@ const priorModules = [
 
   <!-- Previous Modules (Since 2016) -->
   <section class="space-y-4 mb-12">
-    <h2 class="text-lg font-semibold tracking-tight text-[#1a1e22] dark:text-[#edf2f7] pb-1.5 border-b border-black/[0.08] dark:border-white/[0.08]">
+    <h2 class="text-lg font-semibold tracking-tight text-[#242936] dark:text-[#ECEFF4] pb-1.5 border-b border-[#E6E8EB] dark:border-white/[0.08]">
       Previous Modules (2016 – 2024)
     </h2>
 
     {pastModules.map(m => (
       <div class="py-0.5">
         <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-          <h3 class="font-medium text-[#1a1e22] dark:text-[#edf2f7]">
-            <span class="font-mono text-xs text-slate-400 mr-1.5">{m.code}:</span> {m.title}
+          <h3 class="font-medium text-[#242936] dark:text-[#ECEFF4]">
+            <span class="font-mono text-xs text-[#828E9F] dark:text-[#707A8C] mr-1.5">{m.code}:</span> {m.title}
           </h3>
-          <span class="text-xs text-slate-400 font-mono shrink-0">{m.period}</span>
+          <span class="text-xs text-[#828E9F] dark:text-[#707A8C] font-mono shrink-0">{m.period}</span>
         </div>
-        <p class="text-sm text-slate-600 dark:text-slate-400 mt-0.5 leading-relaxed">
+        <p class="text-sm text-[#5C6166] dark:text-[#CBCCC6] mt-0.5 leading-relaxed">
           {m.desc}
         </p>
       </div>
@@ -167,19 +187,19 @@ const priorModules = [
 
   <!-- Earlier Teaching (Prior to 2016) -->
   <section class="space-y-4">
-    <h2 class="text-lg font-semibold tracking-tight text-[#1a1e22] dark:text-[#edf2f7] pb-1.5 border-b border-black/[0.08] dark:border-white/[0.08]">
+    <h2 class="text-lg font-semibold tracking-tight text-[#242936] dark:text-[#ECEFF4] pb-1.5 border-b border-[#E6E8EB] dark:border-white/[0.08]">
       Earlier Teaching (Prior to 2016)
     </h2>
 
     {priorModules.map(m => (
       <div class="py-0.5">
         <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-          <h3 class="font-medium text-[#1a1e22] dark:text-[#edf2f7]">
-            <span class="font-mono text-xs text-slate-400 mr-1.5">{m.code}:</span> {m.title}
+          <h3 class="font-medium text-[#242936] dark:text-[#ECEFF4]">
+            <span class="font-mono text-xs text-[#828E9F] dark:text-[#707A8C] mr-1.5">{m.code}:</span> {m.title}
           </h3>
-          <span class="text-xs text-slate-400 font-mono shrink-0">{m.period}</span>
+          <span class="text-xs text-[#828E9F] dark:text-[#707A8C] font-mono shrink-0">{m.period}</span>
         </div>
-        <p class="text-sm text-slate-600 dark:text-slate-400 mt-0.5 leading-relaxed">
+        <p class="text-sm text-[#5C6166] dark:text-[#CBCCC6] mt-0.5 leading-relaxed">
           {m.desc}
         </p>
       </div>

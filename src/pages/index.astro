@@ -33,7 +33,7 @@ const news = [
   },
   {
     date: '2025',
-    text: 'Released course lecture notes on <a href="https://doi.org/10.5281/zenodo.17954655" target="_blank" class="text-[#0569B9] dark:text-[#82B4DC] hover:underline">Deep Learning and its Applications</a> on Zenodo.'
+    text: 'Released course lecture notes on <a href="https://doi.org/10.5281/zenodo.17954655" target="_blank" class="text-[#2B79C2] dark:text-[#73D0FF] hover:underline">Deep Learning and its Applications</a> on Zenodo.'
   },
   {
     date: '2024',
@@ -69,16 +69,16 @@ const researchThemes = [
   
   <!-- Academic Bio Section -->
   <section class="mb-12">
-    <h2 class="text-lg font-semibold tracking-tight text-[#1a1e22] dark:text-[#edf2f7] mb-3.5 pb-2 border-b border-black/[0.08] dark:border-white/[0.08]">
+    <h2 class="text-lg font-semibold tracking-tight text-[#242936] dark:text-[#ECEFF4] mb-3.5 pb-2 border-b border-[#E6E8EB] dark:border-white/[0.08]">
       Academic Bio
     </h2>
-    <div class="leading-relaxed space-y-3.5 text-[#2e3438] dark:text-[#d8dde3]">
+    <div class="leading-relaxed space-y-3.5 text-[#5C6166] dark:text-[#ECEFF4]">
       <p>
         I am an <strong>Ussher Assistant Professor</strong> in Media Signal Processing at the 
-        <a href="https://www.tcd.ie/eleceng/" target="_blank" rel="noopener noreferrer" class="text-[#235789] dark:text-[#82B4DC] hover:underline">Department of Electronic & Electrical Engineering</a>, 
-        <a href="https://www.tcd.ie" target="_blank" rel="noopener noreferrer" class="text-[#235789] dark:text-[#82B4DC] hover:underline">Trinity College Dublin</a>. 
-        I am a Principal Investigator with the <a href="https://sigmedia.tv" target="_blank" rel="noopener noreferrer" class="text-[#235789] dark:text-[#82B4DC] hover:underline">Sigmedia Research Group</a>, 
-        an Academic Collaborator at the <a href="https://www.adaptcentre.ie" target="_blank" rel="noopener noreferrer" class="text-[#235789] dark:text-[#82B4DC] hover:underline">ADAPT Research Centre</a>, 
+        <a href="https://www.tcd.ie/eleceng/" target="_blank" rel="noopener noreferrer" class="text-[#2B79C2] dark:text-[#73D0FF] hover:underline">Department of Electronic & Electrical Engineering</a>, 
+        <a href="https://www.tcd.ie" target="_blank" rel="noopener noreferrer" class="text-[#2B79C2] dark:text-[#73D0FF] hover:underline">Trinity College Dublin</a>. 
+        I am a Principal Investigator with the <a href="https://sigmedia.tv" target="_blank" rel="noopener noreferrer" class="text-[#2B79C2] dark:text-[#73D0FF] hover:underline">Sigmedia Research Group</a>, 
+        an Academic Collaborator at the <a href="https://www.adaptcentre.ie" target="_blank" rel="noopener noreferrer" class="text-[#2B79C2] dark:text-[#73D0FF] hover:underline">ADAPT Research Centre</a>, 
         and an elected <strong>Fellow of Trinity College Dublin (FTCD)</strong>.
       </p>
       <p>
@@ -94,16 +94,16 @@ const researchThemes = [
 
   <!-- Research Themes -->
   <section class="mb-12">
-    <div class="flex items-center justify-between mb-3.5 pb-2 border-b border-black/[0.08] dark:border-white/[0.08]">
-      <h2 class="text-lg font-semibold tracking-tight text-[#1a1e22] dark:text-[#edf2f7]">Research Themes</h2>
-      <a href="/research" class="text-xs text-[#235789] dark:text-[#82B4DC] hover:underline">Details &rarr;</a>
+    <div class="flex items-center justify-between mb-3.5 pb-2 border-b border-[#E6E8EB] dark:border-white/[0.08]">
+      <h2 class="text-lg font-semibold tracking-tight text-[#242936] dark:text-[#ECEFF4]">Research Themes</h2>
+      <a href="/research" class="text-xs text-[#2B79C2] dark:text-[#73D0FF] hover:underline">Details &rarr;</a>
     </div>
 
     <div class="space-y-4">
       {researchThemes.map(theme => (
         <div class="py-0.5">
-          <h3 class="font-medium text-[#1a1e22] dark:text-[#edf2f7]">{theme.title}</h3>
-          <p class="text-sm text-slate-600 dark:text-slate-400 mt-0.5 leading-relaxed">{theme.desc}</p>
+          <h3 class="font-medium text-[#242936] dark:text-[#ECEFF4]">{theme.title}</h3>
+          <p class="text-sm text-[#828E9F] dark:text-[#707A8C] mt-0.5 leading-relaxed">{theme.desc}</p>
         </div>
       ))}
     </div>
@@ -111,16 +111,16 @@ const researchThemes = [
 
   <!-- Recent News -->
   <section class="mb-12">
-    <h2 class="text-lg font-semibold tracking-tight text-[#1a1e22] dark:text-[#edf2f7] mb-3.5 pb-2 border-b border-black/[0.08] dark:border-white/[0.08]">
+    <h2 class="text-lg font-semibold tracking-tight text-[#242936] dark:text-[#ECEFF4] mb-3.5 pb-2 border-b border-[#E6E8EB] dark:border-white/[0.08]">
       Recent News
     </h2>
     <div class="space-y-3">
       {news.map(item => (
         <div class="flex items-baseline gap-3 text-sm">
-          <span class="font-mono text-xs text-slate-400 dark:text-slate-500 shrink-0">
+          <span class="font-mono text-xs text-[#F29718] shrink-0">
             {item.date}
           </span>
-          <span class="text-[#2e3438] dark:text-[#d8dde3] leading-relaxed" set:html={item.text} />
+          <span class="text-[#5C6166] dark:text-[#ECEFF4] leading-relaxed" set:html={item.text} />
         </div>
       ))}
     </div>
@@ -128,21 +128,21 @@ const researchThemes = [
 
   <!-- Selected Publications -->
   <section>
-    <div class="flex items-center justify-between mb-3.5 pb-2 border-b border-black/[0.08] dark:border-white/[0.08]">
-      <h2 class="text-lg font-semibold tracking-tight text-[#1a1e22] dark:text-[#edf2f7]">Selected Publications</h2>
-      <a href="/publications" class="text-xs text-[#235789] dark:text-[#82B4DC] hover:underline">All publications &rarr;</a>
+    <div class="flex items-center justify-between mb-3.5 pb-2 border-b border-[#E6E8EB] dark:border-white/[0.08]">
+      <h2 class="text-lg font-semibold tracking-tight text-[#242936] dark:text-[#ECEFF4]">Selected Publications</h2>
+      <a href="/publications" class="text-xs text-[#2B79C2] dark:text-[#73D0FF] hover:underline">All publications &rarr;</a>
     </div>
 
     <div class="space-y-3">
       {selectedPubs.map((pub, idx) => (
         <div class="py-0.5">
-          <div class="font-medium text-[#1a1e22] dark:text-[#edf2f7] leading-snug text-sm">
+          <div class="font-medium text-[#242936] dark:text-[#ECEFF4] leading-snug text-sm">
             {pub.entryTags.url ? (
-              <a href={pub.entryTags.url} target="_blank" rel="noopener noreferrer" class="hover:text-[#235789] dark:hover:text-[#82B4DC]">
+              <a href={pub.entryTags.url} target="_blank" rel="noopener noreferrer" class="hover:text-[#2B79C2] dark:hover:text-[#73D0FF]">
                 {cleanLatex(pub.entryTags.title)}
               </a>
             ) : pub.entryTags.doi ? (
-              <a href={`https://doi.org/${pub.entryTags.doi}`} target="_blank" rel="noopener noreferrer" class="hover:text-[#235789] dark:hover:text-[#82B4DC]">
+              <a href={`https://doi.org/${pub.entryTags.doi}`} target="_blank" rel="noopener noreferrer" class="hover:text-[#2B79C2] dark:hover:text-[#73D0FF]">
                 {cleanLatex(pub.entryTags.title)}
               </a>
             ) : (
@@ -150,14 +150,14 @@ const researchThemes = [
             )}
           </div>
           
-          <div class="text-xs text-slate-500 dark:text-slate-400 mt-0.5" set:html={formatAuthors(pub.entryTags.author || pub.entryTags.editor)} />
+          <div class="text-xs text-[#828E9F] dark:text-[#707A8C] mt-0.5" set:html={formatAuthors(pub.entryTags.author || pub.entryTags.editor)} />
           
-          <div class="text-xs text-slate-400 dark:text-slate-500 mt-0.5 flex items-center gap-2 flex-wrap">
+          <div class="text-xs text-[#828E9F] dark:text-[#707A8C] mt-0.5 flex items-center gap-2 flex-wrap">
             <span class="italic">{cleanLatex(pub.entryTags.journal || pub.entryTags.booktitle || pub.entryTags.howpublished)}</span>
             <span>&bull;</span>
             <span>{pub.entryTags.year}</span>
             {pub.entryTags.doi && (
-              <a href={`https://doi.org/${pub.entryTags.doi}`} target="_blank" rel="noopener noreferrer" class="text-[#235789] dark:text-[#82B4DC] hover:underline font-mono text-[11px]">
+              <a href={`https://doi.org/${pub.entryTags.doi}`} target="_blank" rel="noopener noreferrer" class="text-[#2B79C2] dark:text-[#73D0FF] hover:underline font-mono text-[11px]">
                 [DOI]
               </a>
             )}

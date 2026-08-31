@@ -62,10 +62,10 @@ const navItems = [
 <body class="min-h-screen flex flex-col antialiased">
   
   <!-- Subtle Top Accent Bar -->
-  <div class="h-0.5 w-full bg-[#235789]/60"></div>
+  <div class="h-0.5 w-full bg-[#F29718]"></div>
 
   <!-- Desktop Institutional Header (Prominent TCD & Sigmedia Logos) -->
-  <header class="hidden md:block border-b border-black/[0.06] dark:border-white/[0.08]">
+  <header class="hidden md:block border-b border-[#E6E8EB] dark:border-white/[0.08]">
     <div class="max-w-5xl mx-auto px-5 sm:px-8 py-4 flex items-center justify-between">
       <!-- Trinity College Dublin Logo -->
       <a 
@@ -87,32 +87,32 @@ const navItems = [
         class="opacity-90 hover:opacity-100 transition-opacity inline-flex items-center" 
         title="Sigmedia Research Group"
       >
-        <img src="/images/sigmedia-logo.png" alt="Sigmedia Research Group" class="h-10 w-auto dark:hidden" />
-        <img src="/images/sigmedia-logo-white.png" alt="Sigmedia Research Group" class="h-10 w-auto hidden dark:block" />
+        <img src="/images/sigmedia-logo.svg" alt="Sigmedia Research Group" class="h-10 w-auto dark:hidden" />
+        <img src="/images/sigmedia-logo-white.svg" alt="Sigmedia Research Group" class="h-10 w-auto hidden dark:block" />
       </a>
     </div>
   </header>
 
   <!-- Mobile Header -->
-  <header class="md:hidden flex items-center justify-between px-4 py-3 bg-[#f7f6f2]/95 dark:bg-[#121519]/95 border-b border-black/[0.08] dark:border-white/[0.08] sticky top-0 z-40 backdrop-blur-xs">
+  <header class="md:hidden flex items-center justify-between px-4 py-3 bg-[#FCFCFC]/95 dark:bg-[#1F2430]/95 border-b border-[#E6E8EB] dark:border-white/[0.08] sticky top-0 z-40 backdrop-blur-xs">
     <div class="flex items-center gap-3">
       <img src="/images/tcd-logo.png" alt="Trinity College Dublin" class="h-8 w-auto dark:hidden" />
       <img src="/images/tcd-logo-white.png" alt="Trinity College Dublin" class="h-8 w-auto hidden dark:block" />
-      <a href="/" class="font-medium text-[#1a1e22] dark:text-[#edf2f7] text-base">François Pitié</a>
+      <a href="/" class="font-medium text-[#242936] dark:text-[#ECEFF4] text-base">François Pitié</a>
     </div>
     <div class="flex items-center gap-2">
-      <button id="theme-toggle-mobile" aria-label="Toggle dark mode" class="p-2 rounded text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800">
+      <button id="theme-toggle-mobile" aria-label="Toggle dark mode" class="p-2 rounded text-slate-500 hover:bg-black/[0.05] dark:text-slate-400 dark:hover:bg-white/[0.05]">
         <svg class="w-5 h-5 hidden dark:block text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707-.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
         <svg class="w-5 h-5 block dark:hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
       </button>
-      <button id="menu-toggle" aria-label="Open Navigation" class="p-2 rounded text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">
+      <button id="menu-toggle" aria-label="Open Navigation" class="p-2 rounded text-[#5C6166] hover:bg-black/[0.05] dark:text-[#ECEFF4] dark:hover:bg-white/[0.05]">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
     </div>
   </header>
 
   <!-- Mobile Drawer -->
-  <div id="mobile-menu" class="hidden md:hidden bg-[#f7f6f2] dark:bg-[#121519] border-b border-black/[0.08] dark:border-white/[0.08] px-5 py-3 space-y-1">
+  <div id="mobile-menu" class="hidden md:hidden bg-[#FCFCFC] dark:bg-[#1F2430] border-b border-[#E6E8EB] dark:border-white/[0.08] px-5 py-3 space-y-1">
     {navItems.map(item => {
       const isExactActive = currentPath === item.href;
       const isSectionOpen = (item.href !== '/' && currentPath.startsWith(item.href)) || 
@@ -124,10 +124,10 @@ const navItems = [
             href={item.href}
             class={`block py-1.5 text-sm transition-colors ${
               isExactActive
-                ? 'text-[#235789] dark:text-[#82B4DC] font-medium'
+                ? 'text-[#2B79C2] dark:text-[#73D0FF] font-medium'
                 : isSectionOpen
-                ? 'text-[#235789] dark:text-[#82B4DC]'
-                : 'text-slate-600 dark:text-slate-300 hover:text-slate-900'
+                ? 'text-[#2B79C2] dark:text-[#73D0FF]'
+                : 'text-[#5C6166] dark:text-[#CBCCC6] hover:text-[#242936]'
             }`}
           >
             {item.name}
@@ -141,8 +141,8 @@ const navItems = [
                     href={sub.href}
                     class={`block py-1 text-xs transition-colors ${
                       isSubActive
-                        ? 'text-[#235789] dark:text-[#82B4DC] font-medium'
-                        : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                        ? 'text-[#2B79C2] dark:text-[#73D0FF] font-medium'
+                        : 'text-[#828E9F] dark:text-[#707A8C] hover:text-[#242936] dark:hover:text-[#ECEFF4]'
                     }`}
                   >
                     {sub.name}
@@ -156,14 +156,14 @@ const navItems = [
     })}
 
     <!-- Mobile Institutional Logos -->
-    <div class="pt-3 pb-1 border-t border-black/[0.08] dark:border-white/[0.08] flex items-center justify-between px-1">
+    <div class="pt-3 pb-1 border-t border-[#E6E8EB] dark:border-white/[0.08] flex items-center justify-between px-1">
       <a href="https://www.tcd.ie" target="_blank" rel="noopener noreferrer" title="Trinity College Dublin">
         <img src="/images/tcd-logo.png" alt="Trinity College Dublin" class="h-7 w-auto dark:hidden" />
         <img src="/images/tcd-logo-white.png" alt="Trinity College Dublin" class="h-7 w-auto hidden dark:block" />
       </a>
       <a href="https://sigmedia.tv" target="_blank" rel="noopener noreferrer" title="Sigmedia Research Group">
-        <img src="/images/sigmedia-logo.png" alt="Sigmedia Research Group" class="h-6.5 w-auto dark:hidden" />
-        <img src="/images/sigmedia-logo-white.png" alt="Sigmedia Research Group" class="h-6.5 w-auto hidden dark:block" />
+        <img src="/images/sigmedia-logo.svg" alt="Sigmedia Research Group" class="h-6.5 w-auto dark:hidden" />
+        <img src="/images/sigmedia-logo-white.svg" alt="Sigmedia Research Group" class="h-6.5 w-auto hidden dark:block" />
       </a>
     </div>
   </div>
@@ -177,7 +177,7 @@ const navItems = [
         
         <!-- Portrait & Core Identity -->
         <div>
-          <div class="w-36 h-44 rounded-sm overflow-hidden mb-3.5 bg-black/[0.04] dark:bg-white/[0.04] border border-black/[0.06] dark:border-white/[0.08]">
+          <div class="w-36 h-44 rounded-sm overflow-hidden mb-3.5 bg-black/[0.04] dark:bg-white/[0.04] border border-[#E6E8EB] dark:border-white/[0.08]">
             <img 
               src="/images/pitief.jpg" 
               alt="François Pitié" 
@@ -186,35 +186,35 @@ const navItems = [
             />
           </div>
 
-          <h1 class="text-lg font-medium text-[#1a1e22] dark:text-[#edf2f7] tracking-tight">François Pitié</h1>
-          <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5 leading-snug">
+          <h1 class="text-lg font-medium text-[#242936] dark:text-[#ECEFF4] tracking-tight">François Pitié</h1>
+          <p class="text-xs text-[#828E9F] dark:text-[#707A8C] mt-0.5 leading-snug">
             Ussher Assistant Professor &bull; FTCD<br />
-            <a href="https://www.tcd.ie/eleceng/" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 dark:hover:text-slate-200">Electronic & Electrical Engineering</a><br />
-            <a href="https://www.tcd.ie" target="_blank" rel="noopener noreferrer" class="hover:text-slate-900 dark:hover:text-slate-200">Trinity College Dublin</a>
+            <a href="https://www.tcd.ie/eleceng/" target="_blank" rel="noopener noreferrer" class="hover:text-[#242936] dark:hover:text-[#ECEFF4]">Electronic & Electrical Engineering</a><br />
+            <a href="https://www.tcd.ie" target="_blank" rel="noopener noreferrer" class="hover:text-[#242936] dark:hover:text-[#ECEFF4]">Trinity College Dublin</a>
           </p>
         </div>
 
         <!-- Quick Contacts & Profiles -->
-        <div class="text-xs space-y-1 text-slate-500 dark:text-slate-400 pt-1">
+        <div class="text-xs space-y-1 text-[#828E9F] dark:text-[#707A8C] pt-1">
           <div>
-            <a href="mailto:pitief@tcd.ie" class="text-[#235789] dark:text-[#82B4DC] hover:underline">pitief@tcd.ie</a>
+            <a href="mailto:pitief@tcd.ie" class="text-[#2B79C2] dark:text-[#73D0FF] hover:underline font-mono">pitief@tcd.ie</a>
           </div>
-          <div class="text-[11px] text-slate-400 dark:text-slate-500">
+          <div class="text-[11px] text-[#828E9F] dark:text-[#707A8C]">
             Room 3-22, Áras an Phiarsaigh
           </div>
-          <div class="pt-1.5 flex items-center gap-1.5 text-xs text-slate-400 dark:text-slate-500 flex-wrap">
-            <a href="https://scholar.google.com/citations?user=lOaoO74AAAAJ" target="_blank" rel="noopener noreferrer" class="text-slate-600 dark:text-slate-300 hover:text-[#235789] dark:hover:text-[#82B4DC]">Scholar</a>
+          <div class="pt-1.5 flex items-center gap-1.5 text-xs text-[#828E9F] dark:text-[#707A8C] flex-wrap">
+            <a href="https://scholar.google.com/citations?user=lOaoO74AAAAJ" target="_blank" rel="noopener noreferrer" class="text-[#5C6166] dark:text-[#CBCCC6] hover:text-[#2B79C2] dark:hover:text-[#73D0FF]">Scholar</a>
             <span>&bull;</span>
-            <a href="https://orcid.org/0000-0002-3925-5020" target="_blank" rel="noopener noreferrer" class="text-slate-600 dark:text-slate-300 hover:text-[#235789] dark:hover:text-[#82B4DC]">ORCID</a>
+            <a href="https://orcid.org/0000-0002-3925-5020" target="_blank" rel="noopener noreferrer" class="text-[#5C6166] dark:text-[#CBCCC6] hover:text-[#2B79C2] dark:hover:text-[#73D0FF]">ORCID</a>
             <span>&bull;</span>
-            <a href="https://github.com/frcs" target="_blank" rel="noopener noreferrer" class="text-slate-600 dark:text-slate-300 hover:text-[#235789] dark:hover:text-[#82B4DC]">GitHub</a>
+            <a href="https://github.com/frcs" target="_blank" rel="noopener noreferrer" class="text-[#5C6166] dark:text-[#CBCCC6] hover:text-[#2B79C2] dark:hover:text-[#73D0FF]">GitHub</a>
             <span>&bull;</span>
-            <a href="https://ie.linkedin.com/in/fran%C3%A7ois-piti%C3%A9-6182718b" target="_blank" rel="noopener noreferrer" class="text-slate-600 dark:text-slate-300 hover:text-[#235789] dark:hover:text-[#82B4DC]">LinkedIn</a>
+            <a href="https://ie.linkedin.com/in/fran%C3%A7ois-piti%C3%A9-6182718b" target="_blank" rel="noopener noreferrer" class="text-[#5C6166] dark:text-[#CBCCC6] hover:text-[#2B79C2] dark:hover:text-[#73D0FF]">LinkedIn</a>
           </div>
         </div>
 
         <!-- Navigation Menu -->
-        <nav class="hidden md:block pt-3.5 border-t border-black/[0.06] dark:border-white/[0.08]">
+        <nav class="hidden md:block pt-3.5 border-t border-[#E6E8EB] dark:border-white/[0.08]">
           <ul class="space-y-1.5 text-sm">
             {navItems.map(item => {
               const isExactActive = currentPath === item.href;
@@ -227,15 +227,15 @@ const navItems = [
                     href={item.href}
                     class={`flex items-center justify-between py-1 transition-colors ${
                       isExactActive
-                        ? 'text-[#235789] dark:text-[#82B4DC] font-medium'
+                        ? 'text-[#2B79C2] dark:text-[#73D0FF] font-medium'
                         : isSectionOpen
-                        ? 'text-[#235789] dark:text-[#82B4DC]'
-                        : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100'
+                        ? 'text-[#2B79C2] dark:text-[#73D0FF]'
+                        : 'text-[#5C6166] dark:text-[#707A8C] hover:text-[#242936] dark:hover:text-[#ECEFF4]'
                     }`}
                   >
                     <span>{item.name}</span>
                     {isExactActive && (
-                      <span class="w-1.5 h-1.5 rounded-full bg-[#235789] dark:bg-[#82B4DC] opacity-70"></span>
+                      <span class="w-1.5 h-1.5 rounded-full bg-[#F29718] dark:bg-[#FFA759]"></span>
                     )}
                   </a>
 
@@ -250,13 +250,13 @@ const navItems = [
                               href={sub.href}
                               class={`flex items-center justify-between py-0.5 text-xs transition-colors ${
                                 isSubActive
-                                  ? 'text-[#235789] dark:text-[#82B4DC] font-medium'
-                                  : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200'
+                                  ? 'text-[#2B79C2] dark:text-[#73D0FF] font-medium'
+                                  : 'text-[#828E9F] dark:text-[#707A8C] hover:text-[#242936] dark:hover:text-[#ECEFF4]'
                               }`}
                             >
                               <span>{sub.name}</span>
                               {isSubActive && (
-                                <span class="w-1 h-1 rounded-full bg-[#235789] dark:bg-[#82B4DC] opacity-60"></span>
+                                <span class="w-1 h-1 rounded-full bg-[#F29718] dark:bg-[#FFA759] opacity-80"></span>
                               )}
                             </a>
                           </li>
@@ -281,11 +281,11 @@ const navItems = [
   </div>
 
   <!-- Footer with Quiet Theme Toggle -->
-  <footer class="mt-auto border-t border-slate-200/70 dark:border-slate-800 py-6 text-xs text-slate-500 dark:text-slate-400">
+  <footer class="mt-auto border-t border-[#E6E8EB] dark:border-white/[0.08] py-6 text-xs text-[#828E9F] dark:text-[#707A8C]">
     <div class="max-w-5xl mx-auto px-5 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
       <p>&copy; {new Date().getFullYear()} François Pitié &bull; Dept. of Electronic & Electrical Engineering &bull; Trinity College Dublin</p>
       
-      <button id="theme-toggle-desktop" class="inline-flex items-center gap-1.5 text-xs text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white transition-colors cursor-pointer">
+      <button id="theme-toggle-desktop" class="inline-flex items-center gap-1.5 text-xs text-[#828E9F] hover:text-[#242936] dark:text-[#707A8C] dark:hover:text-[#ECEFF4] transition-colors cursor-pointer">
         <svg class="w-3.5 h-3.5 hidden dark:block text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707-.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"/></svg>
         <svg class="w-3.5 h-3.5 block dark:hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
         <span>Toggle Theme</span>
