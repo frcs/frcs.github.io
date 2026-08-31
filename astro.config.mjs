@@ -7,6 +7,11 @@ export default defineConfig({
   site: 'https://francois.pitie.net',
   base: '/',
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    server: {
+      watch: {
+        usePolling: true
+      }
+    }
   }
 });
