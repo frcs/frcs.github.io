@@ -5,7 +5,7 @@ const sections = [
   {
     id: "colour",
     title: "Colour",
-    blurb: "Mathematical models and algorithms for colour manipulation, exposure correction, and multi-shot consistency in film and video production.",
+    blurb: "My work in colour manipulation focuses on developing principled mathematical frameworks for film post-production, visual effects, and archival restoration. This began with continuous probability density function (PDF) transfer and 1D Radon projections for example-based colour transfer, which was commercialised in The Foundry's MatchGrade plug-in for Nuke. It extends to statistical temporal estimators for localised deflickering in degraded archival footage (Furnace Deflicker2), and more recently to scene-aware neural architectures developed with FilmLight (CVMP 2025) that estimate changing illumination across multi-camera setups to maintain consistent colour appearance across complex scene cuts.",
     links: [
       {
         title: "Optimal Transport (Colour Transfer)",
@@ -25,21 +25,27 @@ const sections = [
     ]
   },
   {
-    id: "selection-matting",
-    title: "Interactive Selection & Alpha Matting",
-    blurb: "Combining closed-form mathematical formulations with deep learning and simple user interactions for high-quality foreground extraction.",
+    id: "segmentation-keying",
+    title: "Interactive Segmentation & Keying",
+    blurb: "Extracting foreground elements from complex imagery—traditionally divided into green-screen keying, rotoscoping, and natural image matting—is one of the most labour-intensive stages in visual effects and photo editing. Because solving for foreground colour, background, and opacity simultaneously is severely ill-posed, automated methods often fail along subtle boundaries like hair, fur, and motion blur. My research combines closed-form mathematical physics with deep learning to provide intuitive, human-in-the-loop control. This includes formulating matting as an anisotropic parameter diffusion PDE (the Alternative Matting Laplacian), click-based interactive deep selection (IEEE ICME Runner-Up), and F|B|α matting, which ranked #1 on alphamatting.com and was licensed to PhotoRoom.",
     links: [
       {
-        title: "Alternative Matting Laplacian & Deep Selection",
+        title: "The Alternative Matting Laplacian (Research Note)",
         href: "/research/matting-laplacian",
-        note: "Closed-form matting PDE, click-based interactive selection, and F|B|α matting (#1 on alphamatting.com, licensed to PhotoRoom)."
+        note: "Closed-form parameter diffusion PDE, comparison with Levin's Laplacian, and interactive matting."
+      },
+      {
+        title: "F|B|α Matting & Deep Selection",
+        href: "https://github.com/MarcoForte/FBA_Matting",
+        external: true,
+        note: "Simultaneous foreground, background, and alpha estimation (#1 on alphamatting.com, licensed to PhotoRoom)."
       }
     ]
   },
   {
     id: "video-compression",
     title: "Video Compression & Codecs",
-    blurb: "Rate-distortion optimisation, perceptual quality metrics, fast encoder control, and reusing codec metadata for 3D reconstruction.",
+    blurb: "With video representing the vast majority of internet traffic, improving video coding efficiency and perceptual fidelity is critical for streaming services, virtual production, and mobile devices. As an academic member of the Alliance for Open Media (AOMedia) Video Quality Working Group, I contribute to the design and subjective evaluation of royalty-free standards including AV1 and the next-generation AVM codec. Our research tackles per-clip Lagrangian multiplier (λ) optimisation for High Dynamic Range (HDR) content, lightweight neural networks like LiteVPNet for one-pass quality and rate prediction (commercialised via TrueFrame), and novel methods that reuse motion vectors already present in compressed bitstreams to accelerate 3D Gaussian Splatting by over 60% (IEEE ICIP 2026).",
     links: [
       {
         title: "Open Standards (AV1, AVM), One-Pass Prediction & 3DGS",
@@ -51,7 +57,7 @@ const sections = [
   {
     id: "efficient-ai",
     title: "Efficient AI & Inverse Problems",
-    blurb: "Designing compact, reusable neural components and hybrid Bayesian models that reduce compute and energy requirements for image restoration.",
+    blurb: "While modern deep learning achieves remarkable image restoration quality, state-of-the-art models often rely on massive architectures that incur prohibitive computational latency and energy costs in camera hardware and real-time workflows. Our research explores how classical signal processing theory can dramatically reduce the scale of neural networks. We investigate hybrid pipelines that combine classical Bayesian Wiener filtering with compact parameter-estimation networks for fast video and image denoising. Furthermore, at CVMP 2025, we demonstrated that instead of training separate models for individual degradations, a single compact multi-task denoiser can serve as a shared, regularising prior across multiple linear inverse problems, improving reconstruction quality while converging in fewer iterations.",
     links: [
       {
         title: "Multi-Task Denoisers & Bayesian Backbones",
@@ -85,7 +91,7 @@ const sections = [
       </div>
 
       <!-- 4 Core Research Sections -->
-      <div class="space-y-8">
+      <div class="space-y-10">
         {sections.map((section) => (
           <section class="space-y-3">
             <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-1.5 border-b border-[var(--theme-border)]">
@@ -94,11 +100,14 @@ const sections = [
             <p class="text-sm sm:text-base text-[var(--theme-fg)] leading-relaxed">
               {section.blurb}
             </p>
-            <ul class="space-y-2 list-disc list-outside ml-4 text-sm sm:text-base">
+            <ul class="space-y-2 text-sm sm:text-base pt-1 sm:-ml-6 sm:pl-6 -ml-4 pl-4 list-none">
               {section.links.map((item) => (
-                <li>
+                <li class="sm:-indent-6 -indent-4 leading-normal">
+                  <span class="text-[var(--theme-accent)] font-mono select-none mr-1" aria-hidden="true">&rarr;</span>
                   <a 
                     href={item.href} 
+                    target={item.external ? "_blank" : undefined}
+                    rel={item.external ? "noopener noreferrer" : undefined}
                     class="text-[var(--theme-link)] hover:text-[var(--theme-accent)] font-medium hover:underline"
                   >
                     {item.title}

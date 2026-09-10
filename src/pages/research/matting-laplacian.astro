@@ -14,15 +14,16 @@ const eqOurMin = renderLatex("J^*(a,b) = \\min_{\\alpha} J(\\alpha, a, b)", true
 const eqPde = renderLatex("\\mathrm{div}\\left( \\begin{bmatrix} C_i \\\\ 1 \\end{bmatrix} \\begin{bmatrix} C_i^T & 1 \\end{bmatrix} \\nabla \\begin{bmatrix} a_i \\\\ b_i \\end{bmatrix} \\right) = 0", true);
 ---
 
-<BaseLayout title="Interactive Vision, Object Selection & Alpha Matting - François Pitié" currentSection="research">
+<BaseLayout title="The Alternative Matting Laplacian - François Pitié" currentSection="research">
   <div class="post">
     <header class="post-header mb-8">
-      <div class="mb-2">
-        <a href="/research" class="text-xs font-mono text-[var(--theme-link)] hover:text-[var(--theme-accent)]">&larr; back to research</a>
+      <div class="mb-2 flex items-center justify-between text-xs font-mono text-[var(--theme-muted)]">
+        <a href="/research" class="text-[var(--theme-link)] hover:text-[var(--theme-accent)]">&larr; back to research</a>
+        <span>Research Note / Blog Post</span>
       </div>
-      <h1 class="post-title">Interactive Vision, Object Selection &amp; Alpha Matting</h1>
+      <h1 class="post-title">The Alternative Matting Laplacian</h1>
       <p class="desc text-xs sm:text-sm text-[var(--theme-muted)] mt-1.5 pb-3 border-b border-[var(--theme-border)]">
-        From closed-form parameter diffusion to deep interactive selection, $F|B|\alpha$ matting, and commercial deployment.
+        Direct parameter diffusion and closed-form PDEs for natural image matting.
       </p>
     </header>
 
