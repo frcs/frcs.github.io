@@ -1,0 +1,154 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Efficient AI for Visual Media & 3D - François Pitié" currentSection="research">
+  <div class="post">
+    <header class="post-header mb-8">
+      <div class="mb-2">
+        <a href="/research" class="text-xs font-mono text-[var(--theme-link)] hover:text-[var(--theme-accent)]">&larr; back to research</a>
+      </div>
+      <h1 class="post-title">Efficient AI for Visual Media &amp; 3D</h1>
+      <p class="desc text-xs sm:text-sm text-[var(--theme-muted)] mt-1.5 pb-3 border-b border-[var(--theme-border)]">
+        Compact neural models, classic Bayesian signal processing backbones, and codec-assisted 3D Gaussian Splatting.
+      </p>
+    </header>
+
+    <article class="space-y-10">
+      <!-- Overview -->
+      <section class="space-y-4 text-sm sm:text-base text-[var(--theme-fg)] leading-relaxed">
+        <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-1.5 border-b border-[var(--theme-border)]">
+          Research Overview
+        </h2>
+        <p>
+          Contemporary deep learning for visual media is often dominated by ever-larger neural network architectures requiring massive GPU clusters, high latency, and substantial electrical power. In production environments, edge devices, camera rigs, and real-time streaming pipelines, these computational and energy demands create severe bottlenecks.
+        </p>
+        <p>
+          Our research investigates how <strong>classical signal processing theory</strong> and <strong>structure already present in media representations</strong> can be fused with compact learned models. By avoiding redundant pixel-domain computations, our architectures deliver state-of-the-art visual quality with orders-of-magnitude lower computational and memory overhead.
+        </p>
+      </section>
+
+      <!-- Codec-Assisted 3D Gaussian Splatting -->
+      <section class="space-y-4 text-sm sm:text-base text-[var(--theme-fg)] leading-relaxed">
+        <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-1.5 border-b border-[var(--theme-border)]">
+          Codec-Assisted 3D Gaussian Splatting
+        </h2>
+        <p>
+          While 3D Gaussian Splatting has transformed novel view synthesis into a real-time rendering paradigm, its reconstruction fidelity and convergence speed depend critically on the quality of the initial 3D point cloud. In conventional Structure-from-Motion (SfM) pipelines, extracting and matching features across video frames is computationally intense and power-hungry.
+        </p>
+        <p>
+          In work accepted at <strong>IEEE ICIP 2026</strong> (Zouein et al.), we introduced an approach that completely bypasses pixel-domain feature matching by reusing the <strong>AV1 motion vectors</strong> already calculated by the video codec and embedded within the compressed bitstream.
+        </p>
+        <p>
+          By leveraging these codec-derived motion representations, our pipeline generates up to <strong>8&times; as many 3D seed points</strong>, improves final reconstruction quality by approximately <strong>9 VMAF points</strong>, and reduces the training duration required to reach baseline visual quality by <strong>63%</strong>. This enables 3D reconstruction closer to the capture sensor on energy-constrained platforms such as drones and handheld devices, supported by <strong>Horizon Europe EMERALD</strong> and a <strong>YouTube/Google Faculty Award</strong>.
+        </p>
+      </section>
+
+      <!-- LiteVPNet & TrueFrame -->
+      <section class="space-y-4 text-sm sm:text-base text-[var(--theme-fg)] leading-relaxed">
+        <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-1.5 border-b border-[var(--theme-border)]">
+          LiteVPNet &amp; TrueFrame: One-Pass Quality Prediction
+        </h2>
+        <p>
+          In cloud video encoding, finding the optimal encoding configuration traditionally requires multi-pass search heuristics that re-encode videos repeatedly, consuming enormous computing resources across data centers.
+        </p>
+        <p>
+          We developed <strong>LiteVPNet</strong>, an ultra-compact deep architecture containing only <strong>242k parameters</strong> capable of predicting appropriate video encoding parameters and perceptual quality (VMAF) in essentially a single pass. Evaluated across 2,944 diverse video sequences, LiteVPNet achieves an average error of approximately 1 VMAF point, with 87.3% of predictions falling within 2 points of target.
+        </p>
+        <p>
+          LiteVPNet forms the core intellectual property of <strong>TrueFrame</strong>, a venture project supported by the <strong>Research Ireland ARC Hub for ICT</strong> (&euro;149.5k, 2026&ndash;2028), translating energy-efficient neural video processing from laboratory research into production-grade infrastructure.
+        </p>
+      </section>
+
+      <!-- Classical Bayesian Backbones & Video Denoising -->
+      <section class="space-y-4 text-sm sm:text-base text-[var(--theme-fg)] leading-relaxed">
+        <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-1.5 border-b border-[var(--theme-border)]">
+          Lightweight Bayesian Signal Processing
+        </h2>
+        <p>
+          In video restoration and denoising, end-to-end deep convolutional networks often incur prohibitive inference latency. In research published in <em>Frontiers in Signal Processing</em>, we demonstrated that coupling a classic Bayesian Wiener filter backbone with lightweight neural parameter estimation matches the visual denoising performance of monolithic neural networks while operating at a fraction of the computational footprint.
+        </p>
+      </section>
+
+      <!-- Key Publications -->
+      <section>
+        <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-2 border-b border-[var(--theme-border)] mb-4">
+          Key Publications
+        </h2>
+
+        <div class="space-y-4">
+          <div class="p-3.5 rounded border border-[var(--theme-border)] bg-[var(--theme-card)]/20">
+            <div class="font-semibold text-sm text-[var(--theme-heading)] leading-snug">
+              Efficient Dense Matching for Enhanced Gaussian Splatting Using AV1 Motion Vectors
+            </div>
+            <div class="text-xs text-[var(--theme-muted)] mt-1">
+              J. Zouein, V. Vibhoothi, F. Pitié, and A. Kokaram
+            </div>
+            <div class="text-xs text-[var(--theme-muted)] mt-0.5 italic">
+              IEEE International Conference on Image Processing (ICIP), 2026 (in press).
+            </div>
+            <div class="text-xs text-[var(--theme-muted)] mt-1">
+              Horizon Europe EMERALD &bull; YouTube/Google Faculty Research Award
+            </div>
+            <div class="mt-2">
+              <a href="https://arxiv.org/abs/2605.14629" target="_blank" rel="noopener noreferrer" class="text-xs text-[var(--theme-link)] hover:text-[var(--theme-accent)] hover:underline">
+                arXiv:2605.14629 &rarr;
+              </a>
+            </div>
+          </div>
+
+          <div class="p-3.5 rounded border border-[var(--theme-border)] bg-[var(--theme-card)]/20">
+            <div class="font-semibold text-sm text-[var(--theme-heading)] leading-snug">
+              Leveraging AV1 Motion Vectors for Fast and Dense Feature Matching
+            </div>
+            <div class="text-xs text-[var(--theme-muted)] mt-1">
+              J. Zouein, H. Javidnia, F. Pitié, and A. Kokaram
+            </div>
+            <div class="text-xs text-[var(--theme-muted)] mt-0.5 italic">
+              IEEE International Conference on Intelligent Reality (ICIR), 2025.
+            </div>
+            <div class="mt-2">
+              <a href="https://doi.org/10.1109/ICIR64375.2025.00018" target="_blank" rel="noopener noreferrer" class="text-xs text-[var(--theme-link)] hover:text-[var(--theme-accent)] hover:underline">
+                DOI: 10.1109/ICIR64375.2025.00018 &rarr;
+              </a>
+            </div>
+          </div>
+
+          <div class="p-3.5 rounded border border-[var(--theme-border)] bg-[var(--theme-card)]/20">
+            <div class="font-semibold text-sm text-[var(--theme-heading)] leading-snug">
+              Lightweight Video Denoising Using a Classic Bayesian Backbone
+            </div>
+            <div class="text-xs text-[var(--theme-muted)] mt-1">
+              D. J. Ringis, V. Vibhoothi, F. Pitié, N. Harte, and A. Kokaram
+            </div>
+            <div class="text-xs text-[var(--theme-muted)] mt-0.5 italic">
+              Frontiers in Signal Processing, 3:1205104, 2023.
+            </div>
+            <div class="mt-2">
+              <a href="https://doi.org/10.3389/frsip.2023.1205104" target="_blank" rel="noopener noreferrer" class="text-xs text-[var(--theme-link)] hover:text-[var(--theme-accent)] hover:underline">
+                DOI: 10.3389/frsip.2023.1205104 &rarr;
+              </a>
+            </div>
+          </div>
+
+          <div class="p-3.5 rounded border border-[var(--theme-border)] bg-[var(--theme-card)]/20">
+            <div class="font-semibold text-sm text-[var(--theme-heading)] leading-snug">
+              Pushing the Limits of the Wiener Filter in Image Denoising
+            </div>
+            <div class="text-xs text-[var(--theme-muted)] mt-1">
+              V. Vibhoothi, D. J. Ringis, F. Pitié, and A. Kokaram
+            </div>
+            <div class="text-xs text-[var(--theme-muted)] mt-0.5 italic">
+              IEEE International Conference on Image Processing (ICIP), 2022.
+            </div>
+            <div class="mt-2">
+              <a href="https://doi.org/10.1109/ICIP46576.2022.9897530" target="_blank" rel="noopener noreferrer" class="text-xs text-[var(--theme-link)] hover:text-[var(--theme-accent)] hover:underline">
+                DOI: 10.1109/ICIP46576.2022.9897530 &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+  </div>
+</BaseLayout>

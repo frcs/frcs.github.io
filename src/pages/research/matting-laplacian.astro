@@ -14,59 +14,21 @@ const eqOurMin = renderLatex("J^*(a,b) = \\min_{\\alpha} J(\\alpha, a, b)", true
 const eqPde = renderLatex("\\mathrm{div}\\left( \\begin{bmatrix} C_i \\\\ 1 \\end{bmatrix} \\begin{bmatrix} C_i^T & 1 \\end{bmatrix} \\nabla \\begin{bmatrix} a_i \\\\ b_i \\end{bmatrix} \\right) = 0", true);
 ---
 
-<BaseLayout title="Alternative Matting Laplacian - François Pitié" currentSection="research">
+<BaseLayout title="Interactive Vision, Object Selection & Alpha Matting - François Pitié" currentSection="research">
   <div class="post">
     <header class="post-header mb-8">
       <div class="mb-2">
         <a href="/research" class="text-xs font-mono text-[var(--theme-link)] hover:text-[var(--theme-accent)]">&larr; back to research</a>
       </div>
-      <h1 class="post-title">The Alternative Matting Laplacian</h1>
+      <h1 class="post-title">Interactive Vision, Object Selection &amp; Alpha Matting</h1>
       <p class="desc text-xs sm:text-sm text-[var(--theme-muted)] mt-1.5 pb-3 border-b border-[var(--theme-border)]">
-        Direct parameter diffusion and closed-form formulation for natural image matting.
+        From closed-form parameter diffusion to deep interactive selection, $F|B|\alpha$ matting, and commercial deployment.
       </p>
     </header>
 
     <article class="space-y-10">
-      <!-- Theory & Formulation Section -->
-      <section class="space-y-4 text-sm sm:text-base text-[var(--theme-fg)] leading-relaxed">
-        <p>
-          In natural image matting, an observed linear RGB colour <span set:html={renderLatex("C_i")} /> at pixel <span set:html={renderLatex("i")} /> is modelled as a convex combination of an unknown foreground colour <span set:html={renderLatex("F_i")} /> and background colour <span set:html={renderLatex("B_i")} />:
-        </p>
-        <div class="p-3 my-2 rounded bg-[var(--theme-card)]/50 border border-[var(--theme-border)] overflow-x-auto text-center" set:html={eqModel} />
-        
-        <p>
-          We need to solve for <span set:html={renderLatex("F_i")} />, <span set:html={renderLatex("B_i")} />, and transparency <span set:html={renderLatex("\\alpha_i")} />. This formulation is non-linear and severely under-constrained. In their seminal work, Levin et al. demonstrated that under local color-line assumptions, transparency values can be approximated as an affine transformation of the color components:
-        </p>
-        <div class="p-3 my-2 rounded bg-[var(--theme-card)]/50 border border-[var(--theme-border)] overflow-x-auto text-center" set:html={eqColorLine} />
-        <p>
-          where <span set:html={renderLatex("a_i = [a_i^R, a_i^G, a_i^B]^T")} /> acts as a local colour filter revealing the intensity of <span set:html={renderLatex("\\alpha")} />. Fitting this model across overlapping <span set:html={renderLatex("3 \\times 3")} /> windows <span set:html={renderLatex("w_i")} /> yields the quadratic cost:
-        </p>
-        <div class="p-3 my-2 rounded bg-[var(--theme-card)]/50 border border-[var(--theme-border)] overflow-x-auto text-center" set:html={eqLevinCost} />
-        
-        <p>
-          Levin et al. eliminate the model parameters <span set:html={renderLatex("a, b")} /> implicitly:
-        </p>
-        <div class="p-2 my-1 rounded bg-[var(--theme-card)]/50 border border-[var(--theme-border)] overflow-x-auto text-center" set:html={eqLevinMin} />
-        <p>
-          leading to the famous Levin Matting Laplacian linear system <span set:html={renderLatex("L\\alpha = 0")} />.
-        </p>
-
-        <p class="pt-2">
-          <strong>Our Contribution:</strong> We take the exact opposite approach and eliminate <span set:html={renderLatex("\\alpha")} /> to explicitly solve for the model parameters:
-        </p>
-        <div class="p-2 my-1 rounded bg-[var(--theme-card)]/50 border border-[var(--theme-border)] overflow-x-auto text-center" set:html={eqOurMin} />
-        <p>
-          This reveals that parameter propagation corresponds to an anisotropic diffusion PDE:
-        </p>
-        <div class="p-3 my-2 rounded bg-[var(--theme-card)]/50 border border-[var(--theme-border)] overflow-x-auto text-center" set:html={eqPde} />
-      </section>
-
       <!-- Visual Grid of Results -->
       <section class="space-y-4">
-        <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-2 border-b border-[var(--theme-border)] mb-4">
-          Visualizing Model Parameters and Alpha Mattes
-        </h2>
-
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div class="rounded overflow-hidden border border-[var(--theme-border)] bg-[var(--theme-card)]/40 p-2">
             <img src="/images/troll.jpg" alt="Original Troll Image" class="w-full h-auto rounded" />
@@ -90,54 +52,179 @@ const eqPde = renderLatex("\\mathrm{div}\\left( \\begin{bmatrix} C_i \\\\ 1 \\en
         </div>
       </section>
 
-      <!-- Advantages & Key Insight -->
-      <section class="space-y-3 text-sm sm:text-base text-[var(--theme-fg)] leading-relaxed">
-        <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-2 border-b border-[var(--theme-border)] mb-4">
-          Key Advantages
+      <!-- Overview -->
+      <section class="space-y-4 text-sm sm:text-base text-[var(--theme-fg)] leading-relaxed">
+        <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-1.5 border-b border-[var(--theme-border)]">
+          Human-in-the-Loop Visual Editing
         </h2>
-        <ul class="list-disc pl-5 space-y-2 text-sm sm:text-base">
-          <li>
-            <strong>Computational Simplicity:</strong> The problem naturally simplifies into anisotropic diffusion of <span set:html={renderLatex("a")} /> and <span set:html={renderLatex("b")} />, leading to simpler and faster sparse linear systems.
-          </li>
-          <li>
-            <strong>Meaningful Priors:</strong> Because the colour filter vectors are exposed explicitly, spatial smoothness and boundary-preserving regularization can be imposed directly on the parameters.
-          </li>
-          <li>
-            <strong>Foundation for Neural Multigrid Solvers:</strong> Forms the algebraic foundation for contemporary deep learning matting systems including fastAML and dual-stream neural V-cycle architectures.
-          </li>
-        </ul>
+        <p>
+          Extracting foreground objects from complex backgrounds—<strong>alpha matting</strong> and <strong>object selection</strong>—is a core task across visual effects, virtual production, and creative image editing. In natural image matting, an observed linear RGB colour <span set:html={renderLatex("C_i")} /> at pixel <span set:html={renderLatex("i")} /> is modelled as a convex combination of an unknown foreground colour <span set:html={renderLatex("F_i")} />, background colour <span set:html={renderLatex("B_i")} />, and transparency matte <span set:html={renderLatex("\\alpha_i")} />:
+        </p>
+        <div class="p-3 my-2 rounded bg-[var(--theme-card)]/50 border border-[var(--theme-border)] overflow-x-auto text-center" set:html={eqModel} />
+        <p>
+          Because there are seven unknown values per pixel (three colour channels for foreground, three for background, and one alpha value) with only three observed colour channels, the problem is severely ill-posed. For professional visual editing, full automation without user guidance frequently fails on fine structures such as hair, fur, semi-transparent glass, and motion blur.
+        </p>
+        <p>
+          Our research programme investigates <strong>human-in-the-loop AI</strong>: combining rigorous mathematical formulations and deep learning with intuitive user interactions (clicks, scribbles, and trimaps) to give artists precise control over visual compositing.
+        </p>
       </section>
 
-      <!-- Code & Paper Links -->
+      <!-- The Alternative Matting Laplacian -->
+      <section class="space-y-4 text-sm sm:text-base text-[var(--theme-fg)] leading-relaxed">
+        <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-1.5 border-b border-[var(--theme-border)]">
+          The Alternative Matting Laplacian
+        </h2>
+        <p>
+          In classic matting, Levin et al. assumed that alpha is locally an affine transformation of colour components (<span set:html={renderLatex("\\alpha_i = a_i^T C_i + b_i")} />), eliminating the model parameters <span set:html={renderLatex("a, b")} /> to produce the famous Levin Matting Laplacian linear system <span set:html={renderLatex("L\\alpha = 0")} />:
+        </p>
+        <div class="p-3 my-2 rounded bg-[var(--theme-card)]/50 border border-[var(--theme-border)] overflow-x-auto text-center" set:html={eqLevinCost} />
+        <p>
+          <strong>Our Key Insight:</strong> We take the exact opposite approach and eliminate <span set:html={renderLatex("\\alpha")} /> instead to solve directly for the model parameters:
+        </p>
+        <div class="p-2 my-1 rounded bg-[var(--theme-card)]/50 border border-[var(--theme-border)] overflow-x-auto text-center" set:html={eqOurMin} />
+        <p>
+          This formulation reveals that parameter propagation corresponds to an anisotropic diffusion partial differential equation (PDE):
+        </p>
+        <div class="p-3 my-2 rounded bg-[var(--theme-card)]/50 border border-[var(--theme-border)] overflow-x-auto text-center" set:html={eqPde} />
+        <p>
+          Solving directly for the local colour filter parameters (<span set:html={renderLatex("a, b")} />) yields significantly simpler and faster sparse linear systems, allows meaningful spatial priors to be imposed directly on the colour model, and provides an algebraic foundation for neural multigrid and V-cycle solvers.
+        </p>
+      </section>
+
+      <!-- Deep Interactive Selection & F|B|Alpha Matting -->
+      <section class="space-y-4 text-sm sm:text-base text-[var(--theme-fg)] leading-relaxed">
+        <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-1.5 border-b border-[var(--theme-border)]">
+          Deep Selection, $F|B|\alpha$ Matting &amp; Industry Impact
+        </h2>
+        <p>
+          Building on these foundations, we extended interactive segmentation into deep learning. At IEEE ICME 2020, Dr. Marco Forte and our group presented <em>Interactive Training and Architecture for Deep Object Selection</em>, introducing an end-to-end neural framework trained explicitly on user click simulations to achieve state-of-the-art interactive object boundaries with minimal user input. The work was awarded the <strong>IEEE ICME Best Paper Runner-Up Award</strong>.
+        </p>
+        <p>
+          Subsequently, we developed <strong>$F|B|\alpha$ Matting</strong> (Forte &amp; Pitié, 2020), a deep learning architecture that simultaneously estimates foreground colour, background colour, and alpha transparency directly. $F|B|\alpha$ Matting achieved the <strong>#1 ranking</strong> on the international <a href="http://www.alphamatting.com" target="_blank" rel="noopener noreferrer" class="text-[var(--theme-link)] hover:text-[var(--theme-accent)] underline">alphamatting.com</a> benchmark, demonstrating exceptional fidelity across fine hair strands, transparent boundaries, and complex textures.
+        </p>
+        <p>
+          In 2021, the underlying intellectual property was commercially licensed to <strong>PhotoRoom</strong>, an AI-powered visual editing platform. Dr. Marco Forte joined PhotoRoom to lead key AI engineering divisions, translating our academic matting breakthroughs into an application used by millions of digital creators and e-commerce merchants globally.
+        </p>
+      </section>
+
+      <!-- Code & Resources -->
       <section class="p-4 rounded border border-[var(--theme-border)] bg-[var(--theme-card)]/40">
         <h2 class="text-sm font-semibold text-[var(--theme-heading)] mb-2 flex items-center gap-2">
           <i class="fa-brands fa-github text-base"></i>
-          Code & Preprint
+          Open Source Code &amp; Benchmarks
         </h2>
         <div class="flex flex-wrap items-center gap-3 text-xs sm:text-sm font-mono mt-2">
-          <a href="https://github.com/frcs/alternative-matting-laplacian" target="_blank" rel="noopener noreferrer" class="pub-btn">
-            GitHub Repository &rarr;
+          <a href="https://github.com/MarcoForte/FBA_Matting" target="_blank" rel="noopener noreferrer" class="pub-btn">
+            FBA_Matting (PyTorch) &rarr;
           </a>
-          <a href="https://arxiv.org/abs/1605.04785" target="_blank" rel="noopener noreferrer" class="pub-btn">
-            arXiv:1605.04785 &rarr;
+          <a href="https://github.com/frcs/alternative-matting-laplacian" target="_blank" rel="noopener noreferrer" class="pub-btn">
+            Alternative Matting Laplacian &rarr;
+          </a>
+          <a href="http://www.alphamatting.com" target="_blank" rel="noopener noreferrer" class="pub-btn">
+            alphamatting.com Benchmark &rarr;
+          </a>
+          <a href="https://www.photoroom.com" target="_blank" rel="noopener noreferrer" class="pub-btn">
+            PhotoRoom &rarr;
           </a>
         </div>
       </section>
 
-      <!-- Citation -->
+      <!-- Key Publications -->
       <section>
         <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-2 border-b border-[var(--theme-border)] mb-4">
-          Reference Publication
+          Key Publications
         </h2>
-        <div class="p-3.5 rounded border border-[var(--theme-border)] bg-[var(--theme-card)]/20">
-          <div class="font-semibold text-sm text-[var(--theme-heading)] leading-snug">
-            The Alternative Matting Laplacian
+
+        <div class="space-y-4">
+          <div class="p-3.5 rounded border border-[var(--theme-border)] bg-[var(--theme-card)]/20">
+            <div class="font-semibold text-sm text-[var(--theme-heading)] leading-snug">
+              Interactive Training and Architecture for Deep Object Selection
+            </div>
+            <div class="text-xs text-[var(--theme-muted)] mt-1">
+              M. Forte, B. Price, S. Cohen, N. Xu, and F. Pitié
+            </div>
+            <div class="text-xs text-[var(--theme-muted)] mt-0.5 italic">
+              IEEE International Conference on Multimedia &amp; Expo (ICME), London, UK, 2020.
+            </div>
+            <div class="text-xs text-[var(--theme-accent)] font-semibold mt-1">
+              &bull; Best Paper Runner-Up Award
+            </div>
+            <div class="mt-2">
+              <a href="https://doi.org/10.1109/ICME46284.2020.9102942" target="_blank" rel="noopener noreferrer" class="text-xs text-[var(--theme-link)] hover:text-[var(--theme-accent)] hover:underline">
+                DOI: 10.1109/ICME46284.2020.9102942 &rarr;
+              </a>
+            </div>
           </div>
-          <div class="text-xs text-[var(--theme-muted)] mt-1">
-            François Pitié
+
+          <div class="p-3.5 rounded border border-[var(--theme-border)] bg-[var(--theme-card)]/20">
+            <div class="font-semibold text-sm text-[var(--theme-heading)] leading-snug">
+              F, B, Alpha Matting
+            </div>
+            <div class="text-xs text-[var(--theme-muted)] mt-1">
+              M. Forte and F. Pitié
+            </div>
+            <div class="text-xs text-[var(--theme-muted)] mt-0.5 italic">
+              arXiv preprint arXiv:2003.07711, 2020.
+            </div>
+            <div class="text-xs text-[var(--theme-muted)] mt-1">
+              #1 on alphamatting.com evaluation &bull; Licensed to PhotoRoom
+            </div>
+            <div class="mt-2">
+              <a href="https://arxiv.org/abs/2003.07711" target="_blank" rel="noopener noreferrer" class="text-xs text-[var(--theme-link)] hover:text-[var(--theme-accent)] hover:underline">
+                arXiv:2003.07711 &rarr;
+              </a>
+            </div>
           </div>
-          <div class="text-xs text-[var(--theme-muted)] mt-0.5 italic">
-            2016 IEEE International Conference on Image Processing (ICIP), Phoenix, AZ, 2016.
+
+          <div class="p-3.5 rounded border border-[var(--theme-border)] bg-[var(--theme-card)]/20">
+            <div class="font-semibold text-sm text-[var(--theme-heading)] leading-snug">
+              The Alternative Matting Laplacian
+            </div>
+            <div class="text-xs text-[var(--theme-muted)] mt-1">
+              F. Pitié
+            </div>
+            <div class="text-xs text-[var(--theme-muted)] mt-0.5 italic">
+              IEEE International Conference on Image Processing (ICIP), Phoenix, AZ, 2016.
+            </div>
+            <div class="mt-2">
+              <a href="https://doi.org/10.1109/ICIP.2016.7532398" target="_blank" rel="noopener noreferrer" class="text-xs text-[var(--theme-link)] hover:text-[var(--theme-accent)] hover:underline">
+                DOI: 10.1109/ICIP.2016.7532398 &rarr;
+              </a>
+            </div>
+          </div>
+
+          <div class="p-3.5 rounded border border-[var(--theme-border)] bg-[var(--theme-card)]/20">
+            <div class="font-semibold text-sm text-[var(--theme-heading)] leading-snug">
+              Rank Reduced Alternative Matting Laplacian
+            </div>
+            <div class="text-xs text-[var(--theme-muted)] mt-1">
+              F. Pitié
+            </div>
+            <div class="text-xs text-[var(--theme-muted)] mt-0.5 italic">
+              13th European Conference on Visual Media Production (CVMP), London, UK, 2016.
+            </div>
+            <div class="mt-2">
+              <a href="https://doi.org/10.1145/3013971.3013980" target="_blank" rel="noopener noreferrer" class="text-xs text-[var(--theme-link)] hover:text-[var(--theme-accent)] hover:underline">
+                DOI: 10.1145/3013971.3013980 &rarr;
+              </a>
+            </div>
+          </div>
+
+          <div class="p-3.5 rounded border border-[var(--theme-border)] bg-[var(--theme-card)]/20">
+            <div class="font-semibold text-sm text-[var(--theme-heading)] leading-snug">
+              Matting with a Depth Map
+            </div>
+            <div class="text-xs text-[var(--theme-muted)] mt-1">
+              F. Pitié
+            </div>
+            <div class="text-xs text-[var(--theme-muted)] mt-0.5 italic">
+              IEEE International Conference on Image Processing (ICIP), Hong Kong, 2010.
+            </div>
+            <div class="mt-2">
+              <a href="https://doi.org/10.1109/ICIP.2010.5652518" target="_blank" rel="noopener noreferrer" class="text-xs text-[var(--theme-link)] hover:text-[var(--theme-accent)] hover:underline">
+                DOI: 10.1109/ICIP.2010.5652518 &rarr;
+              </a>
+            </div>
           </div>
         </div>
       </section>

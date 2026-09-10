@@ -64,6 +64,26 @@
       "permanent": true
     },
     {
+      "source": "/research/Video-Compression/:path*",
+      "destination": "/research/video-compression/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/research/Video-Compression",
+      "destination": "/research/video-compression",
+      "permanent": true
+    },
+    {
+      "source": "/research/Efficient-AI/:path*",
+      "destination": "/research/efficient-ai/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/research/Efficient-AI",
+      "destination": "/research/efficient-ai",
+      "permanent": true
+    },
+    {
       "source": "/4c16/:path*",
       "destination": "https://frcs.github.io/4c16/:path*",
       "permanent": false

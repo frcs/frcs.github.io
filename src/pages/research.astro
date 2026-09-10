@@ -3,28 +3,49 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const researchDirections = [
   {
-    title: "Colour Transfer & Automated Colour Grading",
-    meta: "Optimal Transport · Visual Computing",
-    body: "I developed mathematical formulations for transferring colour distributions between images and video, based on continuous Monge–Kantorovich optimal transport and N-dimensional probability density transfer. This work transformed colour matching from a largely manual process into an automated one and became the basis of commercial tools including MatchGrade in The Foundry's Furnace suite.",
+    title: "Colour Transfer & Scene-Consistent Grading",
+    meta: "Optimal Transport · Visual Computing · Illuminant Estimation",
+    body: "Mathematical formulations for transferring colour distributions between images and video, based on continuous Monge–Kantorovich optimal transport and 1D Radon projections. This work transformed colour matching into an automated discipline and became the basis of commercial tools including MatchGrade in The Foundry's Furnace suite. Recent research with FilmLight under Horizon Europe EMERALD extends these foundations to scene-consistent illuminant estimation across multi-shot sequences under changing lighting.",
     link: {
-      text: "Read the technical article →",
+      text: "Read the research dossier →",
       href: "/research/colour-transfer"
     }
   },
   {
-    title: "Human-in-the-Loop Vision & Alpha Matting",
-    meta: "Interactive Computer Vision · Image Compositing",
-    body: "For professional visual editing, automation must remain under human control. I develop models that combine neural processing with simple user interactions, including interactive object selection from clicks and scribbles, and foreground/background/alpha estimation for image matting. The work was recognised with an IEEE ICME Best Paper Runner-Up and has been licensed to PhotoRoom.",
+    title: "Interactive Computer Vision & Alpha Matting",
+    meta: "Human-in-the-Loop AI · Deep Selection · Image Compositing",
+    body: "For professional visual editing, automation must remain under human control. I develop models combining closed-form parameter diffusion (the Alternative Matting Laplacian) and deep learning with intuitive user interactions (clicks, scribbles, and trimaps). Our work introduced deep interactive object selection (awarded the IEEE ICME Best Paper Runner-Up Award) and F|B|α matting, which ranked #1 on alphamatting.com and was commercially licensed to PhotoRoom.",
     link: {
-      text: "Read the technical article →",
+      text: "Read the research dossier →",
       href: "/research/matting-laplacian"
     }
   },
   {
-    title: "Efficient AI for Video",
-    meta: "Signal Processing · Lightweight Neural Networks · Video Compression",
-    body: "Rather than relying on ever-larger neural networks, I investigate how classical signal processing and compact learned models can be combined to achieve high-quality results at much lower computational cost. Current work spans video denoising, encoder control, perceptual quality assessment and next-generation video compression, including contributions to AV1 and AVM through the Alliance for Open Media.",
-    link: null
+    title: "Film Restoration & Exposure Stabilization",
+    meta: "Statistical Signal Processing · Luminance Stabilization · Archival Film",
+    body: "Unwanted brightness fluctuations and exposure flicker are pervasive in historical archival film and high-speed photography. We developed robust localized statistical estimators combining motion compensation with non-linear gain and bias correction to stabilize temporal luminance transients without burning highlights or smoothing scene dynamics, integrated commercially into Furnace Deflicker2 by The Foundry.",
+    link: {
+      text: "Read the research dossier →",
+      href: "/research/deflicker"
+    }
+  },
+  {
+    title: "Video Compression & Open Standards",
+    meta: "Rate-Distortion Optimization · HDR · AV1 & AVM Codecs",
+    body: "As an Academic Contributor to the Alliance for Open Media (AOMedia) Video Quality Working Group alongside Google, Netflix, and Meta, our lab contributes to the development and perceptual evaluation of next-generation open video codecs including AV1 and AVM. Research spans per-clip Lagrangian multiplier optimisation for HDR content (PCS 2021 Top-10 Paper Award) and video compression architectures for virtual production.",
+    link: {
+      text: "Read the research dossier →",
+      href: "/research/video-compression"
+    }
+  },
+  {
+    title: "Efficient AI for Visual Media & 3D",
+    meta: "Lightweight Deep Learning · Codec-Assisted 3D · Bayesian Backbones",
+    body: "Rather than relying on exponentially larger neural networks that demand massive GPU clusters, we investigate how classical signal processing theory and structure already present in compressed media can make AI substantially more efficient. Highlights include LiteVPNet for one-pass video encoding configuration (commercialized via TrueFrame) and codec-assisted 3D Gaussian Splatting, which reuses AV1 motion vectors to bypass pixel matching, reducing training time by 63% (IEEE ICIP 2026).",
+    link: {
+      text: "Read the research dossier →",
+      href: "/research/efficient-ai"
+    }
   }
 ];
 ---
@@ -43,10 +64,10 @@ const researchDirections = [
       <!-- Introductory Narrative -->
       <div class="space-y-4 text-sm sm:text-base leading-relaxed text-[var(--theme-fg)]">
         <p>
-          I work on applied mathematics, signal processing and machine learning for visual media. My research spans film and visual-effects production, image and video processing, and large-scale video streaming.
+          I work on applied mathematics, signal processing, and machine learning for visual media. My research spans film and visual-effects production, image and video processing, and large-scale video streaming.
         </p>
         <p>
-          A recurring question in my work is how to make visual computing better, more controllable and more efficient. I develop mathematical and AI models that can improve images and video, automate tasks that traditionally required manual intervention, and reduce the computational cost of increasingly sophisticated media processing.
+          A recurring question in my work is how to make visual computing better, more controllable, and more efficient. I develop mathematical and AI models that improve images and video, automate tasks that traditionally required manual intervention, and reduce the computational and energy cost of increasingly sophisticated media processing.
         </p>
       </div>
 
