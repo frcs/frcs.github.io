@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { loadPublications, cleanLatex, formatAuthors, formatBibtex } from '../utils/bibtex';
+import { loadPublications, cleanLatex, formatAuthors, formatBibtex, getPublicationUrl } from '../utils/bibtex';
 
 const allPubs = loadPublications();
 // Top 10 Research Works from Senior Academic Promotion (SAP 2026) application
@@ -139,8 +139,9 @@ const news = [
           {selectedPubs.map((pub, idx) => {
             const bibKey = pub.citationKey;
             const bibText = formatBibtex(pub);
-            const pubUrl = pub.entryTags.url || (pub.entryTags.doi ? `https://doi.org/${pub.entryTags.doi}` : null);
+            const pubUrl = getPublicationUrl(pub);
             const venue = cleanLatex(pub.entryTags.journal || pub.entryTags.booktitle || pub.entryTags.howpublished || 'Publication');
+            const arxivId = (pub.entryTags.eprint || pub.entryTags.arxiv)?.replace(/^arXiv:/i, '').trim();
 
             return (
               <li class="bibliography-item">
@@ -177,7 +178,12 @@ const news = [
                           DOI
                         </a>
                       )}
-                      {pub.entryTags.url && !pub.entryTags.doi && (
+                      {arxivId && (
+                        <a href={`https://arxiv.org/abs/${arxivId}`} target="_blank" rel="noopener noreferrer" class="pub-btn">
+                          arXiv
+                        </a>
+                      )}
+                      {pub.entryTags.url && !pub.entryTags.doi && !arxivId && (
                         <a href={pub.entryTags.url} target="_blank" rel="noopener noreferrer" class="pub-btn">
                           Link
                         </a>

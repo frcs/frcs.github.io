@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { loadPublications, cleanLatex, formatAuthors, formatBibtex, type BibEntry } from '../utils/bibtex';
+import { loadPublications, cleanLatex, formatAuthors, formatBibtex, getPublicationUrl, type BibEntry } from '../utils/bibtex';
 
 const allPubs = loadPublications();
 
@@ -97,7 +97,7 @@ const years = Object.keys(groupedByYear).sort((a, b) => b.localeCompare(a));
             <ol class="bibliography space-y-5">
               {lectureNotes.map((pub, idx) => {
                 const uniqueKey = `note-${idx}`;
-                const pubUrl = pub.entryTags.url || (pub.entryTags.doi ? `https://doi.org/${pub.entryTags.doi}` : null);
+                const pubUrl = getPublicationUrl(pub);
                 return (
                   <li class="bibliography-item">
                     <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4">
@@ -144,7 +144,7 @@ const years = Object.keys(groupedByYear).sort((a, b) => b.localeCompare(a));
           <ol class="bibliography space-y-5">
             {peerReviewedPubs.map((pub, idx) => {
               const uniqueKey = `peer-${idx}`;
-              const pubUrl = pub.entryTags.url || (pub.entryTags.doi ? `https://doi.org/${pub.entryTags.doi}` : null);
+              const pubUrl = getPublicationUrl(pub);
               const venue = cleanLatex(pub.entryTags.journal || pub.entryTags.booktitle || pub.entryTags.publisher || 'Publication');
               return (
                 <li class="bibliography-item">
@@ -194,7 +194,7 @@ const years = Object.keys(groupedByYear).sort((a, b) => b.localeCompare(a));
             <ol class="bibliography space-y-5">
               {preprintsAndOther.map((pub, idx) => {
                 const uniqueKey = `prep-${idx}`;
-                const pubUrl = pub.entryTags.url || (pub.entryTags.doi ? `https://doi.org/${pub.entryTags.doi}` : null);
+                const pubUrl = getPublicationUrl(pub);
                 const venue = cleanLatex(pub.entryTags.journal || pub.entryTags.booktitle || pub.entryTags.publisher || pub.entryTags.note || 'Preprint');
                 return (
                   <li class="bibliography-item">
@@ -423,7 +423,7 @@ const years = Object.keys(groupedByYear).sort((a, b) => b.localeCompare(a));
             <ol class="bibliography space-y-5">
               {groupedByYear[year].map((pub, idx) => {
                 const uniqueKey = `year-${year}-${idx}`;
-                const pubUrl = pub.entryTags.url || (pub.entryTags.doi ? `https://doi.org/${pub.entryTags.doi}` : null);
+                const pubUrl = getPublicationUrl(pub);
                 const venue = cleanLatex(pub.entryTags.journal || pub.entryTags.booktitle || pub.entryTags.howpublished || pub.entryTags.publisher || pub.entryTags.school || 'Publication');
                 const badge = pub.entryType === 'phdthesis' || pub.entryType === 'mastersthesis' ? 'thesis' : (pub.entryTags.eprint ? 'preprint' : 'pub');
                 return (
