@@ -4,6 +4,66 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/teaching/4c16-teaching/:path*",
+      "destination": "/teaching/4c16/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/teaching/4c16-teaching",
+      "destination": "/teaching/4c16",
+      "permanent": true
+    },
+    {
+      "source": "/teaching/5c34-teaching/:path*",
+      "destination": "/teaching/5c34/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/teaching/5c34-teaching",
+      "destination": "/teaching/5c34",
+      "permanent": true
+    },
+    {
+      "source": "/teaching/4C16/:path*",
+      "destination": "/teaching/4c16/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/teaching/4C16",
+      "destination": "/teaching/4c16",
+      "permanent": true
+    },
+    {
+      "source": "/teaching/5C34/:path*",
+      "destination": "/teaching/5c34/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/teaching/5C34",
+      "destination": "/teaching/5c34",
+      "permanent": true
+    },
+    {
+      "source": "/teaching/2E10/:path*",
+      "destination": "/teaching/2e10/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/teaching/2E10",
+      "destination": "/teaching/2e10",
+      "permanent": true
+    },
+    {
+      "source": "/teaching/4C8/:path*",
+      "destination": "/teaching/4c8/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/teaching/4C8",
+      "destination": "/teaching/4c8",
+      "permanent": true
+    },
+    {
       "source": "/4c16/:path*",
       "destination": "https://frcs.github.io/4c16/:path*",
       "permanent": false

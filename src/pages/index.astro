@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { loadPublications, cleanLatex, formatAuthors } from '../utils/bibtex';
+import { loadPublications, cleanLatex, formatAuthors, formatBibtex } from '../utils/bibtex';
 
 const allPubs = loadPublications();
 const selectedKeys = [
@@ -21,7 +21,7 @@ const selectedPubs = selectedKeys
 const news = [
   {
     date: '2026',
-    text: 'Awarded the <strong>University Excellence in Teaching Award</strong> and the <strong>Inspiring Educator Award</strong> by Trinity College Dublin.'
+    text: 'Awarded the <a href="https://www.tcd.ie/academicpractice/awards/staff-teaching-awards/" target="_blank" rel="noopener noreferrer" class="hover:underline"><strong>University Excellence in Teaching Award</strong></a> and the <strong>Inspiring Educator Award</strong> by Trinity College Dublin.'
   },
   {
     date: '2026',
@@ -33,7 +33,7 @@ const news = [
   },
   {
     date: '2025',
-    text: 'Released course lecture notes on <a href="https://doi.org/10.5281/zenodo.17954655" target="_blank" class="text-[#2B79C2] dark:text-[#73D0FF] hover:underline">Deep Learning and its Applications</a> on Zenodo.'
+    text: 'Released course lecture notes on <a href="https://doi.org/10.5281/zenodo.17954655" target="_blank" class="hover:underline">Deep Learning and its Applications</a> on Zenodo.'
   },
   {
     date: '2024',
@@ -52,119 +52,238 @@ const news = [
 const researchThemes = [
   {
     title: "Colour Transfer & Optimal Transport",
-    desc: "Mathematical formulations based on continuous Monge-Kantorovich optimal transport and probability density transfer for automated colour grading and film restoration."
+    desc: "Mathematical formulations based on continuous Monge-Kantorovich optimal transport and probability density transfer for automated colour grading and film restoration.",
+    href: "/research/colour-transfer"
   },
   {
     title: "Interactive Vision & Alpha Matting",
-    desc: "Human-in-the-loop deep learning architectures (F, B, Alpha Matting and interactive object selection) providing boundary control with minimal user interactions."
+    desc: "Human-in-the-loop deep learning architectures (F, B, Alpha Matting and interactive object selection) providing boundary control with minimal user interactions.",
+    href: "/research/matting-laplacian"
   },
   {
     title: "Sustainable Video Processing & Codecs",
-    desc: "Lightweight statistical/neural hybrid backbones and perceptual rate-distortion optimization (AOMedia AV1/AVM) to reduce computational footprint and energy consumption."
+    desc: "Lightweight statistical/neural hybrid backbones and perceptual rate-distortion optimization (AOMedia AV1/AVM) to reduce computational footprint and energy consumption.",
+    href: "/research/deflicker"
   }
 ];
 ---
 
 <BaseLayout title="François Pitié - Academic Homepage" currentSection="home">
   
-  <!-- Academic Bio Section -->
-  <section class="mb-12">
-    <h2 class="text-lg font-semibold tracking-tight text-[#242936] dark:text-[#ECEFF4] mb-3.5 pb-2 border-b border-[#E6E8EB] dark:border-white/[0.08]">
-      Academic Bio
-    </h2>
-    <div class="leading-relaxed space-y-3.5 text-[#5C6166] dark:text-[#ECEFF4]">
-      <p>
-        I am an <strong>Ussher Assistant Professor</strong> in Media Signal Processing at the 
-        <a href="https://www.tcd.ie/eleceng/" target="_blank" rel="noopener noreferrer" class="text-[#2B79C2] dark:text-[#73D0FF] hover:underline">Department of Electronic & Electrical Engineering</a>, 
-        <a href="https://www.tcd.ie" target="_blank" rel="noopener noreferrer" class="text-[#2B79C2] dark:text-[#73D0FF] hover:underline">Trinity College Dublin</a>. 
-        I am a Principal Investigator with the <a href="https://sigmedia.tv" target="_blank" rel="noopener noreferrer" class="text-[#2B79C2] dark:text-[#73D0FF] hover:underline">Sigmedia Research Group</a>, 
-        an Academic Collaborator at the <a href="https://www.adaptcentre.ie" target="_blank" rel="noopener noreferrer" class="text-[#2B79C2] dark:text-[#73D0FF] hover:underline">ADAPT Research Centre</a>, 
-        and an elected <strong>Fellow of Trinity College Dublin (FTCD)</strong>.
-      </p>
-      <p>
-        My research focuses on applied mathematics and machine learning models for visual media processing, film postproduction, and video compression. 
-        Core areas include continuous optimal transport for automated colour transfer, interactive trimap-free alpha matting, and energy-efficient neural video processing.
-      </p>
-      <p>
-        Applied outcomes of this work include algorithms licensed in commercial postproduction suites (such as The Foundry’s Furnace suite for Nuke), 
-        technology transfers to visual AI platforms including PhotoRoom, and ongoing contributions to international video compression standards within the Alliance for Open Media (AOMedia).
-      </p>
-    </div>
-  </section>
+  <div class="post">
+    <!-- Header (al-folio style) -->
+    <header class="post-header mb-8">
+      <h1 class="post-title">
+        <span class="font-bold">François</span> Pitié
+      </h1>
+    </header>
 
-  <!-- Research Themes -->
-  <section class="mb-12">
-    <div class="flex items-center justify-between mb-3.5 pb-2 border-b border-[#E6E8EB] dark:border-white/[0.08]">
-      <h2 class="text-lg font-semibold tracking-tight text-[#242936] dark:text-[#ECEFF4]">Research Themes</h2>
-      <a href="/research" class="text-xs text-[#2B79C2] dark:text-[#73D0FF] hover:underline">Details &rarr;</a>
-    </div>
-
-    <div class="space-y-4">
-      {researchThemes.map(theme => (
-        <div class="py-0.5">
-          <h3 class="font-medium text-[#242936] dark:text-[#ECEFF4]">{theme.title}</h3>
-          <p class="text-sm text-[#828E9F] dark:text-[#707A8C] mt-0.5 leading-relaxed">{theme.desc}</p>
+    <article>
+      <!-- Profile Card Floated Right (al-folio signature) -->
+      <div class="profile float-right sm:w-[32%] sm:ml-8 mb-6 w-full">
+        <figure class="m-0">
+          <img 
+            src="/images/pitief.jpg" 
+            alt="François Pitié" 
+            class="w-full h-auto rounded border border-[var(--theme-border)] shadow-sm object-cover"
+            loading="eager"
+          />
+        </figure>
+        <div class="address text-xs font-mono mt-2.5 text-[var(--theme-muted)] leading-snug">
+          <p>Room 3-22, Áras an Phiarsaigh,</p>
+          <p>Trinity College Dublin,</p>
+          <p>Dublin 2, Ireland</p>
+          <p class="mt-2">
+            <a 
+              href="#" 
+              class="email-obfuscate text-[var(--theme-link)] hover:underline" 
+              data-user="pitief" 
+              data-domain="tcd.ie"
+            >pitief [at] tcd [dot] ie</a>
+          </p>
         </div>
-      ))}
-    </div>
-  </section>
+      </div>
 
-  <!-- Recent News -->
-  <section class="mb-12">
-    <h2 class="text-lg font-semibold tracking-tight text-[#242936] dark:text-[#ECEFF4] mb-3.5 pb-2 border-b border-[#E6E8EB] dark:border-white/[0.08]">
-      Recent News
-    </h2>
-    <div class="space-y-3">
-      {news.map(item => (
-        <div class="flex items-baseline gap-3 text-sm">
-          <span class="font-mono text-xs text-[#F29718] shrink-0">
-            {item.date}
-          </span>
-          <span class="text-[#5C6166] dark:text-[#ECEFF4] leading-relaxed" set:html={item.text} />
+      <!-- Bio Paragraphs (wraps around floated profile) -->
+      <div class="clearfix space-y-4 text-sm sm:text-base leading-relaxed text-[var(--theme-fg)]">
+        <p>
+          I am an <strong>Ussher Assistant Professor</strong> in Media Signal Processing in the 
+          <a href="https://www.tcd.ie/eleceng/" target="_blank" rel="noopener noreferrer">Department of Electronic &amp; Electrical Engineering</a> at 
+          <a href="https://www.tcd.ie" target="_blank" rel="noopener noreferrer">Trinity College Dublin</a>. 
+          I lead research within the <a href="https://sigmedia.tv" target="_blank" rel="noopener noreferrer">Sigmedia Research Group</a>, 
+          collaborate with the <a href="https://www.adaptcentre.ie" target="_blank" rel="noopener noreferrer">ADAPT Research Centre</a>, 
+          and am an elected <strong>Fellow of Trinity College Dublin (FTCD)</strong>.
+        </p>
+        <p>
+          My research develops applied mathematics and machine learning for visual media, with a particular focus on film and visual-effects production, image and video processing, and efficient video compression. I am interested in making pictures better while giving artists greater control and reducing the computational cost of AI. My work spans <a href="/research/colour-transfer">continuous optimal transport for automated colour grading</a>, <a href="/research/matting-laplacian">interactive image matting</a>, and <a href="/research/deflicker">lightweight, energy-efficient neural video processing</a>.
+        </p>
+        <p>
+          My research has translated into practical technology used by organisations including <a href="https://about.google/" target="_blank" rel="noopener noreferrer">Google</a>, <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">YouTube</a> and <a href="https://www.foundry.com" target="_blank" rel="noopener noreferrer">Foundry</a>, with commercial licensing to visual AI platforms such as <a href="https://www.photoroom.com" target="_blank" rel="noopener noreferrer">PhotoRoom</a>. Our lab also represents Trinity in the <a href="https://aomedia.org" target="_blank" rel="noopener noreferrer">Alliance for Open Media (AOMedia)</a>, contributing to the development of open video-compression standards.
+        </p>
+      </div>
+
+      <!-- News Section (al-folio clean tabular layout) -->
+      <div class="news mt-12">
+        <h2 class="text-xl font-light tracking-tight text-[var(--theme-heading)] pb-2 mb-4 border-b border-[var(--theme-border)]">
+          News
+        </h2>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <tbody class="divide-y divide-[var(--theme-border)]/40">
+              {news.map(item => (
+                <tr class="align-top">
+                  <th scope="row" class="py-2.5 pr-4 text-left font-mono text-xs font-normal text-[var(--theme-muted)] whitespace-nowrap w-24 sm:w-28">
+                    {item.date}
+                  </th>
+                  <td class="py-2.5 text-[var(--theme-fg)] leading-relaxed" set:html={item.text} />
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
-      ))}
-    </div>
-  </section>
+      </div>
 
-  <!-- Selected Publications -->
-  <section>
-    <div class="flex items-center justify-between mb-3.5 pb-2 border-b border-[#E6E8EB] dark:border-white/[0.08]">
-      <h2 class="text-lg font-semibold tracking-tight text-[#242936] dark:text-[#ECEFF4]">Selected Publications</h2>
-      <a href="/publications" class="text-xs text-[#2B79C2] dark:text-[#73D0FF] hover:underline">All publications &rarr;</a>
-    </div>
-
-    <div class="space-y-3">
-      {selectedPubs.map((pub, idx) => (
-        <div class="py-0.5">
-          <div class="font-medium text-[#242936] dark:text-[#ECEFF4] leading-snug text-sm">
-            {pub.entryTags.url ? (
-              <a href={pub.entryTags.url} target="_blank" rel="noopener noreferrer" class="hover:text-[#2B79C2] dark:hover:text-[#73D0FF]">
-                {cleanLatex(pub.entryTags.title)}
-              </a>
-            ) : pub.entryTags.doi ? (
-              <a href={`https://doi.org/${pub.entryTags.doi}`} target="_blank" rel="noopener noreferrer" class="hover:text-[#2B79C2] dark:hover:text-[#73D0FF]">
-                {cleanLatex(pub.entryTags.title)}
-              </a>
-            ) : (
-              cleanLatex(pub.entryTags.title)
-            )}
-          </div>
-          
-          <div class="text-xs text-[#828E9F] dark:text-[#707A8C] mt-0.5" set:html={formatAuthors(pub.entryTags.author || pub.entryTags.editor)} />
-          
-          <div class="text-xs text-[#828E9F] dark:text-[#707A8C] mt-0.5 flex items-center gap-2 flex-wrap">
-            <span class="italic">{cleanLatex(pub.entryTags.journal || pub.entryTags.booktitle || pub.entryTags.howpublished)}</span>
-            <span>&bull;</span>
-            <span>{pub.entryTags.year}</span>
-            {pub.entryTags.doi && (
-              <a href={`https://doi.org/${pub.entryTags.doi}`} target="_blank" rel="noopener noreferrer" class="text-[#2B79C2] dark:text-[#73D0FF] hover:underline font-mono text-[11px]">
-                [DOI]
-              </a>
-            )}
-          </div>
+      <!-- Research Themes -->
+      <div class="mt-12">
+        <div class="flex items-baseline justify-between pb-2 mb-4 border-b border-[var(--theme-border)]">
+          <h2 class="text-xl font-light tracking-tight text-[var(--theme-heading)]">Research Themes</h2>
+          <a href="/research" class="text-xs text-[var(--theme-link)] hover:text-[var(--theme-accent)]">details &rarr;</a>
         </div>
-      ))}
-    </div>
-  </section>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {researchThemes.map(theme => (
+            <div class="p-4 rounded border border-[var(--theme-border)] bg-[var(--theme-card)]/40 flex flex-col justify-between">
+              <div>
+                <h3 class="font-medium text-sm text-[var(--theme-heading)] leading-snug">{theme.title}</h3>
+                <p class="text-xs text-[var(--theme-muted)] mt-2 leading-relaxed">{theme.desc}</p>
+              </div>
+              <div class="mt-3 pt-2">
+                <a href={theme.href} class="text-xs text-[var(--theme-link)] hover:text-[var(--theme-accent)]">Read more &rarr;</a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Selected Publications (al-folio bibliography format) -->
+      <div class="publications mt-12">
+        <div class="flex items-baseline justify-between pb-2 mb-4 border-b border-[var(--theme-border)]">
+          <h2 class="text-xl font-light tracking-tight text-[var(--theme-heading)]">Selected Publications</h2>
+          <a href="/publications" class="text-xs text-[var(--theme-link)] hover:text-[var(--theme-accent)]">all publications &rarr;</a>
+        </div>
+
+        <ol class="bibliography space-y-5">
+          {selectedPubs.map((pub, idx) => {
+            const bibKey = pub.citationKey;
+            const bibText = formatBibtex(pub);
+            const pubUrl = pub.entryTags.url || (pub.entryTags.doi ? `https://doi.org/${pub.entryTags.doi}` : null);
+            const venue = cleanLatex(pub.entryTags.journal || pub.entryTags.booktitle || pub.entryTags.howpublished || 'Publication');
+
+            return (
+              <li class="bibliography-item">
+                <div class="flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-4">
+                  <!-- Venue / Year badge -->
+                  <div class="sm:w-24 shrink-0">
+                    <span class="badge-abbr">
+                      {pub.entryTags.year || 'Pub'}
+                    </span>
+                  </div>
+
+                  <!-- Details -->
+                  <div class="flex-1 min-w-0">
+                    <div class="font-semibold text-sm text-[var(--theme-heading)] leading-snug">
+                      {pubUrl ? (
+                        <a href={pubUrl} target="_blank" rel="noopener noreferrer" class="hover:text-[var(--theme-accent)]">
+                          {cleanLatex(pub.entryTags.title)}
+                        </a>
+                      ) : (
+                        cleanLatex(pub.entryTags.title)
+                      )}
+                    </div>
+
+                    <div class="text-xs text-[var(--theme-muted)] mt-1" set:html={formatAuthors(pub.entryTags.author || pub.entryTags.editor)} />
+
+                    <div class="text-xs text-[var(--theme-muted)] mt-0.5">
+                      <span class="italic">{venue}</span>, <span>{pub.entryTags.year}</span>
+                    </div>
+
+                    <!-- Action buttons -->
+                    <div class="flex items-center gap-1.5 mt-2 flex-wrap">
+                      {pub.entryTags.doi && (
+                        <a href={`https://doi.org/${pub.entryTags.doi}`} target="_blank" rel="noopener noreferrer" class="pub-btn">
+                          DOI
+                        </a>
+                      )}
+                      {pub.entryTags.url && !pub.entryTags.doi && (
+                        <a href={pub.entryTags.url} target="_blank" rel="noopener noreferrer" class="pub-btn">
+                          Link
+                        </a>
+                      )}
+                      <button type="button" class="pub-btn toggle-bib-btn" data-target={`bib-${idx}`}>
+                        Bib
+                      </button>
+                    </div>
+
+                    <!-- Collapsible BibTeX block -->
+                    <div id={`bib-${idx}`} class="hidden mt-2 p-2.5 rounded bg-[var(--theme-card)] border border-[var(--theme-border)] text-[11px] font-mono overflow-x-auto text-[var(--theme-fg)]">
+                      <pre class="m-0 whitespace-pre">{bibText}</pre>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            );
+          })}
+        </ol>
+      </div>
+
+      <!-- Social / Academic Icons (al-folio style centered footer) -->
+      <div class="social mt-14 pt-8 border-t border-[var(--theme-border)] text-center">
+        <div class="contact-icons flex items-center justify-center gap-7 text-2xl text-[var(--theme-muted)]">
+          <a href="https://scholar.google.com/citations?user=lOaoO74AAAAJ" target="_blank" rel="noopener noreferrer" title="Google Scholar">
+            <i class="ai ai-google-scholar"></i>
+          </a>
+          <a href="https://orcid.org/0000-0002-3925-5020" target="_blank" rel="noopener noreferrer" title="ORCID">
+            <i class="ai ai-orcid"></i>
+          </a>
+          <a href="https://github.com/frcs" target="_blank" rel="noopener noreferrer" title="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://ie.linkedin.com/in/fran%C3%A7ois-piti%C3%A9-6182718b" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+          <a href="#" class="email-obfuscate" data-user="pitief" data-domain="tcd.ie" title="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+
+    </article>
+  </div>
+
+  <script>
+    // Handle email obfuscation reconstruction
+    document.querySelectorAll<HTMLAnchorElement>('.email-obfuscate').forEach(el => {
+      const user = el.dataset.user;
+      const domain = el.dataset.domain;
+      if (user && domain) {
+        const email = `${user}@${domain}`;
+        el.href = `mailto:${email}`;
+        if (el.textContent && el.textContent.includes('[at]')) {
+          el.textContent = email;
+        }
+      }
+    });
+
+    // Handle inline BibTeX snippet toggles
+    document.querySelectorAll('.toggle-bib-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.getAttribute('data-target');
+        if (!targetId) return;
+        const targetEl = document.getElementById(targetId);
+        if (targetEl) {
+          targetEl.classList.toggle('hidden');
+        }
+      });
+    });
+  </script>
 
 </BaseLayout>

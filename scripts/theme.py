@@ -44,25 +44,12 @@ def apply_theme(key):
   --theme-card: {l['card']};
   --theme-border: {l['border']};
   --theme-pill: {l['pill']};
-}}
-
-.dark {{
-  --theme-bg: {d['bg']};
-  --theme-fg: {d['fg']};
-  --theme-heading: {d['heading']};
-  --theme-muted: {d['muted']};
-  --theme-accent: {d['accent']};
-  --theme-link: {d['link']};
-  --theme-link-hover: {d['link_hover']};
-  --theme-card: {d['card']};
-  --theme-border: {d['border']};
-  --theme-pill: {d['pill']};
 }}"""
 
     with open(CSS_PATH, "r", encoding="utf-8") as f:
         css = f.read()
     
-    pattern = r"(/\* ACTIVE_THEME: [\w\-]+ \*/\s*)?:root\s*\{[^}]+\}\s*\.dark\s*\{[^}]+\}"
+    pattern = r"(/\* ACTIVE_THEME: [\w\-]+ \*/\s*)?:root\s*\{[^}]+\}(\s*\.dark\s*\{[^}]+\})?"
     if re.search(pattern, css):
         updated_css = re.sub(pattern, new_vars, css)
     else:
@@ -72,8 +59,7 @@ def apply_theme(key):
         f.write(updated_css)
     
     print(f"\n✨ Theme switched to: \033[1;32m{t['name']}\033[0m ({key})")
-    print(f"   Light: Canvas {l['bg']}, Accent {l['accent']}, Links {l['link']}")
-    print(f"   Dark:  Canvas {d['bg']}, Accent {d['accent']}, Links {d['link']}\n")
+    print(f"   Canvas {l['bg']}, Accent {l['accent']}, Links {l['link']}\n")
     return True
 
 def print_theme_list():

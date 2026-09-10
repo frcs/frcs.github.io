@@ -1,0 +1,112 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="EEU22E10: Engineering Design Project - François Pitié" currentSection="teaching">
+  <div class="post">
+    <header class="post-header mb-8">
+      <div class="mb-2">
+        <a href="/teaching" class="text-xs font-mono text-[var(--theme-link)] hover:text-[var(--theme-accent)]">&larr; back to teaching</a>
+      </div>
+      <h1 class="post-title">Engineering Design Project: Robotics Buggy</h1>
+      <p class="desc text-xs sm:text-sm text-[var(--theme-muted)] mt-1 pb-3 border-b border-[var(--theme-border)]">
+        Department of Electronic &amp; Electrical Engineering &bull; Trinity College Dublin
+      </p>
+    </header>
+
+    <article>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+        <!-- Main Column (2/3 width) -->
+        <div class="md:col-span-2 space-y-8 text-sm sm:text-base leading-relaxed text-[var(--theme-fg)]">
+          <!-- Module Overview -->
+          <section class="space-y-3">
+            <p>
+              In 2016-2021, I taught EEU22E10, a team-based engineering project module in which second-year students design, build, program, and evaluate an autonomous robotic vehicle.
+            </p>
+            <p>
+              The curriculum integrates electronic engineering and computer science, giving students practical experience in developing a complete cyber-physical system involving sensors, actuators, embedded software, circuit construction, wireless communication, and systematic testing.
+            </p>
+            <p>
+              Assessment is based on phased group project demonstrations (Bronze, Silver, and Gold milestones), technical reports, code evaluation, an interview, and an individual examination evaluating each student's understanding of the underlying engineering principles.
+            </p>
+
+</section>
+
+          <!-- Buggy Image -->
+          <figure class="rounded overflow-hidden border border-[var(--theme-border)] bg-[var(--theme-card)] shadow-xs">
+            <img 
+              src="/images/2e10-buggy.jpg" 
+              alt="Autonomous Robotic Buggy" 
+              class="w-full h-auto object-cover"
+              loading="lazy"
+            />
+            <figcaption class="p-2.5 text-xs text-[var(--theme-muted)] border-t border-[var(--theme-border)] bg-[var(--theme-card)]/70">
+              Autonomous robotic vehicle developed for the EEU22E10 engineering design project.
+            </figcaption>
+          </figure>
+        </div>
+
+        <!-- Margin Sidebar (1/3 width) -->
+        <aside class="space-y-6 text-xs sm:text-sm md:border-l md:border-[var(--theme-border)]/60 md:pl-8">
+          <div>
+            <div class="text-xs font-mono uppercase tracking-wider text-[var(--theme-muted)] mb-1">
+              Module Code
+            </div>
+            <div class="font-mono font-medium text-[var(--theme-heading)]">
+              EEU22E10
+            </div>
+          </div>
+
+          <div>
+            <div class="text-xs font-mono uppercase tracking-wider text-[var(--theme-muted)] mb-1">
+              Credits &amp; Level
+            </div>
+            <div class="font-medium text-[var(--theme-heading)]">
+              10 ECTS &bull; Level 8
+            </div>
+            <div class="text-xs text-[var(--theme-muted)] mt-0.5">
+              Senior Fresh (2nd Year Undergraduate)
+            </div>
+          </div>
+
+          <div>
+            <div class="text-xs font-mono uppercase tracking-wider text-[var(--theme-muted)] mb-1">
+              Cohort Scale
+            </div>
+            <div class="font-medium text-[var(--theme-heading)]">
+              ~200 Students / Year
+            </div>
+            <div class="text-xs text-[var(--theme-muted)] mt-0.5">
+              Multidisciplinary groups
+            </div>
+          </div>
+
+          <div>
+            <div class="text-xs font-mono uppercase tracking-wider text-[var(--theme-muted)] mb-1">
+              Period Delivered
+            </div>
+            <div class="font-mono font-medium text-[var(--theme-heading)]">
+              2016 – 2021
+            </div>
+          </div>
+
+          <div>
+            <div class="text-xs font-mono uppercase tracking-wider text-[var(--theme-muted)] mb-2">
+              Official Descriptor
+            </div>
+            <div>
+              <a 
+                href="https://teaching.scss.tcd.ie/module/eeu22e10-engineering-design-iv-project/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="text-[var(--theme-link)] hover:text-[var(--theme-accent)] hover:underline inline-flex items-center gap-1 font-medium"
+              >
+                <span>TCD Module Descriptor</span> &rarr;
+              </a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </article>
+  </div>
+</BaseLayout>

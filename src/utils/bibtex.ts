@@ -58,10 +58,18 @@ export function formatAuthors(authorStr?: string): string {
 
   return authors.map(a => {
     if (a.toLowerCase().includes('pitié') || a.toLowerCase().includes('pitie')) {
-      return `<strong class="text-slate-900 dark:text-white font-semibold">${a}</strong>`;
+      return `<strong class="text-[var(--theme-heading)] font-semibold">${a}</strong>`;
     }
     return a;
   }).join(', ');
+}
+
+export function formatBibtex(pub: BibEntry): string {
+  const tags = Object.entries(pub.entryTags)
+    .filter(([k, v]) => v && !['sapc_category', 'senior_author'].includes(k))
+    .map(([k, v]) => `  ${k} = {${v}}`)
+    .join(',\n');
+  return `@${pub.entryType.toLowerCase()}{${pub.citationKey},\n${tags}\n}`;
 }
 
 export function loadPublications(): BibEntry[] {

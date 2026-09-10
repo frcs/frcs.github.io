@@ -8,13 +8,13 @@ const currentModules = [
     level: "Level 9 (Senior Sophister & MAI)",
     credits: "10 ECTS",
     desc: "Comprehensive module covering neural networks, backpropagation dynamics, convolutional architectures, sequence models, generative models, and transformers, with hands-on PyTorch coding labs and automated evaluation benchmarks.",
-    pageUrl: "/teaching/4c16-teaching",
+    pageUrl: "/teaching/4c16",
     resources: [
       {
         title: "Open Lecture Notes & Coursebook",
         description: "Full online curriculum covering mathematical formulations, architectural diagrams, loss landscapes, and PyTorch tutorials.",
         links: [
-          { name: "Read Online", url: "https://frcs.github.io/4C16-LectureNotes/" },
+          { name: "Lecture Notes", url: "https://frcs.github.io/4C16-LectureNotes/" },
           { name: "Zenodo DOI", url: "https://doi.org/10.5281/zenodo.17954655" }
         ]
       },
@@ -23,7 +23,7 @@ const currentModules = [
         description: "Hands-on coding lab system with automated Git evaluation for Colab assignments and live course schedules.",
         links: [
           { name: "Course Portal", url: "https://frcs.github.io/4c16/" },
-          { name: "GitHub Autograder", url: "https://github.com/frcs/4C16-2425" }
+          { name: "4C16 Autograder", url: "https://frcs.github.io/4c16/lab-system/" }
         ]
       }
     ]
@@ -34,7 +34,7 @@ const currentModules = [
     level: "Level 9 (Postgraduate / MAI)",
     credits: "5 ECTS",
     desc: "Advanced graduate-level study of contemporary generative models, diffusion architectures, representation learning, and modern computer vision systems.",
-    pageUrl: "/teaching/5c34-teaching",
+    pageUrl: "/teaching/5c34",
     resources: []
   }
 ];
@@ -45,14 +45,16 @@ const pastModules = [
     title: "Engineering Design Project: Robotics Buggy",
     period: "2016 – 2021",
     level: "Level 8 (Junior Fresh / 2nd Year Engineering, 10 ECTS)",
-    desc: "Core second-year group design project coordinated and redeveloped to accommodate cohorts of over 200 students. Students design, construct, and programme an autonomous wheeled robot to navigate a timed obstacle track."
+    desc: "Core second-year group design project coordinated and redeveloped to accommodate cohorts of over 200 students. Students design, construct, and programme an autonomous wheeled robot to navigate a timed obstacle track.",
+    pageUrl: "/teaching/2e10"
   },
   {
     code: "EEU44C08 / EEP55M08",
     title: "Digital Image and Video Processing",
     period: "2016 – 2024",
     level: "Level 9 (5 ECTS)",
-    desc: "Foundations of 2D signal processing, spatial and frequency domain image filtering, motion estimation, restoration, and video coding principles."
+    desc: "Foundations of 2D signal processing, spatial and frequency domain image filtering, motion estimation, restoration, and video coding principles.",
+    pageUrl: "/teaching/4c8"
   }
 ];
 
@@ -79,130 +81,242 @@ const priorModules = [
 ---
 
 <BaseLayout title="Teaching - François Pitié" currentSection="teaching">
-  <div class="mb-8 pb-2 border-b border-[#E6E8EB] dark:border-white/[0.08]">
-    <h1 class="text-xl font-semibold tracking-tight text-[#242936] dark:text-[#ECEFF4]">Teaching</h1>
-    <p class="text-xs sm:text-sm text-[#828E9F] dark:text-[#707A8C] mt-1">
-      Undergraduate and postgraduate courses delivered at the Department of Electronic & Electrical Engineering, Trinity College Dublin.
-    </p>
-  </div>
+  <div class="post">
+    <header class="post-header mb-6">
+      <h1 class="post-title">Teaching</h1>
+      <p class="desc text-xs sm:text-sm text-[var(--theme-muted)] mt-1.5 pb-3 border-b border-[var(--theme-border)]">
+        Undergraduate and postgraduate courses delivered at the Department of Electronic & Electrical Engineering, Trinity College Dublin.
+      </p>
 
-  <!-- Teaching Honours & Recognition -->
-  <div class="mb-6 text-xs sm:text-sm text-[#5C6166] dark:text-[#ECEFF4]">
-    <div class="font-medium text-[#242936] dark:text-[#ECEFF4]">
-      Teaching Recognition
-    </div>
-    <p class="mt-0.5 text-xs text-[#828E9F] dark:text-[#707A8C]">
-      Recipient of the <strong>University Excellence in Teaching Award</strong> and the <strong>Inspiring Educator Award</strong> (Trinity College Dublin, 2026).
-    </p>
-  </div>
+      <!-- Segmented Tabs (Variant C) -->
+      <div class="flex items-center gap-2 mt-5 text-xs font-mono">
+        <button 
+          type="button" 
+          id="tab-btn-courses"
+          data-tab="courses" 
+          class="tab-btn active px-3.5 py-1.5 rounded border border-[var(--theme-heading)] bg-[var(--theme-heading)] text-[var(--theme-bg)] transition-colors cursor-pointer font-medium"
+        >
+          Current Modules
+        </button>
+        <button 
+          type="button" 
+          id="tab-btn-philosophy"
+          data-tab="philosophy" 
+          class="tab-btn px-3.5 py-1.5 rounded border border-[var(--theme-border)] text-[var(--theme-muted)] hover:text-[var(--theme-accent)] transition-colors cursor-pointer"
+        >
+          Teaching Philosophy
+        </button>
+        <button 
+          type="button" 
+          id="tab-btn-archive"
+          data-tab="archive" 
+          class="tab-btn px-3.5 py-1.5 rounded border border-[var(--theme-border)] text-[var(--theme-muted)] hover:text-[var(--theme-accent)] transition-colors cursor-pointer"
+        >
+          Past Archive
+        </button>
+      </div>
+    </header>
 
-  <!-- Teaching Philosophy Note -->
-  <div class="mb-8 text-xs sm:text-sm text-[#5C6166] dark:text-[#ECEFF4] leading-relaxed">
-    <strong class="text-[#242936] dark:text-[#ECEFF4] font-medium">Teaching Philosophy: </strong>
-    My teaching integrates open-ended engineering challenges with continuous, mastery-based feedback. By deploying automated evaluation platforms in technical modules such as deep learning and robotics, students iterate rapidly, debug effectively, and achieve deep conceptual mastery.
-  </div>
+    <article class="mt-8">
+      
+      <!-- TAB 1: Current Modules -->
+      <div id="tab-pane-courses" class="tab-pane space-y-8">
+        <div class="space-y-8">
+          {currentModules.map(m => (
+            <div class="space-y-2 pb-6 border-b border-[var(--theme-border)]/50 last:border-b-0 last:pb-0">
+              <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+                <h2 class="font-semibold text-base text-[var(--theme-heading)]">
+                  <a href={m.pageUrl} class="hover:text-[var(--theme-accent)] transition-colors">
+                    <span class="font-mono text-xs text-[var(--theme-muted)] mr-1.5">{m.code}:</span>
+                    <span>{m.title}</span>
+                  </a>
+                </h2>
+                <span class="text-xs font-mono text-[var(--theme-muted)] shrink-0">{m.credits}</span>
+              </div>
 
-  <!-- Current Modules -->
-  <section class="space-y-8 mb-12">
-    <h2 class="text-lg font-semibold tracking-tight text-[#242936] dark:text-[#ECEFF4] pb-1.5 border-b border-[#E6E8EB] dark:border-white/[0.08]">
-      Current Modules
-    </h2>
+              <div class="text-xs font-mono text-[var(--theme-muted)]">
+                {m.level}
+              </div>
 
-    {currentModules.map(m => (
-      <div class="space-y-2.5">
-        <div>
-          <div class="flex items-baseline justify-between gap-3">
-            <h3 class="font-medium text-[#242936] dark:text-[#ECEFF4]">
-              <a href={m.pageUrl} class="hover:text-[#2B79C2] dark:hover:text-[#73D0FF] transition-colors">
-                <span class="font-mono text-xs text-[#2B79C2] dark:text-[#73D0FF] mr-1.5">{m.code}:</span>
-                <span>{m.title}</span>
-              </a>
-            </h3>
-            <span class="text-xs text-[#828E9F] dark:text-[#707A8C] font-mono shrink-0 font-medium">{m.credits}</span>
-          </div>
-          <div class="text-xs text-[#828E9F] dark:text-[#707A8C] font-mono mt-0.5">
-            {m.level}
-          </div>
+              <p class="text-sm text-[var(--theme-fg)] leading-relaxed">
+                {m.desc}
+              </p>
+
+              <div class="flex flex-wrap items-center gap-2 pt-1.5">
+                <a href={m.pageUrl} class="pub-btn">
+                  <span>Course Details &rarr;</span>
+                </a>
+                {m.resources && m.resources.flatMap(r => r.links).map(l => (
+                  <a
+                    href={l.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="pub-btn"
+                  >
+                    <span>{l.name}</span>
+                    <svg class="w-3 h-3 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
+      </div>
 
-        <p class="text-sm text-[#5C6166] dark:text-[#CBCCC6] leading-relaxed">
-          {m.desc}
-        </p>
+      <!-- TAB 2: Teaching Philosophy -->
+      <div id="tab-pane-philosophy" class="tab-pane hidden">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+          <!-- Main Column (2/3 width) -->
+          <div class="md:col-span-2 space-y-4 text-sm sm:text-base leading-relaxed text-[var(--theme-fg)]">
+            <p>
+              My approach to teaching has evolved through experience, particularly from teaching large, practical engineering modules.
+            </p>
 
-        {m.resources && m.resources.length > 0 && (
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-            {m.resources.map(res => (
-              <div class="p-3.5 rounded-lg bg-[#F8F9FA]/60 dark:bg-white/[0.03] border border-[#E6E8EB] dark:border-white/[0.08] flex flex-col justify-between">
-                <div>
-                  <h4 class="text-xs font-semibold text-[#242936] dark:text-[#ECEFF4] mb-1">
-                    {res.title}
-                  </h4>
-                  <p class="text-xs text-[#828E9F] dark:text-[#707A8C] leading-relaxed mb-3">
-                    {res.description}
-                  </p>
+            <p>
+              One idea that has had a strong influence on me is <strong>mastery learning</strong>, as described by Salman Khan. The basic idea is simple: students should have the opportunity to make mistakes, learn from them, and try again rather than being defined by a single failed attempt. I try to build this into my courses through repeated submissions, feedback, and opportunities to improve.
+            </p>
+
+            <p>
+              Another important part of my teaching is giving students <strong>open-ended problems</strong>. Once the basic requirements are met, the most motivated students should have the freedom to go further, experiment, and build something of their own. This is particularly important in engineering and AI, where there is rarely one "correct" solution.
+            </p>
+
+            <p>
+              In practice, this means I try to make my courses places where students can <strong>build things, break things, learn from the failures, and try again</strong>. Technology helps me make this possible even with large classes, but the goal is ultimately a simple one: to give students the freedom and support to become independent engineers.
+            </p>
+          </div>
+
+          <!-- Margin Sidebar (1/3 width) -->
+          <aside class="space-y-6 text-xs sm:text-sm md:border-l md:border-[var(--theme-border)]/60 md:pl-8">
+            <div>
+              <div class="text-xs tracking-wider text-[var(--theme-muted)] mb-2">
+                A video that had a profound influence on my teaching:
+              </div>
+              <div class="font-medium text-[var(--theme-heading)]">
+                Salman Khan
+              </div>
+              <div class="text-xs text-[var(--theme-muted)] mt-0.5 italic">
+                Let's teach for mastery - not test scores 
+              </div>
+              <div class="mt-2.5">
+                <a 
+                  href="https://youtu.be/-MTRxRO5SRA" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="text-[var(--theme-link)] hover:text-[var(--theme-accent)] hover:underline inline-flex items-center gap-1 font-medium"
+                >
+                  <span>Watch TED Talk</span> &rarr;
+                </a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <!-- TAB 3: Past Archive -->
+      <div id="tab-pane-archive" class="tab-pane hidden space-y-8">
+        <!-- Recent Previous Modules -->
+        <section>
+          <h2 class="text-base font-light tracking-tight text-[var(--theme-heading)] pb-2 border-b border-[var(--theme-border)] mb-4">
+            Previous Modules (2016 – 2024)
+          </h2>
+          <div class="space-y-4">
+            {pastModules.map(m => (
+              <div class="py-2 border-b border-[var(--theme-border)]/50 last:border-b-0">
+                <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+                  <h3 class="font-medium text-sm text-[var(--theme-heading)]">
+                    {m.pageUrl ? (
+                      <a href={m.pageUrl} class="hover:text-[var(--theme-accent)] transition-colors inline-flex items-center gap-1 group">
+                        <span><span class="font-mono text-xs text-[var(--theme-muted)] mr-1.5">{m.code}:</span> {m.title}</span>
+                        <span class="text-xs text-[var(--theme-muted)] group-hover:text-[var(--theme-accent)]">&rarr;</span>
+                      </a>
+                    ) : (
+                      <span><span class="font-mono text-xs text-[var(--theme-muted)] mr-1.5">{m.code}:</span> {m.title}</span>
+                    )}
+                  </h3>
+                  <span class="text-xs text-[var(--theme-muted)] font-mono shrink-0">{m.period}</span>
                 </div>
-                <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-[#E6E8EB]/80 dark:border-white/[0.05] text-xs">
-                  {res.links.map(l => (
-                    <a
-                      href={l.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-black/[0.04] dark:bg-white/[0.05] text-[#2B79C2] dark:text-[#73D0FF] hover:bg-[#2B79C2]/10 dark:hover:bg-[#73D0FF]/10 transition-colors font-medium text-[11px]"
-                    >
-                      <span>{l.name}</span>
-                      <svg class="w-3 h-3 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                      </svg>
-                    </a>
-                  ))}
-                </div>
+                <p class="text-xs sm:text-sm text-[var(--theme-muted)] mt-1 leading-relaxed">
+                  {m.desc}
+                </p>
               </div>
             ))}
           </div>
-        )}
+        </section>
+
+        <!-- Earlier Teaching -->
+        <section>
+          <h2 class="text-base font-light tracking-tight text-[var(--theme-heading)] pb-2 border-b border-[var(--theme-border)] mb-4">
+            Earlier Teaching (prior to 2016)
+          </h2>
+          <div class="space-y-4">
+            {priorModules.map(m => (
+              <div class="py-2 border-b border-[var(--theme-border)]/50 last:border-b-0">
+                <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
+                  <h3 class="font-medium text-sm text-[var(--theme-heading)]">
+                    <span class="font-mono text-xs text-[var(--theme-muted)] mr-1.5">{m.code}:</span> {m.title}
+                  </h3>
+                  <span class="text-xs text-[var(--theme-muted)] font-mono shrink-0">{m.period}</span>
+                </div>
+                <p class="text-xs sm:text-sm text-[var(--theme-muted)] mt-1 leading-relaxed">
+                  {m.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
       </div>
-    ))}
-  </section>
 
-  <!-- Previous Modules (Since 2016) -->
-  <section class="space-y-4 mb-12">
-    <h2 class="text-lg font-semibold tracking-tight text-[#242936] dark:text-[#ECEFF4] pb-1.5 border-b border-[#E6E8EB] dark:border-white/[0.08]">
-      Previous Modules (2016 – 2024)
-    </h2>
+    </article>
+  </div>
 
-    {pastModules.map(m => (
-      <div class="py-0.5">
-        <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-          <h3 class="font-medium text-[#242936] dark:text-[#ECEFF4]">
-            <span class="font-mono text-xs text-[#828E9F] dark:text-[#707A8C] mr-1.5">{m.code}:</span> {m.title}
-          </h3>
-          <span class="text-xs text-[#828E9F] dark:text-[#707A8C] font-mono shrink-0">{m.period}</span>
-        </div>
-        <p class="text-sm text-[#5C6166] dark:text-[#CBCCC6] mt-0.5 leading-relaxed">
-          {m.desc}
-        </p>
-      </div>
-    ))}
-  </section>
+  <script>
+    function setActiveTab(tabId: string) {
+      const panes = document.querySelectorAll<HTMLElement>('.tab-pane');
+      const buttons = document.querySelectorAll<HTMLButtonElement>('.tab-btn');
 
-  <!-- Earlier Teaching (Prior to 2016) -->
-  <section class="space-y-4">
-    <h2 class="text-lg font-semibold tracking-tight text-[#242936] dark:text-[#ECEFF4] pb-1.5 border-b border-[#E6E8EB] dark:border-white/[0.08]">
-      Earlier Teaching (Prior to 2016)
-    </h2>
+      panes.forEach(pane => {
+        pane.classList.add('hidden');
+      });
 
-    {priorModules.map(m => (
-      <div class="py-0.5">
-        <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-          <h3 class="font-medium text-[#242936] dark:text-[#ECEFF4]">
-            <span class="font-mono text-xs text-[#828E9F] dark:text-[#707A8C] mr-1.5">{m.code}:</span> {m.title}
-          </h3>
-          <span class="text-xs text-[#828E9F] dark:text-[#707A8C] font-mono shrink-0">{m.period}</span>
-        </div>
-        <p class="text-sm text-[#5C6166] dark:text-[#CBCCC6] mt-0.5 leading-relaxed">
-          {m.desc}
-        </p>
-      </div>
-    ))}
-  </section>
+      buttons.forEach(btn => {
+        btn.classList.remove('active', 'bg-[var(--theme-heading)]', 'text-[var(--theme-bg)]', 'border-[var(--theme-heading)]', 'font-medium');
+        btn.classList.add('text-[var(--theme-muted)]', 'border-[var(--theme-border)]');
+      });
+
+      const activePane = document.getElementById(`tab-pane-${tabId}`);
+      const activeBtn = document.getElementById(`tab-btn-${tabId}`);
+
+      if (activePane) {
+        activePane.classList.remove('hidden');
+      }
+
+      if (activeBtn) {
+        activeBtn.classList.add('active', 'bg-[var(--theme-heading)]', 'text-[var(--theme-bg)]', 'border-[var(--theme-heading)]', 'font-medium');
+        activeBtn.classList.remove('text-[var(--theme-muted)]', 'border-[var(--theme-border)]');
+      }
+
+      // Update URL hash
+      if (history.replaceState) {
+        history.replaceState(null, '', tabId === 'courses' ? window.location.pathname : `#${tabId}`);
+      }
+    }
+
+    // Attach click handlers
+    document.querySelectorAll<HTMLButtonElement>('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tabId = btn.getAttribute('data-tab');
+        if (tabId) {
+          setActiveTab(tabId);
+        }
+      });
+    });
+
+    // Check initial hash
+    const initialHash = window.location.hash.replace('#', '');
+    if (['courses', 'philosophy', 'archive'].includes(initialHash)) {
+      setActiveTab(initialHash);
+    }
+  </script>
 </BaseLayout>

@@ -87,83 +87,87 @@ const postdocAlumni = [
 ---
 
 <BaseLayout title="Team & Alumni - François Pitié" currentSection="team">
-  <div class="mb-8 pb-2 border-b border-[#E6E8EB] dark:border-white/[0.08]">
-    <h1 class="text-xl font-semibold tracking-tight text-[#242936] dark:text-[#ECEFF4]">Team & Alumni</h1>
-    <p class="text-xs sm:text-sm text-[#828E9F] dark:text-[#707A8C] mt-1">
-      Current postdoctoral fellows, doctoral researchers, and research alumni at Trinity College Dublin.
-    </p>
+  <div class="post">
+    <header class="post-header mb-8">
+      <h1 class="post-title">Team & Alumni</h1>
+      <p class="desc text-xs sm:text-sm text-[var(--theme-muted)] mt-1.5 pb-3 border-b border-[var(--theme-border)]">
+        Current postdoctoral fellows, doctoral researchers, and research alumni at Trinity College Dublin.
+      </p>
+    </header>
+
+    <article class="space-y-12">
+      <!-- Current Researchers & Postdocs -->
+      <section>
+        <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-2 border-b border-[var(--theme-border)] mb-5">
+          Current Team
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {currentResearchers.map(r => (
+            <div class="p-4 rounded border border-[var(--theme-border)] bg-[var(--theme-card)]/35">
+              <div class="flex items-baseline justify-between gap-2 mb-1">
+                <span class="font-semibold text-sm text-[var(--theme-heading)]">{r.name}</span>
+                <span class="badge-abbr">{r.status}</span>
+              </div>
+              <p class="text-xs text-[var(--theme-accent)] font-medium mt-1">{r.role}</p>
+              <p class="text-xs sm:text-sm text-[var(--theme-fg)] mt-2 leading-relaxed">{r.topic}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Postdoctoral & Research Fellow Alumni -->
+      <section>
+        <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-2 border-b border-[var(--theme-border)] mb-5">
+          Postdoctoral Alumni
+        </h2>
+        <div class="space-y-4">
+          {postdocAlumni.map(p => (
+            <div class="p-4 rounded border border-[var(--theme-border)] bg-[var(--theme-card)]/20">
+              <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-1">
+                <div class="font-semibold text-sm text-[var(--theme-heading)]">
+                  {p.name} <span class="text-xs text-[var(--theme-muted)] font-mono font-normal">({p.period})</span>
+                </div>
+                <div class="text-xs text-[var(--theme-muted)]">{p.role}</div>
+              </div>
+              <div class="text-xs sm:text-sm text-[var(--theme-fg)] leading-relaxed mt-1.5">
+                {p.topic}
+              </div>
+              {p.destination && (
+                <div class="text-xs text-[var(--theme-muted)] mt-2 pt-2 border-t border-[var(--theme-border)]/40">
+                  <span class="font-medium text-[var(--theme-heading)]">Destination:</span> {p.destination}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Completed PhDs -->
+      <section>
+        <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-2 border-b border-[var(--theme-border)] mb-5">
+          Doctoral Alumni
+        </h2>
+        <div class="space-y-4">
+          {completedPhDs.map(phd => (
+            <div class="p-4 rounded border border-[var(--theme-border)] bg-[var(--theme-card)]/20">
+              <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-1">
+                <div class="font-semibold text-sm text-[var(--theme-heading)]">
+                  {phd.name} <span class="text-xs text-[var(--theme-muted)] font-mono font-normal">({phd.year})</span>
+                </div>
+                <div class="text-xs text-[var(--theme-muted)] font-mono">{phd.role}</div>
+              </div>
+              <div class="text-xs sm:text-sm text-[var(--theme-fg)] leading-relaxed mt-1.5">
+                {phd.topic}
+              </div>
+              {phd.destination && (
+                <div class="text-xs text-[var(--theme-muted)] mt-2 pt-2 border-t border-[var(--theme-border)]/40">
+                  <span class="font-medium text-[var(--theme-heading)]">Destination:</span> {phd.destination}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+    </article>
   </div>
-
-  <!-- Current Researchers & Postdocs -->
-  <section class="mb-12">
-    <h2 class="text-lg font-semibold tracking-tight text-[#242936] dark:text-[#ECEFF4] mb-3.5 pb-1.5 border-b border-[#E6E8EB] dark:border-white/[0.08]">
-      Current Team
-    </h2>
-    <div class="space-y-4">
-      {currentResearchers.map(r => (
-        <div class="py-0.5">
-          <div class="flex items-baseline gap-2">
-            <span class="font-medium text-[#242936] dark:text-[#ECEFF4]">{r.name}</span>
-            <span class="text-xs font-mono text-[#2B79C2] dark:text-[#73D0FF]">[{r.status}]</span>
-          </div>
-          <p class="text-xs text-[#F29718] mt-0.5">{r.role}</p>
-          <p class="text-sm text-[#5C6166] dark:text-[#ECEFF4]/90 mt-0.5 leading-relaxed">{r.topic}</p>
-        </div>
-      ))}
-    </div>
-  </section>
-
-  <!-- Postdoctoral & Research Fellow Alumni -->
-  <section class="mb-12">
-    <h2 class="text-lg font-semibold tracking-tight text-[#242936] dark:text-[#ECEFF4] mb-3.5 pb-1.5 border-b border-[#E6E8EB] dark:border-white/[0.08]">
-      Postdoctoral & Research Fellow Alumni
-    </h2>
-    <div class="space-y-4">
-      {postdocAlumni.map(p => (
-        <div class="py-0.5">
-          <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-            <div class="font-medium text-[#242936] dark:text-[#ECEFF4]">
-              {p.name} <span class="text-xs text-[#F29718] font-mono">({p.period})</span>
-            </div>
-            <div class="text-xs text-[#F29718]">{p.role}</div>
-          </div>
-          <div class="text-sm text-[#5C6166] dark:text-[#ECEFF4]/90 mt-0.5 leading-relaxed">
-            {p.topic}
-          </div>
-          {p.destination && (
-            <div class="text-xs text-[#828E9F] dark:text-[#707A8C] mt-0.5">
-              <span class="text-[#F29718]">Current / Subsequent:</span> {p.destination}
-            </div>
-          )}
-        </div>
-      ))}
-    </div>
-  </section>
-
-  <!-- Completed PhDs -->
-  <section>
-    <h2 class="text-lg font-semibold tracking-tight text-[#242936] dark:text-[#ECEFF4] mb-3.5 pb-1.5 border-b border-[#E6E8EB] dark:border-white/[0.08]">
-      Doctoral Alumni
-    </h2>
-    <div class="space-y-4">
-      {completedPhDs.map(phd => (
-        <div class="py-0.5">
-          <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1">
-            <div class="font-medium text-[#242936] dark:text-[#ECEFF4]">
-              {phd.name} <span class="text-xs text-[#F29718] font-mono">({phd.year})</span>
-            </div>
-            <div class="text-xs text-[#F29718] font-mono shrink-0">{phd.role}</div>
-          </div>
-          <div class="text-sm text-[#5C6166] dark:text-[#ECEFF4]/90 mt-0.5 leading-relaxed">
-            {phd.topic}
-          </div>
-          {phd.destination && (
-            <div class="text-xs text-[#828E9F] dark:text-[#707A8C] mt-0.5">
-              <span class="text-[#F29718]">Current / Subsequent:</span> {phd.destination}
-            </div>
-          )}
-        </div>
-      ))}
-    </div>
-  </section>
 </BaseLayout>

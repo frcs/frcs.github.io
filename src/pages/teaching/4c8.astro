@@ -1,0 +1,131 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="EEU44C08 / EEP55M08: Digital Image and Video Processing - François Pitié" currentSection="teaching">
+  <div class="post">
+    <header class="post-header mb-8">
+      <div class="mb-2">
+        <a href="/teaching" class="text-xs font-mono text-[var(--theme-link)] hover:text-[var(--theme-accent)]">&larr; back to teaching</a>
+      </div>
+      <h1 class="post-title">Digital Image and Video Processing</h1>
+      <p class="desc text-xs sm:text-sm text-[var(--theme-muted)] mt-1 pb-3 border-b border-[var(--theme-border)]">
+        Department of Electronic &amp; Electrical Engineering &bull; Trinity College Dublin
+      </p>
+    </header>
+
+    <article>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+        <!-- Main Column (2/3 width) -->
+        <div class="md:col-span-2 space-y-8 text-sm sm:text-base leading-relaxed text-[var(--theme-fg)]">
+          <!-- Module Overview -->
+          <section class="space-y-3">
+            <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-1.5 border-b border-[var(--theme-border)] mb-3">
+              Module Overview
+            </h2>
+            <p>
+              In 2016-2024, I taught EEU44C08 / EEP55M08, an advanced undergraduate and postgraduate module exploring the digital signal processing algorithms at the core of image and video technology, visual media processing, and data compression.
+            </p>
+            <p>
+              The curriculum bridges mathematical foundations of two-dimensional signal processing—including 2D transforms and multirate filter banks—with practical compression standards (JPEG, MPEG-2) and hands-on MATLAB problem-solving laboratories.
+            </p>
+          </section>
+
+          <!-- Core Topics Covered -->
+          <section class="space-y-4">
+            <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-1.5 border-b border-[var(--theme-border)] mb-3">
+              Core Topics Covered
+            </h2>
+            <div class="space-y-4">
+              <div>
+                <h3 class="font-semibold text-sm sm:text-base text-[var(--theme-heading)]">Human Visual Perception &amp; Media Formats</h3>
+                <p class="text-xs sm:text-sm text-[var(--theme-muted)] mt-0.5 leading-relaxed">
+                  Physiology of the human visual system, contrast sensitivity, colour spaces, luminance-chrominance representations (YUV, YCbCr), and chroma subsampling (4:2:2, 4:2:0).
+                </p>
+              </div>
+              <div>
+                <h3 class="font-semibold text-sm sm:text-base text-[var(--theme-heading)]">2D Signal Processing &amp; Spatial Filtering</h3>
+                <p class="text-xs sm:text-sm text-[var(--theme-muted)] mt-0.5 leading-relaxed">
+                  2D convolution, linear and non-linear spatial filtering, edge and gradient operators, 2D Z-transforms, and 2D Discrete Fourier Transforms (DFT).
+                </p>
+              </div>
+              <div>
+                <h3 class="font-semibold text-sm sm:text-base text-[var(--theme-heading)]">Image Transforms &amp; JPEG Compression</h3>
+                <p class="text-xs sm:text-sm text-[var(--theme-muted)] mt-0.5 leading-relaxed">
+                  Unitary image transforms, 2D Discrete Cosine Transform (DCT), Haar transform, discrete wavelet transforms (DWT), quantization matrices, run-length encoding, and Huffman entropy coding.
+                </p>
+              </div>
+              <div>
+                <h3 class="font-semibold text-sm sm:text-base text-[var(--theme-heading)]">Motion Estimation &amp; Video Compression</h3>
+                <p class="text-xs sm:text-sm text-[var(--theme-muted)] mt-0.5 leading-relaxed">
+                  Inter-frame temporal redundancy, block-matching motion estimation, sub-pixel search, motion compensation, and hybrid video codec architectures (MPEG-2 I, P, and B frames).
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Laboratories & Assessment -->
+          <section class="space-y-3">
+            <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-1.5 border-b border-[var(--theme-border)] mb-3">
+              Laboratories &amp; Assessment
+            </h2>
+            <p>
+              The module combined theoretical lectures with four hands-on MATLAB problem-solving laboratory assignments covering spatial filtering, transform coding, motion estimation algorithms, and video compression. Assessment was based on continuous laboratory coursework and an end-of-year written examination.
+            </p>
+          </section>
+        </div>
+
+        <!-- Margin Sidebar (1/3 width) -->
+        <aside class="space-y-6 text-xs sm:text-sm md:border-l md:border-[var(--theme-border)]/60 md:pl-8">
+          <div>
+            <div class="text-xs font-mono uppercase tracking-wider text-[var(--theme-muted)] mb-1">
+              Module Code
+            </div>
+            <div class="font-mono font-medium text-[var(--theme-heading)]">
+              EEU44C08 / EEP55M08
+            </div>
+          </div>
+
+          <div>
+            <div class="text-xs font-mono uppercase tracking-wider text-[var(--theme-muted)] mb-1">
+              Credits &amp; Level
+            </div>
+            <div class="font-medium text-[var(--theme-heading)]">
+              5 ECTS &bull; Level 9
+            </div>
+            <div class="text-xs text-[var(--theme-muted)] mt-0.5">
+              Senior Sophister &amp; Master in Engineering (MAI)
+            </div>
+          </div>
+
+          <div>
+            <div class="text-xs font-mono uppercase tracking-wider text-[var(--theme-muted)] mb-1">
+              Period Delivered
+            </div>
+            <div class="font-mono font-medium text-[var(--theme-heading)]">
+              2016 – 2024
+            </div>
+          </div>
+
+          <div>
+            <div class="text-xs font-mono uppercase tracking-wider text-[var(--theme-muted)] mb-2">
+              Course Resources
+            </div>
+            <ul class="space-y-2 font-medium">
+              <li>
+                <a 
+                  href="https://github.com/frcs/4C8-2324" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="text-[var(--theme-link)] hover:text-[var(--theme-accent)] hover:underline inline-flex items-center gap-1"
+                >
+                  <span>My Lecture Notes (2023-24)</span> &rarr;
+                </a>
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </article>
+  </div>
+</BaseLayout>

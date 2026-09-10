@@ -15,133 +15,132 @@ const eqPde = renderLatex("\\mathrm{div}\\left( \\begin{bmatrix} C_i \\\\ 1 \\en
 ---
 
 <BaseLayout title="Alternative Matting Laplacian - François Pitié" currentSection="research">
-  <div class="mb-8 pb-3 border-b border-slate-200 dark:border-slate-800">
-    <div class="flex items-center gap-2 text-xs font-mono text-[#2B79C2] dark:text-[#73D0FF] mb-1">
-      <a href="/research" class="hover:underline">&larr; Back to Research & Projects</a>
-    </div>
-    <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
-      The Alternative Matting Laplacian
-    </h1>
-    <p class="text-sm sm:text-base text-[#5C6166] dark:text-[#CBCCC6] mt-1">
-      Direct parameter diffusion and closed-form formulation for natural image matting.
-    </p>
+  <div class="post">
+    <header class="post-header mb-8">
+      <div class="mb-2">
+        <a href="/research" class="text-xs font-mono text-[var(--theme-link)] hover:text-[var(--theme-accent)]">&larr; back to research</a>
+      </div>
+      <h1 class="post-title">The Alternative Matting Laplacian</h1>
+      <p class="desc text-xs sm:text-sm text-[var(--theme-muted)] mt-1.5 pb-3 border-b border-[var(--theme-border)]">
+        Direct parameter diffusion and closed-form formulation for natural image matting.
+      </p>
+    </header>
+
+    <article class="space-y-10">
+      <!-- Theory & Formulation Section -->
+      <section class="space-y-4 text-sm sm:text-base text-[var(--theme-fg)] leading-relaxed">
+        <p>
+          In natural image matting, an observed linear RGB colour <span set:html={renderLatex("C_i")} /> at pixel <span set:html={renderLatex("i")} /> is modelled as a convex combination of an unknown foreground colour <span set:html={renderLatex("F_i")} /> and background colour <span set:html={renderLatex("B_i")} />:
+        </p>
+        <div class="p-3 my-2 rounded bg-[var(--theme-card)]/50 border border-[var(--theme-border)] overflow-x-auto text-center" set:html={eqModel} />
+        
+        <p>
+          We need to solve for <span set:html={renderLatex("F_i")} />, <span set:html={renderLatex("B_i")} />, and transparency <span set:html={renderLatex("\\alpha_i")} />. This formulation is non-linear and severely under-constrained. In their seminal work, Levin et al. demonstrated that under local color-line assumptions, transparency values can be approximated as an affine transformation of the color components:
+        </p>
+        <div class="p-3 my-2 rounded bg-[var(--theme-card)]/50 border border-[var(--theme-border)] overflow-x-auto text-center" set:html={eqColorLine} />
+        <p>
+          where <span set:html={renderLatex("a_i = [a_i^R, a_i^G, a_i^B]^T")} /> acts as a local colour filter revealing the intensity of <span set:html={renderLatex("\\alpha")} />. Fitting this model across overlapping <span set:html={renderLatex("3 \\times 3")} /> windows <span set:html={renderLatex("w_i")} /> yields the quadratic cost:
+        </p>
+        <div class="p-3 my-2 rounded bg-[var(--theme-card)]/50 border border-[var(--theme-border)] overflow-x-auto text-center" set:html={eqLevinCost} />
+        
+        <p>
+          Levin et al. eliminate the model parameters <span set:html={renderLatex("a, b")} /> implicitly:
+        </p>
+        <div class="p-2 my-1 rounded bg-[var(--theme-card)]/50 border border-[var(--theme-border)] overflow-x-auto text-center" set:html={eqLevinMin} />
+        <p>
+          leading to the famous Levin Matting Laplacian linear system <span set:html={renderLatex("L\\alpha = 0")} />.
+        </p>
+
+        <p class="pt-2">
+          <strong>Our Contribution:</strong> We take the exact opposite approach and eliminate <span set:html={renderLatex("\\alpha")} /> to explicitly solve for the model parameters:
+        </p>
+        <div class="p-2 my-1 rounded bg-[var(--theme-card)]/50 border border-[var(--theme-border)] overflow-x-auto text-center" set:html={eqOurMin} />
+        <p>
+          This reveals that parameter propagation corresponds to an anisotropic diffusion PDE:
+        </p>
+        <div class="p-3 my-2 rounded bg-[var(--theme-card)]/50 border border-[var(--theme-border)] overflow-x-auto text-center" set:html={eqPde} />
+      </section>
+
+      <!-- Visual Grid of Results -->
+      <section class="space-y-4">
+        <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-2 border-b border-[var(--theme-border)] mb-4">
+          Visualizing Model Parameters and Alpha Mattes
+        </h2>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="rounded overflow-hidden border border-[var(--theme-border)] bg-[var(--theme-card)]/40 p-2">
+            <img src="/images/troll.jpg" alt="Original Troll Image" class="w-full h-auto rounded" />
+            <p class="text-xs text-[var(--theme-muted)] mt-1.5 text-center font-medium">Input Test Image (alphamatting.com)</p>
+          </div>
+
+          <div class="rounded overflow-hidden border border-[var(--theme-border)] bg-[var(--theme-card)]/40 p-2">
+            <img src="/images/troll_colourfilter.jpg" alt="Colour Filter Visualization" class="w-full h-auto rounded" />
+            <p class="text-xs text-[var(--theme-muted)] mt-1.5 text-center font-medium">Revealing &alpha; through Local Colour Filter</p>
+          </div>
+
+          <div class="rounded overflow-hidden border border-[var(--theme-border)] bg-[var(--theme-card)]/40 p-2">
+            <img src="/images/troll_a_ours.jpg" alt="Diffused Model Parameter a" class="w-full h-auto rounded" />
+            <p class="text-xs text-[var(--theme-muted)] mt-1.5 text-center font-medium">Our Parameter Map (a) with Smoothness Priors</p>
+          </div>
+
+          <div class="rounded overflow-hidden border border-[var(--theme-border)] bg-[var(--theme-card)]/40 p-2">
+            <img src="/images/troll_alpha_ours.jpg" alt="Extracted Alpha Matte" class="w-full h-auto rounded" />
+            <p class="text-xs text-[var(--theme-muted)] mt-1.5 text-center font-medium">Extracted Alpha Matte (&alpha;)</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Advantages & Key Insight -->
+      <section class="space-y-3 text-sm sm:text-base text-[var(--theme-fg)] leading-relaxed">
+        <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-2 border-b border-[var(--theme-border)] mb-4">
+          Key Advantages
+        </h2>
+        <ul class="list-disc pl-5 space-y-2 text-sm sm:text-base">
+          <li>
+            <strong>Computational Simplicity:</strong> The problem naturally simplifies into anisotropic diffusion of <span set:html={renderLatex("a")} /> and <span set:html={renderLatex("b")} />, leading to simpler and faster sparse linear systems.
+          </li>
+          <li>
+            <strong>Meaningful Priors:</strong> Because the colour filter vectors are exposed explicitly, spatial smoothness and boundary-preserving regularization can be imposed directly on the parameters.
+          </li>
+          <li>
+            <strong>Foundation for Neural Multigrid Solvers:</strong> Forms the algebraic foundation for contemporary deep learning matting systems including fastAML and dual-stream neural V-cycle architectures.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Code & Paper Links -->
+      <section class="p-4 rounded border border-[var(--theme-border)] bg-[var(--theme-card)]/40">
+        <h2 class="text-sm font-semibold text-[var(--theme-heading)] mb-2 flex items-center gap-2">
+          <i class="fa-brands fa-github text-base"></i>
+          Code & Preprint
+        </h2>
+        <div class="flex flex-wrap items-center gap-3 text-xs sm:text-sm font-mono mt-2">
+          <a href="https://github.com/frcs/alternative-matting-laplacian" target="_blank" rel="noopener noreferrer" class="pub-btn">
+            GitHub Repository &rarr;
+          </a>
+          <a href="https://arxiv.org/abs/1605.04785" target="_blank" rel="noopener noreferrer" class="pub-btn">
+            arXiv:1605.04785 &rarr;
+          </a>
+        </div>
+      </section>
+
+      <!-- Citation -->
+      <section>
+        <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-2 border-b border-[var(--theme-border)] mb-4">
+          Reference Publication
+        </h2>
+        <div class="p-3.5 rounded border border-[var(--theme-border)] bg-[var(--theme-card)]/20">
+          <div class="font-semibold text-sm text-[var(--theme-heading)] leading-snug">
+            The Alternative Matting Laplacian
+          </div>
+          <div class="text-xs text-[var(--theme-muted)] mt-1">
+            François Pitié
+          </div>
+          <div class="text-xs text-[var(--theme-muted)] mt-0.5 italic">
+            2016 IEEE International Conference on Image Processing (ICIP), Phoenix, AZ, 2016.
+          </div>
+        </div>
+      </section>
+    </article>
   </div>
-
-  <!-- Theory & Formulation Section -->
-  <section class="space-y-4 text-sm sm:text-base text-[#5C6166] dark:text-[#CBCCC6] leading-relaxed mb-8">
-    <p>
-      In natural image matting, an observed linear RGB colour <span set:html={renderLatex("C_i")} /> at pixel <span set:html={renderLatex("i")} /> is modelled as a convex combination of an unknown foreground colour <span set:html={renderLatex("F_i")} /> and background colour <span set:html={renderLatex("B_i")} />:
-    </p>
-    <div class="p-3 my-2 rounded bg-slate-200/60 dark:bg-slate-800/60 overflow-x-auto text-center" set:html={eqModel} />
-    
-    <p>
-      We need to solve for <span set:html={renderLatex("F_i")} />, <span set:html={renderLatex("B_i")} />, and transparency <span set:html={renderLatex("\\alpha_i")} />. This formulation is non-linear and severely under-constrained. In their seminal work, Levin et al. demonstrated that under local color-line assumptions, transparency values can be approximated as an affine transformation of the color components:
-    </p>
-    <div class="p-3 my-2 rounded bg-slate-200/60 dark:bg-slate-800/60 overflow-x-auto text-center" set:html={eqColorLine} />
-    <p>
-      where <span set:html={renderLatex("a_i = [a_i^R, a_i^G, a_i^B]^T")} /> acts as a local colour filter revealing the intensity of <span set:html={renderLatex("\\alpha")} />. Fitting this model across overlapping <span set:html={renderLatex("3 \\times 3")} /> windows <span set:html={renderLatex("w_i")} /> yields the quadratic cost:
-    </p>
-    <div class="p-3 my-2 rounded bg-slate-200/60 dark:bg-slate-800/60 overflow-x-auto text-center" set:html={eqLevinCost} />
-    
-    <p>
-      Levin et al. eliminate the model parameters <span set:html={renderLatex("a, b")} /> implicitly:
-    </p>
-    <div class="p-2 my-1 rounded bg-slate-200/60 dark:bg-slate-800/60 overflow-x-auto text-center" set:html={eqLevinMin} />
-    <p>
-      leading to the famous Levin Matting Laplacian linear system <span set:html={renderLatex("L\\alpha = 0")} />.
-    </p>
-
-    <p class="pt-2">
-      <strong>Our Contribution:</strong> We take the exact opposite approach and eliminate <span set:html={renderLatex("\\alpha")} /> to explicitly solve for the model parameters:
-    </p>
-    <div class="p-2 my-1 rounded bg-slate-200/60 dark:bg-slate-800/60 overflow-x-auto text-center" set:html={eqOurMin} />
-    <p>
-      This reveals that parameter propagation corresponds to an anisotropic diffusion PDE:
-    </p>
-    <div class="p-3 my-2 rounded bg-slate-200/60 dark:bg-slate-800/60 overflow-x-auto text-center" set:html={eqPde} />
-  </section>
-
-  <!-- Visual Grid of Results -->
-  <section class="mb-10 space-y-4">
-    <h2 class="text-lg font-bold tracking-tight text-slate-900 dark:text-white pb-2 border-b border-slate-200 dark:border-slate-800">
-      Visualizing Model Parameters and Alpha Mattes
-    </h2>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-      <div class="rounded-lg overflow-hidden border border-slate-300/80 dark:border-slate-800 bg-white dark:bg-slate-900 p-2">
-        <img src="/images/troll.jpg" alt="Original Troll Image" class="w-full h-auto rounded" />
-        <p class="text-xs text-[#828E9F] mt-1 text-center font-medium">Input Test Image (alphamatting.com)</p>
-      </div>
-
-      <div class="rounded-lg overflow-hidden border border-slate-300/80 dark:border-slate-800 bg-white dark:bg-slate-900 p-2">
-        <img src="/images/troll_colourfilter.jpg" alt="Colour Filter Visualization" class="w-full h-auto rounded" />
-        <p class="text-xs text-[#828E9F] mt-1 text-center font-medium">Revealing &alpha; through Local Colour Filter</p>
-      </div>
-
-      <div class="rounded-lg overflow-hidden border border-slate-300/80 dark:border-slate-800 bg-white dark:bg-slate-900 p-2">
-        <img src="/images/troll_a_ours.jpg" alt="Diffused Model Parameter a" class="w-full h-auto rounded" />
-        <p class="text-xs text-[#828E9F] mt-1 text-center font-medium">Our Parameter Map (a) with Smoothness Priors</p>
-      </div>
-
-      <div class="rounded-lg overflow-hidden border border-slate-300/80 dark:border-slate-800 bg-white dark:bg-slate-900 p-2">
-        <img src="/images/troll_alpha_ours.jpg" alt="Extracted Alpha Matte" class="w-full h-auto rounded" />
-        <p class="text-xs text-[#828E9F] mt-1 text-center font-medium">Extracted Alpha Matte (&alpha;)</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Advantages & Key Insight -->
-  <section class="space-y-3 text-sm sm:text-base text-[#5C6166] dark:text-[#CBCCC6] leading-relaxed mb-10">
-    <h2 class="text-lg sm:text-xl font-bold tracking-tight text-slate-900 dark:text-white pb-2 border-b border-slate-200 dark:border-slate-800">
-      Key Advantages
-    </h2>
-    <ul class="list-disc pl-5 space-y-1.5 text-sm sm:text-base">
-      <li>
-        <strong>Computational Simplicity:</strong> The problem naturally simplifies into anisotropic diffusion of <span set:html={renderLatex("a")} /> and <span set:html={renderLatex("b")} />, leading to simpler and faster sparse linear systems.
-      </li>
-      <li>
-        <strong>Meaningful Priors:</strong> Because the colour filter vectors are exposed explicitly, spatial smoothness and boundary-preserving regularization can be imposed directly on the parameters.
-      </li>
-      <li>
-        <strong>Foundation for Neural Multigrid Solvers:</strong> Forms the algebraic foundation for contemporary deep learning matting systems including fastAML and dual-stream neural V-cycle architectures.
-      </li>
-    </ul>
-  </section>
-
-  <!-- Code & Paper Links -->
-  <section class="mb-10 p-4 rounded-lg bg-slate-200/60 dark:bg-slate-800/60 border border-slate-300/80 dark:border-slate-700/80">
-    <h2 class="text-base font-semibold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
-      <svg class="w-4 h-4 text-[#2B79C2] dark:text-[#73D0FF]" fill="currentColor" viewBox="0 0 24 24">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-      </svg>
-      Code & Preprint
-    </h2>
-    <div class="flex flex-wrap items-center gap-4 text-xs sm:text-sm font-semibold text-[#2B79C2] dark:text-[#73D0FF]">
-      <a href="https://github.com/frcs/alternative-matting-laplacian" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 hover:underline">
-        GitHub Repository &rarr;
-      </a>
-      <span>&bull;</span>
-      <a href="https://arxiv.org/abs/1605.04785" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 hover:underline">
-        arXiv:1605.04785 &rarr;
-      </a>
-    </div>
-  </section>
-
-  <!-- Citation -->
-  <section>
-    <h2 class="text-lg font-semibold tracking-tight text-[#242936] dark:text-[#ECEFF4] pb-1.5 border-b border-[#E6E8EB] dark:border-white/[0.08] mb-3">
-      Reference Publication
-    </h2>
-    <div class="py-0.5">
-      <div class="font-medium text-[#242936] dark:text-[#ECEFF4] text-sm leading-snug">
-        The Alternative Matting Laplacian
-      </div>
-      <div class="text-xs text-[#828E9F] dark:text-[#707A8C] mt-0.5">
-        François Pitié
-      </div>
-      <div class="text-xs text-[#828E9F] dark:text-[#707A8C] dark:text-[#828E9F] mt-0.5">
-        <em>2016 IEEE International Conference on Image Processing (ICIP)</em>, Phoenix, AZ, 2016.
-      </div>
-    </div>
-  </section>
 </BaseLayout>

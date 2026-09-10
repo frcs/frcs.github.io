@@ -1,4 +1,32 @@
 {
+  "burgundy": {
+    "name": "Burgundy (Academic al-folio)",
+    "description": "Scholarly unified single-accent palette with deep burgundy wine",
+    "light": {
+      "bg": "#FAFAFA",
+      "fg": "#333333",
+      "heading": "#1A1A1A",
+      "muted": "#6E6E6E",
+      "accent": "#82111F",
+      "link": "#82111F",
+      "link_hover": "#5A0B15",
+      "card": "#F2F2F3",
+      "border": "#DCDCDC",
+      "pill": "#E8E8E9"
+    },
+    "dark": {
+      "bg": "#222428",
+      "fg": "#D2D4D8",
+      "heading": "#FFFFFF",
+      "muted": "#8E929B",
+      "accent": "#D9534F",
+      "link": "#D9534F",
+      "link_hover": "#EB7A77",
+      "card": "#2B2D33",
+      "border": "#2F3238",
+      "pill": "#373A42"
+    }
+  },
   "ayu": {
     "name": "Ayu",
     "description": "Crisp and modern editor palette with amber/gold accent",

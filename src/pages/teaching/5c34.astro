@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="EE55C34: Advanced AI - François Pitié" currentSection="teaching">
+  <div class="post">
+    <header class="post-header mb-8">
+      <div class="mb-2">
+        <a href="/teaching" class="text-xs font-mono text-[var(--theme-link)] hover:text-[var(--theme-accent)]">&larr; back to teaching</a>
+      </div>
+      <h1 class="post-title">Advanced AI</h1>
+      <p class="desc text-xs sm:text-sm text-[var(--theme-muted)] mt-1 pb-3 border-b border-[var(--theme-border)]">
+        Department of Electronic &amp; Electrical Engineering &bull; Trinity College Dublin
+      </p>
+    </header>
+
+    <article>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+        <!-- Main Column (2/3 width) -->
+        <div class="md:col-span-2 space-y-8 text-sm sm:text-base leading-relaxed text-[var(--theme-fg)]">
+          <!-- Module Description -->
+          <section class="space-y-3">
+            <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-1.5 border-b border-[var(--theme-border)] mb-3">
+              Module Description
+            </h2>
+            <p>
+              An advanced, research-oriented treatment of modern artificial intelligence and machine learning architectures, extending beyond foundational deep learning into contemporary generative systems, high-dimensional representation learning, and multi-modal models.
+            </p>
+            <p>
+              The curriculum investigates cutting-edge paradigms in visual media synthesis, diffusion models (DDPM, Latent Diffusion), contrastive representation learning (CLIP, SimCLR), attention mechanics in Vision Transformers (ViT), and green / energy-efficient media processing in conjunction with research advancements from the European EMERALD project.
+            </p>
+          </section>
+
+          <!-- Core Topics Covered -->
+          <section class="space-y-4">
+            <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-1.5 border-b border-[var(--theme-border)] mb-3">
+              Core Topics Covered
+            </h2>
+            <div class="space-y-4">
+              <div>
+                <h3 class="font-semibold text-sm sm:text-base text-[var(--theme-heading)]">Generative Modeling &amp; Diffusion</h3>
+                <p class="text-xs sm:text-sm text-[var(--theme-muted)] mt-0.5 leading-relaxed">
+                  Score-based generative models, denoising diffusion probabilistic models, classifier-free guidance, and conditional image synthesis.
+                </p>
+              </div>
+              <div>
+                <h3 class="font-semibold text-sm sm:text-base text-[var(--theme-heading)]">Transformers &amp; Vision Transformers</h3>
+                <p class="text-xs sm:text-sm text-[var(--theme-muted)] mt-0.5 leading-relaxed">
+                  Self-attention mechanisms, cross-attention in multi-modal systems, patch projection, positional encodings, and Vision Transformers (ViT).
+                </p>
+              </div>
+              <div>
+                <h3 class="font-semibold text-sm sm:text-base text-[var(--theme-heading)]">Self-Supervised Representation Learning</h3>
+                <p class="text-xs sm:text-sm text-[var(--theme-muted)] mt-0.5 leading-relaxed">
+                  Contrastive learning, masked autoencoders, foundation models, and zero-shot transfer techniques.
+                </p>
+              </div>
+              <div>
+                <h3 class="font-semibold text-sm sm:text-base text-[var(--theme-heading)]">Sustainable &amp; Green Media AI</h3>
+                <p class="text-xs sm:text-sm text-[var(--theme-muted)] mt-0.5 leading-relaxed">
+                  Pruning, quantization, architectural efficiency, and reducing compute footprint across virtual production pipelines.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Assessment -->
+          <section class="space-y-2 pt-2">
+            <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-1.5 border-b border-[var(--theme-border)] mb-3">
+              Assessment &amp; Projects
+            </h2>
+            <p class="text-sm text-[var(--theme-fg)] leading-relaxed">
+              Assessment emphasizes deep individual investigation and reproducible implementation of recent peer-reviewed conference publications, preparing postgraduate students for research careers and high-end engineering roles.
+            </p>
+          </section>
+        </div>
+
+        <!-- Margin Sidebar (1/3 width) -->
+        <aside class="space-y-6 text-xs sm:text-sm md:border-l md:border-[var(--theme-border)]/60 md:pl-8">
+          <div>
+            <div class="text-xs font-mono uppercase tracking-wider text-[var(--theme-muted)] mb-1">
+              Module Code
+            </div>
+            <div class="font-mono font-medium text-[var(--theme-heading)]">
+              EE55C34
+            </div>
+          </div>
+
+          <div>
+            <div class="text-xs font-mono uppercase tracking-wider text-[var(--theme-muted)] mb-1">
+              Credits &amp; Level
+            </div>
+            <div class="font-medium text-[var(--theme-heading)]">
+              5 ECTS &bull; Level 9
+            </div>
+            <div class="text-xs text-[var(--theme-muted)] mt-0.5">
+              Master in Engineering (MAI) &amp; Postgraduate
+            </div>
+          </div>
+
+          <div>
+            <div class="text-xs font-mono uppercase tracking-wider text-[var(--theme-muted)] mb-1">
+              Academic Term
+            </div>
+            <div class="text-[var(--theme-heading)]">
+              Hilary Term (Semester 2)
+            </div>
+          </div>
+        </aside>
+      </div>
+    </article>
+  </div>
+</BaseLayout>

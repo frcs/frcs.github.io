@@ -1,0 +1,157 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="EEU44C16 / EE5C16: Deep Learning - François Pitié" currentSection="teaching">
+  <div class="post">
+    <header class="post-header mb-8">
+      <div class="mb-2">
+        <a href="/teaching" class="text-xs font-mono text-[var(--theme-link)] hover:text-[var(--theme-accent)]">&larr; back to teaching</a>
+      </div>
+      <h1 class="post-title">Deep Learning</h1>
+      <p class="desc text-xs sm:text-sm text-[var(--theme-muted)] mt-1 pb-3 border-b border-[var(--theme-border)]">
+        Department of Electronic &amp; Electrical Engineering &bull; Trinity College Dublin
+      </p>
+    </header>
+
+    <article>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+        <!-- Main Column (2/3 width) -->
+        <div class="md:col-span-2 space-y-8 text-sm sm:text-base leading-relaxed text-[var(--theme-fg)]">
+          <!-- Module Overview -->
+          <section class="space-y-3">
+            <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-1.5 border-b border-[var(--theme-border)] mb-3">
+              Module Overview
+            </h2>
+            <p>
+              An intensive graduate-level introduction to deep learning architectures and their practical applications in signal processing, audio, computer vision, and natural language processing. The curriculum emphasizes first-principles mathematical derivations alongside high-performance PyTorch implementations and distributed GPU training.
+            </p>
+          </section>
+
+          <!-- Core Topics Covered -->
+          <section class="space-y-4">
+            <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-1.5 border-b border-[var(--theme-border)] mb-3">
+              Core Topics Covered
+            </h2>
+            <div class="space-y-4">
+              <div>
+                <h3 class="font-semibold text-sm sm:text-base text-[var(--theme-heading)]">Foundations &amp; Optimization Dynamics</h3>
+                <p class="text-xs sm:text-sm text-[var(--theme-muted)] mt-0.5 leading-relaxed">
+                  Computational graphs, backpropagation mechanics, loss surfaces, gradient descent dynamics, and regularization strategies (BatchNorm, LayerNorm, Dropout).
+                </p>
+              </div>
+              <div>
+                <h3 class="font-semibold text-sm sm:text-base text-[var(--theme-heading)]">Convolutional Architectures &amp; Computer Vision</h3>
+                <p class="text-xs sm:text-sm text-[var(--theme-muted)] mt-0.5 leading-relaxed">
+                  Spatial convolutions, receptive fields, feature hierarchies, residual connections (ResNet, ConvNeXt), and dense spatial representations.
+                </p>
+              </div>
+              <div>
+                <h3 class="font-semibold text-sm sm:text-base text-[var(--theme-heading)]">Sequence Modeling &amp; Attention Mechanics</h3>
+                <p class="text-xs sm:text-sm text-[var(--theme-muted)] mt-0.5 leading-relaxed">
+                  Recurrent architectures (RNNs, LSTMs), sequence-to-sequence translation, and scaled dot-product self-attention.
+                </p>
+              </div>
+              <div>
+                <h3 class="font-semibold text-sm sm:text-base text-[var(--theme-heading)]">Transformers &amp; Generative Modeling</h3>
+                <p class="text-xs sm:text-sm text-[var(--theme-muted)] mt-0.5 leading-relaxed">
+                  Transformer encoder-decoder architectures, Vision Transformers (ViT), generative adversarial networks (GANs), and diffusion probabilistic models.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Pedagogy & Lab Infrastructure -->
+          <section class="space-y-3">
+            <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-1.5 border-b border-[var(--theme-border)] mb-3">
+              Pedagogy &amp; Lab Infrastructure
+            </h2>
+            <p>
+              Following a mastery-learning framework, the course pairs theoretical lectures with a continuous autograded laboratory system. Students build deep learning models from scratch in Colab notebooks and receive rapid, automated performance verification upon submitting code to GitHub Classroom.
+            </p>
+            <p>
+              The entire curriculum is accompanied by comprehensive open courseware and interactive lecture notes authored specifically for the course, available publicly to students and researchers worldwide.
+            </p>
+          </section>
+
+          <!-- Award Note -->
+          <div class="border-l-2 border-[var(--theme-accent)] pl-3.5 py-1 text-xs sm:text-sm text-[var(--theme-muted)] leading-relaxed">
+            The design and delivery of the 4C16 automated lab platform and open curriculum was recognized with the <a href="https://www.tcd.ie/academicpractice/awards/staff-teaching-awards/" target="_blank" rel="noopener noreferrer" class="hover:underline"><strong>University Excellence in Teaching Award</strong></a> and the <strong>Inspiring Educator Award</strong> at Trinity College Dublin (2026).
+          </div>
+        </div>
+
+        <!-- Margin Sidebar (1/3 width) -->
+        <aside class="space-y-6 text-xs sm:text-sm md:border-l md:border-[var(--theme-border)]/60 md:pl-8">
+          <div>
+            <div class="text-xs font-mono uppercase tracking-wider text-[var(--theme-muted)] mb-1">
+              Module Code
+            </div>
+            <div class="font-mono font-medium text-[var(--theme-heading)]">
+              EEU44C16 / EE5C16
+            </div>
+          </div>
+
+          <div>
+            <div class="text-xs font-mono uppercase tracking-wider text-[var(--theme-muted)] mb-1">
+              Credits &amp; Level
+            </div>
+            <div class="font-medium text-[var(--theme-heading)]">
+              10 ECTS &bull; Level 9
+            </div>
+            <div class="text-xs text-[var(--theme-muted)] mt-0.5">
+              Senior Sophister &amp; Master in Engineering (MAI)
+            </div>
+          </div>
+
+          <div>
+            <div class="text-xs font-mono uppercase tracking-wider text-[var(--theme-muted)] mb-2">
+              Course Resources
+            </div>
+            <ul class="space-y-2 font-medium">
+              <li>
+                <a 
+                  href="https://frcs.github.io/4c16/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="text-[var(--theme-link)] hover:text-[var(--theme-accent)] hover:underline inline-flex items-center gap-1"
+                >
+                  <span>Student Course Hub</span> &rarr;
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="https://frcs.github.io/4C16-LectureNotes/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="text-[var(--theme-link)] hover:text-[var(--theme-accent)] hover:underline inline-flex items-center gap-1"
+                >
+                  <span>Online Coursebook</span> &rarr;
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="https://doi.org/10.5281/zenodo.17954655" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="text-[var(--theme-link)] hover:text-[var(--theme-accent)] hover:underline inline-flex items-center gap-1"
+                >
+                  <span>Zenodo Archive (DOI)</span> &rarr;
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="https://frcs.github.io/4c16/lab-system/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  class="text-[var(--theme-link)] hover:text-[var(--theme-accent)] hover:underline inline-flex items-center gap-1"
+                >
+                  <span>Autograder Infrastructure</span> &rarr;
+                </a>
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </article>
+  </div>
+</BaseLayout>

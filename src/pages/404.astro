@@ -3,11 +3,31 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title="Page Not Found - François Pitié">
-  <div class="py-16 text-center">
-    <h1 class="text-4xl font-bold tracking-tight text-slate-900 dark:text-white mb-2">404</h1>
-    <p class="text-sm text-[#5C6166] dark:text-[#CBCCC6] mb-6">The page you were looking for could not be found.</p>
-    <a href="/" class="inline-flex items-center px-4 py-2 text-xs font-medium rounded-lg bg-sky-600 text-white hover:bg-sky-700 transition-colors">
-      Return Home
+  <script is:inline>
+    (function() {
+      var path = window.location.pathname;
+      var lower = path.toLowerCase();
+      // Normalized redirects for legacy routes
+      if (lower.endsWith('/teaching/4c16-teaching') || lower.endsWith('/teaching/4c16-teaching/')) {
+        window.location.replace('/teaching/4c16' + window.location.search + window.location.hash);
+        return;
+      }
+      if (lower.endsWith('/teaching/5c34-teaching') || lower.endsWith('/teaching/5c34-teaching/')) {
+        window.location.replace('/teaching/5c34' + window.location.search + window.location.hash);
+        return;
+      }
+      // Automatic case-insensitive redirection
+      if (path !== lower) {
+        window.location.replace(lower + window.location.search + window.location.hash);
+      }
+    })();
+  </script>
+
+  <div class="post py-20 text-center">
+    <h1 class="post-title mb-3 font-normal"><span class="font-bold">404</span></h1>
+    <p class="desc mb-6">The page you were looking for could not be found.</p>
+    <a href="/" class="pub-btn px-4 py-2 text-sm inline-flex items-center">
+      &larr; Return to About
     </a>
   </div>
 </BaseLayout>
