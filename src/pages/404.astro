@@ -7,7 +7,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     (function() {
       var path = window.location.pathname;
       var lower = path.toLowerCase();
-      // Normalized redirects for legacy routes
+      // Normalised redirects for legacy routes
       if (lower.endsWith('/teaching/4c16-teaching') || lower.endsWith('/teaching/4c16-teaching/')) {
         window.location.replace('/teaching/4c16' + window.location.search + window.location.hash);
         return;

@@ -1,63 +1,64 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const colourProjects = [
+const sections = [
   {
-    title: "Optimal Transport (Colour Transfer)",
-    meta: "Probability Density Transfer · Monge–Kantorovich Formulation",
-    body: "Mathematical methods for transferring colour distributions between images using 1D Radon projections and Monge–Kantorovich optimal transport. Integrated commercially into The Foundry's Furnace MatchGrade plug-in for Nuke.",
-    link: {
-      text: "Read the dossier →",
-      href: "/research/colour-transfer"
-    }
+    id: "colour",
+    title: "Colour",
+    blurb: "Mathematical models and algorithms for colour manipulation, exposure correction, and multi-shot consistency in film and video production.",
+    links: [
+      {
+        title: "Optimal Transport (Colour Transfer)",
+        href: "/research/colour-transfer",
+        note: "Probability density transfer, N-D continuous formulations, and The Foundry's MatchGrade."
+      },
+      {
+        title: "Deflicker & Exposure Stabilisation",
+        href: "/research/deflicker",
+        note: "Statistical signal processing and archival film restoration (Furnace Deflicker2)."
+      },
+      {
+        title: "Scene Matching & Illuminant Estimation",
+        href: "/research/scene-matching",
+        note: "Multi-camera colour consistency and illuminant estimation with FilmLight (CVMP 2025)."
+      }
+    ]
   },
   {
-    title: "Deflicker & Exposure Stabilization",
-    meta: "Statistical Signal Processing · Archival Film Restoration",
-    body: "Localized statistical estimators to remove exposure flicker in historical film and high-speed photography without smoothing natural scene dynamics. Deployed in Furnace Deflicker2 by The Foundry.",
-    link: {
-      text: "Read the dossier →",
-      href: "/research/deflicker"
-    }
-  },
-  {
-    title: "Scene Matching & Illuminant Estimation",
-    meta: "Multi-Shot Balancing · Illuminant Estimation · FilmLight",
-    body: "Moving beyond single-pair colour transfer: scene-aware neural networks that estimate changing scene illumination to maintain consistent color across multi-camera setups and long-form cuts (CVMP 2025 with FilmLight).",
-    link: {
-      text: "Read the dossier →",
-      href: "/research/scene-matching"
-    }
-  }
-];
-
-const otherDirections = [
-  {
+    id: "selection-matting",
     title: "Interactive Selection & Alpha Matting",
-    meta: "Human-in-the-Loop AI · Deep Selection · Image Compositing",
-    body: "Combining closed-form mathematical models with deep learning and simple user inputs (clicks, scribbles, and trimaps) to give artists precise control over foreground extraction. Includes the Alternative Matting Laplacian PDE, click-based interactive deep selection (IEEE ICME Best Paper Runner-Up), and F|B|α matting (#1 on alphamatting.com, licensed to PhotoRoom).",
-    link: {
-      text: "Read the dossier →",
-      href: "/research/matting-laplacian"
-    }
+    blurb: "Combining closed-form mathematical formulations with deep learning and simple user interactions for high-quality foreground extraction.",
+    links: [
+      {
+        title: "Alternative Matting Laplacian & Deep Selection",
+        href: "/research/matting-laplacian",
+        note: "Closed-form matting PDE, click-based interactive selection, and F|B|α matting (#1 on alphamatting.com, licensed to PhotoRoom)."
+      }
+    ]
   },
   {
+    id: "video-compression",
     title: "Video Compression & Codecs",
-    meta: "Open Standards (AV1, AVM) · Rate-Distortion Optimization · 3D Reconstruction",
-    body: "Rate-distortion optimization, perceptual quality metrics, and fast encoder control. As an academic member of the Alliance for Open Media (AOMedia), I contribute to open standards like AV1 and AVM. Work also includes LiteVPNet for one-pass quality prediction (commercialized via TrueFrame) and using AV1 motion vectors to accelerate 3D Gaussian Splatting (IEEE ICIP 2026).",
-    link: {
-      text: "Read the dossier →",
-      href: "/research/video-compression"
-    }
+    blurb: "Rate-distortion optimisation, perceptual quality metrics, fast encoder control, and reusing codec metadata for 3D reconstruction.",
+    links: [
+      {
+        title: "Open Standards (AV1, AVM), One-Pass Prediction & 3DGS",
+        href: "/research/video-compression",
+        note: "AOMedia codec contributions, LiteVPNet/TrueFrame quality prediction, and AV1-assisted 3D Gaussian Splatting (IEEE ICIP 2026)."
+      }
+    ]
   },
   {
+    id: "efficient-ai",
     title: "Efficient AI & Inverse Problems",
-    meta: "Linear Inverse Problems · Multi-Task Denoisers · Bayesian Backbones",
-    body: "Developing compact, reusable AI components that combine classical signal processing theory with small neural networks. Highlights include using a single multi-task denoiser as a shared prior across multiple inverse problems (CVMP 2025) and pairing classical Wiener filters with lightweight neural nets for fast image and video denoising.",
-    link: {
-      text: "Read the dossier →",
-      href: "/research/efficient-ai"
-    }
+    blurb: "Designing compact, reusable neural components and hybrid Bayesian models that reduce compute and energy requirements for image restoration.",
+    links: [
+      {
+        title: "Multi-Task Denoisers & Bayesian Backbones",
+        href: "/research/efficient-ai",
+        note: "Unified multi-task denoising for linear inverse problems (CVMP 2025) and classical Wiener filter backbones for fast denoising."
+      }
+    ]
   }
 ];
 ---
@@ -72,7 +73,7 @@ const otherDirections = [
       </p>
     </header>
 
-    <article class="space-y-12">
+    <article class="space-y-10">
       <!-- Introductory Narrative -->
       <div class="space-y-3 text-sm sm:text-base leading-relaxed text-[var(--theme-fg)]">
         <p>
@@ -83,81 +84,34 @@ const otherDirections = [
         </p>
       </div>
 
-      <!-- Section: Colour & Restoration -->
-      <section class="space-y-6">
-        <div>
-          <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-1.5 border-b border-[var(--theme-border)]">
-            Colour &amp; Film Restoration
-          </h2>
-          <p class="text-xs sm:text-sm text-[var(--theme-muted)] mt-1">
-            Mathematical models for colour manipulation, exposure stabilization, and multi-shot consistency.
-          </p>
-        </div>
-
-        <div class="divide-y divide-[var(--theme-border)]/40 space-y-6">
-          {colourProjects.map((proj, idx) => (
-            <div class={idx > 0 ? "pt-6 space-y-2" : "space-y-2"}>
-              <div>
-                <h3 class="text-base sm:text-lg font-semibold text-[var(--theme-heading)]">
-                  {proj.title}
-                </h3>
-                <div class="text-xs font-mono text-[var(--theme-muted)] mt-0.5">
-                  {proj.meta}
-                </div>
-              </div>
-              <p class="text-sm sm:text-base text-[var(--theme-fg)] leading-relaxed">
-                {proj.body}
-              </p>
-              <div class="pt-1">
-                <a 
-                  href={proj.link.href} 
-                  class="text-xs sm:text-sm text-[var(--theme-link)] hover:text-[var(--theme-accent)] font-medium inline-flex items-center gap-1 hover:underline"
-                >
-                  {proj.link.text}
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <!-- Section: Other Core Directions -->
-      <section class="space-y-6">
-        <div>
-          <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-1.5 border-b border-[var(--theme-border)]">
-            Interactive AI, Compression &amp; Vision
-          </h2>
-          <p class="text-xs sm:text-sm text-[var(--theme-muted)] mt-1">
-            Human-in-the-loop extraction, video standards, and lightweight neural models.
-          </p>
-        </div>
-
-        <div class="divide-y divide-[var(--theme-border)]/40 space-y-6">
-          {otherDirections.map((dir, idx) => (
-            <div class={idx > 0 ? "pt-6 space-y-2" : "space-y-2"}>
-              <div>
-                <h3 class="text-base sm:text-lg font-semibold text-[var(--theme-heading)]">
-                  {dir.title}
-                </h3>
-                <div class="text-xs font-mono text-[var(--theme-muted)] mt-0.5">
-                  {dir.meta}
-                </div>
-              </div>
-              <p class="text-sm sm:text-base text-[var(--theme-fg)] leading-relaxed">
-                {dir.body}
-              </p>
-              <div class="pt-1">
-                <a 
-                  href={dir.link.href} 
-                  class="text-xs sm:text-sm text-[var(--theme-link)] hover:text-[var(--theme-accent)] font-medium inline-flex items-center gap-1 hover:underline"
-                >
-                  {dir.link.text}
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      <!-- 4 Core Research Sections -->
+      <div class="space-y-8">
+        {sections.map((section) => (
+          <section class="space-y-3">
+            <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-1.5 border-b border-[var(--theme-border)]">
+              {section.title}
+            </h2>
+            <p class="text-sm sm:text-base text-[var(--theme-fg)] leading-relaxed">
+              {section.blurb}
+            </p>
+            <ul class="space-y-2 list-disc list-outside ml-4 text-sm sm:text-base">
+              {section.links.map((item) => (
+                <li>
+                  <a 
+                    href={item.href} 
+                    class="text-[var(--theme-link)] hover:text-[var(--theme-accent)] font-medium hover:underline"
+                  >
+                    {item.title}
+                  </a>
+                  <span class="text-[var(--theme-muted)] text-xs sm:text-sm ml-1.5">
+                    — {item.note}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))}
+      </div>
     </article>
   </div>
 </BaseLayout>
