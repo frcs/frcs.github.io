@@ -2,15 +2,15 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Colour Transfer & Automated Colour Grading - François Pitié" currentSection="research">
+<BaseLayout title="Optimal Transport & Colour Transfer - François Pitié" currentSection="research">
   <div class="post">
     <header class="post-header mb-8">
       <div class="mb-2">
         <a href="/research" class="text-xs font-mono text-[var(--theme-link)] hover:text-[var(--theme-accent)]">&larr; back to research</a>
       </div>
-      <h1 class="post-title">Colour Transfer &amp; Automated Colour Grading</h1>
+      <h1 class="post-title">Optimal Transport &amp; Colour Transfer</h1>
       <p class="desc text-xs sm:text-sm text-[var(--theme-muted)] mt-1.5 pb-3 border-b border-[var(--theme-border)]">
-        From continuous probability density transfer and Monge–Kantorovich optimal transport to scene-consistent illuminant estimation.
+        Probability density transfer and Monge–Kantorovich optimal transport for automated colour grading.
       </p>
     </header>
 
@@ -23,46 +23,36 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           class="w-full h-auto object-cover"
         />
         <div class="p-3 text-xs text-[var(--theme-muted)] border-t border-[var(--theme-border)] bg-[var(--theme-card)]/70">
-          <strong>Figure: </strong> Example of colour transfer — (left) original image, (centre) target colour palette image, (right) resulting image after continuous distribution transfer.
+          <strong>Figure:</strong> Colour transfer — (left) original image, (centre) target colour palette image, (right) resulting image after continuous distribution transfer.
         </div>
       </div>
 
       <!-- Overview -->
-      <section class="space-y-4 text-sm sm:text-base text-[var(--theme-fg)] leading-relaxed">
+      <section class="space-y-3 text-sm sm:text-base text-[var(--theme-fg)] leading-relaxed">
         <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-1.5 border-b border-[var(--theme-border)]">
-          Research Overview
+          Overview
         </h2>
         <p>
-          <strong>Colour Transfer</strong> is the process of matching colour appearance and colorimetric mood between photographic images or video shots. In visual effects and digital postproduction, matching shots taken under disparate lighting conditions or harmonizing multi-camera sequences historically demanded extensive manual intervention by skilled colourists.
+          Colour transfer is the process of adjusting the colour palette of an image or video sequence so that it matches the appearance of a reference image. In film post-production, matching shots taken at different times or under different lighting has traditionally required careful, manual grading.
         </p>
         <p>
-          The mathematical challenge centers on finding a smooth, continuous mapping in three-dimensional colour space that aligns the joint probability density function (PDF) of a source image with that of a reference target without introducing contouring, grain destruction, or gamut clipping.
+          The mathematical challenge is to find a mapping in 3D colour space that aligns the colour distribution (PDF) of a source image with that of a target, without causing artefacts like colour banding or washing out natural film grain.
         </p>
       </section>
 
-      <!-- Foundational Probability Density Transfer & Optimal Transport -->
-      <section class="space-y-4 text-sm sm:text-base text-[var(--theme-fg)] leading-relaxed">
+      <!-- PDF Transfer & MatchGrade -->
+      <section class="space-y-3 text-sm sm:text-base text-[var(--theme-fg)] leading-relaxed">
         <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-1.5 border-b border-[var(--theme-border)]">
-          Optimal Transport &amp; Industrial Deployment
+          Probability Density Transfer &amp; MatchGrade
         </h2>
         <p>
-          In foundational work presented at ICCV 2005 and CVIU 2007, we introduced an exact, iterative solution to multi-dimensional continuous probability density function transfer based on one-dimensional Radon projections, alongside closed-form solutions derived from Monge–Kantorovich optimal transport theory. Coupled with a spatial gradient-preserving regraining framework, the technique transfers complex colorimetric palettes while retaining photographic texture and film grain.
+          In work presented at ICCV 2005 and CVIU 2007, we proposed an exact, iterative solution to multi-dimensional probability density function transfer using one-dimensional Radon projections, as well as a closed-form linear mapping based on Monge–Kantorovich optimal transport. A post-processing step ensures that fine textures and film grain are preserved.
         </p>
         <p>
-          This formulation transformed automated colour grading from heuristic colour-channel scaling into a mathematically rigorous discipline. The core technology was licensed to <strong>The Foundry</strong> and integrated into the commercial motion picture postproduction tool <strong>MatchGrade</strong> within the <em>Furnace</em> plug-in suite for Nuke, where it became a standard tool for feature film visual effects and shot harmonization worldwide.
-        </p>
-      </section>
-
-      <!-- Scene-Consistent Colour Grading & Illuminant Estimation -->
-      <section class="space-y-4 text-sm sm:text-base text-[var(--theme-fg)] leading-relaxed">
-        <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-1.5 border-b border-[var(--theme-border)]">
-          Scene-Consistent Colour Balancing
-        </h2>
-        <p>
-          While classical colour transfer operates effectively on isolated pairs of images, modern virtual production and long-form film workflows require <strong>scene consistency</strong> across multi-shot sequences under varying illumination. Operating independently on each frame or camera angle risks introducing visual flickering and lighting inconsistencies across a scene.
+          The method was licensed to <strong>The Foundry</strong> and integrated into <strong>MatchGrade</strong> (part of the <em>Furnace</em> plug-in suite for Nuke), where it became a standard tool for shot matching in film visual effects.
         </p>
         <p>
-          Our recent research advances from pairwise distribution matching toward scene-aware neural architectures for illuminant estimation (CVMP 2025). By inferring underlying lighting dynamics across multiple camera perspectives, the system supports robust, scene-wide automated grading. Conducted in collaboration with <strong>FilmLight</strong> (developers of the Baselight colour grading system) as part of the Horizon Europe EMERALD programme, an Invention Disclosure Form (IDF) has been filed, establishing a direct pipeline into next-generation film grading platforms.
+          In 2020, I published a survey paper in <em>IET Computer Vision</em> reviewing the development of colour transfer methods over the preceding 15 years.
         </p>
       </section>
 
@@ -70,10 +60,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <section class="p-4 rounded border border-[var(--theme-border)] bg-[var(--theme-card)]/40">
         <h2 class="text-sm font-semibold text-[var(--theme-heading)] mb-2 flex items-center gap-2">
           <i class="fa-brands fa-github text-base"></i>
-          Reference Implementation &amp; Software
+          Code &amp; Tools
         </h2>
         <p class="text-xs sm:text-sm text-[var(--theme-muted)] mb-3 leading-relaxed">
-          MATLAB reference implementation of the iterative N-dimensional PDF transfer algorithm, closed-form linear Monge–Kantorovich mapping, and post-filtering grain preservation.
+          Reference MATLAB implementation of the iterative N-dimensional PDF transfer algorithm and the linear Monge–Kantorovich mapping.
         </p>
         <div class="flex flex-wrap items-center gap-3">
           <a 
@@ -95,28 +85,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         </div>
       </section>
 
-      <!-- Key Publications -->
+      <!-- Publications -->
       <section>
         <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-2 border-b border-[var(--theme-border)] mb-4">
           Key Publications
         </h2>
 
         <div class="space-y-4">
-          <div class="p-3.5 rounded border border-[var(--theme-border)] bg-[var(--theme-card)]/20">
-            <div class="font-semibold text-sm text-[var(--theme-heading)] leading-snug">
-              Towards Consistent Automatic Colour Grading: A Scene-Aware Neural Network for Illuminant Estimation
-            </div>
-            <div class="text-xs text-[var(--theme-muted)] mt-1">
-              B.-E. Ganbaatar and F. Pitié
-            </div>
-            <div class="text-xs text-[var(--theme-muted)] mt-0.5 italic">
-              Proceedings of the 22nd ACM SIGGRAPH European Conference on Visual Media Production (CVMP), London, UK, 2025.
-            </div>
-            <div class="text-xs text-[var(--theme-muted)] mt-1">
-              In collaboration with FilmLight &bull; Horizon Europe EMERALD
-            </div>
-          </div>
-
           <div class="p-3.5 rounded border border-[var(--theme-border)] bg-[var(--theme-card)]/20">
             <div class="font-semibold text-sm text-[var(--theme-heading)] leading-snug">
               Advances in colour transfer

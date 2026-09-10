@@ -84,6 +84,46 @@
       "permanent": true
     },
     {
+      "source": "/research/Scene-Matching/:path*",
+      "destination": "/research/scene-matching/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/research/Scene-Matching",
+      "destination": "/research/scene-matching",
+      "permanent": true
+    },
+    {
+      "source": "/research/Colour-Transfer/:path*",
+      "destination": "/research/colour-transfer/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/research/Colour-Transfer",
+      "destination": "/research/colour-transfer",
+      "permanent": true
+    },
+    {
+      "source": "/research/Deflicker/:path*",
+      "destination": "/research/deflicker/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/research/Deflicker",
+      "destination": "/research/deflicker",
+      "permanent": true
+    },
+    {
+      "source": "/research/Matting-Laplacian/:path*",
+      "destination": "/research/matting-laplacian/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/research/Matting-Laplacian",
+      "destination": "/research/matting-laplacian",
+      "permanent": true
+    },
+    {
       "source": "/4c16/:path*",
       "destination": "https://frcs.github.io/4c16/:path*",
       "permanent": false

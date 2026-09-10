@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Scene Matching & Illuminant Estimation - François Pitié" currentSection="research">
+  <div class="post">
+    <header class="post-header mb-8">
+      <div class="mb-2">
+        <a href="/research" class="text-xs font-mono text-[var(--theme-link)] hover:text-[var(--theme-accent)]">&larr; back to research</a>
+      </div>
+      <h1 class="post-title">Scene Matching &amp; Illuminant Estimation</h1>
+      <p class="desc text-xs sm:text-sm text-[var(--theme-muted)] mt-1.5 pb-3 border-b border-[var(--theme-border)]">
+        Scene-consistent automated colour grading across multi-shot sequences under changing illumination.
+      </p>
+    </header>
+
+    <article class="space-y-10">
+      <!-- Overview -->
+      <section class="space-y-3 text-sm sm:text-base text-[var(--theme-fg)] leading-relaxed">
+        <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-1.5 border-b border-[var(--theme-border)]">
+          Overview
+        </h2>
+        <p>
+          Classical colour transfer algorithms typically operate on a single pair of images: you pick a source and a target, and transfer the colour palette. While effective for individual stills, film and virtual production involve multi-camera setups and multi-shot scenes captured under varying natural and artificial light.
+        </p>
+        <p>
+          Correcting each shot independently often causes visible color and exposure jumps across cuts. The goal of scene matching is to maintain consistent appearance across an entire sequence by estimating and compensating for changing scene illumination.
+        </p>
+      </section>
+
+      <!-- Scene-Aware Illuminant Estimation -->
+      <section class="space-y-3 text-sm sm:text-base text-[var(--theme-fg)] leading-relaxed">
+        <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-1.5 border-b border-[var(--theme-border)]">
+          Scene-Aware Neural Network
+        </h2>
+        <p>
+          In work presented at <strong>CVMP 2025</strong> with Bold-Erdene Ganbaatar, we developed a neural network architecture designed for scene-aware illuminant estimation. Rather than treating each frame in isolation, the network estimates the lighting conditions across the scene to support consistent downstream grading.
+        </p>
+        <p>
+          This work was carried out in collaboration with <strong>FilmLight</strong> (developers of the Baselight colour grading system used across the film industry) as part of the Horizon Europe EMERALD project. An Invention Disclosure Form (IDF) has been filed, and we are working with FilmLight on integrating these techniques into professional grading workflows.
+        </p>
+      </section>
+
+      <!-- Industry Collaboration -->
+      <section class="p-4 rounded border border-[var(--theme-border)] bg-[var(--theme-card)]/40">
+        <h2 class="text-sm font-semibold text-[var(--theme-heading)] mb-2 flex items-center gap-2">
+          <i class="fa-solid fa-film text-base"></i>
+          Industry Partners &amp; Programmes
+        </h2>
+        <div class="flex flex-wrap items-center gap-3 text-xs sm:text-sm font-mono mt-2">
+          <a href="https://www.filmlight.ltd.uk" target="_blank" rel="noopener noreferrer" class="pub-btn">
+            FilmLight (Baselight) &rarr;
+          </a>
+          <a href="https://emerald-horizon.eu" target="_blank" rel="noopener noreferrer" class="pub-btn">
+            Horizon Europe EMERALD &rarr;
+          </a>
+        </div>
+      </section>
+
+      <!-- Publications -->
+      <section>
+        <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-2 border-b border-[var(--theme-border)] mb-4">
+          Key Publications
+        </h2>
+
+        <div class="space-y-4">
+          <div class="p-3.5 rounded border border-[var(--theme-border)] bg-[var(--theme-card)]/20">
+            <div class="font-semibold text-sm text-[var(--theme-heading)] leading-snug">
+              Towards Consistent Automatic Colour Grading: A Scene-Aware Neural Network for Illuminant Estimation
+            </div>
+            <div class="text-xs text-[var(--theme-muted)] mt-1">
+              B.-E. Ganbaatar and F. Pitié
+            </div>
+            <div class="text-xs text-[var(--theme-muted)] mt-0.5 italic">
+              Proceedings of the 22nd ACM SIGGRAPH European Conference on Visual Media Production (CVMP), London, UK, 2025.
+            </div>
+            <div class="text-xs text-[var(--theme-muted)] mt-1">
+              Collaboration with FilmLight &bull; Horizon Europe EMERALD &bull; Invention Disclosure Form filed
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+  </div>
+</BaseLayout>

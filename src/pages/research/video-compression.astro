@@ -2,87 +2,127 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Video Compression & Open Standards - François Pitié" currentSection="research">
+<BaseLayout title="Video Compression & Codecs - François Pitié" currentSection="research">
   <div class="post">
     <header class="post-header mb-8">
       <div class="mb-2">
         <a href="/research" class="text-xs font-mono text-[var(--theme-link)] hover:text-[var(--theme-accent)]">&larr; back to research</a>
       </div>
-      <h1 class="post-title">Video Compression &amp; Open Standards</h1>
+      <h1 class="post-title">Video Compression &amp; Codecs</h1>
       <p class="desc text-xs sm:text-sm text-[var(--theme-muted)] mt-1.5 pb-3 border-b border-[var(--theme-border)]">
-        Rate-distortion optimization, High Dynamic Range (HDR) encoding, and standards contributions to AV1 and AVM.
+        Rate-distortion optimization, open standards (AV1, AVM), one-pass encoder control, and codec-assisted 3D reconstruction.
       </p>
     </header>
 
     <article class="space-y-10">
       <!-- Overview -->
-      <section class="space-y-4 text-sm sm:text-base text-[var(--theme-fg)] leading-relaxed">
+      <section class="space-y-3 text-sm sm:text-base text-[var(--theme-fg)] leading-relaxed">
         <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-1.5 border-b border-[var(--theme-border)]">
-          Research Overview
+          Overview
         </h2>
         <p>
-          Video compression accounts for the vast majority of global internet traffic and forms the operational backbone of streaming media, cloud gaming, and digital film distribution. As media formats advance toward 4K/8K resolution, high dynamic range (HDR), wide colour gamuts, and high frame rates, conventional compression heuristics struggle to balance bit-rate budgets, perceptual visual fidelity, and encoding computational complexity.
+          Video accounts for the majority of internet traffic. As video moves to 4K/8K, HDR, and high frame rates, efficient compression becomes essential to keep bandwidth and storage manageable without sacrificing visual quality.
         </p>
         <p>
-          Our video compression research addresses this trilemma through rigorous rate-distortion optimization, perceptual quality modelling, and content-adaptive encoder control. We contribute directly to open, royalty-free international video standards and collaborate closely with industry pioneers including Google, YouTube, and Netflix.
+          My research in this area focuses on rate-distortion optimization, perceptual quality metrics, fast encoder control, and finding ways to reuse information already calculated by video codecs for other tasks.
         </p>
       </section>
 
-      <!-- Alliance for Open Media (AOMedia) -->
-      <section class="space-y-4 text-sm sm:text-base text-[var(--theme-fg)] leading-relaxed">
+      <!-- Open Standards & AOMedia -->
+      <section class="space-y-3 text-sm sm:text-base text-[var(--theme-fg)] leading-relaxed">
         <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-1.5 border-b border-[var(--theme-border)]">
-          International Standards: AV1 &amp; AVM
+          Open Video Standards (AV1 &amp; AVM)
         </h2>
         <p>
-          Our laboratory represents Trinity College Dublin as an Academic Member and Contributor within the <strong>Alliance for Open Media (AOMedia)</strong> Video Quality Working Group. Alongside engineering teams from Google, Netflix, and Meta, our research informs the development and evaluation of <strong>AV1</strong> and the next-generation <strong>AVM (AOMedia Video Model)</strong> codec.
+          I represent Trinity College Dublin as an academic member of the <strong>Alliance for Open Media (AOMedia)</strong> Video Quality Working Group. Alongside partners like Google, Netflix, and Meta, our work contributes to the development and evaluation of open, royalty-free codecs, including <strong>AV1</strong> and its successor <strong>AVM (AOMedia Video Model)</strong>.
         </p>
         <p>
-          Recent milestones include an invited address at the <em>AOMedia Research Workshop Europe 2025</em> (co-located with QoMEX), titled <em>"Beyond Streaming: Applying AV1 to Cinema-Grade Virtual Production"</em>, demonstrating energy-efficient and ultra-high-fidelity AV1 encoding pipelines designed for professional virtual film production.
+          In 2025, I gave an invited talk at the AOMedia Research Workshop Europe on applying AV1 to virtual production environments.
         </p>
       </section>
 
-      <!-- HDR & Per-Clip Lagrangian Optimization -->
-      <section class="space-y-4 text-sm sm:text-base text-[var(--theme-fg)] leading-relaxed">
+      <!-- Rate-Distortion & HDR -->
+      <section class="space-y-3 text-sm sm:text-base text-[var(--theme-fg)] leading-relaxed">
         <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-1.5 border-b border-[var(--theme-border)]">
-          HDR Compression &amp; Per-Clip Optimization
+          Rate-Distortion Optimization &amp; HDR
         </h2>
         <p>
-          While High Dynamic Range (HDR) dramatically enhances perceived contrast and color saturation, traditional video codecs rely on Rate-Distortion Optimization (RDO) models formulated for standard dynamic range (SDR). Tuning the operational trade-off between bit-rate and distortion requires choosing the Lagrangian multiplier (<span class="font-mono text-sm">&lambda;</span>) adaptively for each video sequence.
+          Compressing High Dynamic Range (HDR) content requires adjusting encoder decisions because human sensitivity to contrast differs in HDR. Working with Google and YouTube, we developed methods to directly tune the Lagrangian multiplier (<span class="font-mono">&lambda;</span>) on a per-clip basis for AV1 encoding.
         </p>
         <p>
-          In a multi-year collaboration with Google and YouTube led by Dr. Daniel Ringis, we investigated direct closed-loop optimization of <span class="font-mono text-sm">&lambda;</span> and systematically evaluated perceptual quality metrics (including VMAF, HDR-VQM, and subjective observer trials) across large-scale 4K HDR corpuses. This work received the <strong>Top-10 Papers Award at Picture Coding Symposium (PCS 2021)</strong> and was published in the <em>IEEE Transactions on Broadcasting</em> and <em>IEEE ICIP</em>.
-        </p>
-        <p>
-          Furthermore, our research in the <em>SMPTE Motion Imaging Journal</em> examined the perceptual and computational implications of video compression inside LED-wall virtual production volumes, establishing guidelines for lossless and near-lossless intra-studio streaming.
+          This work evaluated perceptual metrics (such as VMAF and HDR-VQM) across thousands of HDR clips, receiving the Top-10 Papers Award at PCS 2021 and appearing in <em>IEEE Transactions on Broadcasting</em>. In related work published in the <em>SMPTE Motion Imaging Journal</em>, we investigated compression requirements for LED-wall virtual production studios.
         </p>
       </section>
 
-      <!-- Resources & Working Groups -->
+      <!-- LiteVPNet & TrueFrame -->
+      <section class="space-y-3 text-sm sm:text-base text-[var(--theme-fg)] leading-relaxed">
+        <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-1.5 border-b border-[var(--theme-border)]">
+          LiteVPNet &amp; TrueFrame: One-Pass Quality Prediction
+        </h2>
+        <p>
+          Finding the best encoding parameters for a video usually requires running multiple test encodes, which wastes compute. We developed <strong>LiteVPNet</strong>, a compact neural network (242k parameters) that predicts suitable encoding parameters and perceptual quality (VMAF) in a single pass.
+        </p>
+        <p>
+          Tested on 2,944 videos, LiteVPNet predicts VMAF within 1 point on average. This technology forms the core IP of <strong>TrueFrame</strong>, supported by the Research Ireland ARC Hub for ICT (€149.5k, 2026–2028).
+        </p>
+      </section>
+
+      <!-- Codec-Assisted 3D Gaussian Splatting -->
+      <section class="space-y-3 text-sm sm:text-base text-[var(--theme-fg)] leading-relaxed">
+        <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-1.5 border-b border-[var(--theme-border)]">
+          Codec-Assisted 3D Gaussian Splatting
+        </h2>
+        <p>
+          3D Gaussian Splatting can reconstruct realistic 3D scenes from video, but it relies on an initial point cloud generated by expensive Structure-from-Motion (SfM) algorithms that match features across frames.
+        </p>
+        <p>
+          In work accepted at <strong>IEEE ICIP 2026</strong> (Zouein et al.), we showed that you can bypass this expensive matching step by reusing the <strong>AV1 motion vectors</strong> already stored in the compressed video bitstream. This produces up to 8&times; more initial points, improves reconstruction quality by ~9 VMAF points, and reduces training time to reach baseline quality by 63%. The project was supported by Horizon Europe EMERALD and a YouTube/Google Faculty Award.
+        </p>
+      </section>
+
+      <!-- Key Links -->
       <section class="p-4 rounded border border-[var(--theme-border)] bg-[var(--theme-card)]/40">
         <h2 class="text-sm font-semibold text-[var(--theme-heading)] mb-2 flex items-center gap-2">
           <i class="fa-solid fa-layer-group text-base"></i>
-          Standards &amp; Working Groups
+          Standards &amp; Project Links
         </h2>
         <div class="flex flex-wrap items-center gap-3 text-xs sm:text-sm font-mono mt-2">
           <a href="https://aomedia.org" target="_blank" rel="noopener noreferrer" class="pub-btn">
-            Alliance for Open Media (AOMedia) &rarr;
+            Alliance for Open Media &rarr;
           </a>
           <a href="https://gitlab.com/AOMediaCodec/avm" target="_blank" rel="noopener noreferrer" class="pub-btn">
-            AOMedia AVM Reference Codec &rarr;
+            AOMedia AVM Codec &rarr;
           </a>
-          <a href="https://qomex2025.itec.aau.at/workshop/aomedia-research-workshop-europe-2025/" target="_blank" rel="noopener noreferrer" class="pub-btn">
-            AOMedia Workshop Keynote 2025 &rarr;
+          <a href="https://arxiv.org/abs/2605.14629" target="_blank" rel="noopener noreferrer" class="pub-btn">
+            ICIP 2026 Paper (arXiv) &rarr;
           </a>
         </div>
       </section>
 
-      <!-- Key Publications -->
+      <!-- Publications -->
       <section>
         <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-2 border-b border-[var(--theme-border)] mb-4">
           Key Publications
         </h2>
 
         <div class="space-y-4">
+          <div class="p-3.5 rounded border border-[var(--theme-border)] bg-[var(--theme-card)]/20">
+            <div class="font-semibold text-sm text-[var(--theme-heading)] leading-snug">
+              Efficient Dense Matching for Enhanced Gaussian Splatting Using AV1 Motion Vectors
+            </div>
+            <div class="text-xs text-[var(--theme-muted)] mt-1">
+              J. Zouein, V. Vibhoothi, F. Pitié, and A. Kokaram
+            </div>
+            <div class="text-xs text-[var(--theme-muted)] mt-0.5 italic">
+              IEEE International Conference on Image Processing (ICIP), 2026 (in press).
+            </div>
+            <div class="mt-2">
+              <a href="https://arxiv.org/abs/2605.14629" target="_blank" rel="noopener noreferrer" class="text-xs text-[var(--theme-link)] hover:text-[var(--theme-accent)] hover:underline">
+                arXiv:2605.14629 &rarr;
+              </a>
+            </div>
+          </div>
+
           <div class="p-3.5 rounded border border-[var(--theme-border)] bg-[var(--theme-card)]/20">
             <div class="font-semibold text-sm text-[var(--theme-heading)] leading-snug">
               Demystifying the use of Compression in Virtual Production
@@ -108,31 +148,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
               D. J. Ringis, X. Shu, F. Pitié, Z. Lorincz, P. Brodeur, Y. Su, N. Birkbeck, J. Lin, B. Adsumilli, and A. Kokaram
             </div>
             <div class="text-xs text-[var(--theme-muted)] mt-0.5 italic">
-              IEEE Transactions on Broadcasting / IEEE International Conference on Image Processing (ICIP), 2023.
-            </div>
-            <div class="text-xs text-[var(--theme-muted)] mt-1">
-              Collaboration with Google &amp; YouTube Video Infrastructure
+              IEEE Transactions on Broadcasting / IEEE ICIP, 2023.
             </div>
             <div class="mt-2">
               <a href="https://doi.org/10.1109/ICIP49359.2023.10222858" target="_blank" rel="noopener noreferrer" class="text-xs text-[var(--theme-link)] hover:text-[var(--theme-accent)] hover:underline">
                 DOI: 10.1109/ICIP49359.2023.10222858 &rarr;
-              </a>
-            </div>
-          </div>
-
-          <div class="p-3.5 rounded border border-[var(--theme-border)] bg-[var(--theme-card)]/20">
-            <div class="font-semibold text-sm text-[var(--theme-heading)] leading-snug">
-              Subjective Assessment of the Impact of a Content Adaptive Optimiser for Compressing 4K HDR Content With AV1
-            </div>
-            <div class="text-xs text-[var(--theme-muted)] mt-1">
-              A. Katsenou, F. Pitié, K. Domijan, A. Kokaram, et al.
-            </div>
-            <div class="text-xs text-[var(--theme-muted)] mt-0.5 italic">
-              IEEE International Conference on Image Processing (ICIP), Kuala Lumpur, Malaysia, 2023.
-            </div>
-            <div class="mt-2">
-              <a href="https://doi.org/10.1109/ICIP49359.2023.10222610" target="_blank" rel="noopener noreferrer" class="text-xs text-[var(--theme-link)] hover:text-[var(--theme-accent)] hover:underline">
-                DOI: 10.1109/ICIP49359.2023.10222610 &rarr;
               </a>
             </div>
           </div>
@@ -148,7 +168,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
               Picture Coding Symposium (PCS), IEEE, 2021.
             </div>
             <div class="text-xs text-[var(--theme-accent)] font-semibold mt-1">
-              &bull; Top-10 Papers Award (Pioneer Video Coding)
+              &bull; Top-10 Papers Award
             </div>
             <div class="mt-2">
               <a href="https://doi.org/10.1109/PCS50896.2021.9477464" target="_blank" rel="noopener noreferrer" class="text-xs text-[var(--theme-link)] hover:text-[var(--theme-accent)] hover:underline">

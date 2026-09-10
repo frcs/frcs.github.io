@@ -1,49 +1,61 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const researchDirections = [
+const colourProjects = [
   {
-    title: "Colour Transfer & Scene-Consistent Grading",
-    meta: "Optimal Transport · Visual Computing · Illuminant Estimation",
-    body: "Mathematical formulations for transferring colour distributions between images and video, based on continuous Monge–Kantorovich optimal transport and 1D Radon projections. This work transformed colour matching into an automated discipline and became the basis of commercial tools including MatchGrade in The Foundry's Furnace suite. Recent research with FilmLight under Horizon Europe EMERALD extends these foundations to scene-consistent illuminant estimation across multi-shot sequences under changing lighting.",
+    title: "Optimal Transport (Colour Transfer)",
+    meta: "Probability Density Transfer · Monge–Kantorovich Formulation",
+    body: "Mathematical methods for transferring colour distributions between images using 1D Radon projections and Monge–Kantorovich optimal transport. Integrated commercially into The Foundry's Furnace MatchGrade plug-in for Nuke.",
     link: {
-      text: "Read the research dossier →",
+      text: "Read the dossier →",
       href: "/research/colour-transfer"
     }
   },
   {
-    title: "Interactive Computer Vision & Alpha Matting",
-    meta: "Human-in-the-Loop AI · Deep Selection · Image Compositing",
-    body: "For professional visual editing, automation must remain under human control. I develop models combining closed-form parameter diffusion (the Alternative Matting Laplacian) and deep learning with intuitive user interactions (clicks, scribbles, and trimaps). Our work introduced deep interactive object selection (awarded the IEEE ICME Best Paper Runner-Up Award) and F|B|α matting, which ranked #1 on alphamatting.com and was commercially licensed to PhotoRoom.",
+    title: "Deflicker & Exposure Stabilization",
+    meta: "Statistical Signal Processing · Archival Film Restoration",
+    body: "Localized statistical estimators to remove exposure flicker in historical film and high-speed photography without smoothing natural scene dynamics. Deployed in Furnace Deflicker2 by The Foundry.",
     link: {
-      text: "Read the research dossier →",
-      href: "/research/matting-laplacian"
-    }
-  },
-  {
-    title: "Film Restoration & Exposure Stabilization",
-    meta: "Statistical Signal Processing · Luminance Stabilization · Archival Film",
-    body: "Unwanted brightness fluctuations and exposure flicker are pervasive in historical archival film and high-speed photography. We developed robust localized statistical estimators combining motion compensation with non-linear gain and bias correction to stabilize temporal luminance transients without burning highlights or smoothing scene dynamics, integrated commercially into Furnace Deflicker2 by The Foundry.",
-    link: {
-      text: "Read the research dossier →",
+      text: "Read the dossier →",
       href: "/research/deflicker"
     }
   },
   {
-    title: "Video Compression & Open Standards",
-    meta: "Rate-Distortion Optimization · HDR · AV1 & AVM Codecs",
-    body: "As an Academic Contributor to the Alliance for Open Media (AOMedia) Video Quality Working Group alongside Google, Netflix, and Meta, our lab contributes to the development and perceptual evaluation of next-generation open video codecs including AV1 and AVM. Research spans per-clip Lagrangian multiplier optimisation for HDR content (PCS 2021 Top-10 Paper Award) and video compression architectures for virtual production.",
+    title: "Scene Matching & Illuminant Estimation",
+    meta: "Multi-Shot Balancing · Illuminant Estimation · FilmLight",
+    body: "Moving beyond single-pair colour transfer: scene-aware neural networks that estimate changing scene illumination to maintain consistent color across multi-camera setups and long-form cuts (CVMP 2025 with FilmLight).",
     link: {
-      text: "Read the research dossier →",
+      text: "Read the dossier →",
+      href: "/research/scene-matching"
+    }
+  }
+];
+
+const otherDirections = [
+  {
+    title: "Interactive Selection & Alpha Matting",
+    meta: "Human-in-the-Loop AI · Deep Selection · Image Compositing",
+    body: "Combining closed-form mathematical models with deep learning and simple user inputs (clicks, scribbles, and trimaps) to give artists precise control over foreground extraction. Includes the Alternative Matting Laplacian PDE, click-based interactive deep selection (IEEE ICME Best Paper Runner-Up), and F|B|α matting (#1 on alphamatting.com, licensed to PhotoRoom).",
+    link: {
+      text: "Read the dossier →",
+      href: "/research/matting-laplacian"
+    }
+  },
+  {
+    title: "Video Compression & Codecs",
+    meta: "Open Standards (AV1, AVM) · Rate-Distortion Optimization · 3D Reconstruction",
+    body: "Rate-distortion optimization, perceptual quality metrics, and fast encoder control. As an academic member of the Alliance for Open Media (AOMedia), I contribute to open standards like AV1 and AVM. Work also includes LiteVPNet for one-pass quality prediction (commercialized via TrueFrame) and using AV1 motion vectors to accelerate 3D Gaussian Splatting (IEEE ICIP 2026).",
+    link: {
+      text: "Read the dossier →",
       href: "/research/video-compression"
     }
   },
   {
-    title: "Efficient AI for Visual Media & 3D",
-    meta: "Lightweight Deep Learning · Codec-Assisted 3D · Bayesian Backbones",
-    body: "Rather than relying on exponentially larger neural networks that demand massive GPU clusters, we investigate how classical signal processing theory and structure already present in compressed media can make AI substantially more efficient. Highlights include LiteVPNet for one-pass video encoding configuration (commercialized via TrueFrame) and codec-assisted 3D Gaussian Splatting, which reuses AV1 motion vectors to bypass pixel matching, reducing training time by 63% (IEEE ICIP 2026).",
+    title: "Efficient AI & Inverse Problems",
+    meta: "Linear Inverse Problems · Multi-Task Denoisers · Bayesian Backbones",
+    body: "Developing compact, reusable AI components that combine classical signal processing theory with small neural networks. Highlights include using a single multi-task denoiser as a shared prior across multiple inverse problems (CVMP 2025) and pairing classical Wiener filters with lightweight neural nets for fast image and video denoising.",
     link: {
-      text: "Read the research dossier →",
+      text: "Read the dossier →",
       href: "/research/efficient-ai"
     }
   }
@@ -62,24 +74,67 @@ const researchDirections = [
 
     <article class="space-y-12">
       <!-- Introductory Narrative -->
-      <div class="space-y-4 text-sm sm:text-base leading-relaxed text-[var(--theme-fg)]">
+      <div class="space-y-3 text-sm sm:text-base leading-relaxed text-[var(--theme-fg)]">
         <p>
-          I work on applied mathematics, signal processing, and machine learning for visual media. My research spans film and visual-effects production, image and video processing, and large-scale video streaming.
+          I work on applied mathematics, signal processing, and machine learning for visual media. My research spans film and visual-effects production, image and video processing, and video streaming.
         </p>
         <p>
-          A recurring question in my work is how to make visual computing better, more controllable, and more efficient. I develop mathematical and AI models that improve images and video, automate tasks that traditionally required manual intervention, and reduce the computational and energy cost of increasingly sophisticated media processing.
+          The main focus of my work is making visual media better, more controllable, and more computationally efficient. This includes developing mathematical models and lightweight AI to improve image quality, automate manual tasks, and reduce processing costs.
         </p>
       </div>
 
-      <!-- Research Directions -->
+      <!-- Section: Colour & Restoration -->
       <section class="space-y-6">
-        <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-2 border-b border-[var(--theme-border)]">
-          Research Directions
-        </h2>
+        <div>
+          <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-1.5 border-b border-[var(--theme-border)]">
+            Colour &amp; Film Restoration
+          </h2>
+          <p class="text-xs sm:text-sm text-[var(--theme-muted)] mt-1">
+            Mathematical models for colour manipulation, exposure stabilization, and multi-shot consistency.
+          </p>
+        </div>
 
-        <div class="divide-y divide-[var(--theme-border)]/40 space-y-8">
-          {researchDirections.map((dir, idx) => (
-            <div class={idx > 0 ? "pt-8 space-y-2.5" : "space-y-2.5"}>
+        <div class="divide-y divide-[var(--theme-border)]/40 space-y-6">
+          {colourProjects.map((proj, idx) => (
+            <div class={idx > 0 ? "pt-6 space-y-2" : "space-y-2"}>
+              <div>
+                <h3 class="text-base sm:text-lg font-semibold text-[var(--theme-heading)]">
+                  {proj.title}
+                </h3>
+                <div class="text-xs font-mono text-[var(--theme-muted)] mt-0.5">
+                  {proj.meta}
+                </div>
+              </div>
+              <p class="text-sm sm:text-base text-[var(--theme-fg)] leading-relaxed">
+                {proj.body}
+              </p>
+              <div class="pt-1">
+                <a 
+                  href={proj.link.href} 
+                  class="text-xs sm:text-sm text-[var(--theme-link)] hover:text-[var(--theme-accent)] font-medium inline-flex items-center gap-1 hover:underline"
+                >
+                  {proj.link.text}
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Section: Other Core Directions -->
+      <section class="space-y-6">
+        <div>
+          <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-1.5 border-b border-[var(--theme-border)]">
+            Interactive AI, Compression &amp; Vision
+          </h2>
+          <p class="text-xs sm:text-sm text-[var(--theme-muted)] mt-1">
+            Human-in-the-loop extraction, video standards, and lightweight neural models.
+          </p>
+        </div>
+
+        <div class="divide-y divide-[var(--theme-border)]/40 space-y-6">
+          {otherDirections.map((dir, idx) => (
+            <div class={idx > 0 ? "pt-6 space-y-2" : "space-y-2"}>
               <div>
                 <h3 class="text-base sm:text-lg font-semibold text-[var(--theme-heading)]">
                   {dir.title}
@@ -91,16 +146,14 @@ const researchDirections = [
               <p class="text-sm sm:text-base text-[var(--theme-fg)] leading-relaxed">
                 {dir.body}
               </p>
-              {dir.link && (
-                <div class="pt-1">
-                  <a 
-                    href={dir.link.href} 
-                    class="text-xs sm:text-sm text-[var(--theme-link)] hover:text-[var(--theme-accent)] font-medium inline-flex items-center gap-1 hover:underline"
-                  >
-                    {dir.link.text}
-                  </a>
-                </div>
-              )}
+              <div class="pt-1">
+                <a 
+                  href={dir.link.href} 
+                  class="text-xs sm:text-sm text-[var(--theme-link)] hover:text-[var(--theme-accent)] font-medium inline-flex items-center gap-1 hover:underline"
+                >
+                  {dir.link.text}
+                </a>
+              </div>
             </div>
           ))}
         </div>

@@ -53,57 +53,57 @@ const eqPde = renderLatex("\\mathrm{div}\\left( \\begin{bmatrix} C_i \\\\ 1 \\en
       </section>
 
       <!-- Overview -->
-      <section class="space-y-4 text-sm sm:text-base text-[var(--theme-fg)] leading-relaxed">
+      <section class="space-y-3 text-sm sm:text-base text-[var(--theme-fg)] leading-relaxed">
         <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-1.5 border-b border-[var(--theme-border)]">
-          Human-in-the-Loop Visual Editing
+          Overview
         </h2>
         <p>
-          Extracting foreground objects from complex backgrounds—<strong>alpha matting</strong> and <strong>object selection</strong>—is a core task across visual effects, virtual production, and creative image editing. In natural image matting, an observed linear RGB colour <span set:html={renderLatex("C_i")} /> at pixel <span set:html={renderLatex("i")} /> is modelled as a convex combination of an unknown foreground colour <span set:html={renderLatex("F_i")} />, background colour <span set:html={renderLatex("B_i")} />, and transparency matte <span set:html={renderLatex("\\alpha_i")} />:
+          Extracting foreground objects from complex backgrounds—<strong>alpha matting</strong> and <strong>object selection</strong>—is a core task in visual effects and photo editing. In natural image matting, an observed pixel colour <span set:html={renderLatex("C_i")} /> is modelled as a mixture of unknown foreground <span set:html={renderLatex("F_i")} />, background <span set:html={renderLatex("B_i")} />, and transparency <span set:html={renderLatex("\\alpha_i")} />:
         </p>
         <div class="p-3 my-2 rounded bg-[var(--theme-card)]/50 border border-[var(--theme-border)] overflow-x-auto text-center" set:html={eqModel} />
         <p>
-          Because there are seven unknown values per pixel (three colour channels for foreground, three for background, and one alpha value) with only three observed colour channels, the problem is severely ill-posed. For professional visual editing, full automation without user guidance frequently fails on fine structures such as hair, fur, semi-transparent glass, and motion blur.
+          Because there are seven unknown values for only three colour measurements per pixel, the problem is severely ill-posed. Full automation without user input often struggles on fine details like hair, fur, and transparency.
         </p>
         <p>
-          Our research programme investigates <strong>human-in-the-loop AI</strong>: combining rigorous mathematical formulations and deep learning with intuitive user interactions (clicks, scribbles, and trimaps) to give artists precise control over visual compositing.
+          My research in this area combines closed-form mathematical models with deep learning and simple user interactions (clicks, scribbles, and trimaps) to give artists precise control over segmentation and matting.
         </p>
       </section>
 
       <!-- The Alternative Matting Laplacian -->
-      <section class="space-y-4 text-sm sm:text-base text-[var(--theme-fg)] leading-relaxed">
+      <section class="space-y-3 text-sm sm:text-base text-[var(--theme-fg)] leading-relaxed">
         <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-1.5 border-b border-[var(--theme-border)]">
           The Alternative Matting Laplacian
         </h2>
         <p>
-          In classic matting, Levin et al. assumed that alpha is locally an affine transformation of colour components (<span set:html={renderLatex("\\alpha_i = a_i^T C_i + b_i")} />), eliminating the model parameters <span set:html={renderLatex("a, b")} /> to produce the famous Levin Matting Laplacian linear system <span set:html={renderLatex("L\\alpha = 0")} />:
+          In classic matting, Levin et al. assumed that alpha is locally an affine transformation of colour components (<span set:html={renderLatex("\\alpha_i = a_i^T C_i + b_i")} />), eliminating the model parameters <span set:html={renderLatex("a, b")} /> to produce the Levin Matting Laplacian linear system <span set:html={renderLatex("L\\alpha = 0")} />:
         </p>
         <div class="p-3 my-2 rounded bg-[var(--theme-card)]/50 border border-[var(--theme-border)] overflow-x-auto text-center" set:html={eqLevinCost} />
         <p>
-          <strong>Our Key Insight:</strong> We take the exact opposite approach and eliminate <span set:html={renderLatex("\\alpha")} /> instead to solve directly for the model parameters:
+          <strong>Our Approach:</strong> We take the opposite approach and eliminate <span set:html={renderLatex("\\alpha")} /> instead to solve directly for the model parameters:
         </p>
         <div class="p-2 my-1 rounded bg-[var(--theme-card)]/50 border border-[var(--theme-border)] overflow-x-auto text-center" set:html={eqOurMin} />
         <p>
-          This formulation reveals that parameter propagation corresponds to an anisotropic diffusion partial differential equation (PDE):
+          This reveals that parameter propagation corresponds to an anisotropic diffusion partial differential equation (PDE):
         </p>
         <div class="p-3 my-2 rounded bg-[var(--theme-card)]/50 border border-[var(--theme-border)] overflow-x-auto text-center" set:html={eqPde} />
         <p>
-          Solving directly for the local colour filter parameters (<span set:html={renderLatex("a, b")} />) yields significantly simpler and faster sparse linear systems, allows meaningful spatial priors to be imposed directly on the colour model, and provides an algebraic foundation for neural multigrid and V-cycle solvers.
+          Solving directly for local colour filter parameters (<span set:html={renderLatex("a, b")} />) yields simpler, faster linear systems and makes it possible to impose spatial smoothness directly on the colour model.
         </p>
       </section>
 
       <!-- Deep Interactive Selection & F|B|Alpha Matting -->
-      <section class="space-y-4 text-sm sm:text-base text-[var(--theme-fg)] leading-relaxed">
+      <section class="space-y-3 text-sm sm:text-base text-[var(--theme-fg)] leading-relaxed">
         <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-1.5 border-b border-[var(--theme-border)]">
-          Deep Selection, $F|B|\alpha$ Matting &amp; Industry Impact
+          Deep Selection &amp; $F|B|\alpha$ Matting
         </h2>
         <p>
-          Building on these foundations, we extended interactive segmentation into deep learning. At IEEE ICME 2020, Dr. Marco Forte and our group presented <em>Interactive Training and Architecture for Deep Object Selection</em>, introducing an end-to-end neural framework trained explicitly on user click simulations to achieve state-of-the-art interactive object boundaries with minimal user input. The work was awarded the <strong>IEEE ICME Best Paper Runner-Up Award</strong>.
+          Building on these foundations, we extended interactive selection to deep learning. At IEEE ICME 2020, Dr. Marco Forte and our group presented an interactive deep learning model trained directly on simulated user clicks to segment objects with minimal interaction, receiving the <strong>Best Paper Runner-Up Award</strong>.
         </p>
         <p>
-          Subsequently, we developed <strong>$F|B|\alpha$ Matting</strong> (Forte &amp; Pitié, 2020), a deep learning architecture that simultaneously estimates foreground colour, background colour, and alpha transparency directly. $F|B|\alpha$ Matting achieved the <strong>#1 ranking</strong> on the international <a href="http://www.alphamatting.com" target="_blank" rel="noopener noreferrer" class="text-[var(--theme-link)] hover:text-[var(--theme-accent)] underline">alphamatting.com</a> benchmark, demonstrating exceptional fidelity across fine hair strands, transparent boundaries, and complex textures.
+          We then developed <strong>$F|B|\alpha$ Matting</strong> (Forte &amp; Pitié, 2020), which estimates foreground, background, and alpha simultaneously. $F|B|\alpha$ Matting reached the <strong>#1 position</strong> on the <a href="http://www.alphamatting.com" target="_blank" rel="noopener noreferrer" class="text-[var(--theme-link)] hover:text-[var(--theme-accent)] underline">alphamatting.com</a> benchmark.
         </p>
         <p>
-          In 2021, the underlying intellectual property was commercially licensed to <strong>PhotoRoom</strong>, an AI-powered visual editing platform. Dr. Marco Forte joined PhotoRoom to lead key AI engineering divisions, translating our academic matting breakthroughs into an application used by millions of digital creators and e-commerce merchants globally.
+          In 2021, the underlying technology was licensed to <strong>PhotoRoom</strong>, and Dr. Marco Forte joined the company to lead key AI engineering teams.
         </p>
       </section>
 

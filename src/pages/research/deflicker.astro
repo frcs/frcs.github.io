@@ -32,15 +32,18 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       </div>
 
       <!-- Overview -->
-      <section class="space-y-4 text-sm sm:text-base text-[var(--theme-fg)] leading-relaxed">
+      <section class="space-y-3 text-sm sm:text-base text-[var(--theme-fg)] leading-relaxed">
+        <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-1.5 border-b border-[var(--theme-border)]">
+          Overview
+        </h2>
         <p>
-          Unwanted brightness fluctuations, or <em>flicker</em>, are pervasive in hand-cranked archived historical films and modern high-frame-rate / phantom recordings where artificial lighting oscillates out of phase with high-speed shutter cycles.
+          Brightness fluctuations, or <em>flicker</em>, are common in archival film (due to variable exposure and chemical aging) as well as high-speed video capture under oscillating artificial lighting.
         </p>
         <p>
-          Because film degradation and non-uniform illumination rarely affect the entire frame uniformly, flicker is inherently a <em>spatially localized</em> process. Our work introduced robust statistical estimators combining motion-compensated temporal smoothing with localized gain/bias compensation, effectively stabilizing erratic luminance transients without muting natural scene dynamics or burning highlight detail.
+          Because film degradation and non-uniform lighting rarely affect the entire frame uniformly, flicker is typically a spatially localized problem. We developed statistical estimators that combine motion-compensated temporal smoothing with localized gain and bias correction, stabilizing erratic brightness without affecting real scene motion or clipping highlights.
         </p>
         <p>
-          This technology was integrated into the commercial motion picture restoration software <strong>Furnace Deflicker2</strong> by The Foundry, widely deployed in film restoration facilities globally.
+          This method was integrated into <strong>Furnace Deflicker2</strong> by The Foundry, where it has been widely used for archival film restoration.
         </p>
       </section>
 
