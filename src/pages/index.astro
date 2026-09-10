@@ -3,15 +3,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { loadPublications, cleanLatex, formatAuthors, formatBibtex } from '../utils/bibtex';
 
 const allPubs = loadPublications();
+// Top 10 Research Works from Senior Academic Promotion (SAP 2026) application
 const selectedKeys = [
-  'Piti:2007:automated',
-  'Pitie:2005:ndimensional',
-  'Forte:2020:interactive',
-  'Forte:2020:fb',
-  'Bled:2024:lightweight',
-  'Bled:2023:pushing',
-  'Ringis:2025:demystifying',
-  'Ringis:2023:disparity'
+  'Zouein:2026:efficient',      // Pub 10: AV1 Motion Vectors for Gaussian Splatting (IEEE ICIP 2026)
+  'Ganbaatar:2025:consistent',  // Pub 9: Scene-Aware Illuminant Estimation with FilmLight (CVMP 2025)
+  'Bled:2025:multi',            // Pub 5: Multi Task Denoiser for Linear Inverse Problems (CVMP 2025)
+  'Vibhoothi:2025:litevpnet',   // Pub 8: LiteVPNet Video Encoding Control / TrueFrame (IEEE PCS 2025)
+  'Bled:2024:lightweight',      // Pub 6: Lightweight Video Denoising Classic Bayesian Backbone (IEEE ICME 2024)
+  'Bled:2023:pushing',          // Pub 4: Pushing Limits of Wiener Filter in Image Denoising (IEEE ICIP 2023)
+  'Vibhoothi:2023:comparison',  // Pub 7: Comparison of HDR Quality Metrics with AV1 / Google (IEEE ICME 2023)
+  'Forte:2020:interactive',     // Pub 2: Deep Object Selection, Best Paper Runner-Up (IEEE ICME 2020)
+  'Forte:2020:alpha',           // Pub 3: F, B, Alpha Matting, #1 on alphamatting.com (arXiv 2020)
+  'Piti:2007:automated'         // Pub 1: Automated Colour Grading using Colour Distribution Transfer (CVIU 2007)
 ];
 
 const selectedPubs = selectedKeys
