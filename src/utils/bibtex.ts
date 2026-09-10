@@ -72,6 +72,25 @@ export function formatBibtex(pub: BibEntry): string {
   return `@${pub.entryType.toLowerCase()}{${pub.citationKey},\n${tags}\n}`;
 }
 
+export function getPublicationUrl(pub: BibEntry): string | null {
+  if (pub.entryTags.doi) {
+    const cleanDoi = cleanLatex(pub.entryTags.doi).trim();
+    return cleanDoi.startsWith('http') ? cleanDoi : `https://doi.org/${cleanDoi}`;
+  }
+  if (pub.entryTags.url) {
+    return cleanLatex(pub.entryTags.url).trim();
+  }
+  if (pub.entryTags.eprint) {
+    const ep = cleanLatex(pub.entryTags.eprint).replace(/^arXiv:/i, '').trim();
+    return `https://arxiv.org/abs/${ep}`;
+  }
+  if (pub.entryTags.arxiv) {
+    const ar = cleanLatex(pub.entryTags.arxiv).replace(/^arXiv:/i, '').trim();
+    return `https://arxiv.org/abs/${ar}`;
+  }
+  return null;
+}
+
 export function loadPublications(): BibEntry[] {
   const bibPath = path.resolve('./src/data/publications.bib');
   if (!fs.existsSync(bibPath)) return [];
@@ -89,3 +108,5 @@ export function loadPublications(): BibEntry[] {
     return [];
   }
 }
+
+
