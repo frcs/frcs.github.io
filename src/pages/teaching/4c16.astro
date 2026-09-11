@@ -18,6 +18,16 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
         <!-- Main Column (2/3 width) -->
         <div class="md:col-span-2 space-y-8 text-sm sm:text-base leading-relaxed text-[var(--theme-fg)]">
+          <!-- Course Banner -->
+          <figure class="rounded overflow-hidden border border-[var(--theme-border)] bg-[var(--theme-card)] shadow-xs">
+            <img 
+              src="/images/4c16-banner.jpg" 
+              alt="Deep Learning Coursework and Visualisations" 
+              class="w-full h-auto object-cover"
+              loading="lazy"
+            />
+          </figure>
+
           <!-- Module Overview -->
           <section class="space-y-3">
             <h2 class="text-lg font-light tracking-tight text-[var(--theme-heading)] pb-1.5 border-b border-[var(--theme-border)] mb-3">
